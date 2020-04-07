@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}%paquete principal2 latin1
+\usepackage{tabularx,colortbl}
+\title{Clase 2}
+\author{Alvaro Ch.}
+\usepackage{Sweave}
+\begin{document}
+\input{clase2sweave-concordance}
+
+
+\maketitle
+\begin{table}[ht]
+\caption{Viviendas por departamento, EH-2018}
+\centering
+\begin{tabular}{lr}
+  \hline
+Departamento & Frecuencia \\ 
+  \hline
+    \hline
+Chuquisaca & 619 \\ 
+\cellcolor{blue}  La Paz & 2945 \\ 
+  Cochabamba & 2256 \\ 
+  Oruro & 694 \\ 
+  Potosí & 590 \\ 
+  Tarija & 1016 \\ 
+  Santa Cruz & 1975 \\ 
+  Beni & 653 \\ 
+  Pando & 447 \\ 
+   \hline
+\multicolumn{2}{l}{Fuente: Elaboración del autor en base a EH-2018}   
+\end{tabular}
+
+\end{table}
+
+
+\input{t1.tex}
+
+
+\begin{tabular}{lcr}
+\hline
+Nombre de la Formula & indicador & Formula matemática\\
+\hline
+\hline
+Trinomio cuadrado perfecto & $(a+b)^2=$ & $a^2+2ab+b^2$ \\
+ \hline
+
+\end{tabular}
+
+
+\input{t2.tex}
+
+\begin{Schunk}
+\begin{Soutput}
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00   12.00   26.00   29.59   44.00   98.00 
+\end{Soutput}
+\begin{Soutput}
+Call:
+lm(formula = ylab ~ aestudio, data = eh18p)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+ -4091  -1261   -363    790  31746 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 1221.346     38.410   31.80   <2e-16 ***
+aestudio     169.940      3.364   50.52   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2070 on 14658 degrees of freedom
+  (22857 observations deleted due to missingness)
+Multiple R-squared:  0.1483,	Adjusted R-squared:  0.1483 
+F-statistic:  2553 on 1 and 14658 DF,  p-value: < 2.2e-16
+\end{Soutput}
+\end{Schunk}
+
+\section{Conclusiones}
+
+\end{document}

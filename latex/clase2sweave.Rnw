@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}%paquete principal2 latin1
+\usepackage{tabularx,colortbl}
+\title{Clase 2}
+\author{Alvaro Ch.}
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+
+\maketitle
+\begin{table}[ht]
+\caption{Viviendas por departamento, EH-2018}
+\centering
+\begin{tabular}{lr}
+  \hline
+Departamento & Frecuencia \\ 
+  \hline
+    \hline
+Chuquisaca & 619 \\ 
+\cellcolor{blue}  La Paz & 2945 \\ 
+  Cochabamba & 2256 \\ 
+  Oruro & 694 \\ 
+  Potosí & 590 \\ 
+  Tarija & 1016 \\ 
+  Santa Cruz & 1975 \\ 
+  Beni & 653 \\ 
+  Pando & 447 \\ 
+   \hline
+\multicolumn{2}{l}{Fuente: Elaboración del autor en base a EH-2018}   
+\end{tabular}
+
+\end{table}
+
+
+\input{t1.tex}
+
+
+\begin{tabular}{lcr}
+\hline
+Nombre de la Formula & indicador & Formula matemática\\
+\hline
+\hline
+Trinomio cuadrado perfecto & $(a+b)^2=$ & $a^2+2ab+b^2$ \\
+ \hline
+
+\end{tabular}
+
+
+\input{t2.tex}
+
+<< echo=FALSE >>=
+load("/Users/alvarolimber/Documents/GitHub/EST-383/data/eh18.RData")
+summary(eh18p$s02a_03)
+summary(lm(ylab~aestudio,data = eh18p))
+@
+
+\section{Conclusiones}
+
+\end{document}
