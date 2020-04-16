@@ -1,0 +1,60 @@
+---
+title: "Explorando la encuesta a hogares 2018"
+author: "Alvaro Ch."
+date: "15/4/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Pobreza
+
+Iniciamos identificando a la población pobre en el país
+
+```{r,echo=FALSE}
+library(knitr)
+load("C:\\Users\\ALVARO\\Documents\\GitHub\\EST-384\\data\\eh18.Rdata")
+t1<-table(eh18p$niv_ed,eh18p$p0)
+t2<-table(eh18p$niv_ed,eh18p$pext0)
+kable(round(prop.table(t1,1)*100,2),caption = "(%) Pobreza moderada por nivel educativo, EH-2018")
+kable(round(prop.table(t2,1)*100,2),caption = "(%) Pobreza extrema por nivel educativo, EH-2018")
+
+plot(t1)
+barplot(t(t2))
+```
+
+
+# Salud
+
+Población vulnerable al COVID
+
+```{r,echo=F,message=FALSE}
+library(dplyr)
+#eh18p %>% select(s04a_01a) %>% table() %>% kable()
+niv<-levels(eh18p$s04a_01a)
+d1<-eh18p$s04a_01a==niv[1]
+d2<-eh18p$s04a_01b==niv[1]
+d2[is.na(d2)==T]<-F
+eh18p$diabetes<-(d1==T | d2==T) 
+
+kable(table(eh18p$depto,eh18p$diabetes),caption = "Población con diabetes en la muestra, por departamento, EH 2018")
+
+library(survey)
+sd1<-svydesign(ids=~upm,strata = ~estrato,weights = ~factor,data = eh18p)
+t3<-svytable(~depto+diabetes,design=sd1)
+t3<-round(t3,0)
+t3<-addmargins(t3,c(1,2))
+colnames(t3)<-c("Sin diabetes","Con diabetes","Total")
+rownames(t3)[10]<-"Total"
+kable(t3,caption = "Población con diabetes en Bolivia, por departamento, EH-2018")
+
+library(kableExta)
+
+```
+
+
+# Educación
+
+# Empleo 
