@@ -1,0 +1,50 @@
+---
+title: "tarea"
+author: "Abigail Quisbert"
+date: "14/4/2020"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Tablas
+
+## Tabla 
+```{r}
+load(url("https://github.com/AlvaroLimber/EST-384/raw/master/data/eh18.Rdata"))
+library(knitr)
+
+eh18p$edad<-eh18p$s02a_03>=18
+
+d1<-table(eh18p$s06b_16,eh18p$edad)
+
+aux<-as.data.frame(d1[,2])
+colnames(aux)<-"18 o más"
+
+t1<-kable(aux,caption = "Condición de actividad de personas de 18 años o más")
+t1
+```
+
+
+## Tabla 2
+```{r}
+d2<-table(eh18p$s06b_16,eh18p$p0)
+t2<-prop.table(d2,1)*100
+t2<- kable(d2[1,])
+t2
+```
+
+# Graficos
+## Grafico 1
+```{r}
+aux3<-order(d1[,2])
+par(mai=c(1,3,1,1))
+barplot(d1[aux3,2],horiz = T,las=1,cex.names = 0.7,col="darkgreen")
+dev.off()
+```
+
+## Grafico 2
+```{r}
+barplot(d2)
+```
+
