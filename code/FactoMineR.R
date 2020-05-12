@@ -1,6 +1,6 @@
 rm(list = ls())
-install.packages("explor")
-install.packages("FactoMineR")
+#install.packages("explor")
+#install.packages("FactoMineR")
 library(FactoMineR)
 library(explor)
 
