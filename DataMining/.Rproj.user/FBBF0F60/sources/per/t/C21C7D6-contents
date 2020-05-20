@@ -1,0 +1,113 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Clustering
+El clustering es un método cuyo objetivo es el de crear grupos en base a las relaciones multivariantes que existen en los datos, este método es un método previo a las técnicas de clasificación que existen. La base del clustering es la definición de la similaridad entre las filas. Similaridad es definida como una función de distancia entre un par de filas.
+
+Es importante distinguir la existencia de grupos naturales dentro de los datos, normalmente estos grupos son características naturales de las observaciones de interés. 
+
+## Medidas de Disimilaridad
+Dado el objetivo del clustering, el aspecto mas importante dentro de estos métodos es utilizar de forma correcta la medida de (di)similaridad entre un para de casos dentro de la base de datos.
+
+La definición de las medidas de distancia es crucial para aplicar estos modelos. Funciones de distancia incorrecta pueden generar sesgos en los resultados y ser un problema para etapas posteriores de la mineria de datos. Debemos distinguir las funciones de distancia segun la naturaleza de las variables.
+
+Sean las filas $x$ e $y$ dentro de una base de datos, estos vectores tienen una dimensión $p$, es decir, se observan  $p$ variables para las 2 observaciones.
+
+### Distancia Euclideana: Variables numéricas
+
+$$d(x,y)=\sqrt{\sum_{i=1}^p{(x_i-y_i)^2}}$$
+
+Donde los $x_i$ y $_y_i$ son los valores para la variable $i$ de las observaciones $x$ e $y$.
+
+### Distancia Manhattan: $p$ grande
+
+$$d(x,y)=\sum_{i=1}^p{|x_i-y_i|}$$
+
+### Distancia Minkowski 
+
+$$d(x,y)=\left(\sum_{i=1}^p{|x_i-y_i|^d}\right)^{1/d}$$
+
+```{r}
+aux<-matrix(rnorm(100),nrow=5)
+dist(aux) #euclideana
+dist(aux, method="manhattan")
+dist(aux, method="minkowski", p=3)
+```
+
+### programando
+
+```{r}
+minkowski<-function(x,y,d){
+  dd<-(sum(abs(x-y)**d))**(1/d)
+  return(dd)
+}
+minkowski(c(1,2,3),c(4,2,1),d=2)
+x<-c(1,2,3)
+y<-c(4,2,1)
+sum(abs(x-y)) # manhattan
+sqrt(sum(abs(x-y)**2)) # euclideana
+# la funcion de distancia
+distancia<-function(bd,d=2){
+  nf<-dim(bd)[1]
+  DD<-matrix(NA,nf-1,nf-1)
+  colnames(DD)<-1:(nf-1)
+  rownames(DD)<-2:nf
+  for(i in 1:(nf-1)){
+    for(j in (i+1):nf){
+      DD[j-1,i]<-minkowski(bd[i,],bd[j,],d)
+    }
+  }
+  return(DD)
+}
+distancia(aux,d=2)
+dist(aux)
+```
+
+### Variables cualitativas
+Para las variables cualitativas se debe considerar los casos cuando estas son nominales y ordinales, distinguir tambien los casos de variables binarias.
+
+```{r,eval=F}
+install.packages("vegan")
+library(vegan)
+library(help=vegan)
+?vegdist()
+```
+
+### Datos mixtos 
+Una de los mayores desafios es cuando las variables son mixtas, es decir cuantitativas y cualitativas.
+
+```{r,eval=FALSE}
+install.packages("cluster")
+library(cluster)
+library(help=cluster)
+```
+
+## Métodos de clustering
+
+* Partición (k-center)
+* Jerárquicos (dendograma)
+* Basados en densidad
+* Basados en cuadrículas (grid)
+
+## K-center Clustering (no jerárquicos)
+
+Algoritmo
+
+1. Partición de las observaciones en $k$ grupos, obtener el vector de promedios de cada grupo (centroides). Se puede trabajar con la media o la mediana.
+2. Para cada observación calcular las distancia euclideana a los centroides y reasignar lo observación en base a la menor distancia, recalcular los centroides en base a la reasignación de cada observación
+3. Repetir el paso 2 hasta que que ya no existan más reasignaciones
+
+```{r}
+bd<-data.frame(x=rnorm(100),y=rnorm(100))
+kmeans(bd,2)
+```
+
+Ejercicio: 
+
+* Implementar el algoritmo para el k-center, con la distancia de Minkowski y para la media y mediana.
+* Pensar en un gráfico que permita ver como se asignaron los cluster 
+
+
+## Clustering hierarchical

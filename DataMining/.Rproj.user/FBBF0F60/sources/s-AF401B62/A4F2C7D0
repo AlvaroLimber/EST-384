@@ -1,0 +1,27 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1589659876641.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A4F2C7D0",
+    "lastKnownWriteTime" : 1589382074,
+    "last_content_update" : 1589382074,
+    "path" : "C:/Users/ALVARO/Box/2020/umsa/programacionII/DataMining/3_modelado.Rmd",
+    "project_path" : "3_modelado.Rmd",
+    "properties" : {
+        "chunk_output_type" : "console",
+        "cursorPosition" : "327,15",
+        "docOutlineVisible" : "0",
+        "scrollLine" : "332"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

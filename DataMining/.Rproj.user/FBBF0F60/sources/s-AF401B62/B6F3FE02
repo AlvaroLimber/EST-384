@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1589659892609.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B6F3FE02",
+    "lastKnownWriteTime" : 1589668431,
+    "last_content_update" : 1589668431,
+    "path" : "C:/Users/ALVARO/Box/2020/umsa/programacionII/DataMining/4_clustering.Rmd",
+    "project_path" : "4_clustering.Rmd",
+    "properties" : {
+        "chunk_output_type" : "console",
+        "cursorPosition" : "58,24",
+        "scrollLine" : "50"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

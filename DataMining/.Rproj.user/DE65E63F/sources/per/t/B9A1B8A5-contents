@@ -1,0 +1,190 @@
+# Modelado en Minería de datos
+
+## Explorando los datos
+
+Existen dos aproximaciones para empezar a explorar la informacion existente en una base de datos:
+
+* Resumen de los datos
+* Visualización de los datos
+
+### Resumen de los datos
+
+Dado el tamaño de las bases de datos resulta imposible o muy dificil conocer todas sus propiedad, el resumen de los datos intenta brindar propiedades claves de los datos, estas propiedades podrian ser:
+
+* Cual es el valor mas comun
+* Cuan variable o dispersa esta la informacion
+* Existen valores extraños o inesparedaps en la base de datos
+* Los datos siguen alguna distribucion
+
+A continuación se emplea la encuesta a hogares 2018 para ir respondiendo estas preguntas.
+
+En cuanto a los valores mas comunes, la media y la mediana de los datos son suficientes para las variables cuantitativas, mientra que para variables cualitativas, las categorias mas frecuentes son una buena opción.
+
+```{r}
+load("~/Documents/GitHub/EST-384/data/eh18.Rdata")
+# media de edad
+mean(eh18p$s02a_03)
+#mediana de edad
+median(eh18p$s02a_03)
+# para las categorias mas frecuentes
+library(DMwR2)
+library(dplyr)
+#para el sexo
+centralValue(eh18p$s02a_02)
+#para el departamento 
+centralValue(eh18p$depto)
+```
+
+A veces es mejor ver los resultados por grupos, por ejemplo, podemos verlo por departamento y area.
+
+```{r}
+eh18p %>% group_by(depto,area) %>% summarise(mean(s02a_03),median(s02a_03),centralValue(s02a_02),n())
+```
+
+La función n() realiza un proceso de conteo.
+
+De forma similar podemos hacer para las medidas de variabilidad, las mas comunes la desviacion estandar, el rango, el rango intercuartil y los cuantiles. Usando la eh18 para la edad y el ingreso laboral.
+
+```{r}
+##EDAD
+# Desviacion estandar
+sd(eh18p$s02a_03)
+# Rango
+range(eh18p$s02a_03)
+# Rango intercuartil
+IQR(eh18p$s02a_03)
+# Quantiles
+quantile(eh18p$s02a_03)
+quantile(eh18p$s02a_03,c(0.10,0.90))
+##INGRESO LABORAL
+# Desviacion estandar
+sd(eh18p$ylab,na.rm = T)
+# Rango
+range(eh18p$ylab,na.rm = T)
+# Rango intercuartil
+IQR(eh18p$ylab,na.rm = T)
+# Quantiles
+quantile(eh18p$ylab,na.rm = T)
+quantile(eh18p$s02a_03,probs=c(0.10,0.90),na.rm = T)
+##por departamento y area
+tapply(eh18p$ylab,list(eh18p$depto,eh18p$area),sd,na.rm=T)#opcion1
+tapply(eh18p$ylab,list(eh18p$depto,eh18p$area),quantile,na.rm=T)#con problemas
+aggregate(eh18p$ylab,list(depto=eh18p$depto,area=eh18p$area),quantile,na.rm=T)
+```
+
+Finalmente, para explorar a fondo las variables la funcion describe es bastante util, tambien, el el comando summary.
+
+```{r}
+#analizando las 5 primeras variables de la base de datos
+library(Hmisc)
+describe(eh18p[,1:5])
+
+summary(eh18p$ylab)
+by(eh18p[,c("ylab","p0","s02a_03")],eh18p$area,summary)
+```
+
+### Visualización
+
+La visualizacion es una herramienta importante para explorar y entender la base de datos. Los seres humanos son excelentes para capturar patrones visuales, y la visualización de datos intenta capitalizar en estas habilidades. Es util diferenciar las visualizaciones por:
+
+* Una sola varibles
+* Dos variables
+* Multiples variables
+
+Los aspetor vinculados al uso de graficos de origen de R y la libreria ggplot pueden verse en el texto guia de EST-183 "BigData". A continuación se introducen de forma directa funciones en R orientadas a la visualización univariante, bivariante y multivariante.
+
+Usando al EH-2018, para variables cualitativas.
+```{r}
+#Graficos de origen de R
+barplot(table(eh18p$s03a_01a),main="Dónde vivia hace 5 años?")
+#GGPLOT
+library(ggplot2)
+ggplot(eh18p,aes(x=s03a_01a))+geom_bar()+ggtitle("Dónde vivia hace 5 años?")
+```
+
+Para variables del tipo cuantitativas
+
+```{r}
+par(mfrow=c(1,2))
+boxplot(eh18p$ylab)
+hist(eh18p$ylab)
+dev.off()
+
+ggplot(eh18p,aes(ylab))+geom_boxplot()
+ggplot(eh18p,aes(ylab))+geom_histogram()
+```
+
+Si ahora queremos comparar usar ambas variables cuanti y cuali
+
+```{r}
+boxplot(eh18p$ylab~eh18p$s03a_01a)
+ggplot(eh18p,aes(x=s03a_01a,y=ylab))+geom_boxplot()
+ggplot(eh18p,aes(x=s03a_01a,y=ylab))+geom_violin()
+```
+
+Usando ambas variables cuantitativas
+
+```{r,warning=F}
+plot(eh18p$tothrs,eh18p$ylab)
+plot(eh18p[,c("ylab","tothrs","aestudio")])
+#pairs(eh18p[,c("ylab","tothrs","aestudio")]) similar al anterior
+library(GGally)
+ggpairs(eh18p,columns = c("ylab","tothrs","aestudio"))
+
+library(ggridges)
+# basic example
+ggplot(eh18p[eh18p$s02a_03>=15,], aes(x = ylab, y = s02a_02, fill = s02a_02)) +
+  geom_density_ridges() +
+  theme_ridges() + 
+  theme(legend.position = "none")+
+  ggtitle("Ingreso laboral por sexo, personas de 15 años o más")
+```
+
+Ahora si combinamos variables cuanti y cuali con ggpairs.
+
+```{r}
+ggpairs(eh18p,columns = c("ylab","tothrs","s03a_01a","area"))
+```
+
+Alternativas Multivariantes,
+
+```{r}
+#trabajando a partir de una muestra de 100 individuos
+s<-sample(1:dim(eh18p)[1],100)
+i<-match(c("s02a_03","aestudio","ylab","tothrs"),names(eh18p))
+ggparcoord(eh18p[s,],columns = i,groupColumn = "area",boxplot=T)
+
+library("TeachingDemos")
+faces(na.omit(eh18p[s,i]))
+```
+
+## Componentes Principales
+
+## Análisis de correspondencia
+
+El analisis de correspondencia esta orientado a encontrar relaciones entre las categorias de variables cualitativas, 
+
+### Analisis de correspondencia simple (CA)
+
+Para resumir la teoría, primero divida la matriz de datos I × J, denotada por N, por su gran total n para obtener la llamada matriz de correspondencia P = N / n. Deje que los totales marginales de fila y columna de P sean los vectores r y c respectivamente, es decir, los vectores de masas de fila y columna, y Dr y Dc sean las matrices diagonales de estas matrices. El algoritmo computacional para obtener coordenadas de los perfiles de fila y columna con respecto a los ejes principales, usando el SVD, es el siguiente:
+
+1. Calcular la matriz de residuos estadarizados: $S=D_r^{-1/2}(P-rc^t)D_c^{-1/2}$
+2. Calcular la descomposicion SVD de $S$: $S=UD_{\alpha}V^t$, donde $U^T U=V^T V=I$
+3. Coordenadas principales de filas: $F=D_r^{-1/2} U D_{\alpha}$
+4. Coordenadas principales de columnas: $G=D_c^{-1/2} V D_{\alpha}$
+5. Coordenadas estándar de filas: $X=D_r^{-1/2} U$
+6. Coordenadas estándar de columnas: $Y=D_c^{-1/2} V$
+7. Calcular la Inercia: 
+$$\phi^2=\sum_i^I\sum_j^J{\frac{(p_{ij}-r_i c_j)^2}{r_i c_j}}$$
+
+
+### Analisis de correspondencia multiple (MCA)
+
+## Modelado de dependencia mediante asociación
+
+## Clustering
+
+## Análisis predictivo
+
+## Detección de anomalías
+

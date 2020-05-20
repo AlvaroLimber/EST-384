@@ -1,0 +1,7 @@
+"0","eh18p<-read.spss(""EH2018_Persona.sav"",to.data.frame = T)
+"
+"2","EH2018_Persona.sav: Very long string record(s) found (record type 7, subtype 14), each will be imported in consecutive separate variables"
+"2","EH2018_Persona.sav: Long string value labels record found (record type 7, subtype 21), but ignored"
+"2","re-encoding from CP1252
+"
+"2","Duplicated levels in factor s03a_01c: Cercado, Cercado, Cercado"

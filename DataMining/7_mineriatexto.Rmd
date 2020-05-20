@@ -1,0 +1,9 @@
+# Minería de Texto
+
+## Recolección de texto
+
+## Nubes de palabras
+
+## Análisis de sentimiento
+
+## n-gramas y correlaciones

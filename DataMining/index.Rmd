@@ -1,0 +1,106 @@
+--- 
+title: "Minería de datos con R"
+subtitle: "EST-384"
+author: "Alvaro Chirino Gutierrez"
+description: "Este libro esta destinado a la materia de Programación Estadística II de la carrera de Estadística de la Universidad Mayor de San Andres."
+date: "`r Sys.Date()`"
+delete_merged_file: true
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+graphics: yes
+github-repo: alvarolimber/est-384
+bibliography: book.bib
+nocite: '@*'
+pandoc_args: ["-Fpandoc-crossref"]
+---
+# Prefacio {-}
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html'), fig.link='https://www.crcpress.com/product/isbn/9781138700109'}
+knitr::include_graphics('images/cover.png', dpi = NA)
+```
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este documento de [Alvaro Chirino](https://twiiter/alvarochirinog) esta bajo la licencia de <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+## Audiencia  {-}
+
+El libro fue diseñado originalmente para los estudiantes de la materia de Programación Estadística II, una materia optativa del pregrado de la carrera de Estadística de la Universidad Mayor de San Andrés.
+
+Este documento representa un primer acercamiento a los estudiantes de estadistica  al software R y al mundo de la minería de datos.
+
+## Estructura del libro  {-}
+
+El libro inluye 5 capitulos, estos son:
+
+1. Introducción a R
+2. Preparación de los datos
+3. Modelado en Minería de datos
+4. Minería de Texto
+5. Machine Learning
+
+## Software y acuerdos {-}
+
+```{r}
+sessionInfo()
+```
+
+## Datos {-}
+
+
+## Agradecimiento  {-}
+
+Peeta...
+
+# Acerca del autor {-}
+
+## Bibliografía {-}
+
+* Torgo, L. (2016). Data mining with R: Learning with case studies, second edition. 
+* Hernandez, J. (2004). Introducción a la Minería de Datos
+* Step, I., & Blueprint, S. (2017). MACHINE LEARNING Intuitive Step by Step.
+
+# Minería de Datos
+
+## Motivación para la Mineria de datos
+
+* Los métodos de recoleccion de datos han evolucionado muy rápidamente.
+* Las bases de datos han crecido exponencialmente
+* Estos datos contienen información útil para las empresas, paises, etc..
+* El tamaño hace que la inspección manual sea casi imposible
+* Se requieren métodos de análisis de datos automáticos para optimizar el uso de estos enormes conjuntos de datos
+
+## ¿Qué es la minería de datos?
+
+Es el análisis de **conjuntos de datos** (a menudo grandes) para encontrar **relaciones insospechadas** (conocimiento) y resumir los datos de **formas novedosas** que sean **comprensibles y útiles** para el propietario/usuario de los datos.
+
+<p style='text-align: right;'> Principles of Data Mining (Hand et.al. 2001) </p>
+
+## Datos y conocimiento
+
+### Datos:
+
+* se refieren a instancias únicas y primitivas (single objetos, personas, eventos, puntos en el tiempo, etc.)
+* describir propiedades individuales
+* a menudo son fáciles de recolectar u obtener (por ejemplo, cajeros de escáner, internet, etc.)
+* no nos permiten hacer predicciones o pronósticos
+
+### Conocimiento:
+
+* se refiere a clases de instancias (conjuntos de ...)
+* describe patrones generales, estructuras, leyes,
+* consta de la menor cantidad de declaraciones posibles
+* a menudo es difícil y lleva mucho tiempo encontrar u obtener
+* nos permite hacer predicciones y pronósticos
+
+## Requerimientos
+
+* Disponibilidad para aprender 
+* Mucha paciencia
+    - Interactúa con otras áreas
+    - Preprocesamiento de datos 
+* Creatividad
+* Rigor, prueba y error
+
+## knowledge discovery in databases (KDD)
+
+![](f1.png)
