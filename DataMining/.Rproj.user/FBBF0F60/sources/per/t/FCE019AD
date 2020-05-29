@@ -1,25 +1,27 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1589659892609.000,
+    "created" : 1590617106996.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
-    "id" : "B6F3FE02",
-    "lastKnownWriteTime" : 1590017707,
-    "last_content_update" : 1590017707298,
+    "hash" : "2615458279",
+    "id" : "FCE019AD",
+    "lastKnownWriteTime" : 1590629540,
+    "last_content_update" : 1590629540268,
     "path" : "~/GitHub/EST-384/DataMining/4_clustering.Rmd",
     "project_path" : "4_clustering.Rmd",
     "properties" : {
         "chunk_output_type" : "console",
-        "cursorPosition" : "162,19",
-        "scrollLine" : "135"
+        "cursorPosition" : "283,17",
+        "docOutlineSize" : "155.98116935236575",
+        "docOutlineVisible" : "1",
+        "scrollLine" : "253"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 2,
+    "relative_order" : 1,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_markdown"

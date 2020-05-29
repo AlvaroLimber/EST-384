@@ -1,9 +1,0 @@
-#install.packages("mlr")
-install.packages("fastDummies")
-library(mlr)
-library(fastDummies)
-
-bd<-as.data.frame(as.factor(letters[1:4]))
-names(bd)<-"var"
-createDummyFeatures(bd)
-dummy_cols(bd,c("var"))

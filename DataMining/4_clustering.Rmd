@@ -71,8 +71,6 @@ Para las variables cualitativas se debe considerar los casos cuando estas son no
 ```{r,eval=F}
 install.packages("vegan")
 library(vegan)
-library(help=vegan)
-?vegdist()
 ```
 
 ### Datos mixtos 
@@ -81,7 +79,6 @@ Una de los mayores desafios es cuando las variables son mixtas, es decir cuantit
 ```{r,eval=FALSE}
 install.packages("cluster")
 library(cluster)
-library(help=cluster)
 ```
 
 ## Métodos de clustering
@@ -159,9 +156,135 @@ bd<-data.frame(x=rnorm(100),y=rnorm(100),z=rnorm(100))
 kcenter(bd,k=4,d=1,tipo="mediana")
 ```
 
-* Ejericios
-1. Pensar en un gráfico que permita ver como se asignaron los cluster 
-2. Pensar en optimizar el código empleado
-3. Hacer que la función retorne ademas los centroides
 
-## Clustering hierarchical
+### Validación cluster
+
+* La estructura de los cluster es aleatoria (¿funciona?)
+* ¿Cómo definimos el valor de $K$? 
+
+> Silhouette coefficient: 
+
+1. Se obtiene para la observación $i$ el promedio de distancia a todos los objetos en el mismo cluster ($a_i$)
+2. Se obtiene para la observación $i$ el promedio de distancia a todos los objetos de los otros clusters ($b_i$)
+3. Se define a $s_i$ como el coeficiente, con un recorrido entre $[-1,1]$, para cada observación $i$
+
+$$s_i=\frac{b_i-a_i}{max(a_i,b_i)}$$
+
+Idealmente se espera que $a_i < b_i$ y los $a_i$ cercanos a $0$. 
+
+```{r}
+library(cluster)
+kk<-kmeans(bd,3)
+s <- silhouette(kk$cluster, dist(bd))
+plot(s)
+#sobre la base IRIS
+data("iris")
+aux<-kmeans(iris[,-5],3)
+s <- silhouette(aux$cluster, dist(iris[,-5]))
+plot(s)
+```
+
+> Medoide: es el punto de datos que es "menos diferente" de todos los otros puntos de datos. A diferencia del centroide, el medoide tiene que ser uno de los puntos originales.
+
+```{r}
+pam(bd,k=3)
+kmeans(bd,3)
+```
+
+* ¿Cúal es el número óptimo de $k$? 
+
+```{r}
+library(fpc)# Flexible Procedures for Clustering
+sol <- pamk(iris[,-5], krange=2:10, criterion="asw", usepam=TRUE)
+sol
+pamk(bd,krange=2:10,usepam = T)
+```
+
+
+### Distancias para variables nominales (todas nominales)
+En este caso la mejor estrategia es llevar las variables con sus categorias a variables binarias. Existen múltiples medidas de distancia para variables binarias, muchas de estas medidas son aproximaciones a las medidas mas conocidas. Entre ellas:
+
+Sean las filas $i$, $j$ que contienen los valores binarios de las variables de estudio. Sea $A$ el total de $1$ que existe en $i$, $B$ el total de $1$ que existe en $j$ y sea $J$ el total de casos en los que los $1$ ocurren simultaneamente en $i$ y $j$.
+
+  * Euclideana
+  
+  $$d_{ij}=\sqrt{A+B-2J}$$
+  * Manhattan
+  
+  $$d_{ij}=A+B-2J$$
+  * Bray
+  
+  $$d_{ij}=\frac{A+B-2J}{A+B}$$
+
+  * Binomial
+  
+  $$d_{ij}=log(2)(A+B-2J)$$
+
+```{r}
+aux<-rbind(c(0,0,0,0,1,1,1),c(1,0,1,0,0,1,1))
+A<-sum(aux[1,])
+B<-sum(aux[2,])
+J<-sum(apply(aux, 2, sum)==2)
+#euclideana
+sqrt(A+B-2*J)
+#manhathan
+A+B-2*J
+#bray
+(A+B-2*J)/(A+B)
+#binomial
+log(2)*(A+B-2*J)
+library(vegan)
+vegdist(aux,binary = T)
+vegdist(aux,binary = F)
+#una base de datos mas grandes
+set.seed(999)
+aux1<-matrix(rbinom(200,1,0.4),nrow = 20)
+vegdist(aux1,method = "binomial",binary = T)
+dist(aux1)
+```
+
+
+### Distancias para variables mixtas (cuantitativas, nominales, ordinales)
+
+```{r}
+library(cluster)
+data("flower")
+str(flower)
+dd<-daisy(flower,metric = "gower")
+summary(dd)
+```
+
+Ejercicios
+
+1. Busque funciones en R que permitan calcular los k-center para variables mixtas y medoides 
+2. Crear una funcion k-center para variables mixtas y alternativas para incluir el medoide.
+
+## Cluster Jerárquico
+
+El objetivo es obtener una jerarquía de posibles soluciones que van desde un solo grupo a $n$ grupos, donde $n$ es el número de observaciones en el conjunto de datos.
+
+### Algoritmo (Johnson)
+
+1. Se inicia con $n$ grupos y se genera una matriz de $nxn$ de distancias, $D=\{d_{ik}\}$
+2. 
+3.
+4.
+
+```{r}
+d <- dist(scale(iris[,-5]))
+h <- hclust(d)
+plot(h,hang=-0.1,labels=iris[["Species"]],cex=0.5)
+clus3 <- cutree(h, 3)
+plot(h,hang=-0.1,labels=iris[["Species"]],cex=0.5)
+rect.hclust(h,k=3)
+```
+
+* Single linkage
+* Complete linkage
+* Average linkage
+
+## Ejercicios
+1. Pensar en un gráfico que permita ver como se asignaron los cluster 
+2. Pensar en optimizar el código empleado para el k-center
+3. Hacer que la función desarrollada para el k-center retorne también los centroides
+4. Utilizando la base de datos de las elecciones del 20 de octubre, crear una base de datos a nivel municipal, aplicar el método k-center con medoides para los resultados a nivel municipal y terminar el $k$ óptimo en un rango de $k=2:10$ (Usar datos relativos).

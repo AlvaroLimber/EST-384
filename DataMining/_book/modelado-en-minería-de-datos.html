@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Modelado en Minería de datos | Minería de datos con R</title>
+  <title>5 Modelado en Minería de datos | Minería de datos con R</title>
   <meta name="description" content="Este libro esta destinado a la materia de Programación Estadística II de la carrera de Estadística de la Universidad Mayor de San Andres." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Modelado en Minería de datos | Minería de datos con R" />
+  <meta property="og:title" content="5 Modelado en Minería de datos | Minería de datos con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alvarolimber/est-384" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Modelado en Minería de datos | Minería de datos con R" />
+  <meta name="twitter:title" content="5 Modelado en Minería de datos | Minería de datos con R" />
   
   <meta name="twitter:description" content="Este libro esta destinado a la materia de Programación Estadística II de la carrera de Estadística de la Universidad Mayor de San Andres." />
   
@@ -24,14 +24,14 @@
 <meta name="author" content="Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2020-05-04" />
+<meta name="date" content="2020-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="preparación-de-los-datos.html"/>
+<link rel="prev" href="preparación-de-los-datos-1.html"/>
 <link rel="next" href="clustering.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -133,88 +133,111 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-y-acuerdos"><i class="fa fa-check"></i>Software y acuerdos</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#datos"><i class="fa fa-check"></i>Datos</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimiento"><i class="fa fa-check"></i>Agradecimiento</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#bibliografía"><i class="fa fa-check"></i>Bibliografía</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#motivación-para-la-mineria-de-datos"><i class="fa fa-check"></i><b>0.1</b> Motivación para la Mineria de datos</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#qué-es-la-minería-de-datos"><i class="fa fa-check"></i><b>0.2</b> ¿Qué es la minería de datos?</a></li>
-<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#datos-y-conocimiento"><i class="fa fa-check"></i><b>0.3</b> Datos y conocimiento</a><ul>
-<li class="chapter" data-level="0.3.1" data-path="index.html"><a href="index.html#datos-1"><i class="fa fa-check"></i><b>0.3.1</b> Datos:</a></li>
-<li class="chapter" data-level="0.3.2" data-path="index.html"><a href="index.html#conocimiento"><i class="fa fa-check"></i><b>0.3.2</b> Conocimiento:</a></li>
 </ul></li>
-<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#requerimientos"><i class="fa fa-check"></i><b>0.4</b> Requerimientos</a></li>
-<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#knowledge-discovery-in-databases-kdd"><i class="fa fa-check"></i><b>0.5</b> knowledge discovery in databases (KDD)</a></li>
+<li class="chapter" data-level="" data-path="acerca-del-autor.html"><a href="acerca-del-autor.html"><i class="fa fa-check"></i>Acerca del autor</a><ul>
+<li class="chapter" data-level="" data-path="acerca-del-autor.html"><a href="acerca-del-autor.html#bibliografía"><i class="fa fa-check"></i>Bibliografía</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="introR.html"><a href="introR.html"><i class="fa fa-check"></i><b>1</b> Introduccion a R</a><ul>
-<li class="chapter" data-level="1.1" data-path="introR.html"><a href="introR.html#tipos-de-estructuras"><i class="fa fa-check"></i><b>1.1</b> Tipos de estructuras</a></li>
-<li class="chapter" data-level="1.2" data-path="introR.html"><a href="introR.html#loops-y-condiciones"><i class="fa fa-check"></i><b>1.2</b> Loops y condiciones</a></li>
-<li class="chapter" data-level="1.3" data-path="introR.html"><a href="introR.html#funciones"><i class="fa fa-check"></i><b>1.3</b> Funciones</a></li>
-<li class="chapter" data-level="1.4" data-path="introR.html"><a href="introR.html#importacion-de-datos"><i class="fa fa-check"></i><b>1.4</b> Importacion de datos</a></li>
-<li class="chapter" data-level="1.5" data-path="introR.html"><a href="introR.html#dataframe-y-exploración"><i class="fa fa-check"></i><b>1.5</b> Dataframe y exploración</a></li>
-<li class="chapter" data-level="1.6" data-path="introR.html"><a href="introR.html#estadística-descriptiva"><i class="fa fa-check"></i><b>1.6</b> Estadística descriptiva</a></li>
-<li class="chapter" data-level="1.7" data-path="introR.html"><a href="introR.html#muestreo-e-inferencia"><i class="fa fa-check"></i><b>1.7</b> Muestreo e inferencia</a></li>
-<li class="chapter" data-level="1.8" data-path="introR.html"><a href="introR.html#gráficos-de-origen"><i class="fa fa-check"></i><b>1.8</b> Gráficos de origen</a></li>
-<li class="chapter" data-level="1.9" data-path="introR.html"><a href="introR.html#ggplot"><i class="fa fa-check"></i><b>1.9</b> ggplot</a></li>
-<li class="chapter" data-level="1.10" data-path="introR.html"><a href="introR.html#r-markdown"><i class="fa fa-check"></i><b>1.10</b> R Markdown</a><ul>
-<li class="chapter" data-level="1.10.1" data-path="introR.html"><a href="introR.html#instalación"><i class="fa fa-check"></i><b>1.10.1</b> Instalación</a></li>
-<li class="chapter" data-level="1.10.2" data-path="introR.html"><a href="introR.html#yaml-header"><i class="fa fa-check"></i><b>1.10.2</b> YAML Header</a></li>
-<li class="chapter" data-level="1.10.3" data-path="introR.html"><a href="introR.html#sintaxis-básica"><i class="fa fa-check"></i><b>1.10.3</b> Sintaxis básica</a></li>
-<li class="chapter" data-level="1.10.4" data-path="introR.html"><a href="introR.html#tipos-de-documentos"><i class="fa fa-check"></i><b>1.10.4</b> Tipos de documentos</a></li>
-<li class="chapter" data-level="1.10.5" data-path="introR.html"><a href="introR.html#chunks"><i class="fa fa-check"></i><b>1.10.5</b> Chunks</a></li>
+<li class="chapter" data-level="1" data-path="minería-de-datos.html"><a href="minería-de-datos.html"><i class="fa fa-check"></i><b>1</b> Minería de Datos</a><ul>
+<li class="chapter" data-level="1.1" data-path="minería-de-datos.html"><a href="minería-de-datos.html#motivación-para-la-mineria-de-datos"><i class="fa fa-check"></i><b>1.1</b> Motivación para la Mineria de datos</a></li>
+<li class="chapter" data-level="1.2" data-path="minería-de-datos.html"><a href="minería-de-datos.html#qué-es-la-minería-de-datos"><i class="fa fa-check"></i><b>1.2</b> ¿Qué es la minería de datos?</a></li>
+<li class="chapter" data-level="1.3" data-path="minería-de-datos.html"><a href="minería-de-datos.html#datos-y-conocimiento"><i class="fa fa-check"></i><b>1.3</b> Datos y conocimiento</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="minería-de-datos.html"><a href="minería-de-datos.html#datos-1"><i class="fa fa-check"></i><b>1.3.1</b> Datos:</a></li>
+<li class="chapter" data-level="1.3.2" data-path="minería-de-datos.html"><a href="minería-de-datos.html#conocimiento"><i class="fa fa-check"></i><b>1.3.2</b> Conocimiento:</a></li>
 </ul></li>
-<li class="chapter" data-level="1.11" data-path="introR.html"><a href="introR.html#shiny"><i class="fa fa-check"></i><b>1.11</b> Shiny</a></li>
-<li class="chapter" data-level="1.12" data-path="introR.html"><a href="introR.html#ejercicios-propuestos"><i class="fa fa-check"></i><b>1.12</b> Ejercicios Propuestos</a></li>
+<li class="chapter" data-level="1.4" data-path="minería-de-datos.html"><a href="minería-de-datos.html#requerimientos"><i class="fa fa-check"></i><b>1.4</b> Requerimientos</a></li>
+<li class="chapter" data-level="1.5" data-path="minería-de-datos.html"><a href="minería-de-datos.html#knowledge-discovery-in-databases-kdd"><i class="fa fa-check"></i><b>1.5</b> knowledge discovery in databases (KDD)</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html"><i class="fa fa-check"></i><b>2</b> Preparación de los datos</a><ul>
-<li class="chapter" data-level="2.1" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#recopilación"><i class="fa fa-check"></i><b>2.1</b> Recopilación</a></li>
-<li class="chapter" data-level="2.2" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#data-warehouse"><i class="fa fa-check"></i><b>2.2</b> Data Warehouse</a></li>
-<li class="chapter" data-level="2.3" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#data-warehouse-in-r"><i class="fa fa-check"></i><b>2.3</b> Data Warehouse in R</a></li>
-<li class="chapter" data-level="2.4" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#importación"><i class="fa fa-check"></i><b>2.4</b> Importación</a></li>
-<li class="chapter" data-level="2.5" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#recopilación-1"><i class="fa fa-check"></i><b>2.5</b> Recopilación</a></li>
-<li class="chapter" data-level="2.6" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#limpieza"><i class="fa fa-check"></i><b>2.6</b> Limpieza</a></li>
-<li class="chapter" data-level="2.7" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#ejercicio-reshape"><i class="fa fa-check"></i><b>2.7</b> Ejercicio (reshape)</a></li>
-<li class="chapter" data-level="2.8" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#limpieza-fechas"><i class="fa fa-check"></i><b>2.8</b> Limpieza (fechas)</a></li>
-<li class="chapter" data-level="2.9" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#limpieza-string"><i class="fa fa-check"></i><b>2.9</b> Limpieza (String)</a></li>
-<li class="chapter" data-level="2.10" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#transfomración"><i class="fa fa-check"></i><b>2.10</b> Transfomración</a></li>
-<li class="chapter" data-level="2.11" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#imputación-de-variables"><i class="fa fa-check"></i><b>2.11</b> Imputación de variables</a></li>
-<li class="chapter" data-level="2.12" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#la-falta-de-información-es-información"><i class="fa fa-check"></i><b>2.12</b> La falta de información es información</a></li>
-<li class="chapter" data-level="2.13" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#aproximación-formal"><i class="fa fa-check"></i><b>2.13</b> Aproximación formal</a></li>
-<li class="chapter" data-level="2.14" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#mcar-mar-mnar"><i class="fa fa-check"></i><b>2.14</b> MCAR, MAR, MNAR</a></li>
-<li class="chapter" data-level="2.15" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#alternativas-para-trabajar-con-los-missings-ad-hoc"><i class="fa fa-check"></i><b>2.15</b> Alternativas para trabajar con los Missings (Ad-hoc)</a></li>
-<li class="chapter" data-level="2.16" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#imputación-multiple"><i class="fa fa-check"></i><b>2.16</b> Imputación Multiple</a></li>
-<li class="chapter" data-level="2.17" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#patrones-en-datos-multivariados"><i class="fa fa-check"></i><b>2.17</b> Patrones en datos multivariados</a></li>
-<li class="chapter" data-level="2.18" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#influx-and-outflux"><i class="fa fa-check"></i><b>2.18</b> Influx and outflux</a></li>
-<li class="chapter" data-level="2.19" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#imputación-de-datos-monótonos"><i class="fa fa-check"></i><b>2.19</b> Imputación de datos monótonos</a></li>
-<li class="chapter" data-level="2.20" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#multivariate-imputation-by-chained-equations-mice"><i class="fa fa-check"></i><b>2.20</b> Multivariate Imputation by Chained Equations (mice)</a></li>
-<li class="chapter" data-level="2.21" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#en-r"><i class="fa fa-check"></i><b>2.21</b> En R</a></li>
-<li class="chapter" data-level="2.22" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#recopilación-de-datos"><i class="fa fa-check"></i><b>2.22</b> Recopilación de datos</a></li>
-<li class="chapter" data-level="2.23" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#importación-y-exploración"><i class="fa fa-check"></i><b>2.23</b> Importación y exploración</a></li>
-<li class="chapter" data-level="2.24" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#limpieza-y-transformación"><i class="fa fa-check"></i><b>2.24</b> Limpieza y transformación</a></li>
-<li class="chapter" data-level="2.25" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#métodos-de-imputación"><i class="fa fa-check"></i><b>2.25</b> Métodos de imputación</a></li>
+<li class="chapter" data-level="2" data-path="introR.html"><a href="introR.html"><i class="fa fa-check"></i><b>2</b> Introduccion a R</a><ul>
+<li class="chapter" data-level="2.1" data-path="introR.html"><a href="introR.html#tipos-de-estructuras"><i class="fa fa-check"></i><b>2.1</b> Tipos de estructuras</a></li>
+<li class="chapter" data-level="2.2" data-path="introR.html"><a href="introR.html#loops-y-condiciones"><i class="fa fa-check"></i><b>2.2</b> Loops y condiciones</a></li>
+<li class="chapter" data-level="2.3" data-path="introR.html"><a href="introR.html#funciones"><i class="fa fa-check"></i><b>2.3</b> Funciones</a></li>
+<li class="chapter" data-level="2.4" data-path="introR.html"><a href="introR.html#importacion-de-datos"><i class="fa fa-check"></i><b>2.4</b> Importacion de datos</a></li>
+<li class="chapter" data-level="2.5" data-path="introR.html"><a href="introR.html#dataframe-y-exploración"><i class="fa fa-check"></i><b>2.5</b> Dataframe y exploración</a></li>
+<li class="chapter" data-level="2.6" data-path="introR.html"><a href="introR.html#estadística-descriptiva"><i class="fa fa-check"></i><b>2.6</b> Estadística descriptiva</a></li>
+<li class="chapter" data-level="2.7" data-path="introR.html"><a href="introR.html#muestreo-e-inferencia"><i class="fa fa-check"></i><b>2.7</b> Muestreo e inferencia</a></li>
+<li class="chapter" data-level="2.8" data-path="introR.html"><a href="introR.html#gráficos-de-origen"><i class="fa fa-check"></i><b>2.8</b> Gráficos de origen</a></li>
+<li class="chapter" data-level="2.9" data-path="introR.html"><a href="introR.html#ggplot"><i class="fa fa-check"></i><b>2.9</b> ggplot</a></li>
+<li class="chapter" data-level="2.10" data-path="introR.html"><a href="introR.html#r-markdown"><i class="fa fa-check"></i><b>2.10</b> R Markdown</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="introR.html"><a href="introR.html#instalación"><i class="fa fa-check"></i><b>2.10.1</b> Instalación</a></li>
+<li class="chapter" data-level="2.10.2" data-path="introR.html"><a href="introR.html#yaml-header"><i class="fa fa-check"></i><b>2.10.2</b> YAML Header</a></li>
+<li class="chapter" data-level="2.10.3" data-path="introR.html"><a href="introR.html#sintaxis-básica"><i class="fa fa-check"></i><b>2.10.3</b> Sintaxis básica</a></li>
+<li class="chapter" data-level="2.10.4" data-path="introR.html"><a href="introR.html#tipos-de-documentos"><i class="fa fa-check"></i><b>2.10.4</b> Tipos de documentos</a></li>
+<li class="chapter" data-level="2.10.5" data-path="introR.html"><a href="introR.html#chunks"><i class="fa fa-check"></i><b>2.10.5</b> Chunks</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html"><i class="fa fa-check"></i><b>3</b> Modelado en Minería de datos</a><ul>
-<li class="chapter" data-level="3.1" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#explorando-los-datos"><i class="fa fa-check"></i><b>3.1</b> Explorando los datos</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#resumen-de-los-datos"><i class="fa fa-check"></i><b>3.1.1</b> Resumen de los datos</a></li>
-<li class="chapter" data-level="3.1.2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#visualización"><i class="fa fa-check"></i><b>3.1.2</b> Visualización</a></li>
+<li class="chapter" data-level="2.11" data-path="introR.html"><a href="introR.html#shiny"><i class="fa fa-check"></i><b>2.11</b> Shiny</a></li>
+<li class="chapter" data-level="2.12" data-path="introR.html"><a href="introR.html#ejercicios-propuestos"><i class="fa fa-check"></i><b>2.12</b> Ejercicios Propuestos</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#componentes-principales"><i class="fa fa-check"></i><b>3.2</b> Componentes Principales</a></li>
-<li class="chapter" data-level="3.3" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#análisis-de-correspondencia"><i class="fa fa-check"></i><b>3.3</b> Análisis de correspondencia</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="3" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html"><i class="fa fa-check"></i><b>3</b> Preparación de los datos</a><ul>
+<li class="chapter" data-level="3.1" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#recopilación"><i class="fa fa-check"></i><b>3.1</b> Recopilación</a></li>
+<li class="chapter" data-level="3.2" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#data-warehouse"><i class="fa fa-check"></i><b>3.2</b> Data Warehouse</a></li>
+<li class="chapter" data-level="3.3" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#data-warehouse-in-r"><i class="fa fa-check"></i><b>3.3</b> Data Warehouse in R</a></li>
+<li class="chapter" data-level="3.4" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#importación"><i class="fa fa-check"></i><b>3.4</b> Importación</a></li>
+<li class="chapter" data-level="3.5" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#recopilación-1"><i class="fa fa-check"></i><b>3.5</b> Recopilación</a></li>
+<li class="chapter" data-level="3.6" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#limpieza"><i class="fa fa-check"></i><b>3.6</b> Limpieza</a></li>
+<li class="chapter" data-level="3.7" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#ejercicio-reshape"><i class="fa fa-check"></i><b>3.7</b> Ejercicio (reshape)</a></li>
+<li class="chapter" data-level="3.8" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#limpieza-fechas"><i class="fa fa-check"></i><b>3.8</b> Limpieza (fechas)</a></li>
+<li class="chapter" data-level="3.9" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#limpieza-string"><i class="fa fa-check"></i><b>3.9</b> Limpieza (String)</a></li>
+<li class="chapter" data-level="3.10" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#transfomración"><i class="fa fa-check"></i><b>3.10</b> Transfomración</a></li>
+<li class="chapter" data-level="3.11" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#imputación-de-variables"><i class="fa fa-check"></i><b>3.11</b> Imputación de variables</a></li>
+<li class="chapter" data-level="3.12" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#la-falta-de-información-es-información"><i class="fa fa-check"></i><b>3.12</b> La falta de información es información</a></li>
+<li class="chapter" data-level="3.13" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#aproximación-formal"><i class="fa fa-check"></i><b>3.13</b> Aproximación formal</a></li>
+<li class="chapter" data-level="3.14" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#mcar-mar-mnar"><i class="fa fa-check"></i><b>3.14</b> MCAR, MAR, MNAR</a></li>
+<li class="chapter" data-level="3.15" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#alternativas-para-trabajar-con-los-missings-ad-hoc"><i class="fa fa-check"></i><b>3.15</b> Alternativas para trabajar con los Missings (Ad-hoc)</a></li>
+<li class="chapter" data-level="3.16" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#imputación-multiple"><i class="fa fa-check"></i><b>3.16</b> Imputación Multiple</a></li>
+<li class="chapter" data-level="3.17" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#patrones-en-datos-multivariados"><i class="fa fa-check"></i><b>3.17</b> Patrones en datos multivariados</a></li>
+<li class="chapter" data-level="3.18" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#influx-and-outflux"><i class="fa fa-check"></i><b>3.18</b> Influx and outflux</a></li>
+<li class="chapter" data-level="3.19" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#imputación-de-datos-monótonos"><i class="fa fa-check"></i><b>3.19</b> Imputación de datos monótonos</a></li>
+<li class="chapter" data-level="3.20" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#multivariate-imputation-by-chained-equations-mice"><i class="fa fa-check"></i><b>3.20</b> Multivariate Imputation by Chained Equations (mice)</a></li>
+<li class="chapter" data-level="3.21" data-path="preparación-de-los-datos.html"><a href="preparación-de-los-datos.html#en-r"><i class="fa fa-check"></i><b>3.21</b> En R</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>4</b> Clustering</a><ul>
-<li class="chapter" data-level="4.1" data-path="clustering.html"><a href="clustering.html#k-center-clustering"><i class="fa fa-check"></i><b>4.1</b> K-center Clustering</a></li>
-<li class="chapter" data-level="4.2" data-path="clustering.html"><a href="clustering.html#clustering-hierarchical"><i class="fa fa-check"></i><b>4.2</b> Clustering hierarchical</a></li>
+<li class="chapter" data-level="4" data-path="preparación-de-los-datos-1.html"><a href="preparación-de-los-datos-1.html"><i class="fa fa-check"></i><b>4</b> Preparación de los datos</a><ul>
+<li class="chapter" data-level="4.1" data-path="preparación-de-los-datos-1.html"><a href="preparación-de-los-datos-1.html#recopilación-de-datos"><i class="fa fa-check"></i><b>4.1</b> Recopilación de datos</a></li>
+<li class="chapter" data-level="4.2" data-path="preparación-de-los-datos-1.html"><a href="preparación-de-los-datos-1.html#importación-y-exploración"><i class="fa fa-check"></i><b>4.2</b> Importación y exploración</a></li>
+<li class="chapter" data-level="4.3" data-path="preparación-de-los-datos-1.html"><a href="preparación-de-los-datos-1.html#limpieza-y-transformación"><i class="fa fa-check"></i><b>4.3</b> Limpieza y transformación</a></li>
+<li class="chapter" data-level="4.4" data-path="preparación-de-los-datos-1.html"><a href="preparación-de-los-datos-1.html#métodos-de-imputación"><i class="fa fa-check"></i><b>4.4</b> Métodos de imputación</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="regresión.html"><a href="regresión.html"><i class="fa fa-check"></i><b>5</b> Regresión</a><ul>
-<li class="chapter" data-level="5.1" data-path="regresión.html"><a href="regresión.html#regresión-lineal"><i class="fa fa-check"></i><b>5.1</b> Regresión lineal</a></li>
-<li class="chapter" data-level="5.2" data-path="regresión.html"><a href="regresión.html#probit-y-logit"><i class="fa fa-check"></i><b>5.2</b> Probit y Logit</a></li>
+<li class="chapter" data-level="5" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html"><i class="fa fa-check"></i><b>5</b> Modelado en Minería de datos</a><ul>
+<li class="chapter" data-level="5.1" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#explorando-los-datos"><i class="fa fa-check"></i><b>5.1</b> Explorando los datos</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#resumen-de-los-datos"><i class="fa fa-check"></i><b>5.1.1</b> Resumen de los datos</a></li>
+<li class="chapter" data-level="5.1.2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#visualización"><i class="fa fa-check"></i><b>5.1.2</b> Visualización</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="clasificación.html"><a href="clasificación.html"><i class="fa fa-check"></i><b>6</b> Clasificación</a><ul>
-<li class="chapter" data-level="6.1" data-path="clasificación.html"><a href="clasificación.html#arboles-de-decision"><i class="fa fa-check"></i><b>6.1</b> Arboles de decision</a></li>
-<li class="chapter" data-level="6.2" data-path="clasificación.html"><a href="clasificación.html#naive-bayes"><i class="fa fa-check"></i><b>6.2</b> Naive Bayes</a></li>
+<li class="chapter" data-level="5.2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#componentes-principales"><i class="fa fa-check"></i><b>5.2</b> Componentes Principales</a></li>
+<li class="chapter" data-level="5.3" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#análisis-de-correspondencia"><i class="fa fa-check"></i><b>5.3</b> Análisis de correspondencia</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="minería-de-texto.html"><a href="minería-de-texto.html"><i class="fa fa-check"></i><b>7</b> Minería de Texto</a><ul>
-<li class="chapter" data-level="7.1" data-path="minería-de-texto.html"><a href="minería-de-texto.html#recolección-de-texto"><i class="fa fa-check"></i><b>7.1</b> Recolección de texto</a></li>
-<li class="chapter" data-level="7.2" data-path="minería-de-texto.html"><a href="minería-de-texto.html#nubes-de-palabras"><i class="fa fa-check"></i><b>7.2</b> Nubes de palabras</a></li>
-<li class="chapter" data-level="7.3" data-path="minería-de-texto.html"><a href="minería-de-texto.html#análisis-de-sentimiento"><i class="fa fa-check"></i><b>7.3</b> Análisis de sentimiento</a></li>
-<li class="chapter" data-level="7.4" data-path="minería-de-texto.html"><a href="minería-de-texto.html#n-gramas-y-correlaciones"><i class="fa fa-check"></i><b>7.4</b> n-gramas y correlaciones</a></li>
+<li class="chapter" data-level="6" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>6</b> Clustering</a><ul>
+<li class="chapter" data-level="6.1" data-path="clustering.html"><a href="clustering.html#medidas-de-disimilaridad"><i class="fa fa-check"></i><b>6.1</b> Medidas de Disimilaridad</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="clustering.html"><a href="clustering.html#distancia-euclideana-variables-numéricas"><i class="fa fa-check"></i><b>6.1.1</b> Distancia Euclideana: Variables numéricas</a></li>
+<li class="chapter" data-level="6.1.2" data-path="clustering.html"><a href="clustering.html#distancia-manhattan-p-grande"><i class="fa fa-check"></i><b>6.1.2</b> Distancia Manhattan: <span class="math inline">\(p\)</span> grande</a></li>
+<li class="chapter" data-level="6.1.3" data-path="clustering.html"><a href="clustering.html#distancia-minkowski"><i class="fa fa-check"></i><b>6.1.3</b> Distancia Minkowski</a></li>
+<li class="chapter" data-level="6.1.4" data-path="clustering.html"><a href="clustering.html#programando"><i class="fa fa-check"></i><b>6.1.4</b> programando</a></li>
+<li class="chapter" data-level="6.1.5" data-path="clustering.html"><a href="clustering.html#variables-cualitativas"><i class="fa fa-check"></i><b>6.1.5</b> Variables cualitativas</a></li>
+<li class="chapter" data-level="6.1.6" data-path="clustering.html"><a href="clustering.html#datos-mixtos"><i class="fa fa-check"></i><b>6.1.6</b> Datos mixtos</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="clustering.html"><a href="clustering.html#métodos-de-clustering"><i class="fa fa-check"></i><b>6.2</b> Métodos de clustering</a></li>
+<li class="chapter" data-level="6.3" data-path="clustering.html"><a href="clustering.html#k-center-clustering-no-jerárquicos"><i class="fa fa-check"></i><b>6.3</b> K-center Clustering (no jerárquicos)</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="clustering.html"><a href="clustering.html#validación-cluster"><i class="fa fa-check"></i><b>6.3.1</b> Validación cluster</a></li>
+<li class="chapter" data-level="6.3.2" data-path="clustering.html"><a href="clustering.html#distancias-para-variables-nominales-todas-nominales"><i class="fa fa-check"></i><b>6.3.2</b> Distancias para variables nominales (todas nominales)</a></li>
+<li class="chapter" data-level="6.3.3" data-path="clustering.html"><a href="clustering.html#distancias-para-variables-mixtas-cuantitativas-nominales-ordinales"><i class="fa fa-check"></i><b>6.3.3</b> Distancias para variables mixtas (cuantitativas, nominales, ordinales)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="clustering.html"><a href="clustering.html#cluster-jerárquico"><i class="fa fa-check"></i><b>6.4</b> Cluster Jerárquico</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="clustering.html"><a href="clustering.html#algoritmo-johnson"><i class="fa fa-check"></i><b>6.4.1</b> Algoritmo (Johnson)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="clustering.html"><a href="clustering.html#ejercicios"><i class="fa fa-check"></i><b>6.5</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="regresión.html"><a href="regresión.html"><i class="fa fa-check"></i><b>7</b> Regresión</a><ul>
+<li class="chapter" data-level="7.1" data-path="regresión.html"><a href="regresión.html#regresión-lineal"><i class="fa fa-check"></i><b>7.1</b> Regresión lineal</a></li>
+<li class="chapter" data-level="7.2" data-path="regresión.html"><a href="regresión.html#probit-y-logit"><i class="fa fa-check"></i><b>7.2</b> Probit y Logit</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="clasificación.html"><a href="clasificación.html"><i class="fa fa-check"></i><b>8</b> Clasificación</a><ul>
+<li class="chapter" data-level="8.1" data-path="clasificación.html"><a href="clasificación.html#arboles-de-decision"><i class="fa fa-check"></i><b>8.1</b> Arboles de decision</a></li>
+<li class="chapter" data-level="8.2" data-path="clasificación.html"><a href="clasificación.html#naive-bayes"><i class="fa fa-check"></i><b>8.2</b> Naive Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="minería-de-texto.html"><a href="minería-de-texto.html"><i class="fa fa-check"></i><b>9</b> Minería de Texto</a><ul>
+<li class="chapter" data-level="9.1" data-path="minería-de-texto.html"><a href="minería-de-texto.html#recolección-de-texto"><i class="fa fa-check"></i><b>9.1</b> Recolección de texto</a></li>
+<li class="chapter" data-level="9.2" data-path="minería-de-texto.html"><a href="minería-de-texto.html#nubes-de-palabras"><i class="fa fa-check"></i><b>9.2</b> Nubes de palabras</a></li>
+<li class="chapter" data-level="9.3" data-path="minería-de-texto.html"><a href="minería-de-texto.html#análisis-de-sentimiento"><i class="fa fa-check"></i><b>9.3</b> Análisis de sentimiento</a></li>
+<li class="chapter" data-level="9.4" data-path="minería-de-texto.html"><a href="minería-de-texto.html#n-gramas-y-correlaciones"><i class="fa fa-check"></i><b>9.4</b> n-gramas y correlaciones</a></li>
 </ul></li>
 </ul>
 
@@ -234,16 +257,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="modelado-en-minería-de-datos" class="section level1">
-<h1><span class="header-section-number">3</span> Modelado en Minería de datos</h1>
+<h1><span class="header-section-number">5</span> Modelado en Minería de datos</h1>
 <div id="explorando-los-datos" class="section level2">
-<h2><span class="header-section-number">3.1</span> Explorando los datos</h2>
+<h2><span class="header-section-number">5.1</span> Explorando los datos</h2>
 <p>Existen dos aproximaciones para empezar a explorar la información existente en una base de datos:</p>
 <ul>
 <li>Resumen de los datos</li>
 <li>Visualización de los datos</li>
 </ul>
 <div id="resumen-de-los-datos" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> Resumen de los datos</h3>
+<h3><span class="header-section-number">5.1.1</span> Resumen de los datos</h3>
 <p>Dado el tamaño de las bases de datos resulta imposible o muy dificil conocer todas sus propiedad, el resumen de los datos intenta brindar propiedades claves de los datos, estas propiedades podrian ser:</p>
 <ul>
 <li>Cual es el valor mas comun</li>
@@ -253,95 +276,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>A continuación se emplea la encuesta a hogares 2018 para ir respondiendo estas preguntas.</p>
 <p>En cuanto a los valores mas comunes, la media y la mediana de los datos son suficientes para las variables cuantitativas, mientra que para variables cualitativas, las categorias mas frecuentes son una buena opción.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/eh18.Rdata&quot;</span>))</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="co"># media de edad</span></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="kw">mean</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1"><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/eh18.Rdata&quot;</span>))</a>
+<a class="sourceLine" id="cb53-2" title="2"><span class="co"># media de edad</span></a>
+<a class="sourceLine" id="cb53-3" title="3"><span class="kw">mean</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</a></code></pre></div>
 <pre><code>## [1] 29.59059</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co">#mediana de edad</span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="kw">median</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1"><span class="co">#mediana de edad</span></a>
+<a class="sourceLine" id="cb55-2" title="2"><span class="kw">median</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</a></code></pre></div>
 <pre><code>## [1] 26</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># para las categorias mas frecuentes</span></a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="kw">library</span>(DMwR2)</a></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1"><span class="co"># para las categorias mas frecuentes</span></a>
+<a class="sourceLine" id="cb57-2" title="2"><span class="kw">library</span>(DMwR2)</a></code></pre></div>
 <pre><code>## Registered S3 method overwritten by &#39;quantmod&#39;:
 ##   method            from
 ##   as.zoo.data.frame zoo</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">library</span>(dplyr)</a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1"><span class="kw">library</span>(dplyr)</a></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:lubridate&#39;:
+## 
+##     intersect, setdiff, union</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
 ## 
 ##     filter, lag</code></pre>
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="co">#para el sexo</span></a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="kw">centralValue</span>(eh18p<span class="op">$</span>s02a_<span class="dv">02</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1"><span class="co">#para el sexo</span></a>
+<a class="sourceLine" id="cb64-2" title="2"><span class="kw">centralValue</span>(eh18p<span class="op">$</span>s02a_<span class="dv">02</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;2.Mujer&quot;</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="co">#para el departamento </span></a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="kw">centralValue</span>(eh18p<span class="op">$</span>depto)</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1"><span class="co">#para el departamento </span></a>
+<a class="sourceLine" id="cb66-2" title="2"><span class="kw">centralValue</span>(eh18p<span class="op">$</span>depto)</a></code></pre></div>
 <pre><code>## [1] &quot;La Paz&quot;</code></pre>
 <p>A veces es mejor ver los resultados por grupos, por ejemplo, podemos verlo por departamento y area.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">eh18p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">mean</span>(s02a_<span class="dv">03</span>),<span class="kw">median</span>(s02a_<span class="dv">03</span>),<span class="kw">centralValue</span>(s02a_<span class="dv">02</span>),<span class="kw">n</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1">eh18p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">mean</span>(s02a_<span class="dv">03</span>),<span class="kw">median</span>(s02a_<span class="dv">03</span>),<span class="kw">centralValue</span>(s02a_<span class="dv">02</span>),<span class="kw">n</span>())</a></code></pre></div>
 <pre><code>## # A tibble: 18 x 6
 ## # Groups:   depto [9]
-##    depto     area   `mean(s02a_03)` `median(s02a_03~ `centralValue(s02a_0~ `n()`
-##    &lt;fct&gt;     &lt;fct&gt;            &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;                 &lt;int&gt;
-##  1 Chuquisa~ Urbana            28.7             24   2.Mujer                1116
-##  2 Chuquisa~ Rural             31.0             27   2.Mujer                1001
-##  3 La Paz    Urbana            30.4             27   2.Mujer                8716
-##  4 La Paz    Rural             34.3             31   2.Mujer                1254
-##  5 Cochabam~ Urbana            30.4             27   2.Mujer                6398
-##  6 Cochabam~ Rural             31.1             27.5 1.Hombre               1180
-##  7 Oruro     Urbana            28.7             26   2.Mujer                1456
-##  8 Oruro     Rural             36.4             34   2.Mujer                 732
-##  9 Potosí    Urbana            26.1             23   2.Mujer                 939
-## 10 Potosí    Rural             35.6             34.5 2.Mujer                 916
-## 11 Tarija    Urbana            29.4             27   2.Mujer                2170
-## 12 Tarija    Rural             29.7             27   2.Mujer                 918
-## 13 Santa Cr~ Urbana            27.8             25   2.Mujer                5694
-## 14 Santa Cr~ Rural             29.9             26   1.Hombre                867
-## 15 Beni      Urbana            26.8             22   2.Mujer                1866
-## 16 Beni      Rural             26.0             19   1.Hombre                650
-## 17 Pando     Urbana            25.5             23   1.Hombre                857
-## 18 Pando     Rural             22.6             18   1.Hombre                787</code></pre>
+##    depto area  `mean(s02a_03)` `median(s02a_03~ `centralValue(s~
+##    &lt;fct&gt; &lt;fct&gt;           &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;           
+##  1 Chuq~ Urba~            28.7             24   2.Mujer         
+##  2 Chuq~ Rural            31.0             27   2.Mujer         
+##  3 La P~ Urba~            30.4             27   2.Mujer         
+##  4 La P~ Rural            34.3             31   2.Mujer         
+##  5 Coch~ Urba~            30.4             27   2.Mujer         
+##  6 Coch~ Rural            31.1             27.5 1.Hombre        
+##  7 Oruro Urba~            28.7             26   2.Mujer         
+##  8 Oruro Rural            36.4             34   2.Mujer         
+##  9 Poto~ Urba~            26.1             23   2.Mujer         
+## 10 Poto~ Rural            35.6             34.5 2.Mujer         
+## 11 Tari~ Urba~            29.4             27   2.Mujer         
+## 12 Tari~ Rural            29.7             27   2.Mujer         
+## 13 Sant~ Urba~            27.8             25   2.Mujer         
+## 14 Sant~ Rural            29.9             26   1.Hombre        
+## 15 Beni  Urba~            26.8             22   2.Mujer         
+## 16 Beni  Rural            26.0             19   1.Hombre        
+## 17 Pando Urba~            25.5             23   1.Hombre        
+## 18 Pando Rural            22.6             18   1.Hombre        
+## # ... with 1 more variable: `n()` &lt;int&gt;</code></pre>
 <p>La función n() realiza un proceso de conteo.</p>
 <p>De forma similar podemos hacer para las medidas de variabilidad, las mas comunes la desviacion estandar, el rango, el rango intercuartil y los cuantiles. Usando la eh18 para la edad y el ingreso laboral.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="co">##EDAD</span></a>
-<a class="sourceLine" id="cb17-2" title="2"><span class="co"># Desviacion estandar</span></a>
-<a class="sourceLine" id="cb17-3" title="3"><span class="kw">sd</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="co">##EDAD</span></a>
+<a class="sourceLine" id="cb70-2" title="2"><span class="co"># Desviacion estandar</span></a>
+<a class="sourceLine" id="cb70-3" title="3"><span class="kw">sd</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</a></code></pre></div>
 <pre><code>## [1] 20.97181</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="co"># Rango</span></a>
-<a class="sourceLine" id="cb19-2" title="2"><span class="kw">range</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="co"># Rango</span></a>
+<a class="sourceLine" id="cb72-2" title="2"><span class="kw">range</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</a></code></pre></div>
 <pre><code>## [1]  0 98</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="co"># Rango intercuartil</span></a>
-<a class="sourceLine" id="cb21-2" title="2"><span class="kw">IQR</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="co"># Rango intercuartil</span></a>
+<a class="sourceLine" id="cb74-2" title="2"><span class="kw">IQR</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</a></code></pre></div>
 <pre><code>## [1] 32</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="co"># Quantiles</span></a>
-<a class="sourceLine" id="cb23-2" title="2"><span class="kw">quantile</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="co"># Quantiles</span></a>
+<a class="sourceLine" id="cb76-2" title="2"><span class="kw">quantile</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</a></code></pre></div>
 <pre><code>##   0%  25%  50%  75% 100% 
 ##    0   12   26   44   98</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">quantile</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>,<span class="kw">c</span>(<span class="fl">0.10</span>,<span class="fl">0.90</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1"><span class="kw">quantile</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>,<span class="kw">c</span>(<span class="fl">0.10</span>,<span class="fl">0.90</span>))</a></code></pre></div>
 <pre><code>## 10% 90% 
 ##   5  61</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="co">##INGRESO LABORAL</span></a>
-<a class="sourceLine" id="cb27-2" title="2"><span class="co"># Desviacion estandar</span></a>
-<a class="sourceLine" id="cb27-3" title="3"><span class="kw">sd</span>(eh18p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</a></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1"><span class="co">##INGRESO LABORAL</span></a>
+<a class="sourceLine" id="cb80-2" title="2"><span class="co"># Desviacion estandar</span></a>
+<a class="sourceLine" id="cb80-3" title="3"><span class="kw">sd</span>(eh18p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</a></code></pre></div>
 <pre><code>## [1] 2242.593</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="co"># Rango</span></a>
-<a class="sourceLine" id="cb29-2" title="2"><span class="kw">range</span>(eh18p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</a></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" title="1"><span class="co"># Rango</span></a>
+<a class="sourceLine" id="cb82-2" title="2"><span class="kw">range</span>(eh18p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</a></code></pre></div>
 <pre><code>## [1]     4.166667 36196.667969</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="co"># Rango intercuartil</span></a>
-<a class="sourceLine" id="cb31-2" title="2"><span class="kw">IQR</span>(eh18p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</a></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" title="1"><span class="co"># Rango intercuartil</span></a>
+<a class="sourceLine" id="cb84-2" title="2"><span class="kw">IQR</span>(eh18p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</a></code></pre></div>
 <pre><code>## [1] 2397</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="co"># Quantiles</span></a>
-<a class="sourceLine" id="cb33-2" title="2"><span class="kw">quantile</span>(eh18p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</a></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" title="1"><span class="co"># Quantiles</span></a>
+<a class="sourceLine" id="cb86-2" title="2"><span class="kw">quantile</span>(eh18p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</a></code></pre></div>
 <pre><code>##           0%          25%          50%          75%         100% 
 ##     4.166667  1500.000000  2554.699951  3897.000000 36196.667969</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">quantile</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>,<span class="dt">probs=</span><span class="kw">c</span>(<span class="fl">0.10</span>,<span class="fl">0.90</span>),<span class="dt">na.rm =</span> T)</a></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1"><span class="kw">quantile</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>,<span class="dt">probs=</span><span class="kw">c</span>(<span class="fl">0.10</span>,<span class="fl">0.90</span>),<span class="dt">na.rm =</span> T)</a></code></pre></div>
 <pre><code>## 10% 90% 
 ##   5  61</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="co">##por departamento y area</span></a>
-<a class="sourceLine" id="cb37-2" title="2"><span class="kw">tapply</span>(eh18p<span class="op">$</span>ylab,<span class="kw">list</span>(eh18p<span class="op">$</span>depto,eh18p<span class="op">$</span>area),sd,<span class="dt">na.rm=</span>T)<span class="co">#opcion1</span></a></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1"><span class="co">##por departamento y area</span></a>
+<a class="sourceLine" id="cb90-2" title="2"><span class="kw">tapply</span>(eh18p<span class="op">$</span>ylab,<span class="kw">list</span>(eh18p<span class="op">$</span>depto,eh18p<span class="op">$</span>area),sd,<span class="dt">na.rm=</span>T)<span class="co">#opcion1</span></a></code></pre></div>
 <pre><code>##              Urbana    Rural
 ## Chuquisaca 2586.058 1735.306
 ## La Paz     2154.421 1703.794
@@ -352,7 +379,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Santa Cruz 2156.938 2134.006
 ## Beni       2419.952 1809.108
 ## Pando      1778.112 2050.242</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">tapply</span>(eh18p<span class="op">$</span>ylab,<span class="kw">list</span>(eh18p<span class="op">$</span>depto,eh18p<span class="op">$</span>area),quantile,<span class="dt">na.rm=</span>T)<span class="co">#con problemas</span></a></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" title="1"><span class="kw">tapply</span>(eh18p<span class="op">$</span>ylab,<span class="kw">list</span>(eh18p<span class="op">$</span>depto,eh18p<span class="op">$</span>area),quantile,<span class="dt">na.rm=</span>T)<span class="co">#con problemas</span></a></code></pre></div>
 <pre><code>##            Urbana    Rural    
 ## Chuquisaca Numeric,5 Numeric,5
 ## La Paz     Numeric,5 Numeric,5
@@ -363,52 +390,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Santa Cruz Numeric,5 Numeric,5
 ## Beni       Numeric,5 Numeric,5
 ## Pando      Numeric,5 Numeric,5</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1"><span class="kw">aggregate</span>(eh18p<span class="op">$</span>ylab,<span class="kw">list</span>(<span class="dt">depto=</span>eh18p<span class="op">$</span>depto,<span class="dt">area=</span>eh18p<span class="op">$</span>area),quantile,<span class="dt">na.rm=</span>T)</a></code></pre></div>
-<pre><code>##         depto   area         x.0%        x.25%        x.50%        x.75%
-## 1  Chuquisaca Urbana    39.583336  1317.083344  2598.000000  4369.449707
-## 2      La Paz Urbana     6.666667  1732.000000  2650.000000  3897.000000
-## 3  Cochabamba Urbana    80.000000  1850.833374  2700.000000  4000.000000
-## 4       Oruro Urbana    15.000000  1608.679932  2598.000000  4330.000000
-## 5      Potosí Urbana   160.000000  1724.750000  3064.550049  4500.000000
-## 6      Tarija Urbana    86.599998  1794.533325  2814.500000  4330.000000
-## 7  Santa Cruz Urbana    80.000000  2121.699951  2976.875000  4156.799805
-## 8        Beni Urbana    50.000000  1729.834961  2500.000000  4105.924927
-## 9       Pando Urbana   250.000000  2475.000000  3291.666748  4538.041748
-## 10 Chuquisaca  Rural    36.666668   519.599976  1012.489990  2078.399902
-## 11     La Paz  Rural    12.500000   300.000000   825.000000  2249.166748
-## 12 Cochabamba  Rural    23.333334   523.649994  1590.000061  2598.000000
-## 13      Oruro  Rural    19.166668   286.458336   653.916687  2051.324982
-## 14     Potosí  Rural    25.833334   225.000000   516.250000  1435.208374
-## 15     Tarija  Rural     4.166667   995.883316  1967.666687  3366.749939
-## 16 Santa Cruz  Rural    66.666672  1230.000000  2262.250000  3167.366516
-## 17       Beni  Rural   100.000000   705.000000  1800.000000  3500.000000
-## 18      Pando  Rural    80.000000  1207.500000  2167.500000  3449.133362
-##          x.100%
-## 1  16123.333008
-## 2  23437.484375
-## 3  36196.667969
-## 4  16166.666992
-## 5  14072.500000
-## 6  21833.000000
-## 7  35668.664062
-## 8  22700.000000
-## 9  11367.666016
-## 10 10120.000000
-## 11 15433.333008
-## 12 10825.000000
-## 13 10175.500000
-## 14  7333.333496
-## 15 16730.000000
-## 16 22465.667969
-## 17  7577.500000
-## 18 19750.000000</code></pre>
-<p>Finalmente, para explorar a fondo las variables la funcion describe es bastante util, tambien, el el comando summary.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1"><span class="co">#analizando las 5 primeras variables de la base de datos</span></a>
-<a class="sourceLine" id="cb43-2" title="2"><span class="kw">library</span>(Hmisc)</a></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" title="1"><span class="kw">aggregate</span>(eh18p<span class="op">$</span>ylab,<span class="kw">list</span>(<span class="dt">depto=</span>eh18p<span class="op">$</span>depto,<span class="dt">area=</span>eh18p<span class="op">$</span>area),quantile,<span class="dt">na.rm=</span>T)</a></code></pre></div>
+<pre><code>##         depto   area         x.0%        x.25%        x.50%
+## 1  Chuquisaca Urbana    39.583336  1317.083344  2598.000000
+## 2      La Paz Urbana     6.666667  1732.000000  2650.000000
+## 3  Cochabamba Urbana    80.000000  1850.833374  2700.000000
+## 4       Oruro Urbana    15.000000  1608.679932  2598.000000
+## 5      Potosí Urbana   160.000000  1724.750000  3064.550049
+## 6      Tarija Urbana    86.599998  1794.533325  2814.500000
+## 7  Santa Cruz Urbana    80.000000  2121.699951  2976.875000
+## 8        Beni Urbana    50.000000  1729.834961  2500.000000
+## 9       Pando Urbana   250.000000  2475.000000  3291.666748
+## 10 Chuquisaca  Rural    36.666668   519.599976  1012.489990
+## 11     La Paz  Rural    12.500000   300.000000   825.000000
+## 12 Cochabamba  Rural    23.333334   523.649994  1590.000061
+## 13      Oruro  Rural    19.166668   286.458336   653.916687
+## 14     Potosí  Rural    25.833334   225.000000   516.250000
+## 15     Tarija  Rural     4.166667   995.883316  1967.666687
+## 16 Santa Cruz  Rural    66.666672  1230.000000  2262.250000
+## 17       Beni  Rural   100.000000   705.000000  1800.000000
+## 18      Pando  Rural    80.000000  1207.500000  2167.500000
+##           x.75%       x.100%
+## 1   4369.449707 16123.333008
+## 2   3897.000000 23437.484375
+## 3   4000.000000 36196.667969
+## 4   4330.000000 16166.666992
+## 5   4500.000000 14072.500000
+## 6   4330.000000 21833.000000
+## 7   4156.799805 35668.664062
+## 8   4105.924927 22700.000000
+## 9   4538.041748 11367.666016
+## 10  2078.399902 10120.000000
+## 11  2249.166748 15433.333008
+## 12  2598.000000 10825.000000
+## 13  2051.324982 10175.500000
+## 14  1435.208374  7333.333496
+## 15  3366.749939 16730.000000
+## 16  3167.366516 22465.667969
+## 17  3500.000000  7577.500000
+## 18  3449.133362 19750.000000</code></pre>
+<p>Finalmente, para explorar a fondo las variables la funcion describe es bastante útil, tambien, el comando summary.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" title="1"><span class="co">#analizando las 5 primeras variables de la base de datos</span></a>
+<a class="sourceLine" id="cb96-2" title="2"><span class="kw">library</span>(Hmisc)</a></code></pre></div>
 <pre><code>## Loading required package: lattice</code></pre>
 <pre><code>## Loading required package: survival</code></pre>
 <pre><code>## Loading required package: Formula</code></pre>
 <pre><code>## Loading required package: ggplot2</code></pre>
+<pre><code>## Keep up to date with changes at
+## https://www.tidyverse.org/blog/</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;Hmisc&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
@@ -417,49 +446,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     format.pval, units</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1"><span class="kw">describe</span>(eh18p[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1"><span class="kw">describe</span>(eh18p[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a></code></pre></div>
 <pre><code>## eh18p[, 1:5] 
 ## 
 ##  5  Variables      37517  Observations
-## --------------------------------------------------------------------------------
+## ------------------------------------------------------------------
 ## folio 
 ##        n  missing distinct 
 ##    37517        0    11195 
 ## 
 ## lowest : 111-00419704629-A-0011 111-00419704629-A-0021 111-00419704629-A-0041 111-00419704629-A-0051 111-00419704629-A-0071
 ## highest: 953-11761951198-D-0081 953-11761951198-D-0091 953-11761951198-D-0101 953-11761951198-D-0111 953-11761951198-D-0121
-## --------------------------------------------------------------------------------
+## ------------------------------------------------------------------
 ## nro 
-##        n  missing distinct     Info     Mean      Gmd      .05      .10 
-##    37517        0       13    0.948    2.639    1.712        1        1 
-##      .25      .50      .75      .90      .95 
-##        1        2        4        5        6 
+##        n  missing distinct     Info     Mean      Gmd      .05 
+##    37517        0       13    0.948    2.639    1.712        1 
+##      .10      .25      .50      .75      .90      .95 
+##        1        1        2        4        5        6 
 ## 
 ## lowest :  1  2  3  4  5, highest:  9 10 11 12 13
-##                                                                             
-## Value          1     2     3     4     5     6     7     8     9    10    11
-## Frequency  11195  9399  7215  4892  2654  1230   536   231   110    39    13
-## Proportion 0.298 0.251 0.192 0.130 0.071 0.033 0.014 0.006 0.003 0.001 0.000
-##                       
-## Value         12    13
-## Frequency      2     1
-## Proportion 0.000 0.000
-## --------------------------------------------------------------------------------
+##                                                                 
+## Value          1     2     3     4     5     6     7     8     9
+## Frequency  11195  9399  7215  4892  2654  1230   536   231   110
+## Proportion 0.298 0.251 0.192 0.130 0.071 0.033 0.014 0.006 0.003
+##                                   
+## Value         10    11    12    13
+## Frequency     39    13     2     1
+## Proportion 0.001 0.000 0.000 0.000
+## ------------------------------------------------------------------
 ## depto 
 ##        n  missing distinct 
 ##    37517        0        9 
 ## 
 ## lowest : Chuquisaca La Paz     Cochabamba Oruro      Potosí    
 ## highest: Potosí     Tarija     Santa Cruz Beni       Pando     
-##                                                                             
-## Value      Chuquisaca     La Paz Cochabamba      Oruro     Potosí     Tarija
-## Frequency        2117       9970       7578       2188       1855       3088
-## Proportion      0.056      0.266      0.202      0.058      0.049      0.082
-##                                            
-## Value      Santa Cruz       Beni      Pando
-## Frequency        6561       2516       1644
-## Proportion      0.175      0.067      0.044
-## --------------------------------------------------------------------------------
+##                                                                  
+## Value      Chuquisaca     La Paz Cochabamba      Oruro     Potosí
+## Frequency        2117       9970       7578       2188       1855
+## Proportion      0.056      0.266      0.202      0.058      0.049
+##                                                       
+## Value          Tarija Santa Cruz       Beni      Pando
+## Frequency        3088       6561       2516       1644
+## Proportion      0.082      0.175      0.067      0.044
+## ------------------------------------------------------------------
 ## area 
 ##        n  missing distinct 
 ##    37517        0        2 
@@ -467,7 +496,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Value      Urbana  Rural
 ## Frequency   29212   8305
 ## Proportion  0.779  0.221
-## --------------------------------------------------------------------------------
+## ------------------------------------------------------------------
 ## s02a_02 
 ##        n  missing distinct 
 ##    37517        0        2 
@@ -475,11 +504,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Value      1.Hombre  2.Mujer
 ## Frequency     18419    19098
 ## Proportion    0.491    0.509
-## --------------------------------------------------------------------------------</code></pre>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1"><span class="kw">summary</span>(eh18p<span class="op">$</span>ylab)</a></code></pre></div>
+## ------------------------------------------------------------------</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="kw">summary</span>(eh18p<span class="op">$</span>ylab)</a></code></pre></div>
 <pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA&#39;s 
 ##     4.17  1500.00  2554.70  2959.39  3897.00 36196.67    22852</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1"><span class="kw">by</span>(eh18p[,<span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;p0&quot;</span>,<span class="st">&quot;s02a_03&quot;</span>)],eh18p<span class="op">$</span>area,summary)</a></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="kw">by</span>(eh18p[,<span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;p0&quot;</span>,<span class="st">&quot;s02a_03&quot;</span>)],eh18p<span class="op">$</span>area,summary)</a></code></pre></div>
 <pre><code>## eh18p$area: Urbana
 ##       ylab                 p0           s02a_03     
 ##  Min.   :    6.67   No Pobre:21225   Min.   : 0.00  
@@ -489,7 +518,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  3rd Qu.: 4082.50                    3rd Qu.:43.00  
 ##  Max.   :36196.67                    Max.   :98.00  
 ##  NA&#39;s   :17573                                      
-## ------------------------------------------------------------ 
+## ------------------------------------------------- 
 ## eh18p$area: Rural
 ##       ylab                  p0          s02a_03     
 ##  Min.   :    4.167   No Pobre:4049   Min.   : 0.00  
@@ -501,7 +530,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  NA&#39;s   :5279</code></pre>
 </div>
 <div id="visualización" class="section level3">
-<h3><span class="header-section-number">3.1.2</span> Visualización</h3>
+<h3><span class="header-section-number">5.1.2</span> Visualización</h3>
 <p>La visualizacion es una herramienta importante para explorar y entender la base de datos. Los seres humanos son excelentes para capturar patrones visuales, y la visualización de datos intenta capitalizar en estas habilidades. Es util diferenciar las visualizaciones por:</p>
 <ul>
 <li>Una sola varibles</li>
@@ -510,42 +539,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Los aspetor vinculados al uso de graficos de origen de R y la libreria ggplot pueden verse en el texto guia de EST-183 “BigData”. A continuación se introducen de forma directa funciones en R orientadas a la visualización univariante, bivariante y multivariante.</p>
 <p>Usando al EH-2018, para variables cualitativas.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1"><span class="co">#Graficos de origen de R</span></a>
-<a class="sourceLine" id="cb57-2" title="2"><span class="kw">barplot</span>(<span class="kw">table</span>(eh18p<span class="op">$</span>s03a_01a),<span class="dt">main=</span><span class="st">&quot;Dónde vivia hace 5 años?&quot;</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1"><span class="co">#GGPLOT</span></a>
-<a class="sourceLine" id="cb58-2" title="2"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb58-3" title="3"><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(<span class="dt">x=</span>s03a_01a))<span class="op">+</span><span class="kw">geom_bar</span>()<span class="op">+</span><span class="kw">ggtitle</span>(<span class="st">&quot;Dónde vivia hace 5 años?&quot;</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1"><span class="co">#Graficos de origen de R</span></a>
+<a class="sourceLine" id="cb111-2" title="2"><span class="kw">barplot</span>(<span class="kw">table</span>(eh18p<span class="op">$</span>s03a_01a),<span class="dt">main=</span><span class="st">&quot;Dónde vivia hace 5 años?&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1"><span class="co">#GGPLOT</span></a>
+<a class="sourceLine" id="cb112-2" title="2"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb112-3" title="3"><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(<span class="dt">x=</span>s03a_01a))<span class="op">+</span><span class="kw">geom_bar</span>()<span class="op">+</span><span class="kw">ggtitle</span>(<span class="st">&quot;Dónde vivia hace 5 años?&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-22-2.png" width="672" /></p>
 <p>Para variables del tipo cuantitativas</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb59-2" title="2"><span class="kw">boxplot</span>(eh18p<span class="op">$</span>ylab)</a>
-<a class="sourceLine" id="cb59-3" title="3"><span class="kw">hist</span>(eh18p<span class="op">$</span>ylab)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1"><span class="kw">dev.off</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb113-2" title="2"><span class="kw">boxplot</span>(eh18p<span class="op">$</span>ylab)</a>
+<a class="sourceLine" id="cb113-3" title="3"><span class="kw">hist</span>(eh18p<span class="op">$</span>ylab)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" title="1"><span class="kw">dev.off</span>()</a></code></pre></div>
 <pre><code>## null device 
 ##           1</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1"><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(ylab))<span class="op">+</span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
-<pre><code>## Warning: Removed 22852 rows containing non-finite values (stat_boxplot).</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1"><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(ylab))<span class="op">+</span><span class="kw">geom_histogram</span>()</a></code></pre></div>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<pre><code>## Warning: Removed 22852 rows containing non-finite values (stat_bin).</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1"><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(ylab))<span class="op">+</span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<pre><code>## Warning: Removed 22852 rows containing non-finite values
+## (stat_boxplot).</code></pre>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1"><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(ylab))<span class="op">+</span><span class="kw">geom_histogram</span>()</a></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with
+## `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 22852 rows containing non-finite values
+## (stat_bin).</code></pre>
 <p>Si ahora queremos comparar usar ambas variables cuanti y cuali</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1"><span class="kw">boxplot</span>(eh18p<span class="op">$</span>ylab<span class="op">~</span>eh18p<span class="op">$</span>s03a_01a)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1"><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(<span class="dt">x=</span>s03a_01a,<span class="dt">y=</span>ylab))<span class="op">+</span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
-<pre><code>## Warning: Removed 22852 rows containing non-finite values (stat_boxplot).</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(<span class="dt">x=</span>s03a_01a,<span class="dt">y=</span>ylab))<span class="op">+</span><span class="kw">geom_violin</span>()</a></code></pre></div>
-<pre><code>## Warning: Removed 22852 rows containing non-finite values (stat_ydensity).</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-7-3.png" width="672" /></p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1"><span class="kw">boxplot</span>(eh18p<span class="op">$</span>ylab<span class="op">~</span>eh18p<span class="op">$</span>s03a_01a)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" title="1"><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(<span class="dt">x=</span>s03a_01a,<span class="dt">y=</span>ylab))<span class="op">+</span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<pre><code>## Warning: Removed 22852 rows containing non-finite values
+## (stat_boxplot).</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-2.png" width="672" /></p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" title="1"><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(<span class="dt">x=</span>s03a_01a,<span class="dt">y=</span>ylab))<span class="op">+</span><span class="kw">geom_violin</span>()</a></code></pre></div>
+<pre><code>## Warning: Removed 22852 rows containing non-finite values
+## (stat_ydensity).</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-3.png" width="672" /></p>
 <p>Usando ambas variables cuantitativas</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="kw">plot</span>(eh18p<span class="op">$</span>tothrs,eh18p<span class="op">$</span>ylab)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1"><span class="kw">plot</span>(eh18p[,<span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>,<span class="st">&quot;aestudio&quot;</span>)])</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="co">#pairs(eh18p[,c(&quot;ylab&quot;,&quot;tothrs&quot;,&quot;aestudio&quot;)]) similar al anterior</span></a>
-<a class="sourceLine" id="cb74-2" title="2"><span class="kw">library</span>(GGally)</a></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" title="1"><span class="kw">plot</span>(eh18p<span class="op">$</span>tothrs,eh18p<span class="op">$</span>ylab)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1"><span class="kw">plot</span>(eh18p[,<span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>,<span class="st">&quot;aestudio&quot;</span>)])</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-25-2.png" width="672" /></p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1"><span class="co">#pairs(eh18p[,c(&quot;ylab&quot;,&quot;tothrs&quot;,&quot;aestudio&quot;)]) similar al anterior</span></a>
+<a class="sourceLine" id="cb128-2" title="2"><span class="kw">library</span>(GGally)</a></code></pre></div>
 <pre><code>## Registered S3 method overwritten by &#39;GGally&#39;:
 ##   method from   
 ##   +.gg   ggplot2</code></pre>
@@ -554,57 +588,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following object is masked from &#39;package:dplyr&#39;:
 ## 
 ##     nasa</code></pre>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1"><span class="kw">ggpairs</span>(eh18p,<span class="dt">columns =</span> <span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>,<span class="st">&quot;aestudio&quot;</span>))</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-8-3.png" width="672" /></p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"><span class="kw">library</span>(ggridges)</a>
-<a class="sourceLine" id="cb79-2" title="2"><span class="co"># basic example</span></a>
-<a class="sourceLine" id="cb79-3" title="3"><span class="kw">ggplot</span>(eh18p[eh18p<span class="op">$</span>s02a_<span class="dv">03</span><span class="op">&gt;=</span><span class="dv">15</span>,], <span class="kw">aes</span>(<span class="dt">x =</span> ylab, <span class="dt">y =</span> s02a_<span class="dv">02</span>, <span class="dt">fill =</span> s02a_<span class="dv">02</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb79-4" title="4"><span class="st">  </span><span class="kw">geom_density_ridges</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb79-5" title="5"><span class="st">  </span><span class="kw">theme_ridges</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb79-6" title="6"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb79-7" title="7"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Ingreso laboral por sexo, personas de 15 años o más&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1"><span class="kw">ggpairs</span>(eh18p,<span class="dt">columns =</span> <span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>,<span class="st">&quot;aestudio&quot;</span>))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-25-3.png" width="672" /></p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" title="1"><span class="kw">library</span>(ggridges)</a>
+<a class="sourceLine" id="cb133-2" title="2"><span class="co"># basic example</span></a>
+<a class="sourceLine" id="cb133-3" title="3"><span class="kw">ggplot</span>(eh18p[eh18p<span class="op">$</span>s02a_<span class="dv">03</span><span class="op">&gt;=</span><span class="dv">15</span>,], <span class="kw">aes</span>(<span class="dt">x =</span> ylab, <span class="dt">y =</span> s02a_<span class="dv">02</span>, <span class="dt">fill =</span> s02a_<span class="dv">02</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb133-4" title="4"><span class="st">  </span><span class="kw">geom_density_ridges</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb133-5" title="5"><span class="st">  </span><span class="kw">theme_ridges</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb133-6" title="6"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb133-7" title="7"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Ingreso laboral por sexo, personas de 15 años o más&quot;</span>)</a></code></pre></div>
 <pre><code>## Picking joint bandwidth of 257</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-8-4.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-25-4.png" width="672" /></p>
 <p>Ahora si combinamos variables cuanti y cuali con ggpairs.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1"><span class="kw">ggpairs</span>(eh18p,<span class="dt">columns =</span> <span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>,<span class="st">&quot;s03a_01a&quot;</span>,<span class="st">&quot;area&quot;</span>))</a></code></pre></div>
-<pre><code>## Warning: Removed 22852 rows containing non-finite values (stat_density).</code></pre>
-<pre><code>## Warning in (function (data, mapping, alignPercent = 0.6, method = &quot;pearson&quot;, :
-## Removed 22855 rows containing missing values</code></pre>
-<pre><code>## Warning: Removed 22852 rows containing non-finite values (stat_boxplot).
-
-## Warning: Removed 22852 rows containing non-finite values (stat_boxplot).</code></pre>
-<pre><code>## Warning: Removed 22855 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 20551 rows containing non-finite values (stat_density).</code></pre>
-<pre><code>## Warning: Removed 20551 rows containing non-finite values (stat_boxplot).
-
-## Warning: Removed 20551 rows containing non-finite values (stat_boxplot).</code></pre>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<pre><code>## Warning: Removed 22852 rows containing non-finite values (stat_bin).</code></pre>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<pre><code>## Warning: Removed 20551 rows containing non-finite values (stat_bin).</code></pre>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<pre><code>## Warning: Removed 22852 rows containing non-finite values (stat_bin).</code></pre>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<pre><code>## Warning: Removed 20551 rows containing non-finite values (stat_bin).</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1"><span class="kw">ggpairs</span>(eh18p,<span class="dt">columns =</span> <span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>,<span class="st">&quot;s03a_01a&quot;</span>,<span class="st">&quot;area&quot;</span>))</a></code></pre></div>
+<pre><code>## plot: [1,1] [=&gt;----------------------------------] 6% est: 0s</code></pre>
+<pre><code>## Warning: Removed 22852 rows containing non-finite values
+## (stat_density).</code></pre>
+<pre><code>## plot: [1,2] [===&gt;--------------------------------] 12% est: 1s</code></pre>
+<pre><code>## Warning in (function (data, mapping, alignPercent = 0.6, method =
+## &quot;pearson&quot;, : Removed 22855 rows containing missing values</code></pre>
+<pre><code>## plot: [1,3] [======&gt;-----------------------------] 19% est: 1s</code></pre>
+<pre><code>## Warning: Removed 22852 rows containing non-finite values
+## (stat_boxplot).</code></pre>
+<pre><code>## plot: [1,4] [========&gt;---------------------------] 25% est: 1s</code></pre>
+<pre><code>## Warning: Removed 22852 rows containing non-finite values
+## (stat_boxplot).</code></pre>
+<pre><code>## plot: [2,1] [==========&gt;-------------------------] 31% est: 1s</code></pre>
+<pre><code>## Warning: Removed 22855 rows containing missing values
+## (geom_point).</code></pre>
+<pre><code>## plot: [2,2] [=============&gt;----------------------] 38% est: 2s</code></pre>
+<pre><code>## Warning: Removed 20551 rows containing non-finite values
+## (stat_density).</code></pre>
+<pre><code>## plot: [2,3] [===============&gt;--------------------] 44% est: 1s</code></pre>
+<pre><code>## Warning: Removed 20551 rows containing non-finite values
+## (stat_boxplot).</code></pre>
+<pre><code>## plot: [2,4] [=================&gt;------------------] 50% est: 1s</code></pre>
+<pre><code>## Warning: Removed 20551 rows containing non-finite values
+## (stat_boxplot).</code></pre>
+<pre><code>## 
+ plot: [3,1] [===================&gt;----------------] 56% est: 1s `stat_bin()` using `bins = 30`. Pick better value with
+## `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 22852 rows containing non-finite values
+## (stat_bin).</code></pre>
+<pre><code>## 
+ plot: [3,2] [=====================&gt;--------------] 62% est: 1s `stat_bin()` using `bins = 30`. Pick better value with
+## `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 20551 rows containing non-finite values
+## (stat_bin).</code></pre>
+<pre><code>## 
+ plot: [3,3] [========================&gt;-----------] 69% est: 1s 
+ plot: [3,4] [==========================&gt;---------] 75% est: 1s 
+ plot: [4,1] [============================&gt;-------] 81% est: 1s `stat_bin()` using `bins = 30`. Pick better value with
+## `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 22852 rows containing non-finite values
+## (stat_bin).</code></pre>
+<pre><code>## 
+ plot: [4,2] [===============================&gt;----] 88% est: 0s `stat_bin()` using `bins = 30`. Pick better value with
+## `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 20551 rows containing non-finite values
+## (stat_bin).</code></pre>
+<pre><code>## plot: [4,3] [=================================&gt;--] 94% est: 0s
+## plot: [4,4] [====================================]100% est: 0s</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <p>Alternativas Multivariantes,</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" title="1"><span class="co">#trabajando a partir de una muestra de 100 individuos</span></a>
-<a class="sourceLine" id="cb96-2" title="2">s&lt;-<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(eh18p)[<span class="dv">1</span>],<span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb96-3" title="3">i&lt;-<span class="kw">match</span>(<span class="kw">c</span>(<span class="st">&quot;s02a_03&quot;</span>,<span class="st">&quot;aestudio&quot;</span>,<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>),<span class="kw">names</span>(eh18p))</a>
-<a class="sourceLine" id="cb96-4" title="4"><span class="kw">ggparcoord</span>(eh18p[s,],<span class="dt">columns =</span> i,<span class="dt">groupColumn =</span> <span class="st">&quot;area&quot;</span>,<span class="dt">boxplot=</span>T)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1"><span class="kw">library</span>(<span class="st">&quot;TeachingDemos&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" title="1"><span class="co">#trabajando a partir de una muestra de 100 individuos</span></a>
+<a class="sourceLine" id="cb161-2" title="2">s&lt;-<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(eh18p)[<span class="dv">1</span>],<span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb161-3" title="3">i&lt;-<span class="kw">match</span>(<span class="kw">c</span>(<span class="st">&quot;s02a_03&quot;</span>,<span class="st">&quot;aestudio&quot;</span>,<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>),<span class="kw">names</span>(eh18p))</a>
+<a class="sourceLine" id="cb161-4" title="4"><span class="kw">ggparcoord</span>(eh18p[s,],<span class="dt">columns =</span> i,<span class="dt">groupColumn =</span> <span class="st">&quot;area&quot;</span>,<span class="dt">boxplot=</span>T)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" title="1"><span class="kw">library</span>(<span class="st">&quot;TeachingDemos&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;TeachingDemos&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:Hmisc&#39;:
 ## 
 ##     cnvrt.coords, subplot</code></pre>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" title="1"><span class="kw">faces</span>(<span class="kw">na.omit</span>(eh18p[s,i]))</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" title="1"><span class="kw">faces</span>(<span class="kw">na.omit</span>(eh18p[s,i]))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-27-2.png" width="672" /></p>
 </div>
 </div>
 <div id="componentes-principales" class="section level2">
-<h2><span class="header-section-number">3.2</span> Componentes Principales</h2>
+<h2><span class="header-section-number">5.2</span> Componentes Principales</h2>
 <p>El método de Análisis de Componentes Principales se ocupa de explicar la estructura de varianza y covarianza de un grupo de variables a través de unas pocas combinaciones lineales de este grupo de variables. En general sus objetivos son (1) la reducción de los datos y (2) la interpretación.</p>
 <p>Algebráicamente, los componentes principales son combinaciones lineales de <span class="math inline">\(p\)</span> variables aleatorias <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, , <span class="math inline">\(X_p\)</span>. Geométricamente, estas combinaciones lineales representan la selección de un nuevo sistema de coordenadas obtenido por rotación de del sistema original con <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, , <span class="math inline">\(X_p\)</span> como los ejes de coordenadas. Los nuevos ejes representan la dirección con la máxima variabilidad y provee una simple y más parsimoniosa descripción de la estructura de la covarianza.</p>
 <p>Los componentes principales dependen únicamente de la matriz de covarianza <span class="math inline">\(\Sigma\)</span> o la matriz de correlaciones <span class="math inline">\(\rho\)</span> (Matriz estandarizada de <span class="math inline">\(\Sigma\)</span>) de <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, , <span class="math inline">\(X_p\)</span>. Su desarrollo no requiere de ningún supuesto de normalidad multivariada, sin embargo, componentes principales derivados de poblaciones normales multivariantes tienen un gran uso en la interpretación en términos de elipsoide de densidad constante.</p>
@@ -689,30 +752,30 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
 <li>Elegir el número de componentes a retener (scree plot, tamaño de los eigen valores, etc)</li>
 <li>Analizar los resultados</li>
 </ol>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="co">#1. Seleccione una base de datos de interés del repositorio </span></a>
-<a class="sourceLine" id="cb101-2" title="2"><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/blob/master/data/oct20.RData?raw=true&quot;</span>))</a>
-<a class="sourceLine" id="cb101-3" title="3"><span class="co">#2. Seleccione las variables para el PCA (Según la motivación) </span></a>
-<a class="sourceLine" id="cb101-4" title="4">vv&lt;-<span class="kw">c</span>(<span class="dv">14</span><span class="op">:</span><span class="dv">22</span>,<span class="dv">24</span>,<span class="dv">25</span>)</a>
-<a class="sourceLine" id="cb101-5" title="5"><span class="co">#2A TRANFORMAR </span></a>
-<a class="sourceLine" id="cb101-6" title="6">vval&lt;-<span class="kw">apply</span>(computo[,vv],<span class="dv">1</span>,sum)</a>
-<a class="sourceLine" id="cb101-7" title="7">aux&lt;-computo[,vv]<span class="op">/</span>vval</a>
-<a class="sourceLine" id="cb101-8" title="8"><span class="co">#2B LIMPIEZA </span></a>
-<a class="sourceLine" id="cb101-9" title="9"><span class="co">#3. Calcule el PCA</span></a>
-<a class="sourceLine" id="cb101-10" title="10">aux1&lt;-<span class="kw">na.omit</span>(aux)</a>
-<a class="sourceLine" id="cb101-11" title="11">cp1&lt;-<span class="kw">eigen</span>(<span class="kw">cov</span>(aux1))</a>
-<a class="sourceLine" id="cb101-12" title="12">cp2&lt;-<span class="kw">eigen</span>(<span class="kw">cor</span>(aux1))</a>
-<a class="sourceLine" id="cb101-13" title="13"><span class="co">#4. Identifique el número de CPs que explican hasta el 90% de la varianza</span></a>
-<a class="sourceLine" id="cb101-14" title="14"><span class="kw">cumsum</span>(cp1<span class="op">$</span>values)<span class="op">/</span><span class="kw">sum</span>(cp1<span class="op">$</span>values) </a></code></pre></div>
-<pre><code>##  [1] 0.6437488 0.8650934 0.9435882 0.9722772 0.9839750 0.9903314 0.9952079
-##  [8] 0.9977119 0.9991579 1.0000000 1.0000000</code></pre>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1"><span class="kw">cumsum</span>(cp2<span class="op">$</span>values)<span class="op">/</span><span class="kw">sum</span>(cp2<span class="op">$</span>values) </a></code></pre></div>
-<pre><code>##  [1] 0.2060107 0.3791103 0.4915437 0.5920446 0.6774866 0.7601857 0.8319256
-##  [8] 0.8991550 0.9562490 1.0000000 1.0000000</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1"><span class="co">#5. Identifique las variables correlacionadas con la cantidad de </span></a>
-<a class="sourceLine" id="cb105-2" title="2"><span class="co">#componentes fuera del 90% del paso anterior</span></a>
-<a class="sourceLine" id="cb105-3" title="3">cp11cov&lt;-<span class="kw">as.matrix</span>(aux1)<span class="op">%*%</span>cp1<span class="op">$</span>vectors[,<span class="dv">11</span>] </a>
-<a class="sourceLine" id="cb105-4" title="4">cp11cor&lt;-<span class="kw">as.matrix</span>(aux1)<span class="op">%*%</span>cp2<span class="op">$</span>vectors[,<span class="dv">11</span>] </a>
-<a class="sourceLine" id="cb105-5" title="5"><span class="kw">cor</span>(<span class="kw">cbind</span>(aux1,cp11cov,cp11cor))[<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>,<span class="dv">12</span><span class="op">:</span><span class="dv">13</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" title="1"><span class="co">#1. Seleccione una base de datos de interés del repositorio </span></a>
+<a class="sourceLine" id="cb166-2" title="2"><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/blob/master/data/oct20.RData?raw=true&quot;</span>))</a>
+<a class="sourceLine" id="cb166-3" title="3"><span class="co">#2. Seleccione las variables para el PCA (Según la motivación) </span></a>
+<a class="sourceLine" id="cb166-4" title="4">vv&lt;-<span class="kw">c</span>(<span class="dv">14</span><span class="op">:</span><span class="dv">22</span>,<span class="dv">24</span>,<span class="dv">25</span>)</a>
+<a class="sourceLine" id="cb166-5" title="5"><span class="co">#2A TRANFORMAR </span></a>
+<a class="sourceLine" id="cb166-6" title="6">vval&lt;-<span class="kw">apply</span>(computo[,vv],<span class="dv">1</span>,sum)</a>
+<a class="sourceLine" id="cb166-7" title="7">aux&lt;-computo[,vv]<span class="op">/</span>vval</a>
+<a class="sourceLine" id="cb166-8" title="8"><span class="co">#2B LIMPIEZA </span></a>
+<a class="sourceLine" id="cb166-9" title="9"><span class="co">#3. Calcule el PCA</span></a>
+<a class="sourceLine" id="cb166-10" title="10">aux1&lt;-<span class="kw">na.omit</span>(aux)</a>
+<a class="sourceLine" id="cb166-11" title="11">cp1&lt;-<span class="kw">eigen</span>(<span class="kw">cov</span>(aux1))</a>
+<a class="sourceLine" id="cb166-12" title="12">cp2&lt;-<span class="kw">eigen</span>(<span class="kw">cor</span>(aux1))</a>
+<a class="sourceLine" id="cb166-13" title="13"><span class="co">#4. Identifique el número de CPs que explican hasta el 90% de la varianza</span></a>
+<a class="sourceLine" id="cb166-14" title="14"><span class="kw">cumsum</span>(cp1<span class="op">$</span>values)<span class="op">/</span><span class="kw">sum</span>(cp1<span class="op">$</span>values) </a></code></pre></div>
+<pre><code>##  [1] 0.6437488 0.8650934 0.9435882 0.9722772 0.9839750 0.9903314
+##  [7] 0.9952079 0.9977119 0.9991579 1.0000000 1.0000000</code></pre>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1"><span class="kw">cumsum</span>(cp2<span class="op">$</span>values)<span class="op">/</span><span class="kw">sum</span>(cp2<span class="op">$</span>values) </a></code></pre></div>
+<pre><code>##  [1] 0.2060107 0.3791103 0.4915437 0.5920446 0.6774866 0.7601857
+##  [7] 0.8319256 0.8991550 0.9562490 1.0000000 1.0000000</code></pre>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1"><span class="co">#5. Identifique las variables correlacionadas con la cantidad de </span></a>
+<a class="sourceLine" id="cb170-2" title="2"><span class="co">#componentes fuera del 90% del paso anterior</span></a>
+<a class="sourceLine" id="cb170-3" title="3">cp11cov&lt;-<span class="kw">as.matrix</span>(aux1)<span class="op">%*%</span>cp1<span class="op">$</span>vectors[,<span class="dv">11</span>] </a>
+<a class="sourceLine" id="cb170-4" title="4">cp11cor&lt;-<span class="kw">as.matrix</span>(aux1)<span class="op">%*%</span>cp2<span class="op">$</span>vectors[,<span class="dv">11</span>] </a>
+<a class="sourceLine" id="cb170-5" title="5"><span class="kw">cor</span>(<span class="kw">cbind</span>(aux1,cp11cov,cp11cor))[<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>,<span class="dv">12</span><span class="op">:</span><span class="dv">13</span>]</a></code></pre></div>
 <pre><code>##                cp11cov     cp11cor
 ## CC          0.53979440 -0.30842297
 ## FPV        -0.55376059  0.21633850
@@ -725,19 +788,19 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
 ## PAN-BOL     0.11710134  0.09577694
 ## Blancos    -0.07666553  0.50453525
 ## Nulos      -0.11039942  0.18712933</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1">cp11&lt;-<span class="kw">eigen</span>(<span class="kw">cov</span>(aux1[,<span class="op">-</span><span class="dv">2</span>]))</a>
-<a class="sourceLine" id="cb107-2" title="2"><span class="kw">cumsum</span>(cp11<span class="op">$</span>values)<span class="op">/</span><span class="kw">sum</span>(cp11<span class="op">$</span>values)</a></code></pre></div>
-<pre><code>##  [1] 0.6443329 0.8658697 0.9444240 0.9730984 0.9847943 0.9911498 0.9960295
-##  [8] 0.9984949 0.9999206 1.0000000</code></pre>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1">cp10cov&lt;-<span class="kw">as.matrix</span>(aux1[,<span class="op">-</span><span class="dv">2</span>])<span class="op">%*%</span>cp11<span class="op">$</span>vectors[,<span class="dv">10</span>] </a>
-<a class="sourceLine" id="cb109-2" title="2"><span class="co">#6. Calcule nuevamente el componente principal eliminando las variables rebundantes</span></a>
-<a class="sourceLine" id="cb109-3" title="3"><span class="co">#7. Determine la cantidad de componentes principales a retener</span></a>
-<a class="sourceLine" id="cb109-4" title="4">cp1cov&lt;-<span class="kw">as.matrix</span>(aux1[,<span class="op">-</span><span class="dv">2</span>])<span class="op">%*%</span>cp11<span class="op">$</span>vectors[,<span class="dv">1</span>] </a>
-<a class="sourceLine" id="cb109-5" title="5">cp2cov&lt;-<span class="kw">as.matrix</span>(aux1[,<span class="op">-</span><span class="dv">2</span>])<span class="op">%*%</span>cp11<span class="op">$</span>vectors[,<span class="dv">2</span>] </a>
-<a class="sourceLine" id="cb109-6" title="6"><span class="kw">plot</span>(cp1cov,cp2cov)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" title="1"><span class="co">#8. Defina un indicador a partir de estos</span></a>
-<a class="sourceLine" id="cb110-2" title="2"><span class="kw">cor</span>(<span class="kw">cbind</span>(aux1,cp1cov,cp2cov))[<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>,<span class="dv">12</span><span class="op">:</span><span class="dv">13</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" title="1">cp11&lt;-<span class="kw">eigen</span>(<span class="kw">cov</span>(aux1[,<span class="op">-</span><span class="dv">2</span>]))</a>
+<a class="sourceLine" id="cb172-2" title="2"><span class="kw">cumsum</span>(cp11<span class="op">$</span>values)<span class="op">/</span><span class="kw">sum</span>(cp11<span class="op">$</span>values)</a></code></pre></div>
+<pre><code>##  [1] 0.6443329 0.8658697 0.9444240 0.9730984 0.9847943 0.9911498
+##  [7] 0.9960295 0.9984949 0.9999206 1.0000000</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" title="1">cp10cov&lt;-<span class="kw">as.matrix</span>(aux1[,<span class="op">-</span><span class="dv">2</span>])<span class="op">%*%</span>cp11<span class="op">$</span>vectors[,<span class="dv">10</span>] </a>
+<a class="sourceLine" id="cb174-2" title="2"><span class="co">#6. Calcule nuevamente el componente principal eliminando las variables rebundantes</span></a>
+<a class="sourceLine" id="cb174-3" title="3"><span class="co">#7. Determine la cantidad de componentes principales a retener</span></a>
+<a class="sourceLine" id="cb174-4" title="4">cp1cov&lt;-<span class="kw">as.matrix</span>(aux1[,<span class="op">-</span><span class="dv">2</span>])<span class="op">%*%</span>cp11<span class="op">$</span>vectors[,<span class="dv">1</span>] </a>
+<a class="sourceLine" id="cb174-5" title="5">cp2cov&lt;-<span class="kw">as.matrix</span>(aux1[,<span class="op">-</span><span class="dv">2</span>])<span class="op">%*%</span>cp11<span class="op">$</span>vectors[,<span class="dv">2</span>] </a>
+<a class="sourceLine" id="cb174-6" title="6"><span class="kw">plot</span>(cp1cov,cp2cov)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" title="1"><span class="co">#8. Defina un indicador a partir de estos</span></a>
+<a class="sourceLine" id="cb175-2" title="2"><span class="kw">cor</span>(<span class="kw">cbind</span>(aux1,cp1cov,cp2cov))[<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>,<span class="dv">12</span><span class="op">:</span><span class="dv">13</span>]</a></code></pre></div>
 <pre><code>##                 cp1cov      cp2cov
 ## CC          0.92113465  0.35759774
 ## FPV        -0.08074887 -0.10802564
@@ -750,10 +813,10 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
 ## PAN-BOL     0.04776390 -0.01901819
 ## Blancos    -0.17330606 -0.88168972
 ## Nulos      -0.08874645  0.06391096</code></pre>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1">bd&lt;-<span class="kw">cbind</span>(aux1,cp1cov,cp2cov)</a>
-<a class="sourceLine" id="cb112-2" title="2"><span class="kw">names</span>(bd)[<span class="dv">5</span>]&lt;-<span class="st">&quot;MAS&quot;</span></a>
-<a class="sourceLine" id="cb112-3" title="3"><span class="co">#9. Modele un modelo lineal empleando los CPs retenidos.</span></a>
-<a class="sourceLine" id="cb112-4" title="4"><span class="kw">summary</span>(<span class="kw">lm</span>(MAS<span class="op">~</span>cp1cov,<span class="dt">data=</span>bd))</a></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" title="1">bd&lt;-<span class="kw">cbind</span>(aux1,cp1cov,cp2cov)</a>
+<a class="sourceLine" id="cb177-2" title="2"><span class="kw">names</span>(bd)[<span class="dv">5</span>]&lt;-<span class="st">&quot;MAS&quot;</span></a>
+<a class="sourceLine" id="cb177-3" title="3"><span class="co">#9. Modele un modelo lineal empleando los CPs retenidos.</span></a>
+<a class="sourceLine" id="cb177-4" title="4"><span class="kw">summary</span>(<span class="kw">lm</span>(MAS<span class="op">~</span>cp1cov,<span class="dt">data=</span>bd))</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = MAS ~ cp1cov, data = bd)
@@ -774,13 +837,13 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
 ## F-statistic: 3.938e+05 on 1 and 68069 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div id="análisis-de-correspondencia" class="section level2">
-<h2><span class="header-section-number">3.3</span> Análisis de correspondencia</h2>
+<h2><span class="header-section-number">5.3</span> Análisis de correspondencia</h2>
 <p>El analisis de correspondencia esta orientado a encontrar relaciones entre las categorias de variables cualitativas.</p>
 <p>Esta técnica es un método visual que va más alla del test de independencia Chi-cuadrado.</p>
 <p>Para resumir la teoría, primero divida la matriz de datos <span class="math inline">\(I × J\)</span>, denotada por <span class="math inline">\(N\)</span>, por su gran total <span class="math inline">\(n\)</span> para obtener la llamada matriz de correspondencia <span class="math inline">\(P = N / n\)</span>. Deje que los totales marginales de fila y columna de <span class="math inline">\(P\)</span> sean los vectores <span class="math inline">\(r\)</span> y <span class="math inline">\(c\)</span> respectivamente, es decir, los vectores de masas de fila y columna, y <span class="math inline">\(Dr\)</span> y <span class="math inline">\(Dc\)</span> sean las matrices diagonales de estas matrices. El algoritmo computacional para obtener coordenadas de los perfiles de fila y columna con respecto a los ejes principales, usando el SVD, es el siguiente:</p>
 <ol style="list-style-type: decimal">
 <li>Calcular la matriz de residuos estadarizados: <span class="math inline">\(S=D_r^{-1/2}(P-rc^t)D_c^{-1/2}\)</span></li>
-<li>Calcular la descomposicion SVD de <span class="math inline">\(S\)</span>: <span class="math inline">\(S=UD_{\alpha}V^t\)</span>, donde <span class="math inline">\(U^T U=V^T V=I\)</span></li>
+<li>Calcular la descomposición SVD de <span class="math inline">\(S\)</span>: <span class="math inline">\(S=UD_{\alpha}V^t\)</span>, donde <span class="math inline">\(U^T U=V^T V=I\)</span></li>
 <li>Coordenadas principales de filas: <span class="math inline">\(F=D_r^{-1/2} U D_{\alpha}\)</span></li>
 <li>Coordenadas principales de columnas: <span class="math inline">\(G=D_c^{-1/2} V D_{\alpha}\)</span></li>
 <li>Coordenadas estándar de filas: <span class="math inline">\(X=D_r^{-1/2} U\)</span></li>
@@ -790,20 +853,20 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
 <li>Graficar las coordenadas de F y G según la la inercia contenida en la matriz <span class="math inline">\(D_{\alpha}\)</span></li>
 </ol>
 <p>En R, existe la libreria ca que permite acceder a las coordenadas del método de correspondencia.</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" title="1"><span class="co">#ejemplo CA</span></a>
-<a class="sourceLine" id="cb114-2" title="2"><span class="co">#install.packages(&quot;ca&quot;)</span></a>
-<a class="sourceLine" id="cb114-3" title="3"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb114-4" title="4"><span class="kw">library</span>(ca)</a>
-<a class="sourceLine" id="cb114-5" title="5"><span class="kw">data</span>(<span class="st">&quot;smoke&quot;</span>)</a>
-<a class="sourceLine" id="cb114-6" title="6">model&lt;-<span class="kw">ca</span>(smoke)</a>
-<a class="sourceLine" id="cb114-7" title="7"><span class="kw">plot</span>(model)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1"><span class="kw">names</span>(model)</a></code></pre></div>
-<pre><code>##  [1] &quot;sv&quot;         &quot;nd&quot;         &quot;rownames&quot;   &quot;rowmass&quot;    &quot;rowdist&quot;   
-##  [6] &quot;rowinertia&quot; &quot;rowcoord&quot;   &quot;rowsup&quot;     &quot;colnames&quot;   &quot;colmass&quot;   
-## [11] &quot;coldist&quot;    &quot;colinertia&quot; &quot;colcoord&quot;   &quot;colsup&quot;     &quot;N&quot;         
-## [16] &quot;call&quot;</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1"><span class="kw">summary</span>(model)</a></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" title="1"><span class="co">#ejemplo CA</span></a>
+<a class="sourceLine" id="cb179-2" title="2"><span class="co">#install.packages(&quot;ca&quot;)</span></a>
+<a class="sourceLine" id="cb179-3" title="3"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb179-4" title="4"><span class="kw">library</span>(ca)</a>
+<a class="sourceLine" id="cb179-5" title="5"><span class="kw">data</span>(<span class="st">&quot;smoke&quot;</span>)</a>
+<a class="sourceLine" id="cb179-6" title="6">model&lt;-<span class="kw">ca</span>(smoke)</a>
+<a class="sourceLine" id="cb179-7" title="7"><span class="kw">plot</span>(model)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" title="1"><span class="kw">names</span>(model)</a></code></pre></div>
+<pre><code>##  [1] &quot;sv&quot;         &quot;nd&quot;         &quot;rownames&quot;   &quot;rowmass&quot;   
+##  [5] &quot;rowdist&quot;    &quot;rowinertia&quot; &quot;rowcoord&quot;   &quot;rowsup&quot;    
+##  [9] &quot;colnames&quot;   &quot;colmass&quot;    &quot;coldist&quot;    &quot;colinertia&quot;
+## [13] &quot;colcoord&quot;   &quot;colsup&quot;     &quot;N&quot;          &quot;call&quot;</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" title="1"><span class="kw">summary</span>(model)</a></code></pre></div>
 <pre><code>## 
 ## Principal inertias (eigenvalues):
 ## 
@@ -829,226 +892,245 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
 ## 2 | lght |  233  984   83 |   99 327  31 |  141 657 463 |
 ## 3 | medm |  321  983  148 |  196 982 166 |    7   1   2 |
 ## 4 | hevy |  130  995  192 |  294 684 150 | -198 310 506 |</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="co">#ejemplo ENDSA</span></a>
-<a class="sourceLine" id="cb119-2" title="2"><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/endsa.RData&quot;</span>))</a></code></pre></div>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): strings not representable in native encoding will be translated
-## to UTF-8</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Sin educación&#39; cannot be translated to UTF-8, is
-## it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Con educación primaria&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Con educación secundaria&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Con educación superior&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Más pobre&#39; cannot be translated to UTF-8, is it
-## valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Más rico&#39; cannot be translated to UTF-8, is it
-## valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;No conoce métodos&#39; cannot be translated to UTF-8,
-## is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/
-## data/endsa.RData&quot;)): input string &#39;Conoce sólo métodos folkloricos&#39; cannot be
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" title="1"><span class="co">#ejemplo ENDSA</span></a>
+<a class="sourceLine" id="cb184-2" title="2"><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/endsa.RData&quot;</span>))</a></code></pre></div>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): strings not representable in native
+## encoding will be translated to UTF-8</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Sin educación&#39; cannot be
 ## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Conoce sólo métodos tradicionales&#39; cannot be
-## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Conoce métodos modernos&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Usa sólo métodos folkloricos&#39; cannot be translated
-## to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/
-## data/endsa.RData&quot;)): input string &#39;Usa sólo métodos tradicionales&#39; cannot be
-## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Usa métodos modernos&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Más de una ves&#39; cannot be translated to UTF-8, is
-## it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Sin educación&#39; cannot be translated to UTF-8, is
-## it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Con educación primaria&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Con educación secundaria&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Con educación superior&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;No trabajó&#39; cannot be translated to UTF-8, is it
-## valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/
-## data/endsa.RData&quot;)): input string &#39;Profesionales, técnicos, jefes&#39; cannot be
-## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Tareas domésticas&#39; cannot be translated to UTF-8,
-## is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;No trabajó&#39; cannot be translated to UTF-8, is it
-## valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/
-## data/endsa.RData&quot;)): input string &#39;Profesionales, técnicos, jefes&#39; cannot be
-## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Tareas domésticas&#39; cannot be translated to UTF-8,
-## is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;El año pasado&#39; cannot be translated to UTF-8, is
-## it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Todo el año&#39; cannot be translated to UTF-8, is it
-## valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Área&#39; cannot be translated to UTF-8, is it valid
-## in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Año&#39; cannot be translated to UTF-8, is it valid in
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Con educación primaria&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Con educación
+## secundaria&#39; cannot be translated to UTF-8, is it valid in
 ## &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Nivel de educación&#39; cannot be translated to UTF-8,
-## is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/
-## data/endsa.RData&quot;)): input string &#39;Años de educación en el ciclo&#39; cannot be
-## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Total de años de educación&#39; cannot be translated
-## to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Mira televisión en la semana&#39; cannot be translated
-## to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Índice de riqueza&#39; cannot be translated to UTF-8,
-## is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Conocimiento de algun método anticonceptivo&#39;
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Con educación superior&#39;
 ## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Uso de algún método anticonceptivo&#39; cannot be
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Más pobre&#39; cannot be
 ## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Método comunmente usado&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Edad al momento de la esterilización&#39; cannot be
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Más rico&#39; cannot be
 ## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Edad a la primera relación sexual&#39; cannot be
-## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Número de uniones&#39; cannot be translated to UTF-8,
-## is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Total de niños nacidos&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Mantendría en secreto si alguien de su familia
-## tuviera tb&#39; cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Número ideal de niños&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Número ideal de hijos&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Número ideal de hijas&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/
-## data/endsa.RData&quot;)): input string &#39;Nivel de educación de la pareja&#39; cannot be
-## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Años de educación en el ciclo (de la pareja)&#39;
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;No conoce métodos&#39;
 ## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Ocupación de la pareja&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Educación en años simples de la pareja&#39; cannot be
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Conoce sólo métodos
+## folkloricos&#39; cannot be translated to UTF-8, is it valid in
+## &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Conoce sólo métodos
+## tradicionales&#39; cannot be translated to UTF-8, is it valid in
+## &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Conoce métodos modernos&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Usa sólo métodos
+## folkloricos&#39; cannot be translated to UTF-8, is it valid in
+## &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Usa sólo métodos
+## tradicionales&#39; cannot be translated to UTF-8, is it valid in
+## &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Usa métodos modernos&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Más de una ves&#39; cannot
+## be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Sin educación&#39; cannot be
 ## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Ocupación&#39; cannot be translated to UTF-8, is it
-## valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/
-## data/endsa.RData&quot;)): input string &#39;Trabajó en los ultimos 12 meses&#39; cannot be
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Con educación primaria&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Con educación
+## secundaria&#39; cannot be translated to UTF-8, is it valid in
+## &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Con educación superior&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;No trabajó&#39; cannot be
 ## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Quién decide como gastar el dinero?&#39; cannot be
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Profesionales, técnicos,
+## jefes&#39; cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Tareas domésticas&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;No trabajó&#39; cannot be
 ## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Factor de expansión&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Todo el año&#39; cannot be translated to UTF-8, is it
-## valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;El año pasado&#39; cannot be translated to UTF-8, is
-## it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;No trabajó&#39; cannot be translated to UTF-8, is it
-## valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/
-## data/endsa.RData&quot;)): input string &#39;Profesionales, técnicos, jefes&#39; cannot be
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Profesionales, técnicos,
+## jefes&#39; cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Tareas domésticas&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;El año pasado&#39; cannot be
 ## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Tareas domésticas&#39; cannot be translated to UTF-8,
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Todo el año&#39; cannot be
+## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Área&#39; cannot be
+## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Año&#39; cannot be
+## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Nivel de educación&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Años de educación en el
+## ciclo&#39; cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Total de años de
+## educación&#39; cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Mira televisión en la
+## semana&#39; cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Índice de riqueza&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Conocimiento de algun
+## método anticonceptivo&#39; cannot be translated to UTF-8, is it valid
+## in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Uso de algún método
+## anticonceptivo&#39; cannot be translated to UTF-8, is it valid in
+## &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Método comunmente usado&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Edad al momento de
+## la esterilización&#39; cannot be translated to UTF-8, is it valid in
+## &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Edad a la primera
+## relación sexual&#39; cannot be translated to UTF-8, is it valid in
+## &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Número de uniones&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Total de niños nacidos&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Mantendría en secreto si
+## alguien de su familia tuviera tb&#39; cannot be translated to UTF-8,
 ## is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Más de una ves&#39; cannot be translated to UTF-8, is
-## it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Usa sólo métodos folkloricos&#39; cannot be translated
-## to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/
-## data/endsa.RData&quot;)): input string &#39;Usa sólo métodos tradicionales&#39; cannot be
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Número ideal de niños&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Número ideal de hijos&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Número ideal de hijas&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Nivel de educación de la
+## pareja&#39; cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Años de educación en el
+## ciclo (de la pareja)&#39; cannot be translated to UTF-8, is it valid
+## in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Ocupación de la pareja&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Educación en años
+## simples de la pareja&#39; cannot be translated to UTF-8, is it valid
+## in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Ocupación&#39; cannot be
 ## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Usa métodos modernos&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;No conoce métodos&#39; cannot be translated to UTF-8,
-## is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/
-## data/endsa.RData&quot;)): input string &#39;Conoce sólo métodos folkloricos&#39; cannot be
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Trabajó en los ultimos
+## 12 meses&#39; cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Quién decide como
+## gastar el dinero?&#39; cannot be translated to UTF-8, is it valid in
+## &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Factor de expansión&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Todo el año&#39; cannot be
 ## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Conoce sólo métodos tradicionales&#39; cannot be
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;El año pasado&#39; cannot be
 ## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Conoce métodos modernos&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Más pobre&#39; cannot be translated to UTF-8, is it
-## valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Más rico&#39; cannot be translated to UTF-8, is it
-## valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Sin educación&#39; cannot be translated to UTF-8, is
-## it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Con educación primaria&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Con educación secundaria&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/
-## endsa.RData&quot;)): input string &#39;Con educación superior&#39; cannot be translated to
-## UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" title="1">ll&lt;-<span class="kw">attributes</span>(endsa)</a>
-<a class="sourceLine" id="cb192-2" title="2">ll<span class="op">$</span>var.labels</a></code></pre></div>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;No trabajó&#39; cannot be
+## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Profesionales, técnicos,
+## jefes&#39; cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Tareas domésticas&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Más de una ves&#39; cannot
+## be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Usa sólo métodos
+## folkloricos&#39; cannot be translated to UTF-8, is it valid in
+## &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Usa sólo métodos
+## tradicionales&#39; cannot be translated to UTF-8, is it valid in
+## &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Usa métodos modernos&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;No conoce métodos&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Conoce sólo métodos
+## folkloricos&#39; cannot be translated to UTF-8, is it valid in
+## &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Conoce sólo métodos
+## tradicionales&#39; cannot be translated to UTF-8, is it valid in
+## &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Conoce métodos modernos&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Más pobre&#39; cannot be
+## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Más rico&#39; cannot be
+## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Sin educación&#39; cannot be
+## translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Con educación primaria&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/
+## raw/master/data/endsa.RData&quot;)): input string &#39;Con educación
+## secundaria&#39; cannot be translated to UTF-8, is it valid in
+## &#39;UTF-8&#39; ?</code></pre>
+<pre><code>## Warning in load(url(&quot;https://github.com/AlvaroLimber/EST-384/raw/
+## master/data/endsa.RData&quot;)): input string &#39;Con educación superior&#39;
+## cannot be translated to UTF-8, is it valid in &#39;UTF-8&#39; ?</code></pre>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" title="1">ll&lt;-<span class="kw">attributes</span>(endsa)</a>
+<a class="sourceLine" id="cb257-2" title="2">ll<span class="op">$</span>var.labels</a></code></pre></div>
 <pre><code>##  [1] &quot;Cluster&quot;                                                  
 ##  [2] &quot;Departamento&quot;                                             
 ##  [3] &quot;Área&quot;                                                     
@@ -1110,17 +1192,17 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
 ## [59] &quot;(Fis) Forzado a tener relaciones&quot;                         
 ## [60] &quot;&quot;                                                         
 ## [61] &quot;Factor de expansión&quot;</code></pre>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" title="1">t1&lt;-endsa <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">2008</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">7</span>,<span class="dv">14</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</a>
-<a class="sourceLine" id="cb194-2" title="2">t1&lt;-t1[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,]</a>
-<a class="sourceLine" id="cb194-3" title="3"><span class="co">#test chi2</span></a>
-<a class="sourceLine" id="cb194-4" title="4"><span class="kw">chisq.test</span>(t1)</a></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb259-1" title="1">t1&lt;-endsa <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">2008</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">7</span>,<span class="dv">14</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</a>
+<a class="sourceLine" id="cb259-2" title="2">t1&lt;-t1[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,]</a>
+<a class="sourceLine" id="cb259-3" title="3"><span class="co">#test chi2</span></a>
+<a class="sourceLine" id="cb259-4" title="4"><span class="kw">chisq.test</span>(t1)</a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  t1
 ## X-squared = 8367.8, df = 12, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" title="1">model&lt;-<span class="kw">ca</span>(t1)</a>
-<a class="sourceLine" id="cb196-2" title="2">model</a></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" title="1">model&lt;-<span class="kw">ca</span>(t1)</a>
+<a class="sourceLine" id="cb261-2" title="2">model</a></code></pre></div>
 <pre><code>## 
 ##  Principal inertias (eigenvalues):
 ##            1        2        3       
@@ -1129,18 +1211,18 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
 ## 
 ## 
 ##  Rows:
-##         Sin educación Con educación primaria Con educación secundaria
-## Mass         0.036794               0.397860                 0.366807
-## ChiDist      0.999518               0.564015                 0.326543
-## Inertia      0.036758               0.126564                 0.039113
-## Dim. 1      -1.589674              -0.986443                 0.406081
-## Dim. 2       1.986439               0.251096                -1.168372
-##         Con educación superior
-## Mass                  0.198539
-## ChiDist               0.901890
-## Inertia               0.161492
-## Dim. 1                1.521130
-## Dim. 2                1.287294
+##         Sin educación Con educación primaria
+## Mass         0.036794               0.397860
+## ChiDist      0.999518               0.564015
+## Inertia      0.036758               0.126564
+## Dim. 1      -1.589674              -0.986443
+## Dim. 2       1.986439               0.251096
+##         Con educación secundaria Con educación superior
+## Mass                    0.366807               0.198539
+## ChiDist                 0.326543               0.901890
+## Inertia                 0.039113               0.161492
+## Dim. 1                  0.406081               1.521130
+## Dim. 2                 -1.168372               1.287294
 ## 
 ## 
 ##  Columns:
@@ -1150,41 +1232,41 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
 ## Inertia  0.127757  0.039591    0.010778  0.022799 0.163003
 ## Dim. 1  -1.460754 -0.818013   -0.185957  0.436418 1.413047
 ## Dim. 2   1.281961 -0.168562   -1.053040 -1.037739 1.052869</code></pre>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1"><span class="kw">plot</span>(model)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" title="1"><span class="co">#programando el ca</span></a>
-<a class="sourceLine" id="cb199-2" title="2">lcol&lt;-<span class="kw">colnames</span>(t1)</a>
-<a class="sourceLine" id="cb199-3" title="3">lrow&lt;-<span class="kw">rownames</span>(t1)</a>
-<a class="sourceLine" id="cb199-4" title="4">P&lt;-<span class="kw">prop.table</span>(t1)</a>
-<a class="sourceLine" id="cb199-5" title="5">r&lt;-<span class="kw">margin.table</span>(P,<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb199-6" title="6">c&lt;-<span class="kw">margin.table</span>(P,<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb199-7" title="7">Dr&lt;-<span class="kw">diag</span>(r)</a>
-<a class="sourceLine" id="cb199-8" title="8">Dc&lt;-<span class="kw">diag</span>(c)</a>
-<a class="sourceLine" id="cb199-9" title="9"><span class="co">##Paso 1</span></a>
-<a class="sourceLine" id="cb199-10" title="10">P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c)</a></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" title="1"><span class="kw">plot</span>(model)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-2.png" width="672" /></p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" title="1"><span class="co">#programando el ca</span></a>
+<a class="sourceLine" id="cb264-2" title="2">lcol&lt;-<span class="kw">colnames</span>(t1)</a>
+<a class="sourceLine" id="cb264-3" title="3">lrow&lt;-<span class="kw">rownames</span>(t1)</a>
+<a class="sourceLine" id="cb264-4" title="4">P&lt;-<span class="kw">prop.table</span>(t1)</a>
+<a class="sourceLine" id="cb264-5" title="5">r&lt;-<span class="kw">margin.table</span>(P,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb264-6" title="6">c&lt;-<span class="kw">margin.table</span>(P,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb264-7" title="7">Dr&lt;-<span class="kw">diag</span>(r)</a>
+<a class="sourceLine" id="cb264-8" title="8">Dc&lt;-<span class="kw">diag</span>(c)</a>
+<a class="sourceLine" id="cb264-9" title="9"><span class="co">##Paso 1</span></a>
+<a class="sourceLine" id="cb264-10" title="10">P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c)</a></code></pre></div>
 <pre><code>##                           ae08
-## ae01                          Más pobre        Pobre  Clase media         Rico
-##   Sin educación             0.012441006  0.002372467 -0.001657500 -0.005240036
-##   Con educación primaria    0.057509375  0.035321601  0.003921918 -0.027698479
-##   Con educación secundaria -0.038100566 -0.011824251  0.014659135  0.028348987
-##   Con educación superior   -0.031849815 -0.025869816 -0.016923553  0.004589529
+## ae01                          Más pobre        Pobre  Clase media
+##   Sin educación             0.012441006  0.002372467 -0.001657500
+##   Con educación primaria    0.057509375  0.035321601  0.003921918
+##   Con educación secundaria -0.038100566 -0.011824251  0.014659135
+##   Con educación superior   -0.031849815 -0.025869816 -0.016923553
 ##                           ae08
-## ae01                           Más rico
-##   Sin educación            -0.007915937
-##   Con educación primaria   -0.069054414
-##   Con educación secundaria  0.006916695
-##   Con educación superior    0.070053656</code></pre>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" title="1"><span class="co">#error en las matriz diagonales</span></a>
-<a class="sourceLine" id="cb201-2" title="2">Dr<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)<span class="op">%*%</span>(P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c))<span class="op">%*%</span><span class="st"> </span>Dc<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)</a></code></pre></div>
+## ae01                               Rico     Más rico
+##   Sin educación            -0.005240036 -0.007915937
+##   Con educación primaria   -0.027698479 -0.069054414
+##   Con educación secundaria  0.028348987  0.006916695
+##   Con educación superior    0.004589529  0.070053656</code></pre>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" title="1"><span class="co">#error en las matriz diagonales</span></a>
+<a class="sourceLine" id="cb266-2" title="2">Dr<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)<span class="op">%*%</span>(P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c))<span class="op">%*%</span><span class="st"> </span>Dc<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]  NaN  NaN  NaN  NaN  NaN
 ## [2,]  NaN  NaN  NaN  NaN  NaN
 ## [3,]  NaN  NaN  NaN  NaN  NaN
 ## [4,]  NaN  NaN  NaN  NaN  NaN</code></pre>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" title="1"><span class="co"># corrigiendo el problema</span></a>
-<a class="sourceLine" id="cb203-2" title="2">S&lt;-<span class="kw">diag</span>(r<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>))<span class="op">%*%</span>(P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c))<span class="op">%*%</span><span class="st"> </span><span class="kw">diag</span>(c<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>))</a>
-<a class="sourceLine" id="cb203-3" title="3"><span class="co"># 2 descomposición SVD</span></a>
-<a class="sourceLine" id="cb203-4" title="4"><span class="kw">svd</span>(S)</a></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" title="1"><span class="co"># corrigiendo el problema</span></a>
+<a class="sourceLine" id="cb268-2" title="2">S&lt;-<span class="kw">diag</span>(r<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>))<span class="op">%*%</span>(P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c))<span class="op">%*%</span><span class="st"> </span><span class="kw">diag</span>(c<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>))</a>
+<a class="sourceLine" id="cb268-3" title="3"><span class="co"># 2 descomposición SVD</span></a>
+<a class="sourceLine" id="cb268-4" title="4"><span class="kw">svd</span>(S)</a></code></pre></div>
 <pre><code>## $d
 ## [1] 5.689533e-01 1.969900e-01 3.761651e-02 8.641056e-17
 ## 
@@ -1202,73 +1284,73 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
 ## [3,] -0.08289454 -0.46941592  0.04584658 -0.5165641
 ## [4,]  0.20379664 -0.48459901  0.41307289 -0.4090435
 ## [5,]  0.68706615  0.51193680 -0.12803642 -0.4949736</code></pre>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" title="1">U&lt;-<span class="kw">svd</span>(S)<span class="op">$</span>u</a>
-<a class="sourceLine" id="cb205-2" title="2">V&lt;-<span class="kw">svd</span>(S)<span class="op">$</span>v</a>
-<a class="sourceLine" id="cb205-3" title="3">Da&lt;-<span class="kw">diag</span>(<span class="kw">svd</span>(S)<span class="op">$</span>d)</a>
-<a class="sourceLine" id="cb205-4" title="4"><span class="co">#verificando las propiedades</span></a>
-<a class="sourceLine" id="cb205-5" title="5">U <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(U) </a></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" title="1">U&lt;-<span class="kw">svd</span>(S)<span class="op">$</span>u</a>
+<a class="sourceLine" id="cb270-2" title="2">V&lt;-<span class="kw">svd</span>(S)<span class="op">$</span>v</a>
+<a class="sourceLine" id="cb270-3" title="3">Da&lt;-<span class="kw">diag</span>(<span class="kw">svd</span>(S)<span class="op">$</span>d)</a>
+<a class="sourceLine" id="cb270-4" title="4"><span class="co">#verificando las propiedades</span></a>
+<a class="sourceLine" id="cb270-5" title="5">U <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(U) </a></code></pre></div>
 <pre><code>##               [,1]          [,2]          [,3]          [,4]
 ## [1,]  1.000000e+00  1.942890e-16 -8.326673e-17 -5.551115e-17
 ## [2,]  1.942890e-16  1.000000e+00 -1.110223e-16  5.551115e-17
 ## [3,] -8.326673e-17 -1.110223e-16  1.000000e+00  1.665335e-16
 ## [4,] -5.551115e-17  5.551115e-17  1.665335e-16  1.000000e+00</code></pre>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" title="1"><span class="kw">t</span>(V) <span class="op">%*%</span><span class="st"> </span>V</a></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" title="1"><span class="kw">t</span>(V) <span class="op">%*%</span><span class="st"> </span>V</a></code></pre></div>
 <pre><code>##              [,1]         [,2]         [,3]         [,4]
 ## [1,] 1.000000e+00 2.220446e-16 2.081668e-16 5.551115e-17
 ## [2,] 2.220446e-16 1.000000e+00 2.914335e-16 5.551115e-17
 ## [3,] 2.081668e-16 2.914335e-16 1.000000e+00 8.326673e-17
 ## [4,] 5.551115e-17 5.551115e-17 8.326673e-17 1.000000e+00</code></pre>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" title="1">U <span class="op">%*%</span><span class="st"> </span>Da <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(V)</a></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" title="1">U <span class="op">%*%</span><span class="st"> </span>Da <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(V)</a></code></pre></div>
 <pre><code>##            [,1]        [,2]        [,3]        [,4]        [,5]
 ## [1,]  0.1577867  0.02932932 -0.01938445 -0.05849955 -0.08487368
 ## [2,]  0.2218072  0.13278970  0.01394827 -0.09403647 -0.22515639
 ## [3,] -0.1530435 -0.04629605  0.05429710  0.10023611  0.02348755
 ## [4,] -0.1738948 -0.13767657 -0.08520326  0.02205724  0.32334513</code></pre>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" title="1">S</a></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" title="1">S</a></code></pre></div>
 <pre><code>##            [,1]        [,2]        [,3]        [,4]        [,5]
 ## [1,]  0.1577867  0.02932932 -0.01938445 -0.05849955 -0.08487368
 ## [2,]  0.2218072  0.13278970  0.01394827 -0.09403647 -0.22515639
 ## [3,] -0.1530435 -0.04629605  0.05429710  0.10023611  0.02348755
 ## [4,] -0.1738948 -0.13767657 -0.08520326  0.02205724  0.32334513</code></pre>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" title="1"><span class="co"># 3 Coordenadas principales filas</span></a>
-<a class="sourceLine" id="cb213-2" title="2">FF&lt;-<span class="st"> </span><span class="kw">diag</span>(r<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>U <span class="op">%*%</span><span class="st"> </span>Da</a>
-<a class="sourceLine" id="cb213-3" title="3"><span class="co"># 4 Coordenadas principales columnas</span></a>
-<a class="sourceLine" id="cb213-4" title="4">G&lt;-<span class="st"> </span><span class="kw">diag</span>(c<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>V <span class="op">%*%</span><span class="st"> </span>Da</a>
-<a class="sourceLine" id="cb213-5" title="5"><span class="co"># 5 Coordenadas estandar filas</span></a>
-<a class="sourceLine" id="cb213-6" title="6">X&lt;-<span class="st"> </span><span class="kw">diag</span>(r<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>U </a>
-<a class="sourceLine" id="cb213-7" title="7"><span class="co"># 6 Coordenadas estandar columnas</span></a>
-<a class="sourceLine" id="cb213-8" title="8">Y&lt;-<span class="st"> </span><span class="kw">diag</span>(c<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>V </a>
-<a class="sourceLine" id="cb213-9" title="9"><span class="co"># 7 inercia</span></a>
-<a class="sourceLine" id="cb213-10" title="10"><span class="kw">sum</span>(((P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c))<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span>(r<span class="op">%*%</span><span class="kw">t</span>(c)))</a></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" title="1"><span class="co"># 3 Coordenadas principales filas</span></a>
+<a class="sourceLine" id="cb278-2" title="2">FF&lt;-<span class="st"> </span><span class="kw">diag</span>(r<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>U <span class="op">%*%</span><span class="st"> </span>Da</a>
+<a class="sourceLine" id="cb278-3" title="3"><span class="co"># 4 Coordenadas principales columnas</span></a>
+<a class="sourceLine" id="cb278-4" title="4">G&lt;-<span class="st"> </span><span class="kw">diag</span>(c<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>V <span class="op">%*%</span><span class="st"> </span>Da</a>
+<a class="sourceLine" id="cb278-5" title="5"><span class="co"># 5 Coordenadas estandar filas</span></a>
+<a class="sourceLine" id="cb278-6" title="6">X&lt;-<span class="st"> </span><span class="kw">diag</span>(r<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>U </a>
+<a class="sourceLine" id="cb278-7" title="7"><span class="co"># 6 Coordenadas estandar columnas</span></a>
+<a class="sourceLine" id="cb278-8" title="8">Y&lt;-<span class="st"> </span><span class="kw">diag</span>(c<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>V </a>
+<a class="sourceLine" id="cb278-9" title="9"><span class="co"># 7 inercia</span></a>
+<a class="sourceLine" id="cb278-10" title="10"><span class="kw">sum</span>(((P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c))<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span>(r<span class="op">%*%</span><span class="kw">t</span>(c)))</a></code></pre></div>
 <pre><code>## [1] 0.3639279</code></pre>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" title="1"><span class="co">#graficando</span></a>
-<a class="sourceLine" id="cb215-2" title="2">xmin&lt;-<span class="kw">min</span>(<span class="kw">c</span>(FF[,<span class="dv">1</span>],G[,<span class="dv">1</span>]))</a>
-<a class="sourceLine" id="cb215-3" title="3">xmax&lt;-<span class="kw">max</span>(<span class="kw">c</span>(FF[,<span class="dv">1</span>],G[,<span class="dv">1</span>]))</a>
-<a class="sourceLine" id="cb215-4" title="4">ymin&lt;-<span class="kw">min</span>(<span class="kw">c</span>(FF[,<span class="dv">2</span>],G[,<span class="dv">2</span>]))</a>
-<a class="sourceLine" id="cb215-5" title="5">ymax&lt;-<span class="kw">max</span>(<span class="kw">c</span>(FF[,<span class="dv">2</span>],G[,<span class="dv">2</span>]))</a>
-<a class="sourceLine" id="cb215-6" title="6"><span class="kw">plot</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(xmin,xmax)<span class="op">*</span><span class="fl">1.5</span>,<span class="dt">ylim=</span><span class="kw">c</span>(ymin,ymax)<span class="op">*</span><span class="fl">1.1</span>)</a>
-<a class="sourceLine" id="cb215-7" title="7"><span class="kw">points</span>(G[,<span class="dv">1</span>],G[,<span class="dv">2</span>],<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</a>
-<a class="sourceLine" id="cb215-8" title="8"><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-12-3.png" width="672" /></p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" title="1"><span class="co">#incluyendo el texto</span></a>
-<a class="sourceLine" id="cb216-2" title="2"><span class="kw">plot</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">xlim=</span><span class="kw">c</span>(xmin,xmax)<span class="op">*</span><span class="fl">1.5</span>,<span class="dt">ylim=</span><span class="kw">c</span>(ymin,ymax)<span class="op">*</span><span class="fl">1.1</span>,<span class="dt">type =</span> <span class="st">&quot;n&quot;</span>)</a>
-<a class="sourceLine" id="cb216-3" title="3"><span class="kw">text</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">labels =</span> lrow,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">0.7</span>)</a>
-<a class="sourceLine" id="cb216-4" title="4"><span class="kw">text</span>(G[,<span class="dv">1</span>],G[,<span class="dv">2</span>],<span class="dt">labels =</span> lcol,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">cex=</span><span class="fl">0.7</span>)</a>
-<a class="sourceLine" id="cb216-5" title="5"><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-12-4.png" width="672" /></p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" title="1"><span class="co">#incluyendo mas información</span></a>
-<a class="sourceLine" id="cb217-2" title="2"><span class="kw">plot</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">xlim=</span><span class="kw">c</span>(xmin,xmax)<span class="op">*</span><span class="fl">1.5</span>,<span class="dt">ylim=</span><span class="kw">c</span>(ymin,ymax)<span class="op">*</span><span class="fl">1.1</span>,<span class="dt">type =</span> <span class="st">&quot;n&quot;</span>)</a>
-<a class="sourceLine" id="cb217-3" title="3"><span class="kw">text</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">labels =</span> lrow,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>r<span class="op">*</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb217-4" title="4"><span class="kw">text</span>(G[,<span class="dv">1</span>],G[,<span class="dv">2</span>],<span class="dt">labels =</span> lcol,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>c<span class="op">*</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb217-5" title="5"><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-12-5.png" width="672" /></p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" title="1"><span class="co">#viendo solo una dimensión</span></a>
-<a class="sourceLine" id="cb218-2" title="2"><span class="kw">plot</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">dim</span>(FF)[<span class="dv">1</span>]),FF[,<span class="dv">1</span>],<span class="dt">type =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">axes =</span> F)</a>
-<a class="sourceLine" id="cb218-3" title="3"><span class="kw">axis</span>(<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb218-4" title="4"><span class="kw">text</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">dim</span>(FF)[<span class="dv">1</span>]),FF[,<span class="dv">1</span>],<span class="dt">labels =</span> lrow,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>r<span class="op">*</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb218-5" title="5"><span class="kw">text</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">dim</span>(G)[<span class="dv">1</span>]),G[,<span class="dv">1</span>],<span class="dt">labels =</span> lcol,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>c<span class="op">*</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb218-6" title="6"><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-12-6.png" width="672" /></p>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" title="1"><span class="co">#graficando</span></a>
+<a class="sourceLine" id="cb280-2" title="2">xmin&lt;-<span class="kw">min</span>(<span class="kw">c</span>(FF[,<span class="dv">1</span>],G[,<span class="dv">1</span>]))</a>
+<a class="sourceLine" id="cb280-3" title="3">xmax&lt;-<span class="kw">max</span>(<span class="kw">c</span>(FF[,<span class="dv">1</span>],G[,<span class="dv">1</span>]))</a>
+<a class="sourceLine" id="cb280-4" title="4">ymin&lt;-<span class="kw">min</span>(<span class="kw">c</span>(FF[,<span class="dv">2</span>],G[,<span class="dv">2</span>]))</a>
+<a class="sourceLine" id="cb280-5" title="5">ymax&lt;-<span class="kw">max</span>(<span class="kw">c</span>(FF[,<span class="dv">2</span>],G[,<span class="dv">2</span>]))</a>
+<a class="sourceLine" id="cb280-6" title="6"><span class="kw">plot</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(xmin,xmax)<span class="op">*</span><span class="fl">1.5</span>,<span class="dt">ylim=</span><span class="kw">c</span>(ymin,ymax)<span class="op">*</span><span class="fl">1.1</span>)</a>
+<a class="sourceLine" id="cb280-7" title="7"><span class="kw">points</span>(G[,<span class="dv">1</span>],G[,<span class="dv">2</span>],<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</a>
+<a class="sourceLine" id="cb280-8" title="8"><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-3.png" width="672" /></p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" title="1"><span class="co">#incluyendo el texto</span></a>
+<a class="sourceLine" id="cb281-2" title="2"><span class="kw">plot</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">xlim=</span><span class="kw">c</span>(xmin,xmax)<span class="op">*</span><span class="fl">1.5</span>,<span class="dt">ylim=</span><span class="kw">c</span>(ymin,ymax)<span class="op">*</span><span class="fl">1.1</span>,<span class="dt">type =</span> <span class="st">&quot;n&quot;</span>)</a>
+<a class="sourceLine" id="cb281-3" title="3"><span class="kw">text</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">labels =</span> lrow,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">0.7</span>)</a>
+<a class="sourceLine" id="cb281-4" title="4"><span class="kw">text</span>(G[,<span class="dv">1</span>],G[,<span class="dv">2</span>],<span class="dt">labels =</span> lcol,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">cex=</span><span class="fl">0.7</span>)</a>
+<a class="sourceLine" id="cb281-5" title="5"><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-4.png" width="672" /></p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" title="1"><span class="co">#incluyendo mas información</span></a>
+<a class="sourceLine" id="cb282-2" title="2"><span class="kw">plot</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">xlim=</span><span class="kw">c</span>(xmin,xmax)<span class="op">*</span><span class="fl">1.5</span>,<span class="dt">ylim=</span><span class="kw">c</span>(ymin,ymax)<span class="op">*</span><span class="fl">1.1</span>,<span class="dt">type =</span> <span class="st">&quot;n&quot;</span>)</a>
+<a class="sourceLine" id="cb282-3" title="3"><span class="kw">text</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">labels =</span> lrow,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>r<span class="op">*</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb282-4" title="4"><span class="kw">text</span>(G[,<span class="dv">1</span>],G[,<span class="dv">2</span>],<span class="dt">labels =</span> lcol,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>c<span class="op">*</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb282-5" title="5"><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-5.png" width="672" /></p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" title="1"><span class="co">#viendo solo una dimensión</span></a>
+<a class="sourceLine" id="cb283-2" title="2"><span class="kw">plot</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">dim</span>(FF)[<span class="dv">1</span>]),FF[,<span class="dv">1</span>],<span class="dt">type =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">axes =</span> F)</a>
+<a class="sourceLine" id="cb283-3" title="3"><span class="kw">axis</span>(<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb283-4" title="4"><span class="kw">text</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">dim</span>(FF)[<span class="dv">1</span>]),FF[,<span class="dv">1</span>],<span class="dt">labels =</span> lrow,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>r<span class="op">*</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb283-5" title="5"><span class="kw">text</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">dim</span>(G)[<span class="dv">1</span>]),G[,<span class="dv">1</span>],<span class="dt">labels =</span> lcol,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>c<span class="op">*</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb283-6" title="6"><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-6.png" width="672" /></p>
 
 </div>
 </div>
@@ -1277,7 +1359,7 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
           </div>
         </div>
       </div>
-<a href="preparación-de-los-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="preparación-de-los-datos-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="clustering.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
