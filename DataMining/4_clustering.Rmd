@@ -257,7 +257,7 @@ summary(dd)
 Ejercicios
 
 1. Busque funciones en R que permitan calcular los k-center para variables mixtas y medoides 
-2. Crear una funcion k-center para variables mixtas y alternativas para incluir el medoide.
+2. Crear una función k-center para variables mixtas y alternativas para incluir el medoide.
 
 ## Cluster Jerárquico
 
@@ -266,22 +266,62 @@ El objetivo es obtener una jerarquía de posibles soluciones que van desde un so
 ### Algoritmo (Johnson)
 
 1. Se inicia con $n$ grupos y se genera una matriz de $nxn$ de distancias, $D=\{d_{ik}\}$
-2. 
-3.
-4.
+2. Buscar en la matriz de distancia los pares de cluster más cercanos entre ellos, "los cluster mas similares", si defifinimos los clusters $V$ y $U$, estamos interesados en encontrar $d_{UV}$
+3. Unir los cluster $U$ y $V$, re etiquetar el nuevo cluster como $UV$. Actualizar la matriz de distancias a) remover las filas y columnas correspondientes a $U$ y $V$ b) incluimos las nuevas filas y columnas para el nuevo cluster $UV$.
+4. Repetimos el paso 2 y 3 un total de $n-1$ veces.
+
+El momento de definir el cluster más cercano, se puede emplear los siguientes enlaces:
+
+* Single linkage (Enlace simple): Se elige al cluster más cercano, con la regla de que las distincia individual entre las observaciones dentro de los clusters es la más corta 
+* Complete linkage (Enlace completo): Se elige el cluster mas cercano, con la regla que las distnaicas individuales entre las observaciones dentro de los cluster es la más larga
+* Average linkage (Enlace promedio): Se elige el cluster mas cercano, considerando el promedio de las distancias entre los cluster.
+
+>Nota: Se debe elegir la matriz de distancias acorde a la naturaleza de los datos, se recomienda:
+
+  * Todas Numéricas: Euclideana o Manhatan
+  * Todas nominales: Transformación a binarias y usar la distancia binomial
+  * Mixtas: Distancia de Gower
+
 
 ```{r}
-d <- dist(scale(iris[,-5]))
+d <- dist(scale(iris[,-5]))#euclideana
 h <- hclust(d)
 plot(h,hang=-0.1,labels=iris[["Species"]],cex=0.5)
-clus3 <- cutree(h, 3)
+#elegir la cantidad de grupos
+clus3 <- cutree(h, 5)
 plot(h,hang=-0.1,labels=iris[["Species"]],cex=0.5)
-rect.hclust(h,k=3)
+rect.hclust(h,k=5)
 ```
 
-* Single linkage
-* Complete linkage
-* Average linkage
+Probando los tres tipos de enlaces para $k=3$
+
+```{r}
+hs <- hclust(d,method = "single")
+hc <- hclust(d,method = "complete")
+ha <- hclust(d,method = "average")
+cs<-cutree(hs,3)
+cc<-cutree(hc,3)
+ca<-cutree(ha,3)
+table(cs,cc)
+table(cs,ca)
+table(cc,ca)
+par(mfrow=c(1,3))
+plot(hs,hang=-0.1,labels=iris[["Species"]],cex=0.5)
+rect.hclust(hs,k=3)
+plot(hc,hang=-0.1,labels=iris[["Species"]],cex=0.5)
+rect.hclust(hc,k=3)
+plot(ha,hang=-0.1,labels=iris[["Species"]],cex=0.5)
+rect.hclust(ha,k=3)
+```
+
+Nota: El dendograma es muy útil para ver las relaciones que existen basadas en las distancias y la creación de las jerarquias, a partir de estos se puede definir un $k$ (de forma visual)
+
+Nota: El dendograma pierde su utilidad cuando la cantidad de observaciones es muy alta, 
+
+Ejercicio, 
+
+1. Usar los datos de las elecciones del 20 de octubre, agregar los resultados en términos relativos para los municipios y generar el dendograma para los tres tipos de enlaces, de forma visual sugerir un valor de $k$ para cada tipo de enlace.
+
 
 ## Ejercicios
 1. Pensar en un gráfico que permita ver como se asignaron los cluster 
