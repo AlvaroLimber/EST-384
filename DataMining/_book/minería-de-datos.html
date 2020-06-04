@@ -313,90 +313,50 @@ Principles of Data Mining (Hand et.al. 2001)
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(foreign)</a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="kw">library</span>(readr)</a>
 <a class="sourceLine" id="cb3-3" title="3"><span class="kw">apropos</span>(<span class="st">&quot;read&quot;</span>)</a></code></pre></div>
-<pre><code>##  [1] &quot;.rs.api.readPreference&quot;             
-##  [2] &quot;.rs.connectionReadDSN&quot;              
-##  [3] &quot;.rs.connectionReadInstallers&quot;       
-##  [4] &quot;.rs.connectionReadOdbc&quot;             
-##  [5] &quot;.rs.connectionReadOdbcEntry&quot;        
-##  [6] &quot;.rs.connectionReadPackageInstallers&quot;
-##  [7] &quot;.rs.connectionReadPackages&quot;         
-##  [8] &quot;.rs.connectionReadSnippets&quot;         
-##  [9] &quot;.rs.connectionReadWindowsRegistry&quot;  
-## [10] &quot;.rs.isREADME&quot;                       
-## [11] &quot;.rs.odbcBundleReadIni&quot;              
-## [12] &quot;.rs.onAvailablePackagesReady&quot;       
-## [13] &quot;.rs.readAliases&quot;                    
-## [14] &quot;.rs.readDataCapture&quot;                
-## [15] &quot;.rs.readFile&quot;                       
-## [16] &quot;.rs.readIniFile&quot;                    
-## [17] &quot;.rs.readLines&quot;                      
-## [18] &quot;.rs.readPackageDescription&quot;         
-## [19] &quot;.rs.readRnbCache&quot;                   
-## [20] &quot;.rs.readShinytestResultRds&quot;         
-## [21] &quot;.rs.readSourceDocument&quot;             
-## [22] &quot;.rs.readUiPref&quot;                     
-## [23] &quot;.rs.rnb.readConsoleData&quot;            
-## [24] &quot;read.arff&quot;                          
-## [25] &quot;read.cep&quot;                           
-## [26] &quot;read.csv&quot;                           
-## [27] &quot;read.csv2&quot;                          
-## [28] &quot;read.dbf&quot;                           
-## [29] &quot;read.dcf&quot;                           
-## [30] &quot;read.delim&quot;                         
-## [31] &quot;read.delim2&quot;                        
-## [32] &quot;read.DIF&quot;                           
-## [33] &quot;read.dta&quot;                           
-## [34] &quot;read.epiinfo&quot;                       
-## [35] &quot;read.fortran&quot;                       
-## [36] &quot;read.ftable&quot;                        
-## [37] &quot;read.fwf&quot;                           
-## [38] &quot;read.mtp&quot;                           
-## [39] &quot;read.octave&quot;                        
-## [40] &quot;read.S&quot;                             
-## [41] &quot;read.socket&quot;                        
-## [42] &quot;read.spss&quot;                          
-## [43] &quot;read.ssd&quot;                           
-## [44] &quot;read.systat&quot;                        
-## [45] &quot;read.table&quot;                         
-## [46] &quot;read.xport&quot;                         
-## [47] &quot;read.xportDataload&quot;                 
-## [48] &quot;read_csv&quot;                           
-## [49] &quot;read_csv_chunked&quot;                   
-## [50] &quot;read_csv2&quot;                          
-## [51] &quot;read_csv2_chunked&quot;                  
-## [52] &quot;read_delim&quot;                         
-## [53] &quot;read_delim_chunked&quot;                 
-## [54] &quot;read_file&quot;                          
-## [55] &quot;read_file_raw&quot;                      
-## [56] &quot;read_fwf&quot;                           
-## [57] &quot;read_lines&quot;                         
-## [58] &quot;read_lines_chunked&quot;                 
-## [59] &quot;read_lines_raw&quot;                     
-## [60] &quot;read_lines_raw_chunked&quot;             
-## [61] &quot;read_log&quot;                           
-## [62] &quot;read_rds&quot;                           
-## [63] &quot;read_table&quot;                         
-## [64] &quot;read_table2&quot;                        
-## [65] &quot;read_tsv&quot;                           
-## [66] &quot;read_tsv_chunked&quot;                   
-## [67] &quot;readBin&quot;                            
-## [68] &quot;readChar&quot;                           
-## [69] &quot;readCitationFile&quot;                   
-## [70] &quot;readClipboard&quot;                      
-## [71] &quot;readline&quot;                           
-## [72] &quot;readLines&quot;                          
-## [73] &quot;readr_example&quot;                      
-## [74] &quot;readRDS&quot;                            
-## [75] &quot;readRegistry&quot;                       
-## [76] &quot;readRenviron&quot;                       
-## [77] &quot;readSAScsv&quot;                         
-## [78] &quot;RsquareAdj&quot;                         
-## [79] &quot;spread&quot;                             
-## [80] &quot;spread.labs&quot;                        
-## [81] &quot;spread_&quot;                            
-## [82] &quot;stri_read_lines&quot;                    
-## [83] &quot;stri_read_raw&quot;                      
-## [84] &quot;Sys.readlink&quot;</code></pre>
+<pre><code>##  [1] &quot;.rs.api.readPreference&quot;              &quot;.rs.connectionReadDSN&quot;              
+##  [3] &quot;.rs.connectionReadInstallers&quot;        &quot;.rs.connectionReadOdbc&quot;             
+##  [5] &quot;.rs.connectionReadOdbcEntry&quot;         &quot;.rs.connectionReadPackageInstallers&quot;
+##  [7] &quot;.rs.connectionReadPackages&quot;          &quot;.rs.connectionReadSnippets&quot;         
+##  [9] &quot;.rs.connectionReadWindowsRegistry&quot;   &quot;.rs.isREADME&quot;                       
+## [11] &quot;.rs.odbcBundleReadIni&quot;               &quot;.rs.onAvailablePackagesReady&quot;       
+## [13] &quot;.rs.readAliases&quot;                     &quot;.rs.readDataCapture&quot;                
+## [15] &quot;.rs.readFile&quot;                        &quot;.rs.readIniFile&quot;                    
+## [17] &quot;.rs.readLines&quot;                       &quot;.rs.readPackageDescription&quot;         
+## [19] &quot;.rs.readRnbCache&quot;                    &quot;.rs.readShinytestResultRds&quot;         
+## [21] &quot;.rs.readSourceDocument&quot;              &quot;.rs.readUiPref&quot;                     
+## [23] &quot;.rs.rnb.readConsoleData&quot;             &quot;read.arff&quot;                          
+## [25] &quot;read.caic&quot;                           &quot;read.chromInfo&quot;                     
+## [27] &quot;read.csv&quot;                            &quot;read.csv2&quot;                          
+## [29] &quot;read.cytoband&quot;                       &quot;read.dbf&quot;                           
+## [31] &quot;read.dcf&quot;                            &quot;read.delim&quot;                         
+## [33] &quot;read.delim2&quot;                         &quot;read.DIF&quot;                           
+## [35] &quot;read.dna&quot;                            &quot;read.dta&quot;                           
+## [37] &quot;read.epiinfo&quot;                        &quot;read.evonet&quot;                        
+## [39] &quot;read.FASTA&quot;                          &quot;read.fastq&quot;                         
+## [41] &quot;read.fortran&quot;                        &quot;read.ftable&quot;                        
+## [43] &quot;read.fwf&quot;                            &quot;read.GenBank&quot;                       
+## [45] &quot;read.gff&quot;                            &quot;read.mtp&quot;                           
+## [47] &quot;read.nexus&quot;                          &quot;read.nexus.data&quot;                    
+## [49] &quot;read.octave&quot;                         &quot;read.S&quot;                             
+## [51] &quot;read.socket&quot;                         &quot;read.spss&quot;                          
+## [53] &quot;read.ssd&quot;                            &quot;read.systat&quot;                        
+## [55] &quot;read.table&quot;                          &quot;read.tree&quot;                          
+## [57] &quot;read.xport&quot;                          &quot;read_csv&quot;                           
+## [59] &quot;read_csv_chunked&quot;                    &quot;read_csv2&quot;                          
+## [61] &quot;read_csv2_chunked&quot;                   &quot;read_delim&quot;                         
+## [63] &quot;read_delim_chunked&quot;                  &quot;read_file&quot;                          
+## [65] &quot;read_file_raw&quot;                       &quot;read_fwf&quot;                           
+## [67] &quot;read_lines&quot;                          &quot;read_lines_chunked&quot;                 
+## [69] &quot;read_lines_raw&quot;                      &quot;read_lines_raw_chunked&quot;             
+## [71] &quot;read_log&quot;                            &quot;read_rds&quot;                           
+## [73] &quot;read_table&quot;                          &quot;read_table2&quot;                        
+## [75] &quot;read_tsv&quot;                            &quot;read_tsv_chunked&quot;                   
+## [77] &quot;readBin&quot;                             &quot;readChar&quot;                           
+## [79] &quot;readCitationFile&quot;                    &quot;readClipboard&quot;                      
+## [81] &quot;readline&quot;                            &quot;readLines&quot;                          
+## [83] &quot;readr_example&quot;                       &quot;readRDS&quot;                            
+## [85] &quot;readRegistry&quot;                        &quot;readRenviron&quot;                       
+## [87] &quot;Sys.readlink&quot;</code></pre>
 </div>
 <div id="recopilación-1" class="section level3">
 <h3><span class="header-section-number">1.6.5</span> Recopilación</h3>
@@ -432,42 +392,50 @@ Principles of Data Mining (Hand et.al. 2001)
 </div>
 <div id="limpieza-fechas" class="section level3">
 <h3><span class="header-section-number">1.6.8</span> Limpieza (fechas)</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">library</span>(lubridate)</a>
-<a class="sourceLine" id="cb10-2" title="2"><span class="kw">ymd</span>(<span class="st">&quot;20151021&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">library</span>(lubridate)</a></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     intersect, setdiff, union</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;20151021&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;2015-10-21&quot;</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;2015/11/30&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;2015/11/30&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;2015-11-30&quot;</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">myd</span>(<span class="st">&quot;11.2012.3&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">myd</span>(<span class="st">&quot;11.2012.3&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;2012-11-03&quot;</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">dmy_hms</span>(<span class="st">&quot;2/12/2013 14:05:01&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">dmy_hms</span>(<span class="st">&quot;2/12/2013 14:05:01&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;2013-12-02 14:05:01 UTC&quot;</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">mdy</span>(<span class="st">&quot;120112&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">mdy</span>(<span class="st">&quot;120112&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;2012-12-01&quot;</code></pre>
 </div>
 <div id="limpieza-string" class="section level3">
 <h3><span class="header-section-number">1.6.9</span> Limpieza (String)</h3>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">toupper</span>(<span class="st">&quot;hola&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">toupper</span>(<span class="st">&quot;hola&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;HOLA&quot;</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">abc&lt;-letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</a>
-<a class="sourceLine" id="cb22-2" title="2"><span class="kw">toupper</span>(abc)</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">abc&lt;-letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="kw">toupper</span>(abc)</a></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot;</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">tolower</span>(<span class="st">&quot;HOLA&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">tolower</span>(<span class="st">&quot;HOLA&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;hola&quot;</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">tolower</span>(<span class="st">&quot;Juan&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">tolower</span>(<span class="st">&quot;Juan&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;juan&quot;</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">substr</span>(<span class="st">&quot;hola como estan&quot;</span>,<span class="dv">1</span>,<span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">substr</span>(<span class="st">&quot;hola como estan&quot;</span>,<span class="dv">1</span>,<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;hol&quot;</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">substr</span>(<span class="st">&quot;hola como estan&quot;</span>,<span class="dv">3</span>,<span class="dv">7</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">substr</span>(<span class="st">&quot;hola como estan&quot;</span>,<span class="dv">3</span>,<span class="dv">7</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;la co&quot;</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">nchar</span>(<span class="st">&quot;hola&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">nchar</span>(<span class="st">&quot;hola&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">gsub</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;x&quot;</span>,<span class="st">&quot;hola como estas&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">gsub</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;x&quot;</span>,<span class="st">&quot;hola como estas&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;holx como estxs&quot;</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">grepl</span>(<span class="st">&quot;a&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;como&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1"><span class="kw">grepl</span>(<span class="st">&quot;a&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;como&quot;</span>))</a></code></pre></div>
 <pre><code>## [1]  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">grepl</span>(<span class="st">&quot;o&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;como&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">grepl</span>(<span class="st">&quot;o&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;como&quot;</span>))</a></code></pre></div>
 <pre><code>## [1] TRUE TRUE</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1"><span class="kw">library</span>(stringi)</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">library</span>(stringi)</a></code></pre></div>
 </div>
 <div id="transfomración" class="section level3">
 <h3><span class="header-section-number">1.6.10</span> Transfomración</h3>
