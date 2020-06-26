@@ -1,9 +1,9 @@
 {
-    "path" : "~/GitHub/EST-384/DataMining",
-    "sortOrder" : [
+    "path": "~/GitHub/EST-384/DataMining",
+    "sortOrder": [
         {
-            "ascending" : true,
-            "columnIndex" : 2
+            "columnIndex": 2,
+            "ascending": true
         }
     ]
 }

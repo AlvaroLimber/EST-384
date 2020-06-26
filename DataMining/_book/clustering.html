@@ -24,7 +24,7 @@
 <meta name="author" content="Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2020-06-16" />
+<meta name="date" content="2020-06-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,12 +50,13 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,14 +65,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -207,7 +210,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.5" data-path="regresión.html"><a href="regresión.html#paso-5-validar-el-modelo"><i class="fa fa-check"></i><b>4.1.5</b> Paso 5: Validar el modelo</a></li>
 <li class="chapter" data-level="4.1.6" data-path="regresión.html"><a href="regresión.html#paso-6-predicir-a-partir-del-modelo"><i class="fa fa-check"></i><b>4.1.6</b> Paso 6: Predicir a partir del modelo</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="regresión.html"><a href="regresión.html#probit-y-logit"><i class="fa fa-check"></i><b>4.2</b> Probit y Logit</a></li>
+<li class="chapter" data-level="4.2" data-path="regresión.html"><a href="regresión.html#probit-y-logit"><i class="fa fa-check"></i><b>4.2</b> Probit y Logit</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="regresión.html"><a href="regresión.html#en-r"><i class="fa fa-check"></i><b>4.2.1</b> En R:</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="clasificación.html"><a href="clasificación.html"><i class="fa fa-check"></i><b>5</b> Clasificación</a><ul>
 <li class="chapter" data-level="5.1" data-path="clasificación.html"><a href="clasificación.html#arboles-de-decision"><i class="fa fa-check"></i><b>5.1</b> Arboles de decision</a></li>
@@ -257,77 +262,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="distancia-minkowski" class="section level3">
 <h3><span class="header-section-number">3.1.3</span> Distancia Minkowski</h3>
 <p><span class="math display">\[d(x,y)=\left(\sum_{i=1}^p{|x_i-y_i|^d}\right)^{1/d}\]</span></p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" title="1">aux&lt;-<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>),<span class="dt">nrow=</span><span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb171-2" title="2"><span class="kw">dist</span>(aux) <span class="co">#euclideana</span></a></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="clustering.html#cb140-1"></a>aux&lt;-<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>),<span class="dt">nrow=</span><span class="dv">5</span>)</span>
+<span id="cb140-2"><a href="clustering.html#cb140-2"></a><span class="kw">dist</span>(aux) <span class="co">#euclideana</span></span></code></pre></div>
 <pre><code>##          1        2        3        4
-## 2 8.236763                           
-## 3 5.737371 8.596651                  
-## 4 6.058976 5.081303 6.056287         
-## 5 5.372785 8.284048 6.121765 6.274759</code></pre>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" title="1"><span class="kw">dist</span>(aux, <span class="dt">method=</span><span class="st">&quot;manhattan&quot;</span>)</a></code></pre></div>
+## 2 7.441070                           
+## 3 5.183985 4.772644                  
+## 4 5.666009 7.284590 5.026501         
+## 5 6.639942 8.357878 6.528404 6.679651</code></pre>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="clustering.html#cb142-1"></a><span class="kw">dist</span>(aux, <span class="dt">method=</span><span class="st">&quot;manhattan&quot;</span>)</span></code></pre></div>
 <pre><code>##          1        2        3        4
-## 2 29.58961                           
-## 3 20.80426 28.26497                  
-## 4 22.52900 18.44959 22.37501         
-## 5 19.68086 29.77202 21.20088 22.76805</code></pre>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" title="1"><span class="kw">dist</span>(aux, <span class="dt">method=</span><span class="st">&quot;minkowski&quot;</span>, <span class="dt">p=</span><span class="dv">3</span>)</a></code></pre></div>
+## 2 28.86663                           
+## 3 17.87844 18.71697                  
+## 4 19.84966 26.89624 18.59886         
+## 5 26.64592 29.47988 22.00081 24.49906</code></pre>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="clustering.html#cb144-1"></a><span class="kw">dist</span>(aux, <span class="dt">method=</span><span class="st">&quot;minkowski&quot;</span>, <span class="dt">p=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##          1        2        3        4
-## 2 5.865680                           
-## 3 3.963540 6.314547                  
-## 4 4.120217 3.530787 4.146292         
-## 5 3.741069 5.676304 4.425738 4.271795</code></pre>
+## 2 5.044889                           
+## 3 3.778457 3.188857                  
+## 4 3.923814 5.175254 3.427197         
+## 5 4.445909 5.758418 4.644880 4.671012</code></pre>
 </div>
 <div id="programando" class="section level3">
 <h3><span class="header-section-number">3.1.4</span> programando</h3>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" title="1">minkowski&lt;-<span class="cf">function</span>(x,y,d){</a>
-<a class="sourceLine" id="cb177-2" title="2">  dd&lt;-(<span class="kw">sum</span>(<span class="kw">abs</span>(x<span class="op">-</span>y)<span class="op">**</span>d))<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span>d)</a>
-<a class="sourceLine" id="cb177-3" title="3">  <span class="kw">return</span>(dd)</a>
-<a class="sourceLine" id="cb177-4" title="4">}</a>
-<a class="sourceLine" id="cb177-5" title="5"><span class="kw">minkowski</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">d=</span><span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="clustering.html#cb146-1"></a>minkowski&lt;-<span class="cf">function</span>(x,y,d){</span>
+<span id="cb146-2"><a href="clustering.html#cb146-2"></a>  dd&lt;-(<span class="kw">sum</span>(<span class="kw">abs</span>(x<span class="op">-</span>y)<span class="op">**</span>d))<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span>d)</span>
+<span id="cb146-3"><a href="clustering.html#cb146-3"></a>  <span class="kw">return</span>(dd)</span>
+<span id="cb146-4"><a href="clustering.html#cb146-4"></a>}</span>
+<span id="cb146-5"><a href="clustering.html#cb146-5"></a><span class="kw">minkowski</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">d=</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 3.605551</code></pre>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" title="1">x&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb179-2" title="2">y&lt;-<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb179-3" title="3"><span class="kw">sum</span>(<span class="kw">abs</span>(x<span class="op">-</span>y)) <span class="co"># manhattan</span></a></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="clustering.html#cb148-1"></a>x&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb148-2"><a href="clustering.html#cb148-2"></a>y&lt;-<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb148-3"><a href="clustering.html#cb148-3"></a><span class="kw">sum</span>(<span class="kw">abs</span>(x<span class="op">-</span>y)) <span class="co"># manhattan</span></span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" title="1"><span class="kw">sqrt</span>(<span class="kw">sum</span>(<span class="kw">abs</span>(x<span class="op">-</span>y)<span class="op">**</span><span class="dv">2</span>)) <span class="co"># euclideana</span></a></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="clustering.html#cb150-1"></a><span class="kw">sqrt</span>(<span class="kw">sum</span>(<span class="kw">abs</span>(x<span class="op">-</span>y)<span class="op">**</span><span class="dv">2</span>)) <span class="co"># euclideana</span></span></code></pre></div>
 <pre><code>## [1] 3.605551</code></pre>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" title="1"><span class="co"># la funcion de distancia</span></a>
-<a class="sourceLine" id="cb183-2" title="2">distancia&lt;-<span class="cf">function</span>(bd,<span class="dt">d=</span><span class="dv">2</span>){</a>
-<a class="sourceLine" id="cb183-3" title="3">  nf&lt;-<span class="kw">dim</span>(bd)[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb183-4" title="4">  DD&lt;-<span class="kw">matrix</span>(<span class="ot">NA</span>,nf<span class="dv">-1</span>,nf<span class="dv">-1</span>)</a>
-<a class="sourceLine" id="cb183-5" title="5">  <span class="kw">colnames</span>(DD)&lt;-<span class="dv">1</span><span class="op">:</span>(nf<span class="dv">-1</span>)</a>
-<a class="sourceLine" id="cb183-6" title="6">  <span class="kw">rownames</span>(DD)&lt;-<span class="dv">2</span><span class="op">:</span>nf</a>
-<a class="sourceLine" id="cb183-7" title="7">  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>(nf<span class="dv">-1</span>)){</a>
-<a class="sourceLine" id="cb183-8" title="8">    <span class="cf">for</span>(j <span class="cf">in</span> (i<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span>nf){</a>
-<a class="sourceLine" id="cb183-9" title="9">      DD[j<span class="dv">-1</span>,i]&lt;-<span class="kw">minkowski</span>(bd[i,],bd[j,],d)</a>
-<a class="sourceLine" id="cb183-10" title="10">    }</a>
-<a class="sourceLine" id="cb183-11" title="11">  }</a>
-<a class="sourceLine" id="cb183-12" title="12">  <span class="kw">return</span>(DD)</a>
-<a class="sourceLine" id="cb183-13" title="13">}</a>
-<a class="sourceLine" id="cb183-14" title="14"><span class="kw">distancia</span>(aux,<span class="dt">d=</span><span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="clustering.html#cb152-1"></a><span class="co"># la funcion de distancia</span></span>
+<span id="cb152-2"><a href="clustering.html#cb152-2"></a>distancia&lt;-<span class="cf">function</span>(bd,<span class="dt">d=</span><span class="dv">2</span>){</span>
+<span id="cb152-3"><a href="clustering.html#cb152-3"></a>  nf&lt;-<span class="kw">dim</span>(bd)[<span class="dv">1</span>]</span>
+<span id="cb152-4"><a href="clustering.html#cb152-4"></a>  DD&lt;-<span class="kw">matrix</span>(<span class="ot">NA</span>,nf<span class="dv">-1</span>,nf<span class="dv">-1</span>)</span>
+<span id="cb152-5"><a href="clustering.html#cb152-5"></a>  <span class="kw">colnames</span>(DD)&lt;-<span class="dv">1</span><span class="op">:</span>(nf<span class="dv">-1</span>)</span>
+<span id="cb152-6"><a href="clustering.html#cb152-6"></a>  <span class="kw">rownames</span>(DD)&lt;-<span class="dv">2</span><span class="op">:</span>nf</span>
+<span id="cb152-7"><a href="clustering.html#cb152-7"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>(nf<span class="dv">-1</span>)){</span>
+<span id="cb152-8"><a href="clustering.html#cb152-8"></a>    <span class="cf">for</span>(j <span class="cf">in</span> (i<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span>nf){</span>
+<span id="cb152-9"><a href="clustering.html#cb152-9"></a>      DD[j<span class="dv">-1</span>,i]&lt;-<span class="kw">minkowski</span>(bd[i,],bd[j,],d)</span>
+<span id="cb152-10"><a href="clustering.html#cb152-10"></a>    }</span>
+<span id="cb152-11"><a href="clustering.html#cb152-11"></a>  }</span>
+<span id="cb152-12"><a href="clustering.html#cb152-12"></a>  <span class="kw">return</span>(DD)</span>
+<span id="cb152-13"><a href="clustering.html#cb152-13"></a>}</span>
+<span id="cb152-14"><a href="clustering.html#cb152-14"></a><span class="kw">distancia</span>(aux,<span class="dt">d=</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##          1        2        3        4
-## 2 8.236763       NA       NA       NA
-## 3 5.737371 8.596651       NA       NA
-## 4 6.058976 5.081303 6.056287       NA
-## 5 5.372785 8.284048 6.121765 6.274759</code></pre>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" title="1"><span class="kw">dist</span>(aux)</a></code></pre></div>
+## 2 7.441070       NA       NA       NA
+## 3 5.183985 4.772644       NA       NA
+## 4 5.666009 7.284590 5.026501       NA
+## 5 6.639942 8.357878 6.528404 6.679651</code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="clustering.html#cb154-1"></a><span class="kw">dist</span>(aux)</span></code></pre></div>
 <pre><code>##          1        2        3        4
-## 2 8.236763                           
-## 3 5.737371 8.596651                  
-## 4 6.058976 5.081303 6.056287         
-## 5 5.372785 8.284048 6.121765 6.274759</code></pre>
+## 2 7.441070                           
+## 3 5.183985 4.772644                  
+## 4 5.666009 7.284590 5.026501         
+## 5 6.639942 8.357878 6.528404 6.679651</code></pre>
 </div>
 <div id="variables-cualitativas" class="section level3">
 <h3><span class="header-section-number">3.1.5</span> Variables cualitativas</h3>
 <p>Para las variables cualitativas se debe considerar los casos cuando estas son nominales y ordinales, distinguir tambien los casos de variables binarias.</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;vegan&quot;</span>)</a>
-<a class="sourceLine" id="cb187-2" title="2"><span class="kw">library</span>(vegan)</a></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="clustering.html#cb156-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;vegan&quot;</span>)</span>
+<span id="cb156-2"><a href="clustering.html#cb156-2"></a><span class="kw">library</span>(vegan)</span></code></pre></div>
 </div>
 <div id="datos-mixtos" class="section level3">
 <h3><span class="header-section-number">3.1.6</span> Datos mixtos</h3>
 <p>Una de los mayores desafios es cuando las variables son mixtas, es decir cuantitativas y cualitativas.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;cluster&quot;</span>)</a>
-<a class="sourceLine" id="cb188-2" title="2"><span class="kw">library</span>(cluster)</a></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="clustering.html#cb157-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;cluster&quot;</span>)</span>
+<span id="cb157-2"><a href="clustering.html#cb157-2"></a><span class="kw">library</span>(cluster)</span></code></pre></div>
 </div>
 </div>
 <div id="métodos-de-clustering" class="section level2">
@@ -347,180 +352,181 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Para cada observación calcular las distancia euclideana a los centroides y reasignar lo observación en base a la menor distancia, recalcular los centroides en base a la reasignación de cada observación</li>
 <li>Repetir el paso 2 hasta que que ya no existan más reasignaciones</li>
 </ol>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" title="1">bd&lt;-<span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">rnorm</span>(<span class="dv">100</span>),<span class="dt">y=</span><span class="kw">rnorm</span>(<span class="dv">100</span>))</a>
-<a class="sourceLine" id="cb189-2" title="2"><span class="kw">kmeans</span>(bd,<span class="dv">2</span>)</a></code></pre></div>
-<pre><code>## K-means clustering with 2 clusters of sizes 46, 54
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="clustering.html#cb158-1"></a>bd&lt;-<span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">rnorm</span>(<span class="dv">100</span>),<span class="dt">y=</span><span class="kw">rnorm</span>(<span class="dv">100</span>))</span>
+<span id="cb158-2"><a href="clustering.html#cb158-2"></a><span class="kw">kmeans</span>(bd,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## K-means clustering with 2 clusters of sizes 43, 57
 ## 
 ## Cluster means:
 ##            x          y
-## 1 -0.1958507  0.8750613
-## 2  0.0737880 -0.7985448
+## 1  0.7643897 -0.1921172
+## 2 -0.8273023  0.1888646
 ## 
 ## Clustering vector:
-##   [1] 1 1 2 1 2 1 1 2 2 2 1 2 1 2 1 2 2 1 1 1 1 2 2 1 2 1 1 2 2 2 1 2 1 2
-##  [35] 2 1 2 1 2 2 2 1 1 1 1 2 1 1 2 2 1 1 1 1 1 2 2 2 2 1 1 2 2 2 1 1 1 2
-##  [69] 2 2 2 1 2 2 1 2 2 2 2 1 1 2 2 2 1 2 1 2 2 2 1 2 2 1 1 1 2 2 2 1
+##   [1] 2 1 1 1 2 2 2 1 1 2 2 2 1 1 2 2 2 2 1 1 2 2 2 2 2 1 1
+##  [28] 1 2 1 2 1 2 2 2 2 2 2 1 2 1 2 1 2 1 2 2 1 2 1 2 1 1 2
+##  [55] 1 1 2 2 2 1 2 1 2 2 2 2 2 2 1 1 1 2 1 1 2 2 1 2 2 1 1
+##  [82] 1 1 1 2 2 2 2 2 2 2 1 1 2 1 1 1 2 2 1
 ## 
 ## Within cluster sum of squares by cluster:
-## [1] 75.71314 72.24203
-##  (between_SS / total_SS =  32.5 %)
+## [1] 33.48058 73.56780
+##  (between_SS / total_SS =  38.0 %)
 ## 
 ## Available components:
 ## 
-## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;    
-## [5] &quot;tot.withinss&quot; &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;        
-## [9] &quot;ifault&quot;</code></pre>
+## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;       
+## [4] &quot;withinss&quot;     &quot;tot.withinss&quot; &quot;betweenss&quot;   
+## [7] &quot;size&quot;         &quot;iter&quot;         &quot;ifault&quot;</code></pre>
 <p>Ejemplo:</p>
 <ul>
 <li>Implementar el algoritmo para el k-center, con la distancia de Minkowski y para la media y mediana.</li>
 </ul>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" title="1"><span class="co">#Nota: La entrada de la funcion es un data frame</span></a>
-<a class="sourceLine" id="cb191-2" title="2">kcenter&lt;-<span class="cf">function</span>(bd,<span class="dt">k=</span><span class="dv">3</span>,<span class="dt">d=</span><span class="dv">2</span>,<span class="dt">tipo=</span><span class="st">&quot;media&quot;</span>,<span class="dt">seed=</span><span class="dv">123456</span>){</a>
-<a class="sourceLine" id="cb191-3" title="3">  nf&lt;-<span class="kw">dim</span>(bd)[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb191-4" title="4">  nc&lt;-<span class="kw">dim</span>(bd)[<span class="dv">2</span>]</a>
-<a class="sourceLine" id="cb191-5" title="5">  <span class="co">#paso1: asignar las k (nf&gt;=k)</span></a>
-<a class="sourceLine" id="cb191-6" title="6">  <span class="kw">set.seed</span>(seed)</a>
-<a class="sourceLine" id="cb191-7" title="7">  bd<span class="op">$</span>k&lt;-<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>k,nf,<span class="dt">replace=</span>T)</a>
-<a class="sourceLine" id="cb191-8" title="8">  centroide&lt;-<span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb191-9" title="9">  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>k){</a>
-<a class="sourceLine" id="cb191-10" title="10">    <span class="cf">if</span>(tipo<span class="op">==</span><span class="st">&quot;media&quot;</span>){  </a>
-<a class="sourceLine" id="cb191-11" title="11">      centroide&lt;-<span class="kw">rbind</span>(centroide,<span class="kw">apply</span>(bd[bd<span class="op">$</span>k<span class="op">==</span>i,],<span class="dv">2</span>, mean))</a>
-<a class="sourceLine" id="cb191-12" title="12">    } <span class="cf">else</span> <span class="cf">if</span>(tipo<span class="op">==</span><span class="st">&quot;mediana&quot;</span>){</a>
-<a class="sourceLine" id="cb191-13" title="13">      centroide&lt;-<span class="kw">rbind</span>(centroide,<span class="kw">apply</span>(bd[bd<span class="op">$</span>k<span class="op">==</span>i,],<span class="dv">2</span>, median))</a>
-<a class="sourceLine" id="cb191-14" title="14">    }</a>
-<a class="sourceLine" id="cb191-15" title="15">  }</a>
-<a class="sourceLine" id="cb191-16" title="16">  <span class="co">#paso2 (recalcular loo centroides al final)</span></a>
-<a class="sourceLine" id="cb191-17" title="17">  cc&lt;-<span class="dv">1</span></a>
-<a class="sourceLine" id="cb191-18" title="18">  <span class="cf">while</span>(cc<span class="op">!=</span><span class="dv">0</span>){ <span class="co">#paso3</span></a>
-<a class="sourceLine" id="cb191-19" title="19">    cc&lt;-<span class="dv">0</span></a>
-<a class="sourceLine" id="cb191-20" title="20">    <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nf){</a>
-<a class="sourceLine" id="cb191-21" title="21">      auxd&lt;-<span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb191-22" title="22">      <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>k){</a>
-<a class="sourceLine" id="cb191-23" title="23">        auxd&lt;-<span class="kw">c</span>(auxd,<span class="kw">minkowski</span>(bd[i,<span class="dv">1</span><span class="op">:</span>nc],centroide[j,<span class="dv">1</span><span class="op">:</span>nc],<span class="dt">d=</span>d))</a>
-<a class="sourceLine" id="cb191-24" title="24">      }</a>
-<a class="sourceLine" id="cb191-25" title="25">      newk&lt;-<span class="kw">which</span>(auxd<span class="op">==</span><span class="kw">min</span>(auxd))</a>
-<a class="sourceLine" id="cb191-26" title="26">        <span class="cf">if</span>(newk<span class="op">!=</span>bd<span class="op">$</span>k[i]){</a>
-<a class="sourceLine" id="cb191-27" title="27">          bd<span class="op">$</span>k[i] &lt;-<span class="st"> </span>newk</a>
-<a class="sourceLine" id="cb191-28" title="28">          cc&lt;-cc<span class="op">+</span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb191-29" title="29">        }</a>
-<a class="sourceLine" id="cb191-30" title="30">    }</a>
-<a class="sourceLine" id="cb191-31" title="31">    centroide&lt;-<span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb191-32" title="32">    <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>k){</a>
-<a class="sourceLine" id="cb191-33" title="33">      <span class="cf">if</span>(tipo<span class="op">==</span><span class="st">&quot;media&quot;</span>){  </a>
-<a class="sourceLine" id="cb191-34" title="34">        centroide&lt;-<span class="kw">rbind</span>(centroide,<span class="kw">apply</span>(bd[bd<span class="op">$</span>k<span class="op">==</span>i,],<span class="dv">2</span>, mean))</a>
-<a class="sourceLine" id="cb191-35" title="35">      } <span class="cf">else</span> <span class="cf">if</span>(tipo<span class="op">==</span><span class="st">&quot;mediana&quot;</span>){</a>
-<a class="sourceLine" id="cb191-36" title="36">        centroide&lt;-<span class="kw">rbind</span>(centroide,<span class="kw">apply</span>(bd[bd<span class="op">$</span>k<span class="op">==</span>i,],<span class="dv">2</span>, median))</a>
-<a class="sourceLine" id="cb191-37" title="37">      }</a>
-<a class="sourceLine" id="cb191-38" title="38">    }</a>
-<a class="sourceLine" id="cb191-39" title="39">  }</a>
-<a class="sourceLine" id="cb191-40" title="40">  <span class="kw">return</span>(bd)</a>
-<a class="sourceLine" id="cb191-41" title="41">}</a></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="clustering.html#cb160-1"></a><span class="co">#Nota: La entrada de la funcion es un data frame</span></span>
+<span id="cb160-2"><a href="clustering.html#cb160-2"></a>kcenter&lt;-<span class="cf">function</span>(bd,<span class="dt">k=</span><span class="dv">3</span>,<span class="dt">d=</span><span class="dv">2</span>,<span class="dt">tipo=</span><span class="st">&quot;media&quot;</span>,<span class="dt">seed=</span><span class="dv">123456</span>){</span>
+<span id="cb160-3"><a href="clustering.html#cb160-3"></a>  nf&lt;-<span class="kw">dim</span>(bd)[<span class="dv">1</span>]</span>
+<span id="cb160-4"><a href="clustering.html#cb160-4"></a>  nc&lt;-<span class="kw">dim</span>(bd)[<span class="dv">2</span>]</span>
+<span id="cb160-5"><a href="clustering.html#cb160-5"></a>  <span class="co">#paso1: asignar las k (nf&gt;=k)</span></span>
+<span id="cb160-6"><a href="clustering.html#cb160-6"></a>  <span class="kw">set.seed</span>(seed)</span>
+<span id="cb160-7"><a href="clustering.html#cb160-7"></a>  bd<span class="op">$</span>k&lt;-<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>k,nf,<span class="dt">replace=</span>T)</span>
+<span id="cb160-8"><a href="clustering.html#cb160-8"></a>  centroide&lt;-<span class="ot">NULL</span></span>
+<span id="cb160-9"><a href="clustering.html#cb160-9"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>k){</span>
+<span id="cb160-10"><a href="clustering.html#cb160-10"></a>    <span class="cf">if</span>(tipo<span class="op">==</span><span class="st">&quot;media&quot;</span>){  </span>
+<span id="cb160-11"><a href="clustering.html#cb160-11"></a>      centroide&lt;-<span class="kw">rbind</span>(centroide,<span class="kw">apply</span>(bd[bd<span class="op">$</span>k<span class="op">==</span>i,],<span class="dv">2</span>, mean))</span>
+<span id="cb160-12"><a href="clustering.html#cb160-12"></a>    } <span class="cf">else</span> <span class="cf">if</span>(tipo<span class="op">==</span><span class="st">&quot;mediana&quot;</span>){</span>
+<span id="cb160-13"><a href="clustering.html#cb160-13"></a>      centroide&lt;-<span class="kw">rbind</span>(centroide,<span class="kw">apply</span>(bd[bd<span class="op">$</span>k<span class="op">==</span>i,],<span class="dv">2</span>, median))</span>
+<span id="cb160-14"><a href="clustering.html#cb160-14"></a>    }</span>
+<span id="cb160-15"><a href="clustering.html#cb160-15"></a>  }</span>
+<span id="cb160-16"><a href="clustering.html#cb160-16"></a>  <span class="co">#paso2 (recalcular loo centroides al final)</span></span>
+<span id="cb160-17"><a href="clustering.html#cb160-17"></a>  cc&lt;-<span class="dv">1</span></span>
+<span id="cb160-18"><a href="clustering.html#cb160-18"></a>  <span class="cf">while</span>(cc<span class="op">!=</span><span class="dv">0</span>){ <span class="co">#paso3</span></span>
+<span id="cb160-19"><a href="clustering.html#cb160-19"></a>    cc&lt;-<span class="dv">0</span></span>
+<span id="cb160-20"><a href="clustering.html#cb160-20"></a>    <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nf){</span>
+<span id="cb160-21"><a href="clustering.html#cb160-21"></a>      auxd&lt;-<span class="ot">NULL</span></span>
+<span id="cb160-22"><a href="clustering.html#cb160-22"></a>      <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>k){</span>
+<span id="cb160-23"><a href="clustering.html#cb160-23"></a>        auxd&lt;-<span class="kw">c</span>(auxd,<span class="kw">minkowski</span>(bd[i,<span class="dv">1</span><span class="op">:</span>nc],centroide[j,<span class="dv">1</span><span class="op">:</span>nc],<span class="dt">d=</span>d))</span>
+<span id="cb160-24"><a href="clustering.html#cb160-24"></a>      }</span>
+<span id="cb160-25"><a href="clustering.html#cb160-25"></a>      newk&lt;-<span class="kw">which</span>(auxd<span class="op">==</span><span class="kw">min</span>(auxd))</span>
+<span id="cb160-26"><a href="clustering.html#cb160-26"></a>        <span class="cf">if</span>(newk<span class="op">!=</span>bd<span class="op">$</span>k[i]){</span>
+<span id="cb160-27"><a href="clustering.html#cb160-27"></a>          bd<span class="op">$</span>k[i] &lt;-<span class="st"> </span>newk</span>
+<span id="cb160-28"><a href="clustering.html#cb160-28"></a>          cc&lt;-cc<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb160-29"><a href="clustering.html#cb160-29"></a>        }</span>
+<span id="cb160-30"><a href="clustering.html#cb160-30"></a>    }</span>
+<span id="cb160-31"><a href="clustering.html#cb160-31"></a>    centroide&lt;-<span class="ot">NULL</span></span>
+<span id="cb160-32"><a href="clustering.html#cb160-32"></a>    <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>k){</span>
+<span id="cb160-33"><a href="clustering.html#cb160-33"></a>      <span class="cf">if</span>(tipo<span class="op">==</span><span class="st">&quot;media&quot;</span>){  </span>
+<span id="cb160-34"><a href="clustering.html#cb160-34"></a>        centroide&lt;-<span class="kw">rbind</span>(centroide,<span class="kw">apply</span>(bd[bd<span class="op">$</span>k<span class="op">==</span>i,],<span class="dv">2</span>, mean))</span>
+<span id="cb160-35"><a href="clustering.html#cb160-35"></a>      } <span class="cf">else</span> <span class="cf">if</span>(tipo<span class="op">==</span><span class="st">&quot;mediana&quot;</span>){</span>
+<span id="cb160-36"><a href="clustering.html#cb160-36"></a>        centroide&lt;-<span class="kw">rbind</span>(centroide,<span class="kw">apply</span>(bd[bd<span class="op">$</span>k<span class="op">==</span>i,],<span class="dv">2</span>, median))</span>
+<span id="cb160-37"><a href="clustering.html#cb160-37"></a>      }</span>
+<span id="cb160-38"><a href="clustering.html#cb160-38"></a>    }</span>
+<span id="cb160-39"><a href="clustering.html#cb160-39"></a>  }</span>
+<span id="cb160-40"><a href="clustering.html#cb160-40"></a>  <span class="kw">return</span>(bd)</span>
+<span id="cb160-41"><a href="clustering.html#cb160-41"></a>}</span></code></pre></div>
 <ul>
 <li>Pensar en un gráfico que permita ver como se asignaron los cluster</li>
 </ul>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" title="1">bd&lt;-<span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">rnorm</span>(<span class="dv">100</span>),<span class="dt">y=</span><span class="kw">rnorm</span>(<span class="dv">100</span>),<span class="dt">z=</span><span class="kw">rnorm</span>(<span class="dv">100</span>))</a>
-<a class="sourceLine" id="cb192-2" title="2"><span class="kw">kcenter</span>(bd,<span class="dt">k=</span><span class="dv">4</span>,<span class="dt">d=</span><span class="dv">1</span>,<span class="dt">tipo=</span><span class="st">&quot;mediana&quot;</span>)</a></code></pre></div>
-<pre><code>##               x           y            z k
-## 1    0.60835658  0.84821189  0.051648891 4
-## 2   -1.44112080 -2.08260276  0.059482826 3
-## 3   -1.97402046  0.67459943 -0.499244983 1
-## 4   -0.65472264 -0.15249107  0.294598789 3
-## 5    0.82690337 -0.11423789 -0.615514262 2
-## 6   -0.85937158 -0.90532193 -0.186416969 3
-## 7    1.58263840 -0.45501561  1.426095196 4
-## 8    1.36631185 -1.84834855  2.255961516 3
-## 9   -0.01884514  0.12967751  1.069713367 4
-## 10   0.53406742  1.41167648 -1.006245064 1
-## 11  -0.24618964  0.25162497  1.606618531 4
-## 12  -0.07397357 -0.29108974 -0.056820799 2
-## 13   0.49263539  0.52268388  2.134765844 4
-## 14   0.10591245 -0.57484693  0.545880424 3
-## 15  -0.85945153  0.83576573 -0.034744905 1
-## 16   0.47620116  0.59485626 -0.169641446 4
-## 17   0.54846746  1.50734906  0.477535734 4
-## 18   0.19287130 -0.46509142 -2.274931710 2
-## 19   0.50374824 -0.82312404 -1.435114046 2
-## 20  -0.20924104  0.75815972  0.479477581 4
-## 21  -0.30983486 -1.31348045  0.901301194 3
-## 22   0.80337291 -0.27745428  1.141659923 4
-## 23   0.81467630 -0.13539112  0.207596437 2
-## 24   1.31040632 -2.12023473 -0.854431028 2
-## 25   0.34725200  0.52724151  0.491505878 4
-## 26   0.32967706  1.89108483  0.995802894 4
-## 27   0.31433971 -0.38626374  2.657538258 4
-## 28   0.25517157  1.53067255 -0.986122947 1
-## 29   0.56537342  1.56832762 -0.333779460 2
-## 30  -0.03781937 -0.62397435  0.567090888 3
-## 31   0.67781040  0.07502241 -0.681151948 2
-## 32   0.90634303 -0.49060241  0.512412619 2
-## 33   1.08116680 -1.14045789  0.480243521 3
-## 34  -1.26727581  2.43629848 -1.187419390 1
-## 35   0.72901469  0.83142968 -0.630735807 2
-## 36  -1.56979977 -1.50871768  0.675011104 3
-## 37   0.40232004 -0.33591664  0.791295164 4
-## 38   0.97856789 -0.65642181 -0.657278973 2
-## 39   1.46021289  1.16505248  1.248629475 4
-## 40  -1.47389394  0.60720530 -0.810341626 1
-## 41  -0.06653796 -0.35691882 -0.832350611 2
-## 42  -0.55125334  1.14562817 -0.206775887 1
-## 43   1.48544108 -0.27418162 -0.679572021 2
-## 44   0.46749759  1.62377417 -1.082921270 1
-## 45   0.02947569  1.25969973 -0.386032325 1
-## 46  -0.74510318  0.20673789 -0.979372639 1
-## 47  -0.98103553 -1.59756613 -0.435217612 3
-## 48  -0.80775660 -1.02390010 -0.704372510 1
-## 49   1.54218689  1.49003539  0.142237860 4
-## 50  -0.89631873 -0.03361395  1.079552016 4
-## 51  -1.02746937  0.04668143  0.263839883 1
-## 52   0.44604002 -1.94670050  0.408642001 3
-## 53   0.76071162  0.04552718  0.272510238 2
-## 54   0.19256028 -1.53195375  1.045189548 3
-## 55   0.83583310 -1.29965392  0.625207659 3
-## 56   1.13998209  0.37643818  0.749832357 4
-## 57  -0.76775547  1.22613275  1.793416589 4
-## 58   2.42068257  0.24226703  1.993315807 4
-## 59  -0.13727576 -0.66983962 -0.263690516 2
-## 60   1.38788821 -0.37139597 -0.439907893 2
-## 61  -0.02143667 -1.18359766  1.735007095 3
-## 62  -0.35821823 -2.27155583 -1.224181595 3
-## 63  -0.17963237  0.93034156 -0.055721324 1
-## 64   0.67674843 -0.32813102 -1.049845071 2
-## 65   1.10705002  1.73093342  1.155454220 4
-## 66   1.08050482 -0.61577631  0.172052015 2
-## 67   0.91865631  0.96706833  1.368697903 4
-## 68  -2.15067557  0.05691957 -1.158131018 1
-## 69  -0.74059936 -1.21357308  0.520649589 3
-## 70   0.54013907  1.29504093 -0.403460290 2
-## 71  -1.13587236  0.06128131 -0.595354398 1
-## 72  -1.18838403  0.50423673 -1.992192072 1
-## 73  -1.24963316  2.23779182 -2.297499383 1
-## 74  -0.26846637  1.19830748  0.543008169 4
-## 75  -1.40215061  0.82631097 -0.072095625 1
-## 76  -0.45379314  0.33375180 -0.504582792 1
-## 77   0.56888320 -0.53884863 -0.204965022 2
-## 78  -1.31721781 -0.93614219  0.591298112 3
-## 79   1.94341845 -1.52373302  0.554483369 3
-## 80  -0.90409688 -0.21044978  1.165485517 4
-## 81  -1.19523186 -0.07540218  1.513619129 4
-## 82  -1.26912953  0.43199414  0.380883087 1
-## 83   0.27305852  0.24064808  0.687910900 4
-## 84   0.55920447  1.12231081  0.336859732 4
-## 85   1.33271734 -1.60062093 -0.119648378 2
-## 86   0.62440996 -0.14860456 -0.860818929 2
-## 87  -0.05839286  0.60584261  2.385849922 4
-## 88  -0.53996164 -0.22949569  1.116884286 4
-## 89   1.10484154  0.73993058 -0.443031519 2
-## 90  -0.32852006 -0.56316835 -1.196153261 2
-## 91   0.88679069  0.91803806  0.707631536 4
-## 92  -0.28473100 -0.55056027  1.042460361 3
-## 93  -0.04660293 -0.62575595  0.803055067 3
-## 94  -0.36163983 -0.16183002 -2.014648776 1
-## 95   0.05596411  0.67402065  1.170880761 4
-## 96   0.95962781 -0.47320099 -0.137678062 2
-## 97   0.15944512  0.66694785  0.047180319 4
-## 98   1.24457563  1.77017541 -0.008932608 2
-## 99   1.49950712 -0.33787178  0.118857940 2
-## 100  0.14817822 -1.81243103  0.127878222 3</code></pre>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="clustering.html#cb161-1"></a>bd&lt;-<span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">rnorm</span>(<span class="dv">100</span>),<span class="dt">y=</span><span class="kw">rnorm</span>(<span class="dv">100</span>),<span class="dt">z=</span><span class="kw">rnorm</span>(<span class="dv">100</span>))</span>
+<span id="cb161-2"><a href="clustering.html#cb161-2"></a><span class="kw">kcenter</span>(bd,<span class="dt">k=</span><span class="dv">4</span>,<span class="dt">d=</span><span class="dv">1</span>,<span class="dt">tipo=</span><span class="st">&quot;mediana&quot;</span>)</span></code></pre></div>
+<pre><code>##               x            y           z k
+## 1    0.14201866 -0.125193670 -0.72777255 2
+## 2    0.06110902 -0.599238036 -0.25405843 4
+## 3    0.12462536 -0.001114346 -0.20090412 4
+## 4    1.92216926  0.405663042 -0.83302709 1
+## 5   -0.50855957 -0.260650801 -0.84516250 2
+## 6    1.10448126 -0.678944906  0.32468301 4
+## 7    1.45181508 -0.622930983  0.54245568 4
+## 8   -0.72935640  1.951846792  0.56799636 3
+## 9    0.14691978 -0.531271780  0.36392083 4
+## 10   1.05538052  0.668153532  0.97675043 1
+## 11   0.94730232 -0.595985538  1.41723962 4
+## 12   1.28471015  0.781495045  0.44993330 1
+## 13   1.30345517 -1.370587276  0.68500493 4
+## 14   0.09318983  0.524362841 -1.09898376 1
+## 15   1.90844155  0.022509339 -0.23612571 1
+## 16  -0.78786295  0.011979268 -1.16672502 2
+## 17   0.50931769  0.867623777 -1.57915303 1
+## 18  -0.54733363 -0.052299288  0.52844196 3
+## 19  -0.71539597  1.029898143 -0.46130851 3
+## 20  -0.39753811 -0.019601203  0.31790062 4
+## 21   0.03071449  1.308735417 -0.50128012 1
+## 22   0.12109080 -0.492807708  0.02433229 4
+## 23   0.06360468  0.822131309  1.89565793 3
+## 24  -1.40658519 -0.667402403 -0.01758830 2
+## 25   0.72366418 -0.966736847 -0.52667486 4
+## 26   1.33809747  0.222991727 -1.17058816 1
+## 27   0.45315784 -1.114770246  0.10724017 4
+## 28   0.33391745 -0.777538112 -1.62225228 4
+## 29   0.53072094 -1.383274250  0.21380939 4
+## 30  -0.87502125 -1.134683601 -0.36618294 2
+## 31  -0.10600674  0.076220902 -0.49221147 2
+## 32  -0.37233372  1.691206328 -0.55594723 3
+## 33  -0.92635090 -1.296591050 -0.37069557 2
+## 34  -0.59866309  1.232196460  0.51243808 3
+## 35   0.84188136  0.631815675 -0.62311540 1
+## 36  -0.44753138 -0.511032282  0.44892686 4
+## 37   0.63061805  0.309370609  0.70193378 1
+## 38  -0.05755284  0.975911609 -0.52566210 1
+## 39   0.83775184  0.769326044 -0.31261532 1
+## 40  -0.85419422  0.140426698  1.43380923 3
+## 41  -2.62159035 -0.029299410 -1.76788835 2
+## 42  -0.41355616  0.324842217 -0.09657654 3
+## 43   0.21958478  1.684862727  0.76712099 3
+## 44   0.53399462  0.695401734  0.58622641 1
+## 45  -0.63038740  1.170041735  0.69538819 3
+## 46   0.10348917 -0.850940313  0.87899104 4
+## 47   0.26490609 -0.131313490 -0.25139340 4
+## 48  -0.61072495 -0.364072326 -0.00322328 2
+## 49   0.88817422  0.846625398  0.63735572 1
+## 50  -1.25841925 -0.032979310 -0.76544063 2
+## 51  -0.09479785  0.210748643  0.15364185 4
+## 52  -1.78956329  1.313006766  0.14105773 3
+## 53  -2.43724514  0.117455540  0.21979341 2
+## 54  -0.53922980  1.813725126 -1.26201150 3
+## 55  -1.51399398 -1.149653921 -0.15377492 2
+## 56   2.29620990  0.951595130 -0.55912372 1
+## 57  -0.87455827 -1.459631171 -0.60618383 2
+## 58  -1.02329328 -0.626521312 -0.67830804 2
+## 59   1.03211762  1.068318433  0.50272251 1
+## 60   0.12917426 -0.393958863 -1.07388815 2
+## 61  -0.10289303  0.783233287  1.31625950 3
+## 62  -0.19540469 -1.415727065  2.22074251 4
+## 63   0.05884515 -1.068756075  1.57993161 4
+## 64  -0.49158834  1.952437263  1.14216556 3
+## 65   0.13269731 -1.483873253  0.76433399 4
+## 66   0.17129373  2.360265205 -0.61987816 1
+## 67   1.63377093 -0.282332032 -0.24049162 1
+## 68   0.18833382  0.412619620 -0.11394680 1
+## 69  -1.58776834 -1.300485284 -1.34150262 2
+## 70  -0.18352575 -1.524403402  0.41281109 4
+## 71  -2.24039052  0.005047006 -2.05099716 2
+## 72  -0.55165635  0.319613377 -0.35410088 2
+## 73  -0.73433048 -0.734267931 -0.31448218 2
+## 74  -0.43406087 -0.431940690 -0.33605852 2
+## 75   0.15677532  0.748895978  0.65115735 3
+## 76  -1.51047766  0.670545364  0.41442001 3
+## 77  -1.53904163 -0.177403936 -2.87710840 2
+## 78   1.31916131  0.201058067 -0.70874554 1
+## 79   0.93944177 -0.770598681  0.78481450 4
+## 80   0.76297914  1.920408978 -1.08743313 1
+## 81   0.52569102 -0.958039618  1.32269364 4
+## 82   0.36523836 -0.008328307 -1.79906521 1
+## 83  -0.06219007 -0.265526638  0.86264353 4
+## 84  -0.61461319  1.481679698 -0.57822964 3
+## 85   0.97537946  1.178120672 -0.31388702 1
+## 86  -0.96215857  0.587794481 -1.45191301 2
+## 87   1.56394398  0.708214348 -0.10328420 1
+## 88  -0.74785473 -0.822938078 -0.25725440 2
+## 89  -1.95315468 -0.477312882 -0.47498252 2
+## 90  -1.00151059  0.407240126  1.28196458 3
+## 91  -1.38867256 -1.124208098 -1.04216320 2
+## 92  -0.06154479  2.145985763  1.36590222 3
+## 93  -2.10578985 -2.154889064 -0.84274911 2
+## 94  -0.70534989 -0.773633422 -0.05626053 2
+## 95   0.38664628  0.823698255  1.80066167 3
+## 96  -0.84311220 -0.852899864 -0.48526559 2
+## 97   1.12126530  0.839356466  0.68300001 1
+## 98   0.26580966  0.120388613 -0.20406219 1
+## 99   0.08426394 -2.131598303  2.04037784 4
+## 100  1.05708187 -1.487982147 -1.28322415 1</code></pre>
 <div id="validación-cluster" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Validación cluster</h3>
 <ul>
@@ -537,117 +543,128 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p><span class="math display">\[s_i=\frac{b_i-a_i}{max(a_i,b_i)}\]</span></p>
 <p>Idealmente se espera que <span class="math inline">\(a_i &lt; b_i\)</span> y los <span class="math inline">\(a_i\)</span> cercanos a <span class="math inline">\(0\)</span>.</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" title="1"><span class="kw">library</span>(cluster)</a>
-<a class="sourceLine" id="cb194-2" title="2">kk&lt;-<span class="kw">kmeans</span>(bd,<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb194-3" title="3">s &lt;-<span class="st"> </span><span class="kw">silhouette</span>(kk<span class="op">$</span>cluster, <span class="kw">dist</span>(bd))</a>
-<a class="sourceLine" id="cb194-4" title="4"><span class="kw">plot</span>(s)</a></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="clustering.html#cb163-1"></a><span class="kw">library</span>(cluster)</span>
+<span id="cb163-2"><a href="clustering.html#cb163-2"></a>kk&lt;-<span class="kw">kmeans</span>(bd,<span class="dv">3</span>)</span>
+<span id="cb163-3"><a href="clustering.html#cb163-3"></a>s &lt;-<span class="st"> </span><span class="kw">silhouette</span>(kk<span class="op">$</span>cluster, <span class="kw">dist</span>(bd))</span>
+<span id="cb163-4"><a href="clustering.html#cb163-4"></a><span class="kw">plot</span>(s)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1"><span class="co">#sobre la base IRIS</span></a>
-<a class="sourceLine" id="cb195-2" title="2"><span class="kw">data</span>(<span class="st">&quot;iris&quot;</span>)</a>
-<a class="sourceLine" id="cb195-3" title="3">aux&lt;-<span class="kw">kmeans</span>(iris[,<span class="op">-</span><span class="dv">5</span>],<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb195-4" title="4">s &lt;-<span class="st"> </span><span class="kw">silhouette</span>(aux<span class="op">$</span>cluster, <span class="kw">dist</span>(iris[,<span class="op">-</span><span class="dv">5</span>]))</a>
-<a class="sourceLine" id="cb195-5" title="5"><span class="kw">plot</span>(s)</a></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="clustering.html#cb164-1"></a><span class="co">#sobre la base IRIS</span></span>
+<span id="cb164-2"><a href="clustering.html#cb164-2"></a><span class="kw">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
+<span id="cb164-3"><a href="clustering.html#cb164-3"></a>aux&lt;-<span class="kw">kmeans</span>(iris[,<span class="op">-</span><span class="dv">5</span>],<span class="dv">3</span>)</span>
+<span id="cb164-4"><a href="clustering.html#cb164-4"></a>s &lt;-<span class="st"> </span><span class="kw">silhouette</span>(aux<span class="op">$</span>cluster, <span class="kw">dist</span>(iris[,<span class="op">-</span><span class="dv">5</span>]))</span>
+<span id="cb164-5"><a href="clustering.html#cb164-5"></a><span class="kw">plot</span>(s)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-28-2.png" width="672" /></p>
 <blockquote>
 <p>Medoide: es el punto de datos que es “menos diferente” de todos los otros puntos de datos. A diferencia del centroide, el medoide tiene que ser uno de los puntos originales.</p>
 </blockquote>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" title="1"><span class="kw">pam</span>(bd,<span class="dt">k=</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="clustering.html#cb165-1"></a><span class="kw">pam</span>(bd,<span class="dt">k=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## Medoids:
-##      ID           x          y          z
-## [1,] 84  0.55920447  1.1223108  0.3368597
-## [2,] 93 -0.04660293 -0.6257559  0.8030551
-## [3,] 41 -0.06653796 -0.3569188 -0.8323506
+##      ID          x          y          z
+## [1,] 47  0.2649061 -0.1313135 -0.2513934
+## [2,] 58 -1.0232933 -0.6265213 -0.6783080
+## [3,] 75  0.1567753  0.7488960  0.6511574
 ## Clustering vector:
-##   [1] 1 2 3 2 3 3 2 2 2 1 2 3 2 2 1 1 1 3 3 1 2 2 2 3 1 1 2 1 1 2 3 2 2 1
-##  [35] 1 2 2 3 1 3 3 1 3 1 1 3 3 3 1 2 2 2 1 2 2 1 1 1 3 3 2 3 1 3 1 2 1 3
-##  [69] 2 1 3 3 3 1 3 3 3 2 2 2 2 2 2 1 2 3 2 2 1 3 1 2 2 3 1 3 1 1 2 2
+##   [1] 1 1 1 1 2 1 1 3 1 3 3 3 1 1 1 2 1 3 3 1 3 1 3 2 1 1 1
+##  [28] 1 1 2 1 3 2 3 1 1 3 1 1 3 2 1 3 3 3 1 1 2 3 2 1 3 2 3
+##  [55] 2 1 2 2 3 1 3 3 3 3 1 3 1 1 2 1 2 1 2 2 3 3 2 1 1 3 1
+##  [82] 1 3 3 3 2 1 2 2 3 2 3 2 2 3 2 3 1 1 1
 ## Objective function:
 ##    build     swap 
-## 1.249504 1.207584 
+## 1.203759 1.192385 
 ## 
 ## Available components:
-##  [1] &quot;medoids&quot;    &quot;id.med&quot;     &quot;clustering&quot; &quot;objective&quot;  &quot;isolation&quot; 
-##  [6] &quot;clusinfo&quot;   &quot;silinfo&quot;    &quot;diss&quot;       &quot;call&quot;       &quot;data&quot;</code></pre>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1"><span class="kw">kmeans</span>(bd,<span class="dv">3</span>)</a></code></pre></div>
-<pre><code>## K-means clustering with 3 clusters of sizes 41, 33, 26
+##  [1] &quot;medoids&quot;    &quot;id.med&quot;     &quot;clustering&quot; &quot;objective&quot; 
+##  [5] &quot;isolation&quot;  &quot;clusinfo&quot;   &quot;silinfo&quot;    &quot;diss&quot;      
+##  [9] &quot;call&quot;       &quot;data&quot;</code></pre>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="clustering.html#cb167-1"></a><span class="kw">kmeans</span>(bd,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## K-means clustering with 3 clusters of sizes 32, 41, 27
 ## 
 ## Cluster means:
-##            x          y          z
-## 1  0.2831822 -0.8619283 -0.1323566
-## 2 -0.2546384  0.9512309 -0.4586775
-## 3  0.3449225  0.2262552  1.3648302
+##            x          y           z
+## 1 -1.0335389 -0.4398382 -0.73643531
+## 2  0.4170795  0.9428450  0.04049812
+## 3  0.2946176 -0.7689965  0.59263802
 ## 
 ## Clustering vector:
-##   [1] 2 1 2 1 1 1 3 3 3 2 3 1 3 1 2 2 2 1 1 2 1 3 1 1 3 3 3 2 2 1 1 1 1 2
-##  [35] 2 1 3 1 3 2 1 2 1 2 2 2 1 1 2 3 2 1 1 1 1 3 3 3 1 1 3 1 2 1 3 1 3 2
-##  [69] 1 2 2 2 2 2 2 2 1 1 1 3 3 2 3 2 1 1 3 3 2 1 3 3 1 2 3 1 2 2 1 1
+##   [1] 1 3 2 2 1 3 3 2 3 2 3 2 3 2 2 1 2 3 2 3 2 3 2 1 3 2 3
+##  [28] 1 3 1 1 2 1 2 2 3 2 2 2 3 1 2 2 2 2 3 3 1 2 1 2 1 1 2
+##  [55] 1 2 1 1 2 1 2 3 3 2 3 2 3 2 1 3 1 1 1 1 2 1 1 2 3 2 3
+##  [82] 1 3 2 2 1 2 1 1 3 1 2 1 1 2 1 2 2 3 3
 ## 
 ## Within cluster sum of squares by cluster:
-## [1] 68.23573 58.63329 44.23412
-##  (between_SS / total_SS =  41.7 %)
+## [1] 50.68045 68.38983 37.72952
+##  (between_SS / total_SS =  44.9 %)
 ## 
 ## Available components:
 ## 
-## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;    
-## [5] &quot;tot.withinss&quot; &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;        
-## [9] &quot;ifault&quot;</code></pre>
+## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;       
+## [4] &quot;withinss&quot;     &quot;tot.withinss&quot; &quot;betweenss&quot;   
+## [7] &quot;size&quot;         &quot;iter&quot;         &quot;ifault&quot;</code></pre>
 <ul>
 <li>¿Cúal es el número óptimo de <span class="math inline">\(k\)</span>?</li>
 </ul>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1"><span class="kw">library</span>(fpc)<span class="co"># Flexible Procedures for Clustering</span></a>
-<a class="sourceLine" id="cb200-2" title="2">sol &lt;-<span class="st"> </span><span class="kw">pamk</span>(iris[,<span class="op">-</span><span class="dv">5</span>], <span class="dt">krange=</span><span class="dv">2</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">criterion=</span><span class="st">&quot;asw&quot;</span>, <span class="dt">usepam=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb200-3" title="3">sol</a></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="clustering.html#cb169-1"></a><span class="kw">library</span>(fpc)<span class="co"># Flexible Procedures for Clustering</span></span>
+<span id="cb169-2"><a href="clustering.html#cb169-2"></a>sol &lt;-<span class="st"> </span><span class="kw">pamk</span>(iris[,<span class="op">-</span><span class="dv">5</span>], <span class="dt">krange=</span><span class="dv">2</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">criterion=</span><span class="st">&quot;asw&quot;</span>, <span class="dt">usepam=</span><span class="ot">TRUE</span>)</span>
+<span id="cb169-3"><a href="clustering.html#cb169-3"></a>sol</span></code></pre></div>
 <pre><code>## $pamobject
 ## Medoids:
 ##       ID Sepal.Length Sepal.Width Petal.Length Petal.Width
 ## [1,]   8          5.0         3.4          1.5         0.2
 ## [2,] 127          6.2         2.8          4.8         1.8
 ## Clustering vector:
-##   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-##  [35] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-##  [69] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 2 2 2
-## [103] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-## [137] 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+##   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+##  [28] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2
+##  [55] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+##  [82] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 2 2 2 2 2 2 2 2 2
+## [109] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+## [136] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
 ## Objective function:
 ##     build      swap 
 ## 0.9901187 0.8622026 
 ## 
 ## Available components:
-##  [1] &quot;medoids&quot;    &quot;id.med&quot;     &quot;clustering&quot; &quot;objective&quot;  &quot;isolation&quot; 
-##  [6] &quot;clusinfo&quot;   &quot;silinfo&quot;    &quot;diss&quot;       &quot;call&quot;       &quot;data&quot;      
+##  [1] &quot;medoids&quot;    &quot;id.med&quot;     &quot;clustering&quot; &quot;objective&quot; 
+##  [5] &quot;isolation&quot;  &quot;clusinfo&quot;   &quot;silinfo&quot;    &quot;diss&quot;      
+##  [9] &quot;call&quot;       &quot;data&quot;      
 ## 
 ## $nc
 ## [1] 2
 ## 
 ## $crit
-##  [1] 0.0000000 0.6857882 0.5528190 0.4896972 0.4867481 0.4703951
-##  [7] 0.3390116 0.3318516 0.2918520 0.2918482</code></pre>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1"><span class="kw">pamk</span>(bd,<span class="dt">krange=</span><span class="dv">2</span><span class="op">:</span><span class="dv">10</span>,<span class="dt">usepam =</span> T)</a></code></pre></div>
+##  [1] 0.0000000 0.6857882 0.5528190 0.4896972 0.4867481
+##  [6] 0.4703951 0.3390116 0.3318516 0.2918520 0.2918482</code></pre>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="clustering.html#cb171-1"></a><span class="kw">pamk</span>(bd,<span class="dt">krange=</span><span class="dv">2</span><span class="op">:</span><span class="dv">10</span>,<span class="dt">usepam =</span> T)</span></code></pre></div>
 <pre><code>## $pamobject
 ## Medoids:
-##      ID          x           y          z
-## [1,] 84  0.5592045  1.12231081  0.3368597
-## [2,] 92 -0.2847310 -0.55056027  1.0424604
-## [3,] 71 -1.1358724  0.06128131 -0.5953544
-## [4,] 96  0.9596278 -0.47320099 -0.1376781
+##      ID          x            y          z
+## [1,]  3  0.1246254 -0.001114346 -0.2009041
+## [2,] 78  1.3191613  0.201058067 -0.7087455
+## [3,] 96 -0.8431122 -0.852899864 -0.4852656
+## [4,] 46  0.1034892 -0.850940313  0.8789910
+## [5,] 45 -0.6303874  1.170041735  0.6953882
+## [6,] 49  0.8881742  0.846625398  0.6373557
+## [7,] 32 -0.3723337  1.691206328 -0.5559472
+## [8,] 71 -2.2403905  0.005047006 -2.0509972
 ## Clustering vector:
-##   [1] 1 2 3 2 4 3 4 2 2 1 2 4 2 2 3 1 1 3 4 1 2 2 4 4 1 1 2 1 1 2 4 4 4 3
-##  [35] 1 2 2 4 1 3 3 1 4 1 1 3 3 3 1 2 3 4 4 2 4 1 1 1 4 4 2 4 1 4 1 4 1 3
-##  [69] 2 1 3 3 3 1 3 3 4 2 4 2 2 3 1 1 4 4 2 2 1 3 1 2 2 3 1 4 1 1 4 4
+##   [1] 1 1 1 2 3 4 4 5 4 6 4 6 4 1 2 3 2 1 7 1 7 1 5 3 1 2 4
+##  [28] 1 4 3 1 7 3 5 2 4 6 7 2 5 8 1 5 6 5 4 1 3 6 3 1 5 3 7
+##  [55] 3 2 3 3 6 1 5 4 4 5 4 7 2 1 3 4 8 1 3 3 6 5 8 2 4 7 4
+##  [82] 2 4 7 6 8 2 3 3 5 3 5 3 3 6 3 6 1 4 2
 ## Objective function:
-##    build     swap 
-## 1.142417 1.068207 
+##     build      swap 
+## 0.8202221 0.7825730 
 ## 
 ## Available components:
-##  [1] &quot;medoids&quot;    &quot;id.med&quot;     &quot;clustering&quot; &quot;objective&quot;  &quot;isolation&quot; 
-##  [6] &quot;clusinfo&quot;   &quot;silinfo&quot;    &quot;diss&quot;       &quot;call&quot;       &quot;data&quot;      
+##  [1] &quot;medoids&quot;    &quot;id.med&quot;     &quot;clustering&quot; &quot;objective&quot; 
+##  [5] &quot;isolation&quot;  &quot;clusinfo&quot;   &quot;silinfo&quot;    &quot;diss&quot;      
+##  [9] &quot;call&quot;       &quot;data&quot;      
 ## 
 ## $nc
-## [1] 4
+## [1] 8
 ## 
 ## $crit
-##  [1] 0.0000000 0.2257356 0.2301222 0.2617801 0.2569362 0.2432950
-##  [7] 0.2447028 0.2241522 0.2152235 0.2206629</code></pre>
+##  [1] 0.0000000 0.2449526 0.2233785 0.2618319 0.2432127
+##  [6] 0.2375996 0.2545661 0.2790932 0.2741168 0.2622158</code></pre>
 </div>
 <div id="distancias-para-variables-nominales-todas-nominales" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> Distancias para variables nominales (todas nominales)</h3>
@@ -665,76 +682,76 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Binomial</li>
 </ul>
 <p><span class="math display">\[d_{ij}=log(2)(A+B-2J)\]</span></p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1">aux&lt;-<span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb204-2" title="2">A&lt;-<span class="kw">sum</span>(aux[<span class="dv">1</span>,])</a>
-<a class="sourceLine" id="cb204-3" title="3">B&lt;-<span class="kw">sum</span>(aux[<span class="dv">2</span>,])</a>
-<a class="sourceLine" id="cb204-4" title="4">J&lt;-<span class="kw">sum</span>(<span class="kw">apply</span>(aux, <span class="dv">2</span>, sum)<span class="op">==</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb204-5" title="5"><span class="co">#euclideana</span></a>
-<a class="sourceLine" id="cb204-6" title="6"><span class="kw">sqrt</span>(A<span class="op">+</span>B<span class="dv">-2</span><span class="op">*</span>J)</a></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="clustering.html#cb173-1"></a>aux&lt;-<span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb173-2"><a href="clustering.html#cb173-2"></a>A&lt;-<span class="kw">sum</span>(aux[<span class="dv">1</span>,])</span>
+<span id="cb173-3"><a href="clustering.html#cb173-3"></a>B&lt;-<span class="kw">sum</span>(aux[<span class="dv">2</span>,])</span>
+<span id="cb173-4"><a href="clustering.html#cb173-4"></a>J&lt;-<span class="kw">sum</span>(<span class="kw">apply</span>(aux, <span class="dv">2</span>, sum)<span class="op">==</span><span class="dv">2</span>)</span>
+<span id="cb173-5"><a href="clustering.html#cb173-5"></a><span class="co">#euclideana</span></span>
+<span id="cb173-6"><a href="clustering.html#cb173-6"></a><span class="kw">sqrt</span>(A<span class="op">+</span>B<span class="dv">-2</span><span class="op">*</span>J)</span></code></pre></div>
 <pre><code>## [1] 1.732051</code></pre>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1"><span class="co">#manhathan</span></a>
-<a class="sourceLine" id="cb206-2" title="2">A<span class="op">+</span>B<span class="dv">-2</span><span class="op">*</span>J</a></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="clustering.html#cb175-1"></a><span class="co">#manhathan</span></span>
+<span id="cb175-2"><a href="clustering.html#cb175-2"></a>A<span class="op">+</span>B<span class="dv">-2</span><span class="op">*</span>J</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" title="1"><span class="co">#bray</span></a>
-<a class="sourceLine" id="cb208-2" title="2">(A<span class="op">+</span>B<span class="dv">-2</span><span class="op">*</span>J)<span class="op">/</span>(A<span class="op">+</span>B)</a></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="clustering.html#cb177-1"></a><span class="co">#bray</span></span>
+<span id="cb177-2"><a href="clustering.html#cb177-2"></a>(A<span class="op">+</span>B<span class="dv">-2</span><span class="op">*</span>J)<span class="op">/</span>(A<span class="op">+</span>B)</span></code></pre></div>
 <pre><code>## [1] 0.4285714</code></pre>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1"><span class="co">#binomial</span></a>
-<a class="sourceLine" id="cb210-2" title="2"><span class="kw">log</span>(<span class="dv">2</span>)<span class="op">*</span>(A<span class="op">+</span>B<span class="dv">-2</span><span class="op">*</span>J)</a></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="clustering.html#cb179-1"></a><span class="co">#binomial</span></span>
+<span id="cb179-2"><a href="clustering.html#cb179-2"></a><span class="kw">log</span>(<span class="dv">2</span>)<span class="op">*</span>(A<span class="op">+</span>B<span class="dv">-2</span><span class="op">*</span>J)</span></code></pre></div>
 <pre><code>## [1] 2.079442</code></pre>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1"><span class="kw">library</span>(vegan)</a></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="clustering.html#cb181-1"></a><span class="kw">library</span>(vegan)</span></code></pre></div>
 <pre><code>## Loading required package: permute</code></pre>
 <pre><code>## This is vegan 2.5-6</code></pre>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" title="1"><span class="kw">vegdist</span>(aux,<span class="dt">binary =</span> T)</a></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="clustering.html#cb184-1"></a><span class="kw">vegdist</span>(aux,<span class="dt">binary =</span> T)</span></code></pre></div>
 <pre><code>##           1
 ## 2 0.4285714</code></pre>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" title="1"><span class="kw">vegdist</span>(aux,<span class="dt">binary =</span> F)</a></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="clustering.html#cb186-1"></a><span class="kw">vegdist</span>(aux,<span class="dt">binary =</span> F)</span></code></pre></div>
 <pre><code>##           1
 ## 2 0.4285714</code></pre>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" title="1"><span class="co">#una base de datos mas grandes</span></a>
-<a class="sourceLine" id="cb219-2" title="2"><span class="kw">set.seed</span>(<span class="dv">999</span>)</a>
-<a class="sourceLine" id="cb219-3" title="3">aux1&lt;-<span class="kw">matrix</span>(<span class="kw">rbinom</span>(<span class="dv">200</span>,<span class="dv">1</span>,<span class="fl">0.4</span>),<span class="dt">nrow =</span> <span class="dv">20</span>)</a>
-<a class="sourceLine" id="cb219-4" title="4"><span class="kw">vegdist</span>(aux1,<span class="dt">method =</span> <span class="st">&quot;binomial&quot;</span>,<span class="dt">binary =</span> T)</a></code></pre></div>
-<pre><code>##            1         2         3         4         5         6         7
-## 2  3.4657359                                                            
-## 3  3.4657359 2.7725887                                                  
-## 4  2.7725887 4.8520303 4.8520303                                        
-## 5  4.1588831 3.4657359 4.8520303 2.7725887                              
-## 6  2.7725887 3.4657359 3.4657359 4.1588831 1.3862944                    
-## 7  3.4657359 2.7725887 2.7725887 2.0794415 3.4657359 4.8520303          
-## 8  2.0794415 1.3862944 2.7725887 4.8520303 3.4657359 2.0794415 4.1588831
-## 9  2.7725887 3.4657359 4.8520303 4.1588831 2.7725887 1.3862944 6.2383246
-## 10 2.7725887 4.8520303 3.4657359 2.7725887 2.7725887 2.7725887 3.4657359
-## 11 3.4657359 2.7725887 4.1588831 3.4657359 4.8520303 4.8520303 2.7725887
-## 12 2.7725887 4.8520303 3.4657359 2.7725887 4.1588831 2.7725887 3.4657359
-## 13 4.1588831 4.8520303 3.4657359 2.7725887 2.7725887 2.7725887 4.8520303
-## 14 4.8520303 4.1588831 4.1588831 3.4657359 3.4657359 3.4657359 4.1588831
-## 15 1.3862944 3.4657359 2.0794415 2.7725887 4.1588831 2.7725887 3.4657359
-## 16 3.4657359 4.1588831 5.5451774 2.0794415 0.6931472 2.0794415 4.1588831
-## 17 3.4657359 2.7725887 4.1588831 3.4657359 3.4657359 3.4657359 5.5451774
-## 18 2.7725887 4.8520303 3.4657359 4.1588831 4.1588831 4.1588831 3.4657359
-## 19 3.4657359 4.1588831 1.3862944 4.8520303 3.4657359 2.0794415 4.1588831
-## 20 4.8520303 2.7725887 4.1588831 3.4657359 3.4657359 3.4657359 4.1588831
-##            8         9        10        11        12        13        14
-## 2                                                                       
-## 3                                                                       
-## 4                                                                       
-## 5                                                                       
-## 6                                                                       
-## 7                                                                       
-## 8                                                                       
-## 9  2.0794415                                                            
-## 10 3.4657359 2.7725887                                                  
-## 11 4.1588831 3.4657359 3.4657359                                        
-## 12 4.8520303 2.7725887 2.7725887 2.0794415                              
-## 13 4.8520303 2.7725887 2.7725887 3.4657359 2.7725887                    
-## 14 4.1588831 2.0794415 2.0794415 2.7725887 2.0794415 3.4657359          
-## 15 2.0794415 2.7725887 1.3862944 3.4657359 2.7725887 2.7725887 3.4657359
-## 16 4.1588831 2.0794415 2.0794415 4.1588831 3.4657359 2.0794415 2.7725887
-## 17 2.7725887 2.0794415 4.8520303 4.1588831 4.8520303 2.0794415 4.1588831
-## 18 4.8520303 4.1588831 2.7725887 3.4657359 2.7725887 4.1588831 3.4657359
-## 19 2.7725887 3.4657359 2.0794415 4.1588831 3.4657359 2.0794415 4.1588831
-## 20 4.1588831 2.0794415 3.4657359 1.3862944 2.0794415 2.0794415 1.3862944
-##           15        16        17        18        19
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="clustering.html#cb188-1"></a><span class="co">#una base de datos mas grandes</span></span>
+<span id="cb188-2"><a href="clustering.html#cb188-2"></a><span class="kw">set.seed</span>(<span class="dv">999</span>)</span>
+<span id="cb188-3"><a href="clustering.html#cb188-3"></a>aux1&lt;-<span class="kw">matrix</span>(<span class="kw">rbinom</span>(<span class="dv">200</span>,<span class="dv">1</span>,<span class="fl">0.4</span>),<span class="dt">nrow =</span> <span class="dv">20</span>)</span>
+<span id="cb188-4"><a href="clustering.html#cb188-4"></a><span class="kw">vegdist</span>(aux1,<span class="dt">method =</span> <span class="st">&quot;binomial&quot;</span>,<span class="dt">binary =</span> T)</span></code></pre></div>
+<pre><code>##            1         2         3         4         5
+## 2  3.4657359                                        
+## 3  3.4657359 2.7725887                              
+## 4  2.7725887 4.8520303 4.8520303                    
+## 5  4.1588831 3.4657359 4.8520303 2.7725887          
+## 6  2.7725887 3.4657359 3.4657359 4.1588831 1.3862944
+## 7  3.4657359 2.7725887 2.7725887 2.0794415 3.4657359
+## 8  2.0794415 1.3862944 2.7725887 4.8520303 3.4657359
+## 9  2.7725887 3.4657359 4.8520303 4.1588831 2.7725887
+## 10 2.7725887 4.8520303 3.4657359 2.7725887 2.7725887
+## 11 3.4657359 2.7725887 4.1588831 3.4657359 4.8520303
+## 12 2.7725887 4.8520303 3.4657359 2.7725887 4.1588831
+## 13 4.1588831 4.8520303 3.4657359 2.7725887 2.7725887
+## 14 4.8520303 4.1588831 4.1588831 3.4657359 3.4657359
+## 15 1.3862944 3.4657359 2.0794415 2.7725887 4.1588831
+## 16 3.4657359 4.1588831 5.5451774 2.0794415 0.6931472
+## 17 3.4657359 2.7725887 4.1588831 3.4657359 3.4657359
+## 18 2.7725887 4.8520303 3.4657359 4.1588831 4.1588831
+## 19 3.4657359 4.1588831 1.3862944 4.8520303 3.4657359
+## 20 4.8520303 2.7725887 4.1588831 3.4657359 3.4657359
+##            6         7         8         9        10
+## 2                                                   
+## 3                                                   
+## 4                                                   
+## 5                                                   
+## 6                                                   
+## 7  4.8520303                                        
+## 8  2.0794415 4.1588831                              
+## 9  1.3862944 6.2383246 2.0794415                    
+## 10 2.7725887 3.4657359 3.4657359 2.7725887          
+## 11 4.8520303 2.7725887 4.1588831 3.4657359 3.4657359
+## 12 2.7725887 3.4657359 4.8520303 2.7725887 2.7725887
+## 13 2.7725887 4.8520303 4.8520303 2.7725887 2.7725887
+## 14 3.4657359 4.1588831 4.1588831 2.0794415 2.0794415
+## 15 2.7725887 3.4657359 2.0794415 2.7725887 1.3862944
+## 16 2.0794415 4.1588831 4.1588831 2.0794415 2.0794415
+## 17 3.4657359 5.5451774 2.7725887 2.0794415 4.8520303
+## 18 4.1588831 3.4657359 4.8520303 4.1588831 2.7725887
+## 19 2.0794415 4.1588831 2.7725887 3.4657359 2.0794415
+## 20 3.4657359 4.1588831 4.1588831 2.0794415 3.4657359
+##           11        12        13        14        15
 ## 2                                                   
 ## 3                                                   
 ## 4                                                   
@@ -745,82 +762,122 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 9                                                   
 ## 10                                                  
 ## 11                                                  
-## 12                                                  
-## 13                                                  
-## 14                                                  
-## 15                                                  
-## 16 3.4657359                                        
-## 17 3.4657359 2.7725887                              
-## 18 4.1588831 3.4657359 4.8520303                    
-## 19 2.0794415 4.1588831 4.1588831 3.4657359          
-## 20 3.4657359 2.7725887 2.7725887 4.8520303 4.1588831</code></pre>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" title="1"><span class="kw">dist</span>(aux1)</a></code></pre></div>
-<pre><code>##           1        2        3        4        5        6        7
-## 2  2.236068                                                      
-## 3  2.236068 2.000000                                             
-## 4  2.000000 2.645751 2.645751                                    
-## 5  2.449490 2.236068 2.645751 2.000000                           
-## 6  2.000000 2.236068 2.236068 2.449490 1.414214                  
-## 7  2.236068 2.000000 2.000000 1.732051 2.236068 2.645751         
-## 8  1.732051 1.414214 2.000000 2.645751 2.236068 1.732051 2.449490
-## 9  2.000000 2.236068 2.645751 2.449490 2.000000 1.414214 3.000000
-## 10 2.000000 2.645751 2.236068 2.000000 2.000000 2.000000 2.236068
-## 11 2.236068 2.000000 2.449490 2.236068 2.645751 2.645751 2.000000
-## 12 2.000000 2.645751 2.236068 2.000000 2.449490 2.000000 2.236068
-## 13 2.449490 2.645751 2.236068 2.000000 2.000000 2.000000 2.645751
-## 14 2.645751 2.449490 2.449490 2.236068 2.236068 2.236068 2.449490
-## 15 1.414214 2.236068 1.732051 2.000000 2.449490 2.000000 2.236068
-## 16 2.236068 2.449490 2.828427 1.732051 1.000000 1.732051 2.449490
-## 17 2.236068 2.000000 2.449490 2.236068 2.236068 2.236068 2.828427
-## 18 2.000000 2.645751 2.236068 2.449490 2.449490 2.449490 2.236068
-## 19 2.236068 2.449490 1.414214 2.645751 2.236068 1.732051 2.449490
-## 20 2.645751 2.000000 2.449490 2.236068 2.236068 2.236068 2.449490
-##           8        9       10       11       12       13       14
-## 2                                                                
-## 3                                                                
-## 4                                                                
-## 5                                                                
-## 6                                                                
-## 7                                                                
-## 8                                                                
-## 9  1.732051                                                      
-## 10 2.236068 2.000000                                             
-## 11 2.449490 2.236068 2.236068                                    
-## 12 2.645751 2.000000 2.000000 1.732051                           
-## 13 2.645751 2.000000 2.000000 2.236068 2.000000                  
-## 14 2.449490 1.732051 1.732051 2.000000 1.732051 2.236068         
-## 15 1.732051 2.000000 1.414214 2.236068 2.000000 2.000000 2.236068
-## 16 2.449490 1.732051 1.732051 2.449490 2.236068 1.732051 2.000000
-## 17 2.000000 1.732051 2.645751 2.449490 2.645751 1.732051 2.449490
-## 18 2.645751 2.449490 2.000000 2.236068 2.000000 2.449490 2.236068
-## 19 2.000000 2.236068 1.732051 2.449490 2.236068 1.732051 2.449490
-## 20 2.449490 1.732051 2.236068 1.414214 1.732051 1.732051 1.414214
-##          15       16       17       18       19
-## 2                                              
-## 3                                              
-## 4                                              
-## 5                                              
-## 6                                              
-## 7                                              
-## 8                                              
-## 9                                              
-## 10                                             
-## 11                                             
-## 12                                             
-## 13                                             
-## 14                                             
-## 15                                             
-## 16 2.236068                                    
-## 17 2.236068 2.000000                           
-## 18 2.449490 2.236068 2.645751                  
-## 19 1.732051 2.449490 2.449490 2.236068         
-## 20 2.236068 2.000000 2.000000 2.645751 2.449490</code></pre>
+## 12 2.0794415                                        
+## 13 3.4657359 2.7725887                              
+## 14 2.7725887 2.0794415 3.4657359                    
+## 15 3.4657359 2.7725887 2.7725887 3.4657359          
+## 16 4.1588831 3.4657359 2.0794415 2.7725887 3.4657359
+## 17 4.1588831 4.8520303 2.0794415 4.1588831 3.4657359
+## 18 3.4657359 2.7725887 4.1588831 3.4657359 4.1588831
+## 19 4.1588831 3.4657359 2.0794415 4.1588831 2.0794415
+## 20 1.3862944 2.0794415 2.0794415 1.3862944 3.4657359
+##           16        17        18        19
+## 2                                         
+## 3                                         
+## 4                                         
+## 5                                         
+## 6                                         
+## 7                                         
+## 8                                         
+## 9                                         
+## 10                                        
+## 11                                        
+## 12                                        
+## 13                                        
+## 14                                        
+## 15                                        
+## 16                                        
+## 17 2.7725887                              
+## 18 3.4657359 4.8520303                    
+## 19 4.1588831 4.1588831 3.4657359          
+## 20 2.7725887 2.7725887 4.8520303 4.1588831</code></pre>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="clustering.html#cb190-1"></a><span class="kw">dist</span>(aux1)</span></code></pre></div>
+<pre><code>##           1        2        3        4        5        6
+## 2  2.236068                                             
+## 3  2.236068 2.000000                                    
+## 4  2.000000 2.645751 2.645751                           
+## 5  2.449490 2.236068 2.645751 2.000000                  
+## 6  2.000000 2.236068 2.236068 2.449490 1.414214         
+## 7  2.236068 2.000000 2.000000 1.732051 2.236068 2.645751
+## 8  1.732051 1.414214 2.000000 2.645751 2.236068 1.732051
+## 9  2.000000 2.236068 2.645751 2.449490 2.000000 1.414214
+## 10 2.000000 2.645751 2.236068 2.000000 2.000000 2.000000
+## 11 2.236068 2.000000 2.449490 2.236068 2.645751 2.645751
+## 12 2.000000 2.645751 2.236068 2.000000 2.449490 2.000000
+## 13 2.449490 2.645751 2.236068 2.000000 2.000000 2.000000
+## 14 2.645751 2.449490 2.449490 2.236068 2.236068 2.236068
+## 15 1.414214 2.236068 1.732051 2.000000 2.449490 2.000000
+## 16 2.236068 2.449490 2.828427 1.732051 1.000000 1.732051
+## 17 2.236068 2.000000 2.449490 2.236068 2.236068 2.236068
+## 18 2.000000 2.645751 2.236068 2.449490 2.449490 2.449490
+## 19 2.236068 2.449490 1.414214 2.645751 2.236068 1.732051
+## 20 2.645751 2.000000 2.449490 2.236068 2.236068 2.236068
+##           7        8        9       10       11       12
+## 2                                                       
+## 3                                                       
+## 4                                                       
+## 5                                                       
+## 6                                                       
+## 7                                                       
+## 8  2.449490                                             
+## 9  3.000000 1.732051                                    
+## 10 2.236068 2.236068 2.000000                           
+## 11 2.000000 2.449490 2.236068 2.236068                  
+## 12 2.236068 2.645751 2.000000 2.000000 1.732051         
+## 13 2.645751 2.645751 2.000000 2.000000 2.236068 2.000000
+## 14 2.449490 2.449490 1.732051 1.732051 2.000000 1.732051
+## 15 2.236068 1.732051 2.000000 1.414214 2.236068 2.000000
+## 16 2.449490 2.449490 1.732051 1.732051 2.449490 2.236068
+## 17 2.828427 2.000000 1.732051 2.645751 2.449490 2.645751
+## 18 2.236068 2.645751 2.449490 2.000000 2.236068 2.000000
+## 19 2.449490 2.000000 2.236068 1.732051 2.449490 2.236068
+## 20 2.449490 2.449490 1.732051 2.236068 1.414214 1.732051
+##          13       14       15       16       17       18
+## 2                                                       
+## 3                                                       
+## 4                                                       
+## 5                                                       
+## 6                                                       
+## 7                                                       
+## 8                                                       
+## 9                                                       
+## 10                                                      
+## 11                                                      
+## 12                                                      
+## 13                                                      
+## 14 2.236068                                             
+## 15 2.000000 2.236068                                    
+## 16 1.732051 2.000000 2.236068                           
+## 17 1.732051 2.449490 2.236068 2.000000                  
+## 18 2.449490 2.236068 2.449490 2.236068 2.645751         
+## 19 1.732051 2.449490 1.732051 2.449490 2.449490 2.236068
+## 20 1.732051 1.414214 2.236068 2.000000 2.000000 2.645751
+##          19
+## 2          
+## 3          
+## 4          
+## 5          
+## 6          
+## 7          
+## 8          
+## 9          
+## 10         
+## 11         
+## 12         
+## 13         
+## 14         
+## 15         
+## 16         
+## 17         
+## 18         
+## 19         
+## 20 2.449490</code></pre>
 </div>
 <div id="distancias-para-variables-mixtas-cuantitativas-nominales-ordinales" class="section level3">
 <h3><span class="header-section-number">3.3.3</span> Distancias para variables mixtas (cuantitativas, nominales, ordinales)</h3>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" title="1"><span class="kw">library</span>(cluster)</a>
-<a class="sourceLine" id="cb223-2" title="2"><span class="kw">data</span>(<span class="st">&quot;flower&quot;</span>)</a>
-<a class="sourceLine" id="cb223-3" title="3"><span class="kw">str</span>(flower)</a></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="clustering.html#cb192-1"></a><span class="kw">library</span>(cluster)</span>
+<span id="cb192-2"><a href="clustering.html#cb192-2"></a><span class="kw">data</span>(<span class="st">&quot;flower&quot;</span>)</span>
+<span id="cb192-3"><a href="clustering.html#cb192-3"></a><span class="kw">str</span>(flower)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    18 obs. of  8 variables:
 ##  $ V1: Factor w/ 2 levels &quot;0&quot;,&quot;1&quot;: 1 2 1 1 1 1 1 1 2 2 ...
 ##  $ V2: Factor w/ 2 levels &quot;0&quot;,&quot;1&quot;: 2 1 2 1 2 2 1 1 2 2 ...
@@ -830,8 +887,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ V6: Ord.factor w/ 18 levels &quot;1&quot;&lt;&quot;2&quot;&lt;&quot;3&quot;&lt;&quot;4&quot;&lt;..: 15 3 1 16 2 12 13 7 4 14 ...
 ##  $ V7: num  25 150 150 125 20 50 40 100 25 100 ...
 ##  $ V8: num  15 50 50 50 15 40 20 15 15 60 ...</code></pre>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" title="1">dd&lt;-<span class="kw">daisy</span>(flower,<span class="dt">metric =</span> <span class="st">&quot;gower&quot;</span>)</a>
-<a class="sourceLine" id="cb225-2" title="2"><span class="kw">summary</span>(dd)</a></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="clustering.html#cb194-1"></a>dd&lt;-<span class="kw">daisy</span>(flower,<span class="dt">metric =</span> <span class="st">&quot;gower&quot;</span>)</span>
+<span id="cb194-2"><a href="clustering.html#cb194-2"></a><span class="kw">summary</span>(dd)</span></code></pre></div>
 <pre><code>## 153 dissimilarities, summarized :
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##  0.1418  0.3904  0.4829  0.4865  0.5865  0.8875 
@@ -869,169 +926,110 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Todas nominales: Transformación a binarias y usar la distancia binomial</li>
 <li>Mixtas: Distancia de Gower</li>
 </ul>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" title="1">d &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="kw">scale</span>(iris[,<span class="op">-</span><span class="dv">5</span>]))<span class="co">#euclideana</span></a>
-<a class="sourceLine" id="cb227-2" title="2">h &lt;-<span class="st"> </span><span class="kw">hclust</span>(d)</a>
-<a class="sourceLine" id="cb227-3" title="3"><span class="kw">plot</span>(h,<span class="dt">hang=</span><span class="op">-</span><span class="fl">0.1</span>,<span class="dt">labels=</span>iris[[<span class="st">&quot;Species&quot;</span>]],<span class="dt">cex=</span><span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb227-4" title="4"><span class="co">#elegir la cantidad de grupos</span></a>
-<a class="sourceLine" id="cb227-5" title="5">clus3 &lt;-<span class="st"> </span><span class="kw">cutree</span>(h, <span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb227-6" title="6"><span class="kw">plot</span>(h,<span class="dt">hang=</span><span class="op">-</span><span class="fl">0.1</span>,<span class="dt">labels=</span>iris[[<span class="st">&quot;Species&quot;</span>]],<span class="dt">cex=</span><span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb227-7" title="7"><span class="kw">rect.hclust</span>(h,<span class="dt">k=</span><span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="clustering.html#cb196-1"></a>d &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="kw">scale</span>(iris[,<span class="op">-</span><span class="dv">5</span>]))<span class="co">#euclideana</span></span>
+<span id="cb196-2"><a href="clustering.html#cb196-2"></a>h &lt;-<span class="st"> </span><span class="kw">hclust</span>(d)</span>
+<span id="cb196-3"><a href="clustering.html#cb196-3"></a><span class="kw">plot</span>(h,<span class="dt">hang=</span><span class="op">-</span><span class="fl">0.1</span>,<span class="dt">labels=</span>iris[[<span class="st">&quot;Species&quot;</span>]],<span class="dt">cex=</span><span class="fl">0.5</span>)</span>
+<span id="cb196-4"><a href="clustering.html#cb196-4"></a><span class="co">#elegir la cantidad de grupos</span></span>
+<span id="cb196-5"><a href="clustering.html#cb196-5"></a>clus3 &lt;-<span class="st"> </span><span class="kw">cutree</span>(h, <span class="dv">5</span>)</span>
+<span id="cb196-6"><a href="clustering.html#cb196-6"></a><span class="kw">plot</span>(h,<span class="dt">hang=</span><span class="op">-</span><span class="fl">0.1</span>,<span class="dt">labels=</span>iris[[<span class="st">&quot;Species&quot;</span>]],<span class="dt">cex=</span><span class="fl">0.5</span>)</span>
+<span id="cb196-7"><a href="clustering.html#cb196-7"></a><span class="kw">rect.hclust</span>(h,<span class="dt">k=</span><span class="dv">5</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 <p>Probando los tres tipos de enlaces para <span class="math inline">\(k=3\)</span></p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" title="1">hs &lt;-<span class="st"> </span><span class="kw">hclust</span>(d,<span class="dt">method =</span> <span class="st">&quot;single&quot;</span>)</a>
-<a class="sourceLine" id="cb228-2" title="2">hc &lt;-<span class="st"> </span><span class="kw">hclust</span>(d,<span class="dt">method =</span> <span class="st">&quot;complete&quot;</span>)</a>
-<a class="sourceLine" id="cb228-3" title="3">ha &lt;-<span class="st"> </span><span class="kw">hclust</span>(d,<span class="dt">method =</span> <span class="st">&quot;average&quot;</span>)</a>
-<a class="sourceLine" id="cb228-4" title="4">cs&lt;-<span class="kw">cutree</span>(hs,<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb228-5" title="5">cc&lt;-<span class="kw">cutree</span>(hc,<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb228-6" title="6">ca&lt;-<span class="kw">cutree</span>(ha,<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb228-7" title="7"><span class="kw">table</span>(cs,cc)</a></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="clustering.html#cb197-1"></a>hs &lt;-<span class="st"> </span><span class="kw">hclust</span>(d,<span class="dt">method =</span> <span class="st">&quot;single&quot;</span>)</span>
+<span id="cb197-2"><a href="clustering.html#cb197-2"></a>hc &lt;-<span class="st"> </span><span class="kw">hclust</span>(d,<span class="dt">method =</span> <span class="st">&quot;complete&quot;</span>)</span>
+<span id="cb197-3"><a href="clustering.html#cb197-3"></a>ha &lt;-<span class="st"> </span><span class="kw">hclust</span>(d,<span class="dt">method =</span> <span class="st">&quot;average&quot;</span>)</span>
+<span id="cb197-4"><a href="clustering.html#cb197-4"></a>cs&lt;-<span class="kw">cutree</span>(hs,<span class="dv">3</span>)</span>
+<span id="cb197-5"><a href="clustering.html#cb197-5"></a>cc&lt;-<span class="kw">cutree</span>(hc,<span class="dv">3</span>)</span>
+<span id="cb197-6"><a href="clustering.html#cb197-6"></a>ca&lt;-<span class="kw">cutree</span>(ha,<span class="dv">3</span>)</span>
+<span id="cb197-7"><a href="clustering.html#cb197-7"></a><span class="kw">table</span>(cs,cc)</span></code></pre></div>
 <pre><code>##    cc
 ## cs   1  2  3
 ##   1 49  0  0
 ##   2  0  1  0
 ##   3  0 23 77</code></pre>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1"><span class="kw">table</span>(cs,ca)</a></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="clustering.html#cb199-1"></a><span class="kw">table</span>(cs,ca)</span></code></pre></div>
 <pre><code>##    ca
 ## cs   1  2  3
 ##   1 49  0  0
 ##   2  1  0  0
 ##   3  0 97  3</code></pre>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" title="1"><span class="kw">table</span>(cc,ca)</a></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="clustering.html#cb201-1"></a><span class="kw">table</span>(cc,ca)</span></code></pre></div>
 <pre><code>##    ca
 ## cc   1  2  3
 ##   1 49  0  0
 ##   2  1 23  0
 ##   3  0 74  3</code></pre>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb234-2" title="2"><span class="kw">plot</span>(hs,<span class="dt">hang=</span><span class="op">-</span><span class="fl">0.1</span>,<span class="dt">labels=</span>iris[[<span class="st">&quot;Species&quot;</span>]],<span class="dt">cex=</span><span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb234-3" title="3"><span class="kw">rect.hclust</span>(hs,<span class="dt">k=</span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb234-4" title="4"><span class="kw">plot</span>(hc,<span class="dt">hang=</span><span class="op">-</span><span class="fl">0.1</span>,<span class="dt">labels=</span>iris[[<span class="st">&quot;Species&quot;</span>]],<span class="dt">cex=</span><span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb234-5" title="5"><span class="kw">rect.hclust</span>(hc,<span class="dt">k=</span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb234-6" title="6"><span class="kw">plot</span>(ha,<span class="dt">hang=</span><span class="op">-</span><span class="fl">0.1</span>,<span class="dt">labels=</span>iris[[<span class="st">&quot;Species&quot;</span>]],<span class="dt">cex=</span><span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb234-7" title="7"><span class="kw">rect.hclust</span>(ha,<span class="dt">k=</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="clustering.html#cb203-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb203-2"><a href="clustering.html#cb203-2"></a><span class="kw">plot</span>(hs,<span class="dt">hang=</span><span class="op">-</span><span class="fl">0.1</span>,<span class="dt">labels=</span>iris[[<span class="st">&quot;Species&quot;</span>]],<span class="dt">cex=</span><span class="fl">0.5</span>)</span>
+<span id="cb203-3"><a href="clustering.html#cb203-3"></a><span class="kw">rect.hclust</span>(hs,<span class="dt">k=</span><span class="dv">3</span>)</span>
+<span id="cb203-4"><a href="clustering.html#cb203-4"></a><span class="kw">plot</span>(hc,<span class="dt">hang=</span><span class="op">-</span><span class="fl">0.1</span>,<span class="dt">labels=</span>iris[[<span class="st">&quot;Species&quot;</span>]],<span class="dt">cex=</span><span class="fl">0.5</span>)</span>
+<span id="cb203-5"><a href="clustering.html#cb203-5"></a><span class="kw">rect.hclust</span>(hc,<span class="dt">k=</span><span class="dv">3</span>)</span>
+<span id="cb203-6"><a href="clustering.html#cb203-6"></a><span class="kw">plot</span>(ha,<span class="dt">hang=</span><span class="op">-</span><span class="fl">0.1</span>,<span class="dt">labels=</span>iris[[<span class="st">&quot;Species&quot;</span>]],<span class="dt">cex=</span><span class="fl">0.5</span>)</span>
+<span id="cb203-7"><a href="clustering.html#cb203-7"></a><span class="kw">rect.hclust</span>(ha,<span class="dt">k=</span><span class="dv">3</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 <p>Nota: El dendograma es muy útil para ver las relaciones que existen basadas en las distancias y la creación de las jerarquias, a partir de estos se puede definir un <span class="math inline">\(k\)</span> (de forma visual)</p>
 <p>Nota: El dendograma pierde su utilidad cuando la cantidad de observaciones es muy alta,</p>
 <p>Ejemplo, Usar los datos de las elecciones del 20 de octubre, agregar los resultados en términos relativos para los municipios y generar el dendograma para los tres tipos de enlaces, de forma visual sugerir un valor de <span class="math inline">\(k\)</span> para cada tipo de enlace.</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" title="1"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb235-2" title="2"><span class="kw">load</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">oct20.RData&quot;</span>)</a>
-<a class="sourceLine" id="cb235-3" title="3"><span class="co">#filtrar los casos</span></a>
-<a class="sourceLine" id="cb235-4" title="4">aux&lt;-<span class="kw">c</span>(<span class="st">&quot;Número departamento&quot;</span>,<span class="st">&quot;Departamento&quot;</span> ,<span class="st">&quot;Número municipio&quot;</span>,<span class="st">&quot;Municipio&quot;</span>   ,<span class="st">&quot;CC&quot;</span>,<span class="st">&quot;FPV&quot;</span>,<span class="st">&quot;MTS&quot;</span>,<span class="st">&quot;UCS&quot;</span>,<span class="st">&quot;MAS - IPSP&quot;</span>,<span class="st">&quot;21F&quot;</span>,<span class="st">&quot;PDC&quot;</span>,<span class="st">&quot;MNR&quot;</span>,<span class="st">&quot;PAN-BOL&quot;</span>,<span class="st">&quot;Votos Válidos&quot;</span>,<span class="st">&quot;Blancos&quot;</span>,<span class="st">&quot;Nulos&quot;</span>)               </a>
-<a class="sourceLine" id="cb235-5" title="5"><span class="kw">names</span>(computo)[<span class="dv">1</span>]&lt;-<span class="st">&quot;pais&quot;</span></a>
-<a class="sourceLine" id="cb235-6" title="6"><span class="kw">names</span>(computo)[<span class="dv">12</span>]&lt;-<span class="st">&quot;eleccion&quot;</span></a>
-<a class="sourceLine" id="cb235-7" title="7">bd&lt;-computo <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(pais<span class="op">==</span><span class="st">&quot;Bolivia&quot;</span> <span class="op">&amp;</span><span class="st"> </span>eleccion<span class="op">==</span><span class="st">&quot;Presidente y Vicepresidente&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(aux)</a></code></pre></div>
-<pre><code>## Note: Using an external vector in selections is ambiguous.
-## i Use `all_of(aux)` instead of `aux` to silence this message.
-## i See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
-## This message is displayed once per session.</code></pre>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" title="1"><span class="kw">names</span>(bd)[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]&lt;-<span class="kw">c</span>(<span class="st">&quot;idep&quot;</span>,<span class="st">&quot;ddep&quot;</span>,<span class="st">&quot;imun&quot;</span>,<span class="st">&quot;dmun&quot;</span>)</a>
-<a class="sourceLine" id="cb237-2" title="2">bdmun&lt;-<span class="kw">aggregate</span>(bd[,<span class="dv">5</span><span class="op">:</span><span class="dv">16</span>],bd[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>],sum)</a>
-<a class="sourceLine" id="cb237-3" title="3">bdmun&lt;-bdmun[,<span class="op">-</span><span class="dv">14</span>]</a>
-<a class="sourceLine" id="cb237-4" title="4">bdmun[,<span class="dv">5</span><span class="op">:</span><span class="dv">15</span>]&lt;-<span class="kw">prop.table</span>(<span class="kw">as.matrix</span>(bdmun[,<span class="dv">5</span><span class="op">:</span><span class="dv">15</span>]),<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb237-5" title="5"><span class="co">#cluster jerarquico</span></a>
-<a class="sourceLine" id="cb237-6" title="6">d&lt;-<span class="kw">dist</span>(bdmun[,<span class="dv">5</span><span class="op">:</span><span class="dv">15</span>])</a>
-<a class="sourceLine" id="cb237-7" title="7"><span class="kw">plot</span>(<span class="kw">hclust</span>(d),<span class="dt">hang=</span><span class="op">-</span><span class="fl">0.1</span>,<span class="dt">label=</span>bdmun<span class="op">$</span>dmun,<span class="dt">cex=</span><span class="fl">0.5</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1"><span class="co"># determinar el mejor k y el mejor enlace</span></a>
-<a class="sourceLine" id="cb238-2" title="2">mm&lt;-<span class="kw">c</span>(<span class="st">&quot;single&quot;</span>, <span class="st">&quot;complete&quot;</span>, <span class="st">&quot;average&quot;</span>) <span class="co"># método</span></a>
-<a class="sourceLine" id="cb238-3" title="3">k&lt;-<span class="dv">2</span><span class="op">:</span><span class="dv">20</span> <span class="co"># cantidad de cluster</span></a>
-<a class="sourceLine" id="cb238-4" title="4">d&lt;-<span class="kw">dist</span>(bdmun[,<span class="dv">5</span><span class="op">:</span><span class="dv">15</span>]) <span class="co"># matriz de distancia</span></a>
-<a class="sourceLine" id="cb238-5" title="5"><span class="co"># matriz de resultados</span></a>
-<a class="sourceLine" id="cb238-6" title="6">res&lt;-<span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="dt">nrow =</span> <span class="dv">19</span>,<span class="dt">ncol=</span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb238-7" title="7"><span class="kw">colnames</span>(res)&lt;-mm</a>
-<a class="sourceLine" id="cb238-8" title="8"><span class="kw">rownames</span>(res)&lt;-k</a>
-<a class="sourceLine" id="cb238-9" title="9"><span class="co">#######################</span></a>
-<a class="sourceLine" id="cb238-10" title="10"><span class="cf">for</span>(i <span class="cf">in</span> k){</a>
-<a class="sourceLine" id="cb238-11" title="11">  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb238-12" title="12">    h&lt;-<span class="kw">hclust</span>(d,<span class="dt">method =</span> mm[j])</a>
-<a class="sourceLine" id="cb238-13" title="13">    c&lt;-<span class="kw">cutree</span>(h,i)</a>
-<a class="sourceLine" id="cb238-14" title="14">    s&lt;-<span class="kw">silhouette</span>(c,d)</a>
-<a class="sourceLine" id="cb238-15" title="15">    res[i<span class="dv">-1</span>,j]&lt;-<span class="kw">median</span>(s[,<span class="dv">3</span>])</a>
-<a class="sourceLine" id="cb238-16" title="16">  }</a>
-<a class="sourceLine" id="cb238-17" title="17">}</a>
-<a class="sourceLine" id="cb238-18" title="18"><span class="co">#la mejor opción es k=2 con el método average</span></a>
-<a class="sourceLine" id="cb238-19" title="19">h&lt;-<span class="kw">hclust</span>(d,<span class="dt">method =</span> <span class="st">&quot;average&quot;</span>)</a>
-<a class="sourceLine" id="cb238-20" title="20">c&lt;-<span class="kw">cutree</span>(h,<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb238-21" title="21"><span class="kw">plot</span>(h,<span class="dt">hang=</span><span class="op">-</span><span class="fl">0.1</span>,<span class="dt">labels=</span>bdmun<span class="op">$</span>dmun,<span class="dt">cex=</span><span class="fl">0.4</span>)</a>
-<a class="sourceLine" id="cb238-22" title="22"><span class="kw">rect.hclust</span>(h,<span class="dt">k=</span><span class="dv">2</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-35-2.png" width="672" /></p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" title="1">bdmun<span class="op">$</span>cluster&lt;-c</a>
-<a class="sourceLine" id="cb239-2" title="2"><span class="kw">group_by</span>(bdmun,cluster) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">mean</span>(CC),<span class="kw">mean</span>(<span class="st">`</span><span class="dt">MAS - IPSP</span><span class="st">`</span>))</a></code></pre></div>
-<pre><code>## # A tibble: 2 x 3
-##   cluster `mean(CC)` `mean(\`MAS - IPSP\`)`
-##     &lt;int&gt;      &lt;dbl&gt;                  &lt;dbl&gt;
-## 1       1     0.0783                  0.708
-## 2       2     0.317                   0.429</code></pre>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="clustering.html#cb204-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb204-2"><a href="clustering.html#cb204-2"></a><span class="kw">load</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">oct20.RData&quot;</span>)</span>
+<span id="cb204-3"><a href="clustering.html#cb204-3"></a><span class="co">#filtrar los casos</span></span>
+<span id="cb204-4"><a href="clustering.html#cb204-4"></a>aux&lt;-<span class="kw">c</span>(<span class="st">&quot;Número departamento&quot;</span>,<span class="st">&quot;Departamento&quot;</span> ,<span class="st">&quot;Número municipio&quot;</span>,<span class="st">&quot;Municipio&quot;</span>   ,<span class="st">&quot;CC&quot;</span>,<span class="st">&quot;FPV&quot;</span>,<span class="st">&quot;MTS&quot;</span>,<span class="st">&quot;UCS&quot;</span>,<span class="st">&quot;MAS - IPSP&quot;</span>,<span class="st">&quot;21F&quot;</span>,<span class="st">&quot;PDC&quot;</span>,<span class="st">&quot;MNR&quot;</span>,<span class="st">&quot;PAN-BOL&quot;</span>,<span class="st">&quot;Votos Válidos&quot;</span>,<span class="st">&quot;Blancos&quot;</span>,<span class="st">&quot;Nulos&quot;</span>)               </span>
+<span id="cb204-5"><a href="clustering.html#cb204-5"></a><span class="kw">names</span>(computo)[<span class="dv">1</span>]&lt;-<span class="st">&quot;pais&quot;</span></span>
+<span id="cb204-6"><a href="clustering.html#cb204-6"></a><span class="kw">names</span>(computo)[<span class="dv">12</span>]&lt;-<span class="st">&quot;eleccion&quot;</span></span>
+<span id="cb204-7"><a href="clustering.html#cb204-7"></a>bd&lt;-computo <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(pais<span class="op">==</span><span class="st">&quot;Bolivia&quot;</span> <span class="op">&amp;</span><span class="st"> </span>eleccion<span class="op">==</span><span class="st">&quot;Presidente y Vicepresidente&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(aux)</span>
+<span id="cb204-8"><a href="clustering.html#cb204-8"></a><span class="kw">names</span>(bd)[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]&lt;-<span class="kw">c</span>(<span class="st">&quot;idep&quot;</span>,<span class="st">&quot;ddep&quot;</span>,<span class="st">&quot;imun&quot;</span>,<span class="st">&quot;dmun&quot;</span>)</span>
+<span id="cb204-9"><a href="clustering.html#cb204-9"></a>bdmun&lt;-<span class="kw">aggregate</span>(bd[,<span class="dv">5</span><span class="op">:</span><span class="dv">16</span>],bd[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>],sum)</span>
+<span id="cb204-10"><a href="clustering.html#cb204-10"></a>bdmun&lt;-bdmun[,<span class="op">-</span><span class="dv">14</span>]</span>
+<span id="cb204-11"><a href="clustering.html#cb204-11"></a>bdmun[,<span class="dv">5</span><span class="op">:</span><span class="dv">15</span>]&lt;-<span class="kw">prop.table</span>(<span class="kw">as.matrix</span>(bdmun[,<span class="dv">5</span><span class="op">:</span><span class="dv">15</span>]),<span class="dv">1</span>)</span>
+<span id="cb204-12"><a href="clustering.html#cb204-12"></a><span class="co">#cluster jerarquico</span></span>
+<span id="cb204-13"><a href="clustering.html#cb204-13"></a>d&lt;-<span class="kw">dist</span>(bdmun[,<span class="dv">5</span><span class="op">:</span><span class="dv">15</span>])</span>
+<span id="cb204-14"><a href="clustering.html#cb204-14"></a><span class="kw">plot</span>(<span class="kw">hclust</span>(d),<span class="dt">hang=</span><span class="op">-</span><span class="fl">0.1</span>,<span class="dt">label=</span>bdmun<span class="op">$</span>dmun,<span class="dt">cex=</span><span class="fl">0.5</span>)</span>
+<span id="cb204-15"><a href="clustering.html#cb204-15"></a><span class="co"># determinar el mejor k y el mejor enlace</span></span>
+<span id="cb204-16"><a href="clustering.html#cb204-16"></a>mm&lt;-<span class="kw">c</span>(<span class="st">&quot;single&quot;</span>, <span class="st">&quot;complete&quot;</span>, <span class="st">&quot;average&quot;</span>) <span class="co"># método</span></span>
+<span id="cb204-17"><a href="clustering.html#cb204-17"></a>k&lt;-<span class="dv">2</span><span class="op">:</span><span class="dv">20</span> <span class="co"># cantidad de cluster</span></span>
+<span id="cb204-18"><a href="clustering.html#cb204-18"></a>d&lt;-<span class="kw">dist</span>(bdmun[,<span class="dv">5</span><span class="op">:</span><span class="dv">15</span>]) <span class="co"># matriz de distancia</span></span>
+<span id="cb204-19"><a href="clustering.html#cb204-19"></a><span class="co"># matriz de resultados</span></span>
+<span id="cb204-20"><a href="clustering.html#cb204-20"></a>res&lt;-<span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="dt">nrow =</span> <span class="dv">19</span>,<span class="dt">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb204-21"><a href="clustering.html#cb204-21"></a><span class="kw">colnames</span>(res)&lt;-mm</span>
+<span id="cb204-22"><a href="clustering.html#cb204-22"></a><span class="kw">rownames</span>(res)&lt;-k</span>
+<span id="cb204-23"><a href="clustering.html#cb204-23"></a><span class="co">#######################</span></span>
+<span id="cb204-24"><a href="clustering.html#cb204-24"></a><span class="cf">for</span>(i <span class="cf">in</span> k){</span>
+<span id="cb204-25"><a href="clustering.html#cb204-25"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</span>
+<span id="cb204-26"><a href="clustering.html#cb204-26"></a>    h&lt;-<span class="kw">hclust</span>(d,<span class="dt">method =</span> mm[j])</span>
+<span id="cb204-27"><a href="clustering.html#cb204-27"></a>    c&lt;-<span class="kw">cutree</span>(h,i)</span>
+<span id="cb204-28"><a href="clustering.html#cb204-28"></a>    s&lt;-<span class="kw">silhouette</span>(c,d)</span>
+<span id="cb204-29"><a href="clustering.html#cb204-29"></a>    res[i<span class="dv">-1</span>,j]&lt;-<span class="kw">median</span>(s[,<span class="dv">3</span>])</span>
+<span id="cb204-30"><a href="clustering.html#cb204-30"></a>  }</span>
+<span id="cb204-31"><a href="clustering.html#cb204-31"></a>}</span>
+<span id="cb204-32"><a href="clustering.html#cb204-32"></a><span class="co">#la mejor opción es k=2 con el método average</span></span>
+<span id="cb204-33"><a href="clustering.html#cb204-33"></a>h&lt;-<span class="kw">hclust</span>(d,<span class="dt">method =</span> <span class="st">&quot;average&quot;</span>)</span>
+<span id="cb204-34"><a href="clustering.html#cb204-34"></a>c&lt;-<span class="kw">cutree</span>(h,<span class="dv">2</span>)</span>
+<span id="cb204-35"><a href="clustering.html#cb204-35"></a><span class="kw">plot</span>(h,<span class="dt">hang=</span><span class="op">-</span><span class="fl">0.1</span>,<span class="dt">labels=</span>bdmun<span class="op">$</span>dmun,<span class="dt">cex=</span><span class="fl">0.4</span>)</span>
+<span id="cb204-36"><a href="clustering.html#cb204-36"></a><span class="kw">rect.hclust</span>(h,<span class="dt">k=</span><span class="dv">2</span>)</span>
+<span id="cb204-37"><a href="clustering.html#cb204-37"></a>bdmun<span class="op">$</span>cluster&lt;-c</span>
+<span id="cb204-38"><a href="clustering.html#cb204-38"></a><span class="kw">group_by</span>(bdmun,cluster) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">mean</span>(CC),<span class="kw">mean</span>(<span class="st">`</span><span class="dt">MAS - IPSP</span><span class="st">`</span>))</span></code></pre></div>
 <p>Algunas alternativas para la visualización son:</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" title="1"><span class="kw">library</span>(ape)</a></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;ape&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:Hmisc&#39;:
-## 
-##     zoom</code></pre>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" title="1">h<span class="op">$</span>labels&lt;-bdmun<span class="op">$</span>dmun</a>
-<a class="sourceLine" id="cb244-2" title="2"><span class="kw">plot</span>(<span class="kw">as.phylo</span>(h),<span class="dt">type=</span><span class="st">&quot;fan&quot;</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" title="1"><span class="kw">library</span>(dendextend)</a></code></pre></div>
-<pre><code>## Registered S3 method overwritten by &#39;dendextend&#39;:
-##   method     from 
-##   rev.hclust vegan</code></pre>
-<pre><code>## 
-## ---------------------
-## Welcome to dendextend version 1.13.4
-## Type citation(&#39;dendextend&#39;) for how to cite the package.
-## 
-## Type browseVignettes(package = &#39;dendextend&#39;) for the package vignette.
-## The github page is: https://github.com/talgalili/dendextend/
-## 
-## Suggestions and bug-reports can be submitted at: https://github.com/talgalili/dendextend/issues
-## Or contact: &lt;tal.galili@gmail.com&gt;
-## 
-##  To suppress this message use:  suppressPackageStartupMessages(library(dendextend))
-## ---------------------</code></pre>
-<pre><code>## 
-## Attaching package: &#39;dendextend&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:ape&#39;:
-## 
-##     ladderize, rotate</code></pre>
-<pre><code>## The following object is masked from &#39;package:permute&#39;:
-## 
-##     shuffle</code></pre>
-<pre><code>## The following object is masked from &#39;package:stats&#39;:
-## 
-##     cutree</code></pre>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" title="1"><span class="kw">library</span>(circlize)</a></code></pre></div>
-<pre><code>## ========================================
-## circlize version 0.4.9
-## CRAN page: https://cran.r-project.org/package=circlize
-## Github page: https://github.com/jokergoo/circlize
-## Documentation: https://jokergoo.github.io/circlize_book/book/
-## 
-## If you use it in published research, please cite:
-## Gu, Z. circlize implements and enhances circular visualization
-##   in R. Bioinformatics 2014.
-## 
-## This message can be suppressed by:
-##   suppressPackageStartupMessages(library(circlize))
-## ========================================</code></pre>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" title="1">dend &lt;-<span class="st"> </span><span class="kw">as.dendrogram</span>(h)</a>
-<a class="sourceLine" id="cb254-2" title="2"></a>
-<a class="sourceLine" id="cb254-3" title="3"><span class="co"># modify the dendrogram to have some colors in the branches and labels</span></a>
-<a class="sourceLine" id="cb254-4" title="4">dend &lt;-<span class="st"> </span>dend <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb254-5" title="5"><span class="st">   </span><span class="kw">color_branches</span>(<span class="dt">k=</span><span class="dv">4</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb254-6" title="6"><span class="st">   </span>color_labels</a>
-<a class="sourceLine" id="cb254-7" title="7"></a>
-<a class="sourceLine" id="cb254-8" title="8"><span class="co"># plot the radial plot</span></a>
-<a class="sourceLine" id="cb254-9" title="9"><span class="kw">png</span>(<span class="st">&quot;dendo.png&quot;</span>,<span class="dt">width =</span> <span class="dv">1500</span>,<span class="dt">height =</span> <span class="dv">1500</span>)</a>
-<a class="sourceLine" id="cb254-10" title="10"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">4</span>))</a>
-<a class="sourceLine" id="cb254-11" title="11"><span class="co"># circlize_dendrogram(dend, ) </span></a>
-<a class="sourceLine" id="cb254-12" title="12"><span class="kw">circlize_dendrogram</span>(dend,<span class="dt">dend_track_height =</span> <span class="fl">0.8</span>) </a></code></pre></div>
-<pre><code>## Warning in circlize_dendrogram(dend, dend_track_height = 0.8): Not all
-## labels are unique. Therefore, we pad the labels with a running number, so
-## to be able to produce the plot.</code></pre>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" title="1"><span class="kw">dev.off</span>()</a></code></pre></div>
-<pre><code>## png 
-##   2</code></pre>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="clustering.html#cb205-1"></a><span class="kw">library</span>(ape)</span>
+<span id="cb205-2"><a href="clustering.html#cb205-2"></a>h<span class="op">$</span>labels&lt;-bdmun<span class="op">$</span>dmun</span>
+<span id="cb205-3"><a href="clustering.html#cb205-3"></a><span class="kw">plot</span>(<span class="kw">as.phylo</span>(h),<span class="dt">type=</span><span class="st">&quot;fan&quot;</span>)</span>
+<span id="cb205-4"><a href="clustering.html#cb205-4"></a></span>
+<span id="cb205-5"><a href="clustering.html#cb205-5"></a></span>
+<span id="cb205-6"><a href="clustering.html#cb205-6"></a><span class="kw">library</span>(dendextend)</span>
+<span id="cb205-7"><a href="clustering.html#cb205-7"></a><span class="kw">library</span>(circlize)</span>
+<span id="cb205-8"><a href="clustering.html#cb205-8"></a></span>
+<span id="cb205-9"><a href="clustering.html#cb205-9"></a>dend &lt;-<span class="st"> </span><span class="kw">as.dendrogram</span>(h)</span>
+<span id="cb205-10"><a href="clustering.html#cb205-10"></a></span>
+<span id="cb205-11"><a href="clustering.html#cb205-11"></a><span class="co"># modify the dendrogram to have some colors in the branches and labels</span></span>
+<span id="cb205-12"><a href="clustering.html#cb205-12"></a>dend &lt;-<span class="st"> </span>dend <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb205-13"><a href="clustering.html#cb205-13"></a><span class="st">   </span><span class="kw">color_branches</span>(<span class="dt">k=</span><span class="dv">4</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb205-14"><a href="clustering.html#cb205-14"></a><span class="st">   </span>color_labels</span>
+<span id="cb205-15"><a href="clustering.html#cb205-15"></a></span>
+<span id="cb205-16"><a href="clustering.html#cb205-16"></a><span class="co"># plot the radial plot</span></span>
+<span id="cb205-17"><a href="clustering.html#cb205-17"></a><span class="kw">png</span>(<span class="st">&quot;dendo.png&quot;</span>,<span class="dt">width =</span> <span class="dv">1500</span>,<span class="dt">height =</span> <span class="dv">1500</span>)</span>
+<span id="cb205-18"><a href="clustering.html#cb205-18"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">4</span>))</span>
+<span id="cb205-19"><a href="clustering.html#cb205-19"></a><span class="co"># circlize_dendrogram(dend, ) </span></span>
+<span id="cb205-20"><a href="clustering.html#cb205-20"></a><span class="kw">circlize_dendrogram</span>(dend,<span class="dt">dend_track_height =</span> <span class="fl">0.8</span>) </span>
+<span id="cb205-21"><a href="clustering.html#cb205-21"></a><span class="kw">dev.off</span>()</span></code></pre></div>
 <p><img src="dendo.png" /></p>
 </div>
 </div>

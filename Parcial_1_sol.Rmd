@@ -127,7 +127,7 @@ ext[,2:10]<-prop.table(as.matrix(ext[,2:10]),1)
 
   * El Cluster k-center, identifique el mejor valor de $k$ entre 2 al 10, el mejor centro; media, mediana o medoide, y la mejor distancia; euclideana, manhattan.
 
-```{r}
+```{r,eval=F}
 library(cluster)
 library(fpc)
 #########################
@@ -261,7 +261,7 @@ kable(res==max(res),caption="Base exterior, Mejor valor de k, k-center")
 
   * El Cluster jerarquico, identifique el mejor valor de $k$ entre 2 al 10, el mejor método; complete, single, average y la mejor distancia; euclideana, manhattan
   
-```{r}
+```{r,eval=FALSE}
 library(cluster)
 library(Gmedian)
 #base municipio
@@ -312,6 +312,7 @@ kable(res==max(res),caption="Base exterior, Mejor valor de k, Jerarquico")
 Programe una función que calcule el coeficiente de silueta dada una matriz de distancias y un vector de identificación del cluster
 
 ```{r}
+library(cluster)
 d<-dist(ext[,2:10])
 c<-kmeans(ext[,2:10],3)$cluster
 silueta<-function(d,c){
