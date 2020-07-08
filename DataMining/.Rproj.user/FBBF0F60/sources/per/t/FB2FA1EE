@@ -3,7 +3,7 @@
     "path": "~/GitHub/EST-384/DataMining/4_regresion.Rmd",
     "project_path": "4_regresion.Rmd",
     "type": "r_markdown",
-    "hash": "3108457679",
+    "hash": "4064462697",
     "contents": "",
     "dirty": false,
     "created": 1592432660672.0,
@@ -11,15 +11,15 @@
     "relative_order": 1,
     "properties": {
         "chunk_output_type": "console",
-        "cursorPosition": "37,7",
-        "scrollLine": "30"
+        "cursorPosition": "282,0",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1593043253,
+    "lastKnownWriteTime": 1593472340,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1593043253498,
+    "last_content_update": 1593472340967,
     "read_only": false,
     "read_only_alternatives": []
 }

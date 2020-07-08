@@ -240,6 +240,7 @@ $$Y=\frac{e^{X\beta+\epsilon}}{1+e^{X\beta+\epsilon}}$$
 ### En R:
 
 ```{r}
+library(dplyr)
 load("C:\\Users\\ALVARO\\Documents\\GitHub\\EST-384\\data\\eh18.Rdata")
 aux<-levels(eh18p$s04a_01a)
 eh18p<-eh18p %>% mutate(diabetes=(s04a_01a==aux[1] | s04a_01b==aux[1]),corazon=(s04a_01a==aux[4] | s04a_01b==aux[4]),hiper=(s04a_01a==aux[10] | s04a_01b==aux[10]))
@@ -249,11 +250,14 @@ eh18p$hiper<-(eh18p$hiper==T); eh18p$hiper[is.na(eh18p$hiper)]<-F
 eh18p$cronicas<-(eh18p$diabetes+eh18p$corazon+eh18p$hiper)
 #modelo para las enfermedades crónicas
 eh18p$cronicas<-(eh18p$cronicas!=0)
-logit<-glm(cronicas*1~s02a_02+s02a_03,data=eh18p,family = binomial(link="logit"))
-probit<-glm(cronicas*1~s02a_02+s02a_03,data=eh18p,family = binomial(link="probit"))
-lineal<-lm(cronicas*1~s02a_02+s02a_03,data=eh18p)
+#probit logit
+logit<-glm(cronicas~s02a_02+s02a_03,data=eh18p,family = binomial(link="logit"))
+probit<-glm(cronicas~s02a_02+s02a_03,data=eh18p,family = binomial(link="probit"))
+lineal<-lm(cronicas~s02a_02+s02a_03,data=eh18p)
+#resumen
 summary(logit)
 summary(probit)
+summary(lineal)
 #score probabilidades
 lres<-predict(logit,eh18p,type="response")
 pres<-predict(probit,eh18p,type="response")
@@ -261,14 +265,20 @@ plot(density(lres))
 points(density(pres),type = "l",col="red")
 #efectos marginales
 library(mfx)
-probitmfx(cronicas*1~s02a_02+s02a_03,data=eh18p)
-logitmfx(cronicas*1~s02a_02+s02a_03,data=eh18p)
+probitmfx(cronicas~s02a_02+s02a_03,data=eh18p)
+logitmfx(cronicas~s02a_02+s02a_03,data=eh18p)
 #ajuste
 library(DescTools)
 PseudoR2(logit)
 PseudoR2(probit)
+summary(lineal)
 #comparando
 library(memisc)
-mtable(logit,probit)
+mtable(logit,probit,lineal)
+```
+
+```{r}
+summary(glm(cronicas~s02a_02+s02a_03,data=eh18p))
+summary(lm(cronicas~s02a_02+s02a_03,data=eh18p))
 ```
 

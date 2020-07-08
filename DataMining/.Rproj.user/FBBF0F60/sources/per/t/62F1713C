@@ -1,0 +1,25 @@
+{
+    "id": "62F1713C",
+    "path": "~/GitHub/EST-384/DataMining/6_mineriatexto.Rmd",
+    "project_path": "6_mineriatexto.Rmd",
+    "type": "r_markdown",
+    "hash": "1889994102",
+    "contents": "",
+    "dirty": false,
+    "created": 1593990035951.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "cursorPosition": "227,12",
+        "scrollLine": "216",
+        "chunk_output_type": "console"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1594217549,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1594217549262,
+    "read_only": false,
+    "read_only_alternatives": []
+}

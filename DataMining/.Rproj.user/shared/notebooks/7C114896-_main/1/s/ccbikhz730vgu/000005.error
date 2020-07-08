@@ -1,1 +1,0 @@
-{"frames":[],"message":"Error in names(bd)[1:4] <- c(\"idep\", \"ddep\", \"imun\", \"dmun\") : \n  el atributo 'names' [4] debe tener la misma longitud que el vector [3]\n"}

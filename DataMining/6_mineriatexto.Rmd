@@ -1,9 +1,250 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Minería de Texto
 
+**La minería de texto es el proceso de destilar información procesable del texto.**
+[@kwartler]
+
+*Minería de texto* puede ser sinónimo de *análisis de texto*, sin embargo, el uso de minería de texto describe de forma más adecuada el descubrimiento de ideas y el uso de algorítmos específicos más alla del análisis estadístico básico.
+
+## Introducción
+
+### En la práctica
+
+  * Análisis de mercado (impacto en los consumidores, marca, etc.)
+  * Análisis político (percepción, sentimientos, etc.)
+  * Match: CV y expectativas de una empresa
+  * Inteligencia de negocios
+
+### ¿Por qué importa?
+
+  * Las redes sociales continúan evolucionando y afectan los esfuerzos públicos de una organización.
+  * El contenido en línea de una organización, sus competidores y fuentes externas, como los blogs, continúa creciendo.
+  * La digitalización de los registros en papel se está produciendo en muchas industrias.
+
+
+### Las consecuencias de ignorarlo
+
+  * Ignorar el texto no es una respuesta adecuada de un esfuerzo analítico. La exploración científica y analítica rigurosa requiere investigar fuentes de información que puedan explicar los fenómenos.
+  * No realizar minería de texto puede conducir a un análisis o resultado falso.
+  * Algunos problemas se basan casi exclusivamente en texto, por lo que no usar estos métodos significaría una reducción significativa en la efectividad o incluso no poder realizar el análisis.
+
+### Beneficios
+
+  * La confianza se genera entre las partes interesadas ya que se necesita poco o ningún muestreo para extraer información.
+  * Las metodologías se pueden aplicar rápidamente.
+  * El uso de R permite métodos auditables y repetibles.
+  * La minería de texto identifica nuevas ideas o refuerza las percepciones existentes basadas en toda la información relevante.
+  
+![Posibles usos](images/tm1.PNG)
+
+### Flujo de trabajo en la minería de texto
+
+![Flujo de trabajo](images/tm2.PNG)
+
+  1. Definir el problema y establecer las metas
+  2. Identificar el texto que se quiere recolectar
+  3. Organizar el texto (corpus, colección de documentos)
+  4. Extraer características
+  5. Analizar el texto
+  6. Llegar a una idea o una recomendación
+  
+### Librerías en R para texto
+
+  * stringi
+  * stringr
+  * qdap
+  * tm
+  
+Comandos para texto
+
+  * nchar
+  * paste, paste0
+  * sub, gsub, grep 
+  * mgsub (qdap)
+  
+```{r,eval=FALSE}
+library(qdap)
+fake.text<-'R text mining is good but text mining in python is also'
+patterns<-c('good','also','text mining')
+replacements<-c('great','just as suitable','tm')
+mgsub(patterns,replacements,fake.text)
+```
+  * tolower
+  * removePunctuation
+  * stripWhitespace
+  * removeNumbers
+  * removeWords (stopwords)
+  * stemDocument
+   
 ## Recolección de texto
 
-## Nubes de palabras
+La recolección de texto puede provenir de:
+  
+  * Base de datos en csv u otro similar
+  * Colección de documentos 
+  * Scraping Web, API
 
-## Análisis de sentimiento
+### CSV
 
-## n-gramas y correlaciones
+```{r,eval=FALSE}
+library(tm)
+library(dplyr)
+setwd("C:\\Users\\ALVARO\\Documents\\GitHub\\EST-384\\data")
+fb<-read.csv("bd_sc.csv")
+fb<-read.csv("bd_sc.csv",encoding = "UTF-8")
+#fb<-read.csv("bd_sc.csv",encoding = "Latin-1")
+fb$post_text[5]
+```
+
+### Colección de documentos
+
+```{r,eval=FALSE}
+library(pdftools)
+dir<-"C:\\Users\\ALVARO\\Documents\\GitHub\\EST-384\\data\\pdf"
+pdfdocs <- VCorpus(DirSource(dir, pattern = ".pdf"), 
+                               readerControl = list(reader = readPDF))
+```
+
+### Twitter (API)
+
+```{r,eval=FALSE}
+library(rtweet)
+tw<-search_tweets("Dioxido de cloro",n=10000,include_rts = F)
+```
+
+## Nubes de palabras 
+
+```{r,eval=FALSE}
+library(wordcloud2)
+nube<-function(aux){
+    docs<-Corpus(VectorSource(aux))
+    docs <- docs %>%
+      tm_map(removeNumbers) %>%
+      tm_map(removePunctuation) %>%
+      tm_map(stripWhitespace)
+    docs <- tm_map(docs, content_transformer(tolower))
+    docs <- tm_map(docs, removeWords, stopwords("sp"))
+    dtm <- TermDocumentMatrix(docs) 
+    matrix <- as.matrix(dtm) 
+    words <- sort(rowSums(matrix),decreasing=TRUE) 
+    df <- data.frame(word = names(words),freq=words)	
+    return(df)
+}
+nube2<-function(aux){
+    docs <- docs %>%
+      tm_map(removeNumbers) %>%
+      tm_map(removePunctuation) %>%
+      tm_map(stripWhitespace)
+    docs <- tm_map(docs, content_transformer(tolower))
+    docs <- tm_map(docs, removeWords, stopwords("sp"))
+    dtm <- TermDocumentMatrix(docs) 
+    matrix <- as.matrix(dtm) 
+    words <- sort(rowSums(matrix),decreasing=TRUE) 
+    df <- data.frame(word = names(words),freq=words)	
+    return(df)
+}
+```
+
+Sobre los tipos de datos
+```{r,eval=FALSE}
+#csv
+df<-nube(fb$post_text)
+wordcloud2(data=df,color='random-dark',size = 0.4,shape = 'pentagon')
+#colección de documentos
+df<-nube2(pdfdocs)
+wordcloud2(data=df,color='random-dark',size = 0.4,shape = 'pentagon')
+#scrape
+df<-nube(tw$text)
+wordcloud2(data=df,color='random-dark',shape = 'pentagon')
+
+library(wordcloud)
+wordcloud(df$word,freq=df$freq)
+```
+
+
+```{r,eval=F}
+library(ggplot2)
+library(ggthemes)
+docs<-VCorpus(VectorSource(fb$text))
+docs <- docs %>%
+      tm_map(removeNumbers) %>%
+      tm_map(removePunctuation) %>%
+      tm_map(stripWhitespace)
+    docs <- tm_map(docs, content_transformer(tolower))
+    docs <- tm_map(docs, removeWords, stopwords("sp"))
+tdm<-TermDocumentMatrix(docs) 
+associations<-findAssocs(tdm, 'evo', 0.55)
+associations<-as.data.frame(associations)
+associations$terms<-row.names(associations)
+associations$terms<-factor(associations$terms,
+levels=associations$terms)
+
+names(associations)[1]<-"palabra"
+ggplot(associations, aes(y=terms)) +
+geom_point(aes(x=palabra), data=associations,
+size=5)+
+theme_gdocs()+ geom_text(aes(x=palabra,
+label=palabra),
+colour="darkred",hjust=-.25,size=8)+
+theme(text=element_text(size=20),
+axis.title.y=element_blank())
+```
+
+## Análisis de sentimiento (sentimental scoring)
+
+**El análisis de sentimientos es el proceso de extraer la intención emocional del autor de un texto.**
+
+Se debe tener en cuenta:
+
+  * Aspectos culturales
+  * diferencias demográficas
+  * texto con sentimientos compuestos
+  
+Hay varios marcos de referencias de emociones que se pueden considerar. Uno de los más usados es el creado en 1980 por Robert Plutchik (psicólogo), se establecen 8 emociones:
+
+  * (-) ira (anger)
+  * (-) miedo (fear)
+  * (-) tristeza (sadness)
+  * (-) asco (disgust)
+  * (+) sorpresa (surprise)
+  * (+) anticipación (anticipation)
+  * (+) confianza (trust)
+  * (+) alegría (joy)
+
+![Espectro de emociones de Plutchik’s a partir de las primarias](images/tm3.PNG)
+
+### Polarización y léxico subjetivo
+  
+  * El análisis de sentimientos en R es bueno pero desafiante
+  * El análisis de sentimiento en R es muy bueno
+  * El análisis de sentimiento en Python no es bueno
+
+### Polarización en QDAP
+
+```{r,eval=F}
+#solo ingles
+library(qdap)
+library(rtweet)
+tw<-search_tweets("Bolivia",n=1000,include_rts = F,lang="en")
+
+detach(package:rtweet, unload=TRUE)
+detach(package:qdap, unload=TRUE)
+`[[.qdap_hash` <- `[[.data.frame`
+
+tw$text<-removePunctuation(tw$text)
+score<-polarity(tw$text[1:2])
+```
+
+### Librería syuzhet
+
+```{r,eval=F}
+library(syuzhet)
+library(rtweet)
+ww<-get_sentiment_dictionary("nrc",language = "spanish")
+tw<-search_tweets("coronavirus",n=1000,include_rts = F,lang="es")
+aa<-get_nrc_sentiment(tw$text[1:5],language = "spanish")
+```

@@ -1,5 +1,0 @@
-"0","bd<-eh18p %>% filter(s02a_03>=18 & s02a_05==""1.JEFE O JEFA DEL HOGAR"" & ocupado==""Si"") %>% select(s02a_02,s02a_03,aestudio,tothrs,ylab,ynolab,factor,estrato, upm,area,permanente,cob_op)
-"
-"2","Error in select(., s02a_02, s02a_03, aestudio, tothrs, ylab, ynolab, factor,  : 
-  unused arguments (s02a_02, s02a_03, aestudio, tothrs, ylab, ynolab, factor, estrato, upm, area, permanente, cob_op)
-"
