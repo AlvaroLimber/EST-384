@@ -294,9 +294,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.1</span> Regresión lineal</h2>
 <div id="paso-1-base-de-datos" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Paso 1: Base de datos</h3>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="regresión.html#cb207-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb207-2"><a href="regresión.html#cb207-2"></a><span class="kw">load</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">eh18.Rdata&quot;</span>)</span>
-<span id="cb207-3"><a href="regresión.html#cb207-3"></a>bd&lt;-eh18p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(s02a_<span class="dv">03</span><span class="op">&gt;=</span><span class="dv">18</span> <span class="op">&amp;</span><span class="st"> </span>s02a_<span class="dv">05</span><span class="op">==</span><span class="st">&quot;1.JEFE O JEFA DEL HOGAR&quot;</span> <span class="op">&amp;</span><span class="st"> </span>ocupado<span class="op">==</span><span class="st">&quot;Si&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(s02a_<span class="dv">02</span>,s02a_<span class="dv">03</span>,aestudio,tothrs,ylab,ynolab,factor,estrato, upm,area,permanente,cob_op)</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="regresión.html#cb214-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb214-2"><a href="regresión.html#cb214-2"></a><span class="kw">load</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">eh18.Rdata&quot;</span>)</span>
+<span id="cb214-3"><a href="regresión.html#cb214-3"></a>bd&lt;-eh18p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(s02a_<span class="dv">03</span><span class="op">&gt;=</span><span class="dv">18</span> <span class="op">&amp;</span><span class="st"> </span>s02a_<span class="dv">05</span><span class="op">==</span><span class="st">&quot;1.JEFE O JEFA DEL HOGAR&quot;</span> <span class="op">&amp;</span><span class="st"> </span>ocupado<span class="op">==</span><span class="st">&quot;Si&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(s02a_<span class="dv">02</span>,s02a_<span class="dv">03</span>,aestudio,tothrs,ylab,ynolab,factor,estrato, upm,area,permanente,cob_op)</span></code></pre></div>
 </div>
 <div id="paso-2-establecer-la-relación-de-interés." class="section level3">
 <h3><span class="header-section-number">4.1.2</span> Paso 2: Establecer la relación de interés.</h3>
@@ -309,8 +309,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="paso-3-definir-el-modelo-a-utilizar" class="section level3">
 <h3><span class="header-section-number">4.1.3</span> Paso 3: Definir el modelo a utilizar</h3>
 <p>OLS, MCO. Modelos lineales</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="regresión.html#cb208-1"></a>m1&lt;-<span class="kw">lm</span>(ylab<span class="op">~</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>bd)<span class="co"># regresión lineal simple y=f(x)</span></span>
-<span id="cb208-2"><a href="regresión.html#cb208-2"></a>m1</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="regresión.html#cb215-1"></a>m1&lt;-<span class="kw">lm</span>(ylab<span class="op">~</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>bd)<span class="co"># regresión lineal simple y=f(x)</span></span>
+<span id="cb215-2"><a href="regresión.html#cb215-2"></a>m1</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = ylab ~ s02a_03, data = bd)
@@ -320,10 +320,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##     4112.16       -21.84</code></pre>
 <p><span class="math display">\[ylab_i=\beta_0+\beta_1edad_i+\epsilon_i\]</span></p>
 <p><span class="math display">\[E[ylab_i]=4112.16-21.84*edad_i\]</span></p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="regresión.html#cb210-1"></a><span class="kw">plot</span>(bd<span class="op">$</span>s02a_<span class="dv">03</span>,bd<span class="op">$</span>ylab)</span>
-<span id="cb210-2"><a href="regresión.html#cb210-2"></a><span class="kw">abline</span>(m1,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="regresión.html#cb217-1"></a><span class="kw">plot</span>(bd<span class="op">$</span>s02a_<span class="dv">03</span>,bd<span class="op">$</span>ylab)</span>
+<span id="cb217-2"><a href="regresión.html#cb217-2"></a><span class="kw">abline</span>(m1,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="regresión.html#cb211-1"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="regresión.html#cb218-1"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = ylab ~ s02a_03, data = bd)
@@ -333,12 +333,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  -3505  -1545   -482    876  33548 
 ## 
 ## Coefficients:
-##             Estimate Std. Error t value Pr(&gt;|t|)
-## (Intercept) 4112.155     81.267   50.60   &lt;2e-16
-## s02a_03      -21.841      1.744  -12.52   &lt;2e-16
-##                
-## (Intercept) ***
-## s02a_03     ***
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 4112.155     81.267   50.60   &lt;2e-16 ***
+## s02a_03      -21.841      1.744  -12.52   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -347,17 +344,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   (118 observations deleted due to missingness)
 ## Multiple R-squared:  0.01659,    Adjusted R-squared:  0.01649 
 ## F-statistic: 156.8 on 1 and 9296 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="regresión.html#cb213-1"></a><span class="co">#en los betas</span></span>
-<span id="cb213-2"><a href="regresión.html#cb213-2"></a><span class="kw">coefficients</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="regresión.html#cb220-1"></a><span class="co">#en los betas</span></span>
+<span id="cb220-2"><a href="regresión.html#cb220-2"></a><span class="kw">coefficients</span>(m1)</span></code></pre></div>
 <pre><code>## (Intercept)     s02a_03 
 ##   4112.1555    -21.8413</code></pre>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="regresión.html#cb215-1"></a><span class="kw">confint</span>(m1,<span class="dt">level=</span><span class="fl">0.99</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="regresión.html#cb222-1"></a><span class="kw">confint</span>(m1,<span class="dt">level=</span><span class="fl">0.99</span>)</span></code></pre></div>
 <pre><code>##                 0.5 %   99.5 %
 ## (Intercept) 3902.7837 4321.527
 ## s02a_03      -26.3346  -17.348</code></pre>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="regresión.html#cb217-1"></a><span class="co">#mejorar el modelo</span></span>
-<span id="cb217-2"><a href="regresión.html#cb217-2"></a>m2&lt;-<span class="kw">lm</span>(ylab<span class="op">~</span>s02a_<span class="dv">03</span><span class="op">+</span>aestudio<span class="op">+</span>tothrs<span class="op">+</span>ynolab<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area<span class="op">+</span>cob_op,<span class="dt">data=</span>bd)</span>
-<span id="cb217-3"><a href="regresión.html#cb217-3"></a><span class="kw">summary</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="regresión.html#cb224-1"></a><span class="co">#mejorar el modelo</span></span>
+<span id="cb224-2"><a href="regresión.html#cb224-2"></a>m2&lt;-<span class="kw">lm</span>(ylab<span class="op">~</span>s02a_<span class="dv">03</span><span class="op">+</span>aestudio<span class="op">+</span>tothrs<span class="op">+</span>ynolab<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area<span class="op">+</span>cob_op,<span class="dt">data=</span>bd)</span>
+<span id="cb224-3"><a href="regresión.html#cb224-3"></a><span class="kw">summary</span>(m2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = ylab ~ s02a_03 + aestudio + tothrs + ynolab + s02a_02 + 
@@ -461,8 +458,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   (122 observations deleted due to missingness)
 ## Multiple R-squared:  0.3154, Adjusted R-squared:  0.3143 
 ## F-statistic: 284.9 on 15 and 9278 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="regresión.html#cb219-1"></a>m3&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span>s02a_<span class="dv">03</span><span class="op">+</span>aestudio<span class="op">+</span>tothrs<span class="op">+</span>ynolab<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area<span class="op">+</span>cob_op,<span class="dt">data=</span>bd)</span>
-<span id="cb219-2"><a href="regresión.html#cb219-2"></a><span class="kw">summary</span>(m3)</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="regresión.html#cb226-1"></a>m3&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span>s02a_<span class="dv">03</span><span class="op">+</span>aestudio<span class="op">+</span>tothrs<span class="op">+</span>ynolab<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area<span class="op">+</span>cob_op,<span class="dt">data=</span>bd)</span>
+<span id="cb226-2"><a href="regresión.html#cb226-2"></a><span class="kw">summary</span>(m3)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(ylab) ~ s02a_03 + aestudio + tothrs + ynolab + 
@@ -566,8 +563,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   (122 observations deleted due to missingness)
 ## Multiple R-squared:  0.4648, Adjusted R-squared:  0.4639 
 ## F-statistic: 537.1 on 15 and 9278 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="regresión.html#cb221-1"></a>m4&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span>s02a_<span class="dv">03</span><span class="op">+</span><span class="kw">factor</span>(aestudio)<span class="op">+</span>tothrs<span class="op">+</span>ynolab<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area<span class="op">+</span>cob_op,<span class="dt">data=</span>bd)</span>
-<span id="cb221-2"><a href="regresión.html#cb221-2"></a><span class="kw">summary</span>(m4)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="regresión.html#cb228-1"></a>m4&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span>s02a_<span class="dv">03</span><span class="op">+</span><span class="kw">factor</span>(aestudio)<span class="op">+</span>tothrs<span class="op">+</span>ynolab<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area<span class="op">+</span>cob_op,<span class="dt">data=</span>bd)</span>
+<span id="cb228-2"><a href="regresión.html#cb228-2"></a><span class="kw">summary</span>(m4)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(ylab) ~ s02a_03 + factor(aestudio) + tothrs + 
@@ -769,8 +766,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="paso-4-optimizar-el-modelo" class="section level3">
 <h3><span class="header-section-number">4.1.4</span> Paso 4: Optimizar el modelo</h3>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="regresión.html#cb223-1"></a>m5&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span>.,<span class="dt">data=</span>bd[,<span class="op">-</span><span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">11</span>)])</span>
-<span id="cb223-2"><a href="regresión.html#cb223-2"></a><span class="kw">summary</span>(m5)</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="regresión.html#cb230-1"></a>m5&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span>.,<span class="dt">data=</span>bd[,<span class="op">-</span><span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">11</span>)])</span>
+<span id="cb230-2"><a href="regresión.html#cb230-2"></a><span class="kw">summary</span>(m5)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(ylab) ~ ., data = bd[, -c(7, 8, 9, 11)])
@@ -873,7 +870,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   (122 observations deleted due to missingness)
 ## Multiple R-squared:  0.4648, Adjusted R-squared:  0.4639 
 ## F-statistic: 537.1 on 15 and 9278 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="regresión.html#cb225-1"></a>m6&lt;-<span class="kw">step</span>(m5)</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="regresión.html#cb232-1"></a>m6&lt;-<span class="kw">step</span>(m5)</span></code></pre></div>
 <pre><code>## Start:  AIC=-6148.87
 ## log(ylab) ~ s02a_02 + s02a_03 + aestudio + tothrs + ynolab + 
 ##     area + cob_op
@@ -887,7 +884,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## - s02a_02   1    160.59 4940.1 -5843.7
 ## - tothrs    1    189.86 4969.3 -5788.8
 ## - cob_op    9    812.38 5591.9 -4707.9</code></pre>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="regresión.html#cb227-1"></a><span class="kw">summary</span>(m6)</span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="regresión.html#cb234-1"></a><span class="kw">summary</span>(m6)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(ylab) ~ s02a_02 + s02a_03 + aestudio + tothrs + 
@@ -991,16 +988,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   (122 observations deleted due to missingness)
 ## Multiple R-squared:  0.4648, Adjusted R-squared:  0.4639 
 ## F-statistic: 537.1 on 15 and 9278 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="regresión.html#cb229-1"></a><span class="co">#un ejemplo de laboratorio</span></span>
-<span id="cb229-2"><a href="regresión.html#cb229-2"></a>bd2&lt;-<span class="kw">as.data.frame</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">1000</span>),<span class="dt">ncol =</span> <span class="dv">8</span>))</span>
-<span id="cb229-3"><a href="regresión.html#cb229-3"></a><span class="kw">names</span>(bd2)[<span class="dv">1</span>]&lt;-<span class="st">&quot;y&quot;</span></span>
-<span id="cb229-4"><a href="regresión.html#cb229-4"></a>bd2<span class="op">$</span>x&lt;-bd2<span class="op">$</span>y<span class="op">+</span><span class="kw">runif</span>(<span class="dv">125</span>)</span>
-<span id="cb229-5"><a href="regresión.html#cb229-5"></a><span class="kw">plot</span>(bd2<span class="op">$</span>x,bd2<span class="op">$</span>y)</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="regresión.html#cb236-1"></a><span class="co">#un ejemplo de laboratorio</span></span>
+<span id="cb236-2"><a href="regresión.html#cb236-2"></a>bd2&lt;-<span class="kw">as.data.frame</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">1000</span>),<span class="dt">ncol =</span> <span class="dv">8</span>))</span>
+<span id="cb236-3"><a href="regresión.html#cb236-3"></a><span class="kw">names</span>(bd2)[<span class="dv">1</span>]&lt;-<span class="st">&quot;y&quot;</span></span>
+<span id="cb236-4"><a href="regresión.html#cb236-4"></a>bd2<span class="op">$</span>x&lt;-bd2<span class="op">$</span>y<span class="op">+</span><span class="kw">runif</span>(<span class="dv">125</span>)</span>
+<span id="cb236-5"><a href="regresión.html#cb236-5"></a><span class="kw">plot</span>(bd2<span class="op">$</span>x,bd2<span class="op">$</span>y)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="regresión.html#cb230-1"></a><span class="kw">plot</span>(bd2)</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="regresión.html#cb237-1"></a><span class="kw">plot</span>(bd2)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-40-2.png" width="672" /></p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="regresión.html#cb231-1"></a>p1&lt;-<span class="kw">lm</span>(y<span class="op">~</span>.,<span class="dt">data=</span>bd2)</span>
-<span id="cb231-2"><a href="regresión.html#cb231-2"></a><span class="kw">summary</span>(p1)</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="regresión.html#cb238-1"></a>p1&lt;-<span class="kw">lm</span>(y<span class="op">~</span>.,<span class="dt">data=</span>bd2)</span>
+<span id="cb238-2"><a href="regresión.html#cb238-2"></a><span class="kw">summary</span>(p1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ ., data = bd2)
@@ -1010,26 +1007,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -0.5622 -0.1857 -0.0145  0.2288  0.4976 
 ## 
 ## Coefficients:
-##              Estimate Std. Error t value Pr(&gt;|t|)
-## (Intercept) -0.432520   0.028175 -15.351   &lt;2e-16
-## V2           0.005795   0.024548   0.236   0.8138
-## V3           0.022484   0.025552   0.880   0.3807
-## V4          -0.004651   0.027379  -0.170   0.8654
-## V5           0.010813   0.025409   0.426   0.6712
-## V6           0.063172   0.028226   2.238   0.0271
-## V7          -0.026947   0.022566  -1.194   0.2348
-## V8          -0.009801   0.024734  -0.396   0.6926
-## x            0.894723   0.026515  33.744   &lt;2e-16
-##                
-## (Intercept) ***
-## V2             
-## V3             
-## V4             
-## V5             
-## V6          *  
-## V7             
-## V8             
-## x           ***
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.432520   0.028175 -15.351   &lt;2e-16 ***
+## V2           0.005795   0.024548   0.236   0.8138    
+## V3           0.022484   0.025552   0.880   0.3807    
+## V4          -0.004651   0.027379  -0.170   0.8654    
+## V5           0.010813   0.025409   0.426   0.6712    
+## V6           0.063172   0.028226   2.238   0.0271 *  
+## V7          -0.026947   0.022566  -1.194   0.2348    
+## V8          -0.009801   0.024734  -0.396   0.6926    
+## x            0.894723   0.026515  33.744   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -1037,7 +1024,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residual standard error: 0.2756 on 116 degrees of freedom
 ## Multiple R-squared:  0.9145, Adjusted R-squared:  0.9086 
 ## F-statistic: 155.1 on 8 and 116 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="regresión.html#cb233-1"></a>p2&lt;-<span class="kw">step</span>(p1)</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="regresión.html#cb240-1"></a>p2&lt;-<span class="kw">step</span>(p1)</span></code></pre></div>
 <pre><code>## Start:  AIC=-313.54
 ## y ~ V2 + V3 + V4 + V5 + V6 + V7 + V8 + x
 ## 
@@ -1114,7 +1101,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## &lt;none&gt;                9.018 -322.63
 ## - V6    1     0.376   9.395 -319.52
 ## - x     1    92.604 101.622  -21.88</code></pre>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="regresión.html#cb235-1"></a><span class="kw">summary</span>(p2)</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="regresión.html#cb242-1"></a><span class="kw">summary</span>(p2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ V6 + x, data = bd2)
@@ -1124,14 +1111,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -0.52774 -0.19535 -0.02381  0.23658  0.53482 
 ## 
 ## Coefficients:
-##             Estimate Std. Error t value Pr(&gt;|t|)
-## (Intercept) -0.44019    0.02696 -16.325   &lt;2e-16
-## V6           0.06204    0.02750   2.256   0.0258
-## x            0.89783    0.02537  35.394   &lt;2e-16
-##                
-## (Intercept) ***
-## V6          *  
-## x           ***
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.44019    0.02696 -16.325   &lt;2e-16 ***
+## V6           0.06204    0.02750   2.256   0.0258 *  
+## x            0.89783    0.02537  35.394   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -1140,7 +1123,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Multiple R-squared:  0.9125, Adjusted R-squared:  0.911 
 ## F-statistic:   636 on 2 and 122 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Nota: Se debe tener en cuenta siempre la fuente de la información</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="regresión.html#cb237-1"></a><span class="kw">summary</span>(m4)</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="regresión.html#cb244-1"></a><span class="kw">summary</span>(m4)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(ylab) ~ s02a_03 + factor(aestudio) + tothrs + 
@@ -1339,7 +1322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   (122 observations deleted due to missingness)
 ## Multiple R-squared:  0.4756, Adjusted R-squared:  0.4736 
 ## F-statistic: 246.9 on 34 and 9259 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="regresión.html#cb239-1"></a><span class="kw">summary</span>(<span class="kw">lm</span>(ylab<span class="op">~</span><span class="kw">factor</span>(aestudio)<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>bd))</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="regresión.html#cb246-1"></a><span class="kw">summary</span>(<span class="kw">lm</span>(ylab<span class="op">~</span><span class="kw">factor</span>(aestudio)<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>bd))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = ylab ~ factor(aestudio) + s02a_02 + s02a_03, data = bd)
@@ -1349,54 +1332,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -7361.6 -1252.5  -342.9   764.6 30418.2 
 ## 
 ## Coefficients:
-##                    Estimate Std. Error t value
-## (Intercept)        1665.189    159.626  10.432
-## factor(aestudio)1   568.243    202.170   2.811
-## factor(aestudio)2   556.047    158.745   3.503
-## factor(aestudio)3   696.836    146.762   4.748
-## factor(aestudio)4   748.466    154.487   4.845
-## factor(aestudio)5  1077.434    137.201   7.853
-## factor(aestudio)6  1135.656    161.909   7.014
-## factor(aestudio)7  1574.346    184.546   8.531
-## factor(aestudio)8  1521.542    153.316   9.924
-## factor(aestudio)9  1375.030    173.739   7.914
-## factor(aestudio)10 1504.922    161.697   9.307
-## factor(aestudio)11 1580.885    159.966   9.883
-## factor(aestudio)12 1786.663    129.276  13.821
-## factor(aestudio)13 1488.092    219.978   6.765
-## factor(aestudio)14 2119.174    171.208  12.378
-## factor(aestudio)15 2241.471    161.555  13.874
-## factor(aestudio)16 2449.584    195.909  12.504
-## factor(aestudio)17 3719.149    132.454  28.079
-## factor(aestudio)18 4782.166    273.066  17.513
-## factor(aestudio)19 6556.931    290.647  22.560
-## factor(aestudio)22 7270.592    952.876   7.630
-## s02a_022.Mujer     -720.915     52.095 -13.839
-## s02a_03              -2.390      1.741  -1.372
-##                    Pr(&gt;|t|)    
-## (Intercept)         &lt; 2e-16 ***
-## factor(aestudio)1  0.004954 ** 
-## factor(aestudio)2  0.000463 ***
-## factor(aestudio)3  2.08e-06 ***
-## factor(aestudio)4  1.29e-06 ***
-## factor(aestudio)5  4.52e-15 ***
-## factor(aestudio)6  2.47e-12 ***
-## factor(aestudio)7   &lt; 2e-16 ***
-## factor(aestudio)8   &lt; 2e-16 ***
-## factor(aestudio)9  2.77e-15 ***
-## factor(aestudio)10  &lt; 2e-16 ***
-## factor(aestudio)11  &lt; 2e-16 ***
-## factor(aestudio)12  &lt; 2e-16 ***
-## factor(aestudio)13 1.42e-11 ***
-## factor(aestudio)14  &lt; 2e-16 ***
-## factor(aestudio)15  &lt; 2e-16 ***
-## factor(aestudio)16  &lt; 2e-16 ***
-## factor(aestudio)17  &lt; 2e-16 ***
-## factor(aestudio)18  &lt; 2e-16 ***
-## factor(aestudio)19  &lt; 2e-16 ***
-## factor(aestudio)22 2.58e-14 ***
-## s02a_022.Mujer      &lt; 2e-16 ***
-## s02a_03            0.169943    
+##                    Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)        1665.189    159.626  10.432  &lt; 2e-16
+## factor(aestudio)1   568.243    202.170   2.811 0.004954
+## factor(aestudio)2   556.047    158.745   3.503 0.000463
+## factor(aestudio)3   696.836    146.762   4.748 2.08e-06
+## factor(aestudio)4   748.466    154.487   4.845 1.29e-06
+## factor(aestudio)5  1077.434    137.201   7.853 4.52e-15
+## factor(aestudio)6  1135.656    161.909   7.014 2.47e-12
+## factor(aestudio)7  1574.346    184.546   8.531  &lt; 2e-16
+## factor(aestudio)8  1521.542    153.316   9.924  &lt; 2e-16
+## factor(aestudio)9  1375.030    173.739   7.914 2.77e-15
+## factor(aestudio)10 1504.922    161.697   9.307  &lt; 2e-16
+## factor(aestudio)11 1580.885    159.966   9.883  &lt; 2e-16
+## factor(aestudio)12 1786.663    129.276  13.821  &lt; 2e-16
+## factor(aestudio)13 1488.092    219.978   6.765 1.42e-11
+## factor(aestudio)14 2119.174    171.208  12.378  &lt; 2e-16
+## factor(aestudio)15 2241.471    161.555  13.874  &lt; 2e-16
+## factor(aestudio)16 2449.584    195.909  12.504  &lt; 2e-16
+## factor(aestudio)17 3719.149    132.454  28.079  &lt; 2e-16
+## factor(aestudio)18 4782.166    273.066  17.513  &lt; 2e-16
+## factor(aestudio)19 6556.931    290.647  22.560  &lt; 2e-16
+## factor(aestudio)22 7270.592    952.876   7.630 2.58e-14
+## s02a_022.Mujer     -720.915     52.095 -13.839  &lt; 2e-16
+## s02a_03              -2.390      1.741  -1.372 0.169943
+##                       
+## (Intercept)        ***
+## factor(aestudio)1  ** 
+## factor(aestudio)2  ***
+## factor(aestudio)3  ***
+## factor(aestudio)4  ***
+## factor(aestudio)5  ***
+## factor(aestudio)6  ***
+## factor(aestudio)7  ***
+## factor(aestudio)8  ***
+## factor(aestudio)9  ***
+## factor(aestudio)10 ***
+## factor(aestudio)11 ***
+## factor(aestudio)12 ***
+## factor(aestudio)13 ***
+## factor(aestudio)14 ***
+## factor(aestudio)15 ***
+## factor(aestudio)16 ***
+## factor(aestudio)17 ***
+## factor(aestudio)18 ***
+## factor(aestudio)19 ***
+## factor(aestudio)22 ***
+## s02a_022.Mujer     ***
+## s02a_03               
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -1405,7 +1388,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   (120 observations deleted due to missingness)
 ## Multiple R-squared:  0.2256, Adjusted R-squared:  0.2238 
 ## F-statistic: 122.8 on 22 and 9273 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="regresión.html#cb241-1"></a><span class="kw">summary</span>(<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span><span class="kw">factor</span>(aestudio)<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>bd))</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="regresión.html#cb248-1"></a><span class="kw">summary</span>(<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span><span class="kw">factor</span>(aestudio)<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>bd))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(ylab) ~ factor(aestudio) + s02a_02 + s02a_03, 
@@ -1416,54 +1399,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -5.0522 -0.3568  0.0987  0.4981  3.2963 
 ## 
 ## Coefficients:
-##                      Estimate Std. Error t value
-## (Intercept)         7.0748965  0.0626415 112.943
-## factor(aestudio)1   0.5577081  0.0793369   7.030
-## factor(aestudio)2   0.6629018  0.0622958  10.641
-## factor(aestudio)3   0.6750163  0.0575931  11.720
-## factor(aestudio)4   0.7840809  0.0606245  12.933
-## factor(aestudio)5   1.0183809  0.0538412  18.915
-## factor(aestudio)6   1.0408567  0.0635372  16.382
-## factor(aestudio)7   1.2169718  0.0724208  16.804
-## factor(aestudio)8   1.1424786  0.0601650  18.989
-## factor(aestudio)9   1.0948564  0.0681796  16.058
-## factor(aestudio)10  1.1867662  0.0634540  18.703
-## factor(aestudio)11  1.2047681  0.0627746  19.192
-## factor(aestudio)12  1.2887095  0.0507313  25.403
-## factor(aestudio)13  1.1553818  0.0863251  13.384
-## factor(aestudio)14  1.3888708  0.0671865  20.672
-## factor(aestudio)15  1.4537603  0.0633982  22.931
-## factor(aestudio)16  1.5138924  0.0768798  19.692
-## factor(aestudio)17  1.8574646  0.0519783  35.735
-## factor(aestudio)18  2.0420014  0.1071580  19.056
-## factor(aestudio)19  2.2508731  0.1140574  19.735
-## factor(aestudio)22  2.4462753  0.3739333   6.542
-## s02a_022.Mujer     -0.2733157  0.0204432 -13.369
-## s02a_03            -0.0109058  0.0006833 -15.960
-##                    Pr(&gt;|t|)    
-## (Intercept)         &lt; 2e-16 ***
-## factor(aestudio)1  2.22e-12 ***
-## factor(aestudio)2   &lt; 2e-16 ***
-## factor(aestudio)3   &lt; 2e-16 ***
-## factor(aestudio)4   &lt; 2e-16 ***
-## factor(aestudio)5   &lt; 2e-16 ***
-## factor(aestudio)6   &lt; 2e-16 ***
-## factor(aestudio)7   &lt; 2e-16 ***
-## factor(aestudio)8   &lt; 2e-16 ***
-## factor(aestudio)9   &lt; 2e-16 ***
-## factor(aestudio)10  &lt; 2e-16 ***
-## factor(aestudio)11  &lt; 2e-16 ***
-## factor(aestudio)12  &lt; 2e-16 ***
-## factor(aestudio)13  &lt; 2e-16 ***
-## factor(aestudio)14  &lt; 2e-16 ***
-## factor(aestudio)15  &lt; 2e-16 ***
-## factor(aestudio)16  &lt; 2e-16 ***
-## factor(aestudio)17  &lt; 2e-16 ***
-## factor(aestudio)18  &lt; 2e-16 ***
-## factor(aestudio)19  &lt; 2e-16 ***
-## factor(aestudio)22 6.39e-11 ***
-## s02a_022.Mujer      &lt; 2e-16 ***
-## s02a_03             &lt; 2e-16 ***
+##                      Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)         7.0748965  0.0626415 112.943  &lt; 2e-16
+## factor(aestudio)1   0.5577081  0.0793369   7.030 2.22e-12
+## factor(aestudio)2   0.6629018  0.0622958  10.641  &lt; 2e-16
+## factor(aestudio)3   0.6750163  0.0575931  11.720  &lt; 2e-16
+## factor(aestudio)4   0.7840809  0.0606245  12.933  &lt; 2e-16
+## factor(aestudio)5   1.0183809  0.0538412  18.915  &lt; 2e-16
+## factor(aestudio)6   1.0408567  0.0635372  16.382  &lt; 2e-16
+## factor(aestudio)7   1.2169718  0.0724208  16.804  &lt; 2e-16
+## factor(aestudio)8   1.1424786  0.0601650  18.989  &lt; 2e-16
+## factor(aestudio)9   1.0948564  0.0681796  16.058  &lt; 2e-16
+## factor(aestudio)10  1.1867662  0.0634540  18.703  &lt; 2e-16
+## factor(aestudio)11  1.2047681  0.0627746  19.192  &lt; 2e-16
+## factor(aestudio)12  1.2887095  0.0507313  25.403  &lt; 2e-16
+## factor(aestudio)13  1.1553818  0.0863251  13.384  &lt; 2e-16
+## factor(aestudio)14  1.3888708  0.0671865  20.672  &lt; 2e-16
+## factor(aestudio)15  1.4537603  0.0633982  22.931  &lt; 2e-16
+## factor(aestudio)16  1.5138924  0.0768798  19.692  &lt; 2e-16
+## factor(aestudio)17  1.8574646  0.0519783  35.735  &lt; 2e-16
+## factor(aestudio)18  2.0420014  0.1071580  19.056  &lt; 2e-16
+## factor(aestudio)19  2.2508731  0.1140574  19.735  &lt; 2e-16
+## factor(aestudio)22  2.4462753  0.3739333   6.542 6.39e-11
+## s02a_022.Mujer     -0.2733157  0.0204432 -13.369  &lt; 2e-16
+## s02a_03            -0.0109058  0.0006833 -15.960  &lt; 2e-16
+##                       
+## (Intercept)        ***
+## factor(aestudio)1  ***
+## factor(aestudio)2  ***
+## factor(aestudio)3  ***
+## factor(aestudio)4  ***
+## factor(aestudio)5  ***
+## factor(aestudio)6  ***
+## factor(aestudio)7  ***
+## factor(aestudio)8  ***
+## factor(aestudio)9  ***
+## factor(aestudio)10 ***
+## factor(aestudio)11 ***
+## factor(aestudio)12 ***
+## factor(aestudio)13 ***
+## factor(aestudio)14 ***
+## factor(aestudio)15 ***
+## factor(aestudio)16 ***
+## factor(aestudio)17 ***
+## factor(aestudio)18 ***
+## factor(aestudio)19 ***
+## factor(aestudio)22 ***
+## s02a_022.Mujer     ***
+## s02a_03            ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -1472,10 +1455,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   (120 observations deleted due to missingness)
 ## Multiple R-squared:  0.2848, Adjusted R-squared:  0.2831 
 ## F-statistic: 167.9 on 22 and 9273 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="regresión.html#cb243-1"></a><span class="co">#estamos suponiendo una relación lineal</span></span>
-<span id="cb243-2"><a href="regresión.html#cb243-2"></a><span class="co">#las relaciones que encontramos son a nivel de la muestra</span></span>
-<span id="cb243-3"><a href="regresión.html#cb243-3"></a><span class="co">#para hacer inferencia el mejor camino es la libreria survey</span></span>
-<span id="cb243-4"><a href="regresión.html#cb243-4"></a><span class="kw">summary</span>(<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span><span class="kw">factor</span>(aestudio)<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>bd))<span class="co">#MCO,OLS</span></span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="regresión.html#cb250-1"></a><span class="co">#estamos suponiendo una relación lineal</span></span>
+<span id="cb250-2"><a href="regresión.html#cb250-2"></a><span class="co">#las relaciones que encontramos son a nivel de la muestra</span></span>
+<span id="cb250-3"><a href="regresión.html#cb250-3"></a><span class="co">#para hacer inferencia el mejor camino es la libreria survey</span></span>
+<span id="cb250-4"><a href="regresión.html#cb250-4"></a><span class="kw">summary</span>(<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span><span class="kw">factor</span>(aestudio)<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>bd))<span class="co">#MCO,OLS</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(ylab) ~ factor(aestudio) + s02a_02 + s02a_03, 
@@ -1486,54 +1469,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -5.0522 -0.3568  0.0987  0.4981  3.2963 
 ## 
 ## Coefficients:
-##                      Estimate Std. Error t value
-## (Intercept)         7.0748965  0.0626415 112.943
-## factor(aestudio)1   0.5577081  0.0793369   7.030
-## factor(aestudio)2   0.6629018  0.0622958  10.641
-## factor(aestudio)3   0.6750163  0.0575931  11.720
-## factor(aestudio)4   0.7840809  0.0606245  12.933
-## factor(aestudio)5   1.0183809  0.0538412  18.915
-## factor(aestudio)6   1.0408567  0.0635372  16.382
-## factor(aestudio)7   1.2169718  0.0724208  16.804
-## factor(aestudio)8   1.1424786  0.0601650  18.989
-## factor(aestudio)9   1.0948564  0.0681796  16.058
-## factor(aestudio)10  1.1867662  0.0634540  18.703
-## factor(aestudio)11  1.2047681  0.0627746  19.192
-## factor(aestudio)12  1.2887095  0.0507313  25.403
-## factor(aestudio)13  1.1553818  0.0863251  13.384
-## factor(aestudio)14  1.3888708  0.0671865  20.672
-## factor(aestudio)15  1.4537603  0.0633982  22.931
-## factor(aestudio)16  1.5138924  0.0768798  19.692
-## factor(aestudio)17  1.8574646  0.0519783  35.735
-## factor(aestudio)18  2.0420014  0.1071580  19.056
-## factor(aestudio)19  2.2508731  0.1140574  19.735
-## factor(aestudio)22  2.4462753  0.3739333   6.542
-## s02a_022.Mujer     -0.2733157  0.0204432 -13.369
-## s02a_03            -0.0109058  0.0006833 -15.960
-##                    Pr(&gt;|t|)    
-## (Intercept)         &lt; 2e-16 ***
-## factor(aestudio)1  2.22e-12 ***
-## factor(aestudio)2   &lt; 2e-16 ***
-## factor(aestudio)3   &lt; 2e-16 ***
-## factor(aestudio)4   &lt; 2e-16 ***
-## factor(aestudio)5   &lt; 2e-16 ***
-## factor(aestudio)6   &lt; 2e-16 ***
-## factor(aestudio)7   &lt; 2e-16 ***
-## factor(aestudio)8   &lt; 2e-16 ***
-## factor(aestudio)9   &lt; 2e-16 ***
-## factor(aestudio)10  &lt; 2e-16 ***
-## factor(aestudio)11  &lt; 2e-16 ***
-## factor(aestudio)12  &lt; 2e-16 ***
-## factor(aestudio)13  &lt; 2e-16 ***
-## factor(aestudio)14  &lt; 2e-16 ***
-## factor(aestudio)15  &lt; 2e-16 ***
-## factor(aestudio)16  &lt; 2e-16 ***
-## factor(aestudio)17  &lt; 2e-16 ***
-## factor(aestudio)18  &lt; 2e-16 ***
-## factor(aestudio)19  &lt; 2e-16 ***
-## factor(aestudio)22 6.39e-11 ***
-## s02a_022.Mujer      &lt; 2e-16 ***
-## s02a_03             &lt; 2e-16 ***
+##                      Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)         7.0748965  0.0626415 112.943  &lt; 2e-16
+## factor(aestudio)1   0.5577081  0.0793369   7.030 2.22e-12
+## factor(aestudio)2   0.6629018  0.0622958  10.641  &lt; 2e-16
+## factor(aestudio)3   0.6750163  0.0575931  11.720  &lt; 2e-16
+## factor(aestudio)4   0.7840809  0.0606245  12.933  &lt; 2e-16
+## factor(aestudio)5   1.0183809  0.0538412  18.915  &lt; 2e-16
+## factor(aestudio)6   1.0408567  0.0635372  16.382  &lt; 2e-16
+## factor(aestudio)7   1.2169718  0.0724208  16.804  &lt; 2e-16
+## factor(aestudio)8   1.1424786  0.0601650  18.989  &lt; 2e-16
+## factor(aestudio)9   1.0948564  0.0681796  16.058  &lt; 2e-16
+## factor(aestudio)10  1.1867662  0.0634540  18.703  &lt; 2e-16
+## factor(aestudio)11  1.2047681  0.0627746  19.192  &lt; 2e-16
+## factor(aestudio)12  1.2887095  0.0507313  25.403  &lt; 2e-16
+## factor(aestudio)13  1.1553818  0.0863251  13.384  &lt; 2e-16
+## factor(aestudio)14  1.3888708  0.0671865  20.672  &lt; 2e-16
+## factor(aestudio)15  1.4537603  0.0633982  22.931  &lt; 2e-16
+## factor(aestudio)16  1.5138924  0.0768798  19.692  &lt; 2e-16
+## factor(aestudio)17  1.8574646  0.0519783  35.735  &lt; 2e-16
+## factor(aestudio)18  2.0420014  0.1071580  19.056  &lt; 2e-16
+## factor(aestudio)19  2.2508731  0.1140574  19.735  &lt; 2e-16
+## factor(aestudio)22  2.4462753  0.3739333   6.542 6.39e-11
+## s02a_022.Mujer     -0.2733157  0.0204432 -13.369  &lt; 2e-16
+## s02a_03            -0.0109058  0.0006833 -15.960  &lt; 2e-16
+##                       
+## (Intercept)        ***
+## factor(aestudio)1  ***
+## factor(aestudio)2  ***
+## factor(aestudio)3  ***
+## factor(aestudio)4  ***
+## factor(aestudio)5  ***
+## factor(aestudio)6  ***
+## factor(aestudio)7  ***
+## factor(aestudio)8  ***
+## factor(aestudio)9  ***
+## factor(aestudio)10 ***
+## factor(aestudio)11 ***
+## factor(aestudio)12 ***
+## factor(aestudio)13 ***
+## factor(aestudio)14 ***
+## factor(aestudio)15 ***
+## factor(aestudio)16 ***
+## factor(aestudio)17 ***
+## factor(aestudio)18 ***
+## factor(aestudio)19 ***
+## factor(aestudio)22 ***
+## s02a_022.Mujer     ***
+## s02a_03            ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -1542,8 +1525,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   (120 observations deleted due to missingness)
 ## Multiple R-squared:  0.2848, Adjusted R-squared:  0.2831 
 ## F-statistic: 167.9 on 22 and 9273 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="regresión.html#cb245-1"></a><span class="kw">summary</span>(<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span><span class="kw">factor</span>(aestudio)<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span></span>
-<span id="cb245-2"><a href="regresión.html#cb245-2"></a>           ,<span class="dt">weights =</span> factor ,<span class="dt">data=</span>bd))<span class="co">#MCP</span></span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="regresión.html#cb252-1"></a><span class="kw">summary</span>(<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span><span class="kw">factor</span>(aestudio)<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span></span>
+<span id="cb252-2"><a href="regresión.html#cb252-2"></a>           ,<span class="dt">weights =</span> factor ,<span class="dt">data=</span>bd))<span class="co">#MCP</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(ylab) ~ factor(aestudio) + s02a_02 + s02a_03, 
@@ -1554,54 +1537,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -151.201   -5.156    2.379    9.436   71.710 
 ## 
 ## Coefficients:
-##                     Estimate Std. Error t value
-## (Intercept)         7.090179   0.065421 108.378
-## factor(aestudio)1   0.614074   0.079910   7.685
-## factor(aestudio)2   0.682190   0.062068  10.991
-## factor(aestudio)3   0.608825   0.057584  10.573
-## factor(aestudio)4   0.792066   0.061379  12.904
-## factor(aestudio)5   1.066464   0.054404  19.603
-## factor(aestudio)6   1.080387   0.064995  16.623
-## factor(aestudio)7   1.384734   0.076515  18.098
-## factor(aestudio)8   1.177247   0.061942  19.006
-## factor(aestudio)9   1.180563   0.072530  16.277
-## factor(aestudio)10  1.227639   0.065420  18.765
-## factor(aestudio)11  1.313002   0.065803  19.953
-## factor(aestudio)12  1.378576   0.051212  26.919
-## factor(aestudio)13  1.298265   0.093821  13.838
-## factor(aestudio)14  1.555716   0.071851  21.652
-## factor(aestudio)15  1.580543   0.068034  23.232
-## factor(aestudio)16  1.568266   0.084698  18.516
-## factor(aestudio)17  1.995923   0.052848  37.768
-## factor(aestudio)18  2.207417   0.119783  18.429
-## factor(aestudio)19  2.386930   0.128729  18.542
-## factor(aestudio)22  2.465356   0.403558   6.109
-## s02a_022.Mujer     -0.228750   0.022758 -10.051
-## s02a_03            -0.014892   0.000744 -20.017
-##                    Pr(&gt;|t|)    
-## (Intercept)         &lt; 2e-16 ***
-## factor(aestudio)1  1.69e-14 ***
-## factor(aestudio)2   &lt; 2e-16 ***
-## factor(aestudio)3   &lt; 2e-16 ***
-## factor(aestudio)4   &lt; 2e-16 ***
-## factor(aestudio)5   &lt; 2e-16 ***
-## factor(aestudio)6   &lt; 2e-16 ***
-## factor(aestudio)7   &lt; 2e-16 ***
-## factor(aestudio)8   &lt; 2e-16 ***
-## factor(aestudio)9   &lt; 2e-16 ***
-## factor(aestudio)10  &lt; 2e-16 ***
-## factor(aestudio)11  &lt; 2e-16 ***
-## factor(aestudio)12  &lt; 2e-16 ***
-## factor(aestudio)13  &lt; 2e-16 ***
-## factor(aestudio)14  &lt; 2e-16 ***
-## factor(aestudio)15  &lt; 2e-16 ***
-## factor(aestudio)16  &lt; 2e-16 ***
-## factor(aestudio)17  &lt; 2e-16 ***
-## factor(aestudio)18  &lt; 2e-16 ***
-## factor(aestudio)19  &lt; 2e-16 ***
-## factor(aestudio)22 1.04e-09 ***
-## s02a_022.Mujer      &lt; 2e-16 ***
-## s02a_03             &lt; 2e-16 ***
+##                     Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)         7.090179   0.065421 108.378  &lt; 2e-16
+## factor(aestudio)1   0.614074   0.079910   7.685 1.69e-14
+## factor(aestudio)2   0.682190   0.062068  10.991  &lt; 2e-16
+## factor(aestudio)3   0.608825   0.057584  10.573  &lt; 2e-16
+## factor(aestudio)4   0.792066   0.061379  12.904  &lt; 2e-16
+## factor(aestudio)5   1.066464   0.054404  19.603  &lt; 2e-16
+## factor(aestudio)6   1.080387   0.064995  16.623  &lt; 2e-16
+## factor(aestudio)7   1.384734   0.076515  18.098  &lt; 2e-16
+## factor(aestudio)8   1.177247   0.061942  19.006  &lt; 2e-16
+## factor(aestudio)9   1.180563   0.072530  16.277  &lt; 2e-16
+## factor(aestudio)10  1.227639   0.065420  18.765  &lt; 2e-16
+## factor(aestudio)11  1.313002   0.065803  19.953  &lt; 2e-16
+## factor(aestudio)12  1.378576   0.051212  26.919  &lt; 2e-16
+## factor(aestudio)13  1.298265   0.093821  13.838  &lt; 2e-16
+## factor(aestudio)14  1.555716   0.071851  21.652  &lt; 2e-16
+## factor(aestudio)15  1.580543   0.068034  23.232  &lt; 2e-16
+## factor(aestudio)16  1.568266   0.084698  18.516  &lt; 2e-16
+## factor(aestudio)17  1.995923   0.052848  37.768  &lt; 2e-16
+## factor(aestudio)18  2.207417   0.119783  18.429  &lt; 2e-16
+## factor(aestudio)19  2.386930   0.128729  18.542  &lt; 2e-16
+## factor(aestudio)22  2.465356   0.403558   6.109 1.04e-09
+## s02a_022.Mujer     -0.228750   0.022758 -10.051  &lt; 2e-16
+## s02a_03            -0.014892   0.000744 -20.017  &lt; 2e-16
+##                       
+## (Intercept)        ***
+## factor(aestudio)1  ***
+## factor(aestudio)2  ***
+## factor(aestudio)3  ***
+## factor(aestudio)4  ***
+## factor(aestudio)5  ***
+## factor(aestudio)6  ***
+## factor(aestudio)7  ***
+## factor(aestudio)8  ***
+## factor(aestudio)9  ***
+## factor(aestudio)10 ***
+## factor(aestudio)11 ***
+## factor(aestudio)12 ***
+## factor(aestudio)13 ***
+## factor(aestudio)14 ***
+## factor(aestudio)15 ***
+## factor(aestudio)16 ***
+## factor(aestudio)17 ***
+## factor(aestudio)18 ***
+## factor(aestudio)19 ***
+## factor(aestudio)22 ***
+## s02a_022.Mujer     ***
+## s02a_03            ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -1613,12 +1596,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="paso-5-validar-el-modelo" class="section level3">
 <h3><span class="header-section-number">4.1.5</span> Paso 5: Validar el modelo</h3>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="regresión.html#cb247-1"></a><span class="co">#Supuestos del modelo</span></span>
-<span id="cb247-2"><a href="regresión.html#cb247-2"></a><span class="co">## los errores se distribuyen normal(media=0, varianza=constante)</span></span>
-<span id="cb247-3"><a href="regresión.html#cb247-3"></a><span class="co">## Independencia entre los X del modelo</span></span>
-<span id="cb247-4"><a href="regresión.html#cb247-4"></a><span class="co"># los errores se distribuyen normal</span></span>
-<span id="cb247-5"><a href="regresión.html#cb247-5"></a>model&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span>s02a_<span class="dv">03</span><span class="op">+</span>aestudio<span class="op">+</span>tothrs<span class="op">+</span>ynolab<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area<span class="op">+</span>cob_op,<span class="dt">data=</span>bd)</span>
-<span id="cb247-6"><a href="regresión.html#cb247-6"></a><span class="kw">summary</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="regresión.html#cb254-1"></a><span class="co">#Supuestos del modelo</span></span>
+<span id="cb254-2"><a href="regresión.html#cb254-2"></a><span class="co">## los errores se distribuyen normal(media=0, varianza=constante)</span></span>
+<span id="cb254-3"><a href="regresión.html#cb254-3"></a><span class="co">## Independencia entre los X del modelo</span></span>
+<span id="cb254-4"><a href="regresión.html#cb254-4"></a><span class="co"># los errores se distribuyen normal</span></span>
+<span id="cb254-5"><a href="regresión.html#cb254-5"></a>model&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span>s02a_<span class="dv">03</span><span class="op">+</span>aestudio<span class="op">+</span>tothrs<span class="op">+</span>ynolab<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area<span class="op">+</span>cob_op,<span class="dt">data=</span>bd)</span>
+<span id="cb254-6"><a href="regresión.html#cb254-6"></a><span class="kw">summary</span>(model)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(ylab) ~ s02a_03 + aestudio + tothrs + ynolab + 
@@ -1722,50 +1705,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   (122 observations deleted due to missingness)
 ## Multiple R-squared:  0.4648, Adjusted R-squared:  0.4639 
 ## F-statistic: 537.1 on 15 and 9278 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="regresión.html#cb249-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb249-2"><a href="regresión.html#cb249-2"></a><span class="kw">plot</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="regresión.html#cb256-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb256-2"><a href="regresión.html#cb256-2"></a><span class="kw">plot</span>(model)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="regresión.html#cb250-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
-<pre><code>## null device 
-##           1</code></pre>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="regresión.html#cb252-1"></a><span class="co">#errores</span></span>
-<span id="cb252-2"><a href="regresión.html#cb252-2"></a>ee&lt;-<span class="kw">residuals</span>(model)</span>
-<span id="cb252-3"><a href="regresión.html#cb252-3"></a><span class="kw">plot</span>(<span class="kw">density</span>(ee))</span>
-<span id="cb252-4"><a href="regresión.html#cb252-4"></a><span class="co">#prueba de normalidad</span></span>
-<span id="cb252-5"><a href="regresión.html#cb252-5"></a><span class="co">#H0 x ~ normal()</span></span>
-<span id="cb252-6"><a href="regresión.html#cb252-6"></a><span class="kw">library</span>(normtest)</span>
-<span id="cb252-7"><a href="regresión.html#cb252-7"></a><span class="kw">library</span>(nortest)</span>
-<span id="cb252-8"><a href="regresión.html#cb252-8"></a><span class="kw">ad.test</span>(ee)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="regresión.html#cb257-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<pre><code>## RStudioGD 
+##         2</code></pre>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="regresión.html#cb259-1"></a><span class="co">#errores</span></span>
+<span id="cb259-2"><a href="regresión.html#cb259-2"></a>ee&lt;-<span class="kw">residuals</span>(model)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-2.png" width="672" /></p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="regresión.html#cb260-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(ee))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-3.png" width="672" /></p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="regresión.html#cb261-1"></a><span class="co">#prueba de normalidad</span></span>
+<span id="cb261-2"><a href="regresión.html#cb261-2"></a><span class="co">#H0 x ~ normal()</span></span>
+<span id="cb261-3"><a href="regresión.html#cb261-3"></a><span class="kw">library</span>(normtest)</span>
+<span id="cb261-4"><a href="regresión.html#cb261-4"></a><span class="kw">library</span>(nortest)</span>
+<span id="cb261-5"><a href="regresión.html#cb261-5"></a><span class="kw">ad.test</span>(ee)</span></code></pre></div>
 <pre><code>## 
 ##  Anderson-Darling normality test
 ## 
 ## data:  ee
 ## A = 65.039, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="regresión.html#cb254-1"></a><span class="kw">lillie.test</span>(ee)</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="regresión.html#cb263-1"></a><span class="kw">lillie.test</span>(ee)</span></code></pre></div>
 <pre><code>## 
-##  Lilliefors (Kolmogorov-Smirnov) normality
-##  test
+##  Lilliefors (Kolmogorov-Smirnov) normality test
 ## 
 ## data:  ee
 ## D = 0.059519, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="regresión.html#cb256-1"></a><span class="kw">boxplot</span>(bd<span class="op">$</span>ylab)</span>
-<span id="cb256-2"><a href="regresión.html#cb256-2"></a><span class="co">#La normalidad de los errores</span></span>
-<span id="cb256-3"><a href="regresión.html#cb256-3"></a><span class="kw">plot</span>(<span class="kw">density</span>(ee))</span>
-<span id="cb256-4"><a href="regresión.html#cb256-4"></a><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(ee),<span class="kw">sd</span>(ee)),<span class="dt">add=</span>T,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span>
-<span id="cb256-5"><a href="regresión.html#cb256-5"></a><span class="co">#limitar los datos hasta el percentil </span></span>
-<span id="cb256-6"><a href="regresión.html#cb256-6"></a>punto&lt;-<span class="kw">c</span>(<span class="fl">0.01</span>,<span class="fl">0.90</span>)</span>
-<span id="cb256-7"><a href="regresión.html#cb256-7"></a>puntonl&lt;-<span class="kw">c</span>(<span class="fl">0.99</span>)</span>
-<span id="cb256-8"><a href="regresión.html#cb256-8"></a>z&lt;-<span class="kw">quantile</span>(bd<span class="op">$</span>ylab,punto,<span class="dt">na.rm=</span>T)</span>
-<span id="cb256-9"><a href="regresión.html#cb256-9"></a>znl&lt;-<span class="kw">quantile</span>(bd<span class="op">$</span>ynolab,puntonl,<span class="dt">na.rm=</span>T)</span>
-<span id="cb256-10"><a href="regresión.html#cb256-10"></a>znl</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="regresión.html#cb265-1"></a><span class="kw">boxplot</span>(bd<span class="op">$</span>ylab)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-4.png" width="672" /></p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="regresión.html#cb266-1"></a><span class="co">#La normalidad de los errores</span></span>
+<span id="cb266-2"><a href="regresión.html#cb266-2"></a><span class="kw">plot</span>(<span class="kw">density</span>(ee))</span>
+<span id="cb266-3"><a href="regresión.html#cb266-3"></a><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(ee),<span class="kw">sd</span>(ee)),<span class="dt">add=</span>T,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-5.png" width="672" /></p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="regresión.html#cb267-1"></a><span class="co">#limitar los datos hasta el percentil </span></span>
+<span id="cb267-2"><a href="regresión.html#cb267-2"></a>punto&lt;-<span class="kw">c</span>(<span class="fl">0.01</span>,<span class="fl">0.90</span>)</span>
+<span id="cb267-3"><a href="regresión.html#cb267-3"></a>puntonl&lt;-<span class="kw">c</span>(<span class="fl">0.99</span>)</span>
+<span id="cb267-4"><a href="regresión.html#cb267-4"></a>z&lt;-<span class="kw">quantile</span>(bd<span class="op">$</span>ylab,punto,<span class="dt">na.rm=</span>T)</span>
+<span id="cb267-5"><a href="regresión.html#cb267-5"></a>znl&lt;-<span class="kw">quantile</span>(bd<span class="op">$</span>ynolab,puntonl,<span class="dt">na.rm=</span>T)</span>
+<span id="cb267-6"><a href="regresión.html#cb267-6"></a>znl</span></code></pre></div>
 <pre><code>##    99% 
 ## 3461.9</code></pre>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="regresión.html#cb258-1"></a>bd2&lt;-bd <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>((ylab<span class="op">&lt;</span>z[<span class="dv">2</span>] <span class="op">&amp;</span><span class="st"> </span>ylab<span class="op">&gt;</span>z[<span class="dv">1</span>]))</span>
-<span id="cb258-2"><a href="regresión.html#cb258-2"></a><span class="kw">boxplot</span>(bd2<span class="op">$</span>ynolab)</span>
-<span id="cb258-3"><a href="regresión.html#cb258-3"></a></span>
-<span id="cb258-4"><a href="regresión.html#cb258-4"></a><span class="co">#definiendo el modelo sin atípicos</span></span>
-<span id="cb258-5"><a href="regresión.html#cb258-5"></a>model1&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span>s02a_<span class="dv">03</span><span class="op">+</span>aestudio<span class="op">+</span>tothrs<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area,<span class="dt">data=</span>bd2)</span>
-<span id="cb258-6"><a href="regresión.html#cb258-6"></a><span class="kw">summary</span>(model1)</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="regresión.html#cb269-1"></a>bd2&lt;-bd <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>((ylab<span class="op">&lt;</span>z[<span class="dv">2</span>] <span class="op">&amp;</span><span class="st"> </span>ylab<span class="op">&gt;</span>z[<span class="dv">1</span>]))</span>
+<span id="cb269-2"><a href="regresión.html#cb269-2"></a><span class="kw">boxplot</span>(bd2<span class="op">$</span>ynolab)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-6.png" width="672" /></p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="regresión.html#cb270-1"></a><span class="co">#definiendo el modelo sin atípicos</span></span>
+<span id="cb270-2"><a href="regresión.html#cb270-2"></a>model1&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span>s02a_<span class="dv">03</span><span class="op">+</span>aestudio<span class="op">+</span>tothrs<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area,<span class="dt">data=</span>bd2)</span>
+<span id="cb270-3"><a href="regresión.html#cb270-3"></a><span class="kw">summary</span>(model1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(ylab) ~ s02a_03 + aestudio + tothrs + s02a_02 + 
@@ -1776,20 +1762,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -3.4881 -0.3274  0.0722  0.4224  2.0370 
 ## 
 ## Coefficients:
-##                  Estimate Std. Error t value
-## (Intercept)     7.5113154  0.0441424  170.16
-## s02a_03        -0.0086739  0.0005627  -15.41
-## aestudio        0.0419903  0.0016978   24.73
-## tothrs          0.0068773  0.0004245   16.20
-## s02a_022.Mujer -0.2978155  0.0173519  -17.16
-## areaRural      -0.6337193  0.0181983  -34.82
-##                Pr(&gt;|t|)    
-## (Intercept)      &lt;2e-16 ***
-## s02a_03          &lt;2e-16 ***
-## aestudio         &lt;2e-16 ***
-## tothrs           &lt;2e-16 ***
-## s02a_022.Mujer   &lt;2e-16 ***
-## areaRural        &lt;2e-16 ***
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     7.5113154  0.0441424  170.16   &lt;2e-16 ***
+## s02a_03        -0.0086739  0.0005627  -15.41   &lt;2e-16 ***
+## aestudio        0.0419903  0.0016978   24.73   &lt;2e-16 ***
+## tothrs          0.0068773  0.0004245   16.20   &lt;2e-16 ***
+## s02a_022.Mujer -0.2978155  0.0173519  -17.16   &lt;2e-16 ***
+## areaRural      -0.6337193  0.0181983  -34.82   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -1798,42 +1777,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   (4 observations deleted due to missingness)
 ## Multiple R-squared:  0.3606, Adjusted R-squared:  0.3602 
 ## F-statistic: 931.4 on 5 and 8258 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="regresión.html#cb260-1"></a><span class="kw">boxplot</span>(bd2<span class="op">$</span>ylab)</span>
-<span id="cb260-2"><a href="regresión.html#cb260-2"></a></span>
-<span id="cb260-3"><a href="regresión.html#cb260-3"></a>ee1&lt;-<span class="kw">residuals</span>(model1)</span>
-<span id="cb260-4"><a href="regresión.html#cb260-4"></a><span class="kw">ad.test</span>(ee1)</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="regresión.html#cb272-1"></a><span class="kw">boxplot</span>(bd2<span class="op">$</span>ylab)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-7.png" width="672" /></p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="regresión.html#cb273-1"></a>ee1&lt;-<span class="kw">residuals</span>(model1)</span>
+<span id="cb273-2"><a href="regresión.html#cb273-2"></a><span class="kw">ad.test</span>(ee1)</span></code></pre></div>
 <pre><code>## 
 ##  Anderson-Darling normality test
 ## 
 ## data:  ee1
 ## A = 69.102, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="regresión.html#cb262-1"></a><span class="kw">lillie.test</span>(ee1)</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="regresión.html#cb275-1"></a><span class="kw">lillie.test</span>(ee1)</span></code></pre></div>
 <pre><code>## 
-##  Lilliefors (Kolmogorov-Smirnov) normality
-##  test
+##  Lilliefors (Kolmogorov-Smirnov) normality test
 ## 
 ## data:  ee1
 ## D = 0.06552, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="regresión.html#cb264-1"></a><span class="kw">ks.test</span>(ee1,<span class="st">&quot;pnorm&quot;</span>,<span class="kw">mean</span>(ee1),<span class="kw">sd</span>(ee1))<span class="co">#kolmogorov Smirnofv</span></span></code></pre></div>
-<pre><code>## Warning in ks.test(ee1, &quot;pnorm&quot;, mean(ee1),
-## sd(ee1)): ties should not be present for the
-## Kolmogorov-Smirnov test</code></pre>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="regresión.html#cb277-1"></a><span class="kw">ks.test</span>(ee1,<span class="st">&quot;pnorm&quot;</span>,<span class="kw">mean</span>(ee1),<span class="kw">sd</span>(ee1))<span class="co">#kolmogorov Smirnofv</span></span></code></pre></div>
+<pre><code>## Warning in ks.test(ee1, &quot;pnorm&quot;, mean(ee1), sd(ee1)): ties
+## should not be present for the Kolmogorov-Smirnov test</code></pre>
 <pre><code>## 
 ##  One-sample Kolmogorov-Smirnov test
 ## 
 ## data:  ee1
 ## D = 0.06552, p-value &lt; 2.2e-16
 ## alternative hypothesis: two-sided</code></pre>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="regresión.html#cb267-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(ee1))</span>
-<span id="cb267-2"><a href="regresión.html#cb267-2"></a><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(ee1),<span class="kw">sd</span>(ee1)),<span class="dt">add=</span>T,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span>
-<span id="cb267-3"><a href="regresión.html#cb267-3"></a><span class="kw">plot</span>(model1)</span>
-<span id="cb267-4"><a href="regresión.html#cb267-4"></a></span>
-<span id="cb267-5"><a href="regresión.html#cb267-5"></a><span class="co"># Distancia de Cook</span></span>
-<span id="cb267-6"><a href="regresión.html#cb267-6"></a><span class="kw">plot</span>(<span class="kw">cooks.distance</span>(model1))</span>
-<span id="cb267-7"><a href="regresión.html#cb267-7"></a>cc&lt;-<span class="kw">cooks.distance</span>(model1)</span>
-<span id="cb267-8"><a href="regresión.html#cb267-8"></a>bd3&lt;-bd2[cc<span class="op">&lt;</span><span class="kw">quantile</span>(cc,<span class="fl">0.90</span>),]</span>
-<span id="cb267-9"><a href="regresión.html#cb267-9"></a>model3&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span>s02a_<span class="dv">03</span><span class="op">+</span>aestudio<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area,<span class="dt">data=</span>bd3)</span>
-<span id="cb267-10"><a href="regresión.html#cb267-10"></a><span class="kw">summary</span>(model3)</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="regresión.html#cb280-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(ee1))</span>
+<span id="cb280-2"><a href="regresión.html#cb280-2"></a><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(ee1),<span class="kw">sd</span>(ee1)),<span class="dt">add=</span>T,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-8.png" width="672" /></p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="regresión.html#cb281-1"></a><span class="kw">plot</span>(model1)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-9.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-42-10.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-42-11.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-42-12.png" width="672" /></p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="regresión.html#cb282-1"></a><span class="co"># Distancia de Cook</span></span>
+<span id="cb282-2"><a href="regresión.html#cb282-2"></a><span class="kw">plot</span>(<span class="kw">cooks.distance</span>(model1))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-13.png" width="672" /></p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="regresión.html#cb283-1"></a>cc&lt;-<span class="kw">cooks.distance</span>(model1)</span>
+<span id="cb283-2"><a href="regresión.html#cb283-2"></a>bd3&lt;-bd2[cc<span class="op">&lt;</span><span class="kw">quantile</span>(cc,<span class="fl">0.90</span>),]</span>
+<span id="cb283-3"><a href="regresión.html#cb283-3"></a>model3&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span>s02a_<span class="dv">03</span><span class="op">+</span>aestudio<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area,<span class="dt">data=</span>bd3)</span>
+<span id="cb283-4"><a href="regresión.html#cb283-4"></a><span class="kw">summary</span>(model3)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(ylab) ~ s02a_03 + aestudio + s02a_02 + area, 
@@ -1844,18 +1823,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -3.7477 -0.3023  0.0589  0.3789  2.0127 
 ## 
 ## Coefficients:
-##                  Estimate Std. Error t value
-## (Intercept)     7.8707909  0.0330637  238.05
-## s02a_03        -0.0068727  0.0005262  -13.06
-## aestudio        0.0357484  0.0015616   22.89
-## s02a_022.Mujer -0.3371617  0.0158950  -21.21
-## areaRural      -0.6177162  0.0177800  -34.74
-##                Pr(&gt;|t|)    
-## (Intercept)      &lt;2e-16 ***
-## s02a_03          &lt;2e-16 ***
-## aestudio         &lt;2e-16 ***
-## s02a_022.Mujer   &lt;2e-16 ***
-## areaRural        &lt;2e-16 ***
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     7.8707909  0.0330637  238.05   &lt;2e-16 ***
+## s02a_03        -0.0068727  0.0005262  -13.06   &lt;2e-16 ***
+## aestudio        0.0357484  0.0015616   22.89   &lt;2e-16 ***
+## s02a_022.Mujer -0.3371617  0.0158950  -21.21   &lt;2e-16 ***
+## areaRural      -0.6177162  0.0177800  -34.74   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -1864,27 +1837,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   (2 observations deleted due to missingness)
 ## Multiple R-squared:  0.3371, Adjusted R-squared:  0.3367 
 ## F-statistic: 944.9 on 4 and 7434 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="regresión.html#cb269-1"></a><span class="kw">ad.test</span>(<span class="kw">residuals</span>(model3))</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="regresión.html#cb285-1"></a><span class="kw">ad.test</span>(<span class="kw">residuals</span>(model3))</span></code></pre></div>
 <pre><code>## 
 ##  Anderson-Darling normality test
 ## 
 ## data:  residuals(model3)
 ## A = 54.631, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="regresión.html#cb271-1"></a><span class="kw">lillie.test</span>(<span class="kw">residuals</span>(model3))</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="regresión.html#cb287-1"></a><span class="kw">lillie.test</span>(<span class="kw">residuals</span>(model3))</span></code></pre></div>
 <pre><code>## 
-##  Lilliefors (Kolmogorov-Smirnov) normality
-##  test
+##  Lilliefors (Kolmogorov-Smirnov) normality test
 ## 
 ## data:  residuals(model3)
 ## D = 0.060717, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="regresión.html#cb273-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(<span class="kw">residuals</span>(model3)))</span>
-<span id="cb273-2"><a href="regresión.html#cb273-2"></a><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(<span class="kw">residuals</span>(model3)),<span class="kw">sd</span>(<span class="kw">residuals</span>(model3))),<span class="dt">add=</span>T,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span>
-<span id="cb273-3"><a href="regresión.html#cb273-3"></a><span class="kw">plot</span>(model3)</span>
-<span id="cb273-4"><a href="regresión.html#cb273-4"></a><span class="kw">plot</span>(<span class="kw">cooks.distance</span>(model3))</span>
-<span id="cb273-5"><a href="regresión.html#cb273-5"></a><span class="co">#ajustando polinomios</span></span>
-<span id="cb273-6"><a href="regresión.html#cb273-6"></a>bd3&lt;-<span class="kw">na.omit</span>(bd3)</span>
-<span id="cb273-7"><a href="regresión.html#cb273-7"></a>model4&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span><span class="kw">poly</span>(s02a_<span class="dv">03</span>,<span class="dv">2</span>)<span class="op">+</span><span class="kw">poly</span>(aestudio,<span class="dv">3</span>)<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area,<span class="dt">data=</span>bd3)</span>
-<span id="cb273-8"><a href="regresión.html#cb273-8"></a><span class="kw">summary</span>(model4)</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="regresión.html#cb289-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(<span class="kw">residuals</span>(model3)))</span>
+<span id="cb289-2"><a href="regresión.html#cb289-2"></a><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(<span class="kw">residuals</span>(model3)),<span class="kw">sd</span>(<span class="kw">residuals</span>(model3))),<span class="dt">add=</span>T,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-14.png" width="672" /></p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="regresión.html#cb290-1"></a><span class="kw">plot</span>(model3)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-15.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-42-16.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-42-17.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-42-18.png" width="672" /></p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="regresión.html#cb291-1"></a><span class="kw">plot</span>(<span class="kw">cooks.distance</span>(model3))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-19.png" width="672" /></p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="regresión.html#cb292-1"></a><span class="co">#ajustando polinomios</span></span>
+<span id="cb292-2"><a href="regresión.html#cb292-2"></a>bd3&lt;-<span class="kw">na.omit</span>(bd3)</span>
+<span id="cb292-3"><a href="regresión.html#cb292-3"></a>model4&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span><span class="kw">poly</span>(s02a_<span class="dv">03</span>,<span class="dv">2</span>)<span class="op">+</span><span class="kw">poly</span>(aestudio,<span class="dv">3</span>)<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area,<span class="dt">data=</span>bd3)</span>
+<span id="cb292-4"><a href="regresión.html#cb292-4"></a><span class="kw">summary</span>(model4)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(ylab) ~ poly(s02a_03, 2) + poly(aestudio, 3) + 
@@ -1895,24 +1870,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -3.5388 -0.2755  0.0567  0.3658  1.9760 
 ## 
 ## Coefficients:
-##                      Estimate Std. Error t value
-## (Intercept)          7.916703   0.008679 912.136
-## poly(s02a_03, 2)1   -9.314807   0.629916 -14.787
-## poly(s02a_03, 2)2  -10.230085   0.579114 -17.665
-## poly(aestudio, 3)1  14.037367   0.650863  21.567
-## poly(aestudio, 3)2   1.956320   0.593357   3.297
-## poly(aestudio, 3)3   4.658527   0.575849   8.090
-## s02a_022.Mujer      -0.341106   0.015643 -21.806
-## areaRural           -0.602950   0.017392 -34.669
-##                    Pr(&gt;|t|)    
-## (Intercept)         &lt; 2e-16 ***
-## poly(s02a_03, 2)1   &lt; 2e-16 ***
-## poly(s02a_03, 2)2   &lt; 2e-16 ***
-## poly(aestudio, 3)1  &lt; 2e-16 ***
-## poly(aestudio, 3)2 0.000982 ***
-## poly(aestudio, 3)3 6.92e-16 ***
-## s02a_022.Mujer      &lt; 2e-16 ***
-## areaRural           &lt; 2e-16 ***
+##                      Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)          7.916703   0.008679 912.136  &lt; 2e-16
+## poly(s02a_03, 2)1   -9.314807   0.629916 -14.787  &lt; 2e-16
+## poly(s02a_03, 2)2  -10.230085   0.579114 -17.665  &lt; 2e-16
+## poly(aestudio, 3)1  14.037367   0.650863  21.567  &lt; 2e-16
+## poly(aestudio, 3)2   1.956320   0.593357   3.297 0.000982
+## poly(aestudio, 3)3   4.658527   0.575849   8.090 6.92e-16
+## s02a_022.Mujer      -0.341106   0.015643 -21.806  &lt; 2e-16
+## areaRural           -0.602950   0.017392 -34.669  &lt; 2e-16
+##                       
+## (Intercept)        ***
+## poly(s02a_03, 2)1  ***
+## poly(s02a_03, 2)2  ***
+## poly(aestudio, 3)1 ***
+## poly(aestudio, 3)2 ***
+## poly(aestudio, 3)3 ***
+## s02a_022.Mujer     ***
+## areaRural          ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -1920,15 +1895,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residual standard error: 0.5674 on 7429 degrees of freedom
 ## Multiple R-squared:  0.3743, Adjusted R-squared:  0.3737 
 ## F-statistic: 634.9 on 7 and 7429 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="regresión.html#cb275-1"></a><span class="kw">ad.test</span>(<span class="kw">residuals</span>(model4))</span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="regresión.html#cb294-1"></a><span class="kw">ad.test</span>(<span class="kw">residuals</span>(model4))</span></code></pre></div>
 <pre><code>## 
 ##  Anderson-Darling normality test
 ## 
 ## data:  residuals(model4)
 ## A = 61.647, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="regresión.html#cb277-1"></a><span class="co">## interacciones entre variables</span></span>
-<span id="cb277-2"><a href="regresión.html#cb277-2"></a>model5&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span><span class="kw">poly</span>(s02a_<span class="dv">03</span>,<span class="dv">2</span>)<span class="op">+</span><span class="kw">poly</span>(aestudio,<span class="dv">3</span>)<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">:</span>aestudio<span class="op">+</span>area<span class="op">:</span>aestudio<span class="op">+</span><span class="kw">exp</span>(aestudio)<span class="op">+</span><span class="kw">I</span>(aestudio<span class="op">^</span><span class="dv">4</span>),<span class="dt">data=</span>bd3)</span>
-<span id="cb277-3"><a href="regresión.html#cb277-3"></a><span class="kw">summary</span>(model5)</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="regresión.html#cb296-1"></a><span class="co">## interacciones entre variables</span></span>
+<span id="cb296-2"><a href="regresión.html#cb296-2"></a>model5&lt;-<span class="kw">lm</span>(<span class="kw">log</span>(ylab)<span class="op">~</span><span class="kw">poly</span>(s02a_<span class="dv">03</span>,<span class="dv">2</span>)<span class="op">+</span><span class="kw">poly</span>(aestudio,<span class="dv">3</span>)<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">+</span>area<span class="op">+</span>s02a_<span class="dv">02</span><span class="op">:</span>aestudio<span class="op">+</span>area<span class="op">:</span>aestudio<span class="op">+</span><span class="kw">exp</span>(aestudio)<span class="op">+</span><span class="kw">I</span>(aestudio<span class="op">^</span><span class="dv">4</span>),<span class="dt">data=</span>bd3)</span>
+<span id="cb296-3"><a href="regresión.html#cb296-3"></a><span class="kw">summary</span>(model5)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(ylab) ~ poly(s02a_03, 2) + poly(aestudio, 3) + 
@@ -1940,34 +1915,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -3.4917 -0.2675  0.0620  0.3561  2.1623 
 ## 
 ## Coefficients: (1 not defined because of singularities)
-##                            Estimate Std. Error
-## (Intercept)               7.366e+00  3.153e-01
-## poly(s02a_03, 2)1        -8.867e+00  6.240e-01
-## poly(s02a_03, 2)2        -9.962e+00  5.745e-01
-## poly(aestudio, 3)1       -5.285e+01  2.869e+01
-## poly(aestudio, 3)2       -3.606e+01  1.708e+01
-## poly(aestudio, 3)3       -8.803e+00  5.156e+00
-## s02a_022.Mujer           -5.360e-01  3.222e-02
-## areaRural                -9.519e-01  3.318e-02
-## exp(aestudio)            -3.246e-10  1.248e-10
-## I(aestudio^4)             3.334e-05  1.394e-05
-## s02a_021.Hombre:aestudio -1.903e-02  2.964e-03
-## s02a_022.Mujer:aestudio          NA         NA
-## areaRural:aestudio        4.476e-02  3.761e-03
-##                          t value Pr(&gt;|t|)    
-## (Intercept)               23.361  &lt; 2e-16 ***
-## poly(s02a_03, 2)1        -14.209  &lt; 2e-16 ***
-## poly(s02a_03, 2)2        -17.342  &lt; 2e-16 ***
-## poly(aestudio, 3)1        -1.842  0.06552 .  
-## poly(aestudio, 3)2        -2.112  0.03475 *  
-## poly(aestudio, 3)3        -1.707  0.08778 .  
-## s02a_022.Mujer           -16.637  &lt; 2e-16 ***
-## areaRural                -28.689  &lt; 2e-16 ***
-## exp(aestudio)             -2.601  0.00931 ** 
-## I(aestudio^4)              2.391  0.01681 *  
-## s02a_021.Hombre:aestudio  -6.420 1.45e-10 ***
-## s02a_022.Mujer:aestudio       NA       NA    
-## areaRural:aestudio        11.903  &lt; 2e-16 ***
+##                            Estimate Std. Error t value
+## (Intercept)               7.366e+00  3.153e-01  23.361
+## poly(s02a_03, 2)1        -8.867e+00  6.240e-01 -14.209
+## poly(s02a_03, 2)2        -9.962e+00  5.745e-01 -17.342
+## poly(aestudio, 3)1       -5.285e+01  2.869e+01  -1.842
+## poly(aestudio, 3)2       -3.606e+01  1.708e+01  -2.112
+## poly(aestudio, 3)3       -8.803e+00  5.156e+00  -1.707
+## s02a_022.Mujer           -5.360e-01  3.222e-02 -16.637
+## areaRural                -9.519e-01  3.318e-02 -28.689
+## exp(aestudio)            -3.246e-10  1.248e-10  -2.601
+## I(aestudio^4)             3.334e-05  1.394e-05   2.391
+## s02a_021.Hombre:aestudio -1.903e-02  2.964e-03  -6.420
+## s02a_022.Mujer:aestudio          NA         NA      NA
+## areaRural:aestudio        4.476e-02  3.761e-03  11.903
+##                          Pr(&gt;|t|)    
+## (Intercept)               &lt; 2e-16 ***
+## poly(s02a_03, 2)1         &lt; 2e-16 ***
+## poly(s02a_03, 2)2         &lt; 2e-16 ***
+## poly(aestudio, 3)1        0.06552 .  
+## poly(aestudio, 3)2        0.03475 *  
+## poly(aestudio, 3)3        0.08778 .  
+## s02a_022.Mujer            &lt; 2e-16 ***
+## areaRural                 &lt; 2e-16 ***
+## exp(aestudio)             0.00931 ** 
+## I(aestudio^4)             0.01681 *  
+## s02a_021.Hombre:aestudio 1.45e-10 ***
+## s02a_022.Mujer:aestudio        NA    
+## areaRural:aestudio        &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -1975,22 +1950,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residual standard error: 0.5609 on 7425 degrees of freedom
 ## Multiple R-squared:  0.3888, Adjusted R-squared:  0.3879 
 ## F-statistic: 429.4 on 11 and 7425 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="regresión.html#cb279-1"></a><span class="kw">ad.test</span>(<span class="kw">residuals</span>(model5))</span></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="regresión.html#cb298-1"></a><span class="kw">ad.test</span>(<span class="kw">residuals</span>(model5))</span></code></pre></div>
 <pre><code>## 
 ##  Anderson-Darling normality test
 ## 
 ## data:  residuals(model5)
 ## A = 72.471, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="regresión.html#cb281-1"></a><span class="co">#trabajando sobre los valores atípicos desde R</span></span>
-<span id="cb281-2"><a href="regresión.html#cb281-2"></a><span class="kw">library</span>(MASS)</span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="regresión.html#cb300-1"></a><span class="co">#trabajando sobre los valores atípicos desde R</span></span>
+<span id="cb300-2"><a href="regresión.html#cb300-2"></a><span class="kw">library</span>(MASS)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;MASS&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:dplyr&#39;:
 ## 
 ##     select</code></pre>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="regresión.html#cb284-1"></a>modela&lt;-<span class="kw">rlm</span>(ylab<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span><span class="op">+</span>area,<span class="dt">data=</span>bd2)</span>
-<span id="cb284-2"><a href="regresión.html#cb284-2"></a>modelb&lt;-<span class="kw">lm</span>(ylab<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span><span class="op">+</span>area,<span class="dt">data=</span>bd2)</span>
-<span id="cb284-3"><a href="regresión.html#cb284-3"></a><span class="kw">summary</span>(modela)</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="regresión.html#cb303-1"></a>modela&lt;-<span class="kw">rlm</span>(ylab<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span><span class="op">+</span>area,<span class="dt">data=</span>bd2)</span>
+<span id="cb303-2"><a href="regresión.html#cb303-2"></a>modelb&lt;-<span class="kw">lm</span>(ylab<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span><span class="op">+</span>area,<span class="dt">data=</span>bd2)</span>
+<span id="cb303-3"><a href="regresión.html#cb303-3"></a><span class="kw">summary</span>(modela)</span></code></pre></div>
 <pre><code>## 
 ## Call: rlm(formula = ylab ~ s02a_02 + s02a_03 + area, data = bd2)
 ## Residuals:
@@ -2005,7 +1980,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## areaRural      -1248.6004    33.5989   -37.1619
 ## 
 ## Residual standard error: 1306 on 8264 degrees of freedom</code></pre>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="regresión.html#cb286-1"></a><span class="kw">summary</span>(modelb)</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="regresión.html#cb305-1"></a><span class="kw">summary</span>(modelb)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = ylab ~ s02a_02 + s02a_03 + area, data = bd2)
@@ -2015,16 +1990,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -3318.5  -948.6  -200.9   829.6  4795.8 
 ## 
 ## Coefficients:
-##                 Estimate Std. Error t value
-## (Intercept)     3796.300     45.878   82.75
-## s02a_022.Mujer  -695.331     32.658  -21.29
-## s02a_03          -16.435      1.004  -16.36
-## areaRural      -1167.972     32.906  -35.49
-##                Pr(&gt;|t|)    
-## (Intercept)      &lt;2e-16 ***
-## s02a_022.Mujer   &lt;2e-16 ***
-## s02a_03          &lt;2e-16 ***
-## areaRural        &lt;2e-16 ***
+##                 Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     3796.300     45.878   82.75   &lt;2e-16 ***
+## s02a_022.Mujer  -695.331     32.658  -21.29   &lt;2e-16 ***
+## s02a_03          -16.435      1.004  -16.36   &lt;2e-16 ***
+## areaRural      -1167.972     32.906  -35.49   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -2032,42 +2002,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residual standard error: 1276 on 8264 degrees of freedom
 ## Multiple R-squared:  0.2108, Adjusted R-squared:  0.2106 
 ## F-statistic:   736 on 3 and 8264 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="regresión.html#cb288-1"></a><span class="kw">ad.test</span>(<span class="kw">residuals</span>(model))</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="regresión.html#cb307-1"></a><span class="kw">ad.test</span>(<span class="kw">residuals</span>(model))</span></code></pre></div>
 <pre><code>## 
 ##  Anderson-Darling normality test
 ## 
 ## data:  residuals(model)
 ## A = 65.039, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="regresión.html#cb290-1"></a><span class="co"># Colinealidad (X1=f(X2)</span></span>
-<span id="cb290-2"><a href="regresión.html#cb290-2"></a><span class="kw">library</span>(car)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="regresión.html#cb309-1"></a><span class="co"># Colinealidad (X1=f(X2)</span></span>
+<span id="cb309-2"><a href="regresión.html#cb309-2"></a><span class="kw">library</span>(car)</span></code></pre></div>
 <pre><code>## Loading required package: carData</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;car&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:dplyr&#39;:
 ## 
 ##     recode</code></pre>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="regresión.html#cb294-1"></a><span class="kw">vif</span>(model3)</span></code></pre></div>
+<pre><code>## The following object is masked from &#39;package:qdapRegex&#39;:
+## 
+##     S</code></pre>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="regresión.html#cb314-1"></a><span class="kw">vif</span>(model3)</span></code></pre></div>
 <pre><code>##  s02a_03 aestudio  s02a_02     area 
 ## 1.160343 1.288865 1.023119 1.147169</code></pre>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="regresión.html#cb296-1"></a><span class="kw">sqrt</span>(<span class="kw">vif</span>(model3))<span class="op">&gt;</span><span class="dv">2</span> <span class="co">##Variance Inflation Factors</span></span></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="regresión.html#cb316-1"></a><span class="kw">sqrt</span>(<span class="kw">vif</span>(model3))<span class="op">&gt;</span><span class="dv">2</span> <span class="co">##Variance Inflation Factors</span></span></code></pre></div>
 <pre><code>##  s02a_03 aestudio  s02a_02     area 
 ##    FALSE    FALSE    FALSE    FALSE</code></pre>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="regresión.html#cb298-1"></a><span class="co"># Verificar si la varianza es constante (homocedástico) o no (heterocedástico)</span></span>
-<span id="cb298-2"><a href="regresión.html#cb298-2"></a><span class="kw">library</span>(lmtest)</span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="regresión.html#cb318-1"></a><span class="co"># Verificar si la varianza es constante (homocedástico) o no (heterocedástico)</span></span>
+<span id="cb318-2"><a href="regresión.html#cb318-2"></a><span class="kw">library</span>(lmtest)</span></code></pre></div>
 <pre><code>## Loading required package: zoo</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;zoo&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     as.Date, as.Date.numeric</code></pre>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="regresión.html#cb302-1"></a><span class="kw">bptest</span>(model3) <span class="co"># H0: Homocedsticidad https://en.wikipedia.org/wiki/Breusch%E2%80%93Pagan_test</span></span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="regresión.html#cb322-1"></a><span class="kw">bptest</span>(model3) <span class="co"># H0: Homocedsticidad https://en.wikipedia.org/wiki/Breusch%E2%80%93Pagan_test</span></span></code></pre></div>
 <pre><code>## 
 ##  studentized Breusch-Pagan test
 ## 
 ## data:  model3
 ## BP = 704.77, df = 4, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="regresión.html#cb304-1"></a><span class="co">#corrigiendo </span></span>
-<span id="cb304-2"><a href="regresión.html#cb304-2"></a><span class="kw">library</span>(rms)</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="regresión.html#cb324-1"></a><span class="co">#corrigiendo </span></span>
+<span id="cb324-2"><a href="regresión.html#cb324-2"></a><span class="kw">library</span>(rms)</span></code></pre></div>
 <pre><code>## Loading required package: SparseM</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;SparseM&#39;</code></pre>
@@ -2085,15 +2058,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following object is masked from &#39;package:vegan&#39;:
 ## 
 ##     calibrate</code></pre>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="regresión.html#cb312-1"></a>model1 =<span class="st"> </span><span class="kw">ols</span>(ylab<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span><span class="op">+</span>area,<span class="dt">data=</span>bd3,<span class="dt">x=</span>T,<span class="dt">y=</span>T)</span>
-<span id="cb312-2"><a href="regresión.html#cb312-2"></a><span class="kw">bptest</span>(model1)</span></code></pre></div>
+<pre><code>## The following object is masked from &#39;package:qdapRegex&#39;:
+## 
+##     validate</code></pre>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="regresión.html#cb333-1"></a>model1 =<span class="st"> </span><span class="kw">ols</span>(ylab<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span><span class="op">+</span>area,<span class="dt">data=</span>bd3,<span class="dt">x=</span>T,<span class="dt">y=</span>T)</span>
+<span id="cb333-2"><a href="regresión.html#cb333-2"></a><span class="kw">bptest</span>(model1)</span></code></pre></div>
 <pre><code>## 
 ##  studentized Breusch-Pagan test
 ## 
 ## data:  model1
 ## BP = 62.036, df = 2, p-value = 3.38e-14</code></pre>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="regresión.html#cb314-1"></a>aux&lt;-<span class="kw">robcov</span>(model1)</span>
-<span id="cb314-2"><a href="regresión.html#cb314-2"></a>aux</span></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="regresión.html#cb335-1"></a>aux&lt;-<span class="kw">robcov</span>(model1)</span>
+<span id="cb335-2"><a href="regresión.html#cb335-2"></a>aux</span></code></pre></div>
 <pre><code>## Linear Regression Model
 ##  
 ##  ols(formula = ylab ~ s02a_02 + s02a_03 + area, data = bd3, x = T, 
@@ -2117,15 +2093,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  s02a_03           -14.0673  1.0210 -13.78 &lt;0.0001 
 ##  area=Rural      -1212.4898 35.9942 -33.69 &lt;0.0001 
 ## </code></pre>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="regresión.html#cb316-1"></a><span class="co"># H0: Homocedasticidad, implica que los EE de B no son los correctos</span></span></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="regresión.html#cb337-1"></a><span class="co"># H0: Homocedasticidad, implica que los EE de B no son los correctos</span></span></code></pre></div>
 </div>
 <div id="paso-6-predicir-a-partir-del-modelo" class="section level3">
 <h3><span class="header-section-number">4.1.6</span> Paso 6: Predicir a partir del modelo</h3>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="regresión.html#cb317-1"></a>test&lt;-bd3</span>
-<span id="cb317-2"><a href="regresión.html#cb317-2"></a>yest&lt;-<span class="kw">predict</span>(model3,test)</span>
-<span id="cb317-3"><a href="regresión.html#cb317-3"></a><span class="kw">plot</span>(<span class="kw">log</span>(bd3<span class="op">$</span>ylab),yest)</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="regresión.html#cb338-1"></a>test&lt;-bd3</span>
+<span id="cb338-2"><a href="regresión.html#cb338-2"></a>yest&lt;-<span class="kw">predict</span>(model3,test)</span>
+<span id="cb338-3"><a href="regresión.html#cb338-3"></a><span class="kw">plot</span>(<span class="kw">log</span>(bd3<span class="op">$</span>ylab),yest)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="regresión.html#cb318-1"></a><span class="kw">plot</span>(bd3<span class="op">$</span>ylab,<span class="kw">exp</span>(yest))</span></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="regresión.html#cb339-1"></a><span class="kw">plot</span>(bd3<span class="op">$</span>ylab,<span class="kw">exp</span>(yest))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-43-2.png" width="672" /></p>
 </div>
 </div>
@@ -2143,22 +2119,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[Y=\frac{e^{X\beta+\epsilon}}{1+e^{X\beta+\epsilon}}\]</span></p>
 <div id="en-r" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> En R:</h3>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="regresión.html#cb319-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb319-2"><a href="regresión.html#cb319-2"></a><span class="kw">load</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">eh18.Rdata&quot;</span>)</span>
-<span id="cb319-3"><a href="regresión.html#cb319-3"></a>aux&lt;-<span class="kw">levels</span>(eh18p<span class="op">$</span>s04a_01a)</span>
-<span id="cb319-4"><a href="regresión.html#cb319-4"></a>eh18p&lt;-eh18p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">diabetes=</span>(s04a_01a<span class="op">==</span>aux[<span class="dv">1</span>] <span class="op">|</span><span class="st"> </span>s04a_01b<span class="op">==</span>aux[<span class="dv">1</span>]),<span class="dt">corazon=</span>(s04a_01a<span class="op">==</span>aux[<span class="dv">4</span>] <span class="op">|</span><span class="st"> </span>s04a_01b<span class="op">==</span>aux[<span class="dv">4</span>]),<span class="dt">hiper=</span>(s04a_01a<span class="op">==</span>aux[<span class="dv">10</span>] <span class="op">|</span><span class="st"> </span>s04a_01b<span class="op">==</span>aux[<span class="dv">10</span>]))</span>
-<span id="cb319-5"><a href="regresión.html#cb319-5"></a>eh18p<span class="op">$</span>diabetes&lt;-(eh18p<span class="op">$</span>diabetes<span class="op">==</span>T); eh18p<span class="op">$</span>diabetes[<span class="kw">is.na</span>(eh18p<span class="op">$</span>diabetes)]&lt;-F</span>
-<span id="cb319-6"><a href="regresión.html#cb319-6"></a>eh18p<span class="op">$</span>corazon&lt;-(eh18p<span class="op">$</span>corazon<span class="op">==</span>T); eh18p<span class="op">$</span>corazon[<span class="kw">is.na</span>(eh18p<span class="op">$</span>corazon)]&lt;-F</span>
-<span id="cb319-7"><a href="regresión.html#cb319-7"></a>eh18p<span class="op">$</span>hiper&lt;-(eh18p<span class="op">$</span>hiper<span class="op">==</span>T); eh18p<span class="op">$</span>hiper[<span class="kw">is.na</span>(eh18p<span class="op">$</span>hiper)]&lt;-F</span>
-<span id="cb319-8"><a href="regresión.html#cb319-8"></a>eh18p<span class="op">$</span>cronicas&lt;-(eh18p<span class="op">$</span>diabetes<span class="op">+</span>eh18p<span class="op">$</span>corazon<span class="op">+</span>eh18p<span class="op">$</span>hiper)</span>
-<span id="cb319-9"><a href="regresión.html#cb319-9"></a><span class="co">#modelo para las enfermedades crónicas</span></span>
-<span id="cb319-10"><a href="regresión.html#cb319-10"></a>eh18p<span class="op">$</span>cronicas&lt;-(eh18p<span class="op">$</span>cronicas<span class="op">!=</span><span class="dv">0</span>)</span>
-<span id="cb319-11"><a href="regresión.html#cb319-11"></a><span class="co">#probit logit</span></span>
-<span id="cb319-12"><a href="regresión.html#cb319-12"></a>logit&lt;-<span class="kw">glm</span>(cronicas<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>eh18p,<span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;logit&quot;</span>))</span>
-<span id="cb319-13"><a href="regresión.html#cb319-13"></a>probit&lt;-<span class="kw">glm</span>(cronicas<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>eh18p,<span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;probit&quot;</span>))</span>
-<span id="cb319-14"><a href="regresión.html#cb319-14"></a>lineal&lt;-<span class="kw">lm</span>(cronicas<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>eh18p)</span>
-<span id="cb319-15"><a href="regresión.html#cb319-15"></a><span class="co">#resumen</span></span>
-<span id="cb319-16"><a href="regresión.html#cb319-16"></a><span class="kw">summary</span>(logit)</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="regresión.html#cb340-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb340-2"><a href="regresión.html#cb340-2"></a><span class="kw">load</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">eh18.Rdata&quot;</span>)</span>
+<span id="cb340-3"><a href="regresión.html#cb340-3"></a>aux&lt;-<span class="kw">levels</span>(eh18p<span class="op">$</span>s04a_01a)</span>
+<span id="cb340-4"><a href="regresión.html#cb340-4"></a>eh18p&lt;-eh18p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">diabetes=</span>(s04a_01a<span class="op">==</span>aux[<span class="dv">1</span>] <span class="op">|</span><span class="st"> </span>s04a_01b<span class="op">==</span>aux[<span class="dv">1</span>]),<span class="dt">corazon=</span>(s04a_01a<span class="op">==</span>aux[<span class="dv">4</span>] <span class="op">|</span><span class="st"> </span>s04a_01b<span class="op">==</span>aux[<span class="dv">4</span>]),<span class="dt">hiper=</span>(s04a_01a<span class="op">==</span>aux[<span class="dv">10</span>] <span class="op">|</span><span class="st"> </span>s04a_01b<span class="op">==</span>aux[<span class="dv">10</span>]))</span>
+<span id="cb340-5"><a href="regresión.html#cb340-5"></a>eh18p<span class="op">$</span>diabetes&lt;-(eh18p<span class="op">$</span>diabetes<span class="op">==</span>T); eh18p<span class="op">$</span>diabetes[<span class="kw">is.na</span>(eh18p<span class="op">$</span>diabetes)]&lt;-F</span>
+<span id="cb340-6"><a href="regresión.html#cb340-6"></a>eh18p<span class="op">$</span>corazon&lt;-(eh18p<span class="op">$</span>corazon<span class="op">==</span>T); eh18p<span class="op">$</span>corazon[<span class="kw">is.na</span>(eh18p<span class="op">$</span>corazon)]&lt;-F</span>
+<span id="cb340-7"><a href="regresión.html#cb340-7"></a>eh18p<span class="op">$</span>hiper&lt;-(eh18p<span class="op">$</span>hiper<span class="op">==</span>T); eh18p<span class="op">$</span>hiper[<span class="kw">is.na</span>(eh18p<span class="op">$</span>hiper)]&lt;-F</span>
+<span id="cb340-8"><a href="regresión.html#cb340-8"></a>eh18p<span class="op">$</span>cronicas&lt;-(eh18p<span class="op">$</span>diabetes<span class="op">+</span>eh18p<span class="op">$</span>corazon<span class="op">+</span>eh18p<span class="op">$</span>hiper)</span>
+<span id="cb340-9"><a href="regresión.html#cb340-9"></a><span class="co">#modelo para las enfermedades crónicas</span></span>
+<span id="cb340-10"><a href="regresión.html#cb340-10"></a>eh18p<span class="op">$</span>cronicas&lt;-(eh18p<span class="op">$</span>cronicas<span class="op">!=</span><span class="dv">0</span>)</span>
+<span id="cb340-11"><a href="regresión.html#cb340-11"></a><span class="co">#probit logit</span></span>
+<span id="cb340-12"><a href="regresión.html#cb340-12"></a>logit&lt;-<span class="kw">glm</span>(cronicas<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>eh18p,<span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;logit&quot;</span>))</span>
+<span id="cb340-13"><a href="regresión.html#cb340-13"></a>probit&lt;-<span class="kw">glm</span>(cronicas<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>eh18p,<span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb340-14"><a href="regresión.html#cb340-14"></a>lineal&lt;-<span class="kw">lm</span>(cronicas<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>eh18p)</span>
+<span id="cb340-15"><a href="regresión.html#cb340-15"></a><span class="co">#resumen</span></span>
+<span id="cb340-16"><a href="regresión.html#cb340-16"></a><span class="kw">summary</span>(logit)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = cronicas ~ s02a_02 + s02a_03, family = binomial(link = &quot;logit&quot;), 
@@ -2169,14 +2145,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -1.2158  -0.2857  -0.1788  -0.1215   3.3372  
 ## 
 ## Coefficients:
-##                 Estimate Std. Error z value
-## (Intercept)    -5.564577   0.079827 -69.708
-## s02a_022.Mujer  0.215954   0.054636   3.953
-## s02a_03         0.055494   0.001305  42.528
-##                Pr(&gt;|z|)    
-## (Intercept)     &lt; 2e-16 ***
-## s02a_022.Mujer 7.73e-05 ***
-## s02a_03         &lt; 2e-16 ***
+##                 Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)    -5.564577   0.079827 -69.708  &lt; 2e-16 ***
+## s02a_022.Mujer  0.215954   0.054636   3.953 7.73e-05 ***
+## s02a_03         0.055494   0.001305  42.528  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -2188,7 +2160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## AIC: 10778
 ## 
 ## Number of Fisher Scoring iterations: 7</code></pre>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="regresión.html#cb321-1"></a><span class="kw">summary</span>(probit)</span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="regresión.html#cb342-1"></a><span class="kw">summary</span>(probit)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = cronicas ~ s02a_02 + s02a_03, family = binomial(link = &quot;probit&quot;), 
@@ -2199,14 +2171,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -1.0746  -0.2981  -0.1727  -0.1043   3.5050  
 ## 
 ## Coefficients:
-##                  Estimate Std. Error z value
-## (Intercept)    -2.8553967  0.0353000 -80.890
-## s02a_022.Mujer  0.0951194  0.0261370   3.639
-## s02a_03         0.0265904  0.0006253  42.525
-##                Pr(&gt;|z|)    
-## (Intercept)     &lt; 2e-16 ***
-## s02a_022.Mujer 0.000273 ***
-## s02a_03         &lt; 2e-16 ***
+##                  Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)    -2.8553967  0.0353000 -80.890  &lt; 2e-16 ***
+## s02a_022.Mujer  0.0951194  0.0261370   3.639 0.000273 ***
+## s02a_03         0.0265904  0.0006253  42.525  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -2218,7 +2186,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## AIC: 10734
 ## 
 ## Number of Fisher Scoring iterations: 7</code></pre>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="regresión.html#cb323-1"></a><span class="kw">summary</span>(lineal)</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="regresión.html#cb344-1"></a><span class="kw">summary</span>(lineal)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = cronicas ~ s02a_02 + s02a_03, data = eh18p)
@@ -2228,14 +2196,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -0.20784 -0.06928 -0.02720  0.00608  1.03292 
 ## 
 ## Coefficients:
-##                  Estimate Std. Error t value
-## (Intercept)    -3.292e-02  1.981e-03 -16.617
-## s02a_022.Mujer  7.834e-03  1.992e-03   3.933
-## s02a_03         2.377e-03  4.748e-05  50.060
-##                Pr(&gt;|t|)    
-## (Intercept)     &lt; 2e-16 ***
-## s02a_022.Mujer  8.4e-05 ***
-## s02a_03         &lt; 2e-16 ***
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -3.292e-02  1.981e-03 -16.617  &lt; 2e-16 ***
+## s02a_022.Mujer  7.834e-03  1.992e-03   3.933  8.4e-05 ***
+## s02a_03         2.377e-03  4.748e-05  50.060  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -2243,27 +2207,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residual standard error: 0.1928 on 37514 degrees of freedom
 ## Multiple R-squared:  0.06323,    Adjusted R-squared:  0.06318 
 ## F-statistic:  1266 on 2 and 37514 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="regresión.html#cb325-1"></a><span class="co">#score probabilidades</span></span>
-<span id="cb325-2"><a href="regresión.html#cb325-2"></a>lres&lt;-<span class="kw">predict</span>(logit,eh18p,<span class="dt">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb325-3"><a href="regresión.html#cb325-3"></a>pres&lt;-<span class="kw">predict</span>(probit,eh18p,<span class="dt">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb325-4"><a href="regresión.html#cb325-4"></a><span class="kw">plot</span>(<span class="kw">density</span>(lres))</span>
-<span id="cb325-5"><a href="regresión.html#cb325-5"></a><span class="kw">points</span>(<span class="kw">density</span>(pres),<span class="dt">type =</span> <span class="st">&quot;l&quot;</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="regresión.html#cb346-1"></a><span class="co">#score probabilidades</span></span>
+<span id="cb346-2"><a href="regresión.html#cb346-2"></a>lres&lt;-<span class="kw">predict</span>(logit,eh18p,<span class="dt">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb346-3"><a href="regresión.html#cb346-3"></a>pres&lt;-<span class="kw">predict</span>(probit,eh18p,<span class="dt">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb346-4"><a href="regresión.html#cb346-4"></a><span class="kw">plot</span>(<span class="kw">density</span>(lres))</span>
+<span id="cb346-5"><a href="regresión.html#cb346-5"></a><span class="kw">points</span>(<span class="kw">density</span>(pres),<span class="dt">type =</span> <span class="st">&quot;l&quot;</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="regresión.html#cb326-1"></a><span class="co">#efectos marginales</span></span>
-<span id="cb326-2"><a href="regresión.html#cb326-2"></a><span class="kw">library</span>(mfx)</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="regresión.html#cb347-1"></a><span class="co">#efectos marginales</span></span>
+<span id="cb347-2"><a href="regresión.html#cb347-2"></a><span class="kw">library</span>(mfx)</span></code></pre></div>
 <pre><code>## Loading required package: sandwich</code></pre>
 <pre><code>## Loading required package: betareg</code></pre>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="regresión.html#cb329-1"></a><span class="kw">probitmfx</span>(cronicas<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>eh18p)</span></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="regresión.html#cb350-1"></a><span class="kw">probitmfx</span>(cronicas<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>eh18p)</span></code></pre></div>
 <pre><code>## Call:
 ## probitmfx(formula = cronicas ~ s02a_02 + s02a_03, data = eh18p)
 ## 
 ## Marginal Effects:
-##                     dF/dx  Std. Err.       z
-## s02a_022.Mujer 4.9289e-03 1.3552e-03  3.6371
-## s02a_03        1.3787e-03 3.6387e-05 37.8892
-##                    P&gt;|z|    
-## s02a_022.Mujer 0.0002758 ***
-## s02a_03        &lt; 2.2e-16 ***
+##                     dF/dx  Std. Err.       z     P&gt;|z|    
+## s02a_022.Mujer 4.9289e-03 1.3552e-03  3.6371 0.0002758 ***
+## s02a_03        1.3787e-03 3.6387e-05 37.8892 &lt; 2.2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -2271,17 +2232,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## dF/dx is for discrete change for the following variables:
 ## 
 ## [1] &quot;s02a_022.Mujer&quot;</code></pre>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="regresión.html#cb331-1"></a><span class="kw">logitmfx</span>(cronicas<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>eh18p)</span></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="regresión.html#cb352-1"></a><span class="kw">logitmfx</span>(cronicas<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>eh18p)</span></code></pre></div>
 <pre><code>## Call:
 ## logitmfx(formula = cronicas ~ s02a_02 + s02a_03, data = eh18p)
 ## 
 ## Marginal Effects:
-##                     dF/dx  Std. Err.       z
-## s02a_022.Mujer 0.00456597 0.00115874  3.9405
-## s02a_03        0.00117352 0.00003123 37.5766
-##                    P&gt;|z|    
-## s02a_022.Mujer 8.132e-05 ***
-## s02a_03        &lt; 2.2e-16 ***
+##                     dF/dx  Std. Err.       z     P&gt;|z|    
+## s02a_022.Mujer 0.00456597 0.00115874  3.9405 8.132e-05 ***
+## s02a_03        0.00117352 0.00003123 37.5766 &lt; 2.2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -2289,8 +2247,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## dF/dx is for discrete change for the following variables:
 ## 
 ## [1] &quot;s02a_022.Mujer&quot;</code></pre>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="regresión.html#cb333-1"></a><span class="co">#ajuste</span></span>
-<span id="cb333-2"><a href="regresión.html#cb333-2"></a><span class="kw">library</span>(DescTools)</span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="regresión.html#cb354-1"></a><span class="co">#ajuste</span></span>
+<span id="cb354-2"><a href="regresión.html#cb354-2"></a><span class="kw">library</span>(DescTools)</span></code></pre></div>
+<pre><code>## Registered S3 method overwritten by &#39;DescTools&#39;:
+##   method         from 
+##   reorder.factor gdata</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;DescTools&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:car&#39;:
@@ -2299,13 +2260,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following objects are masked from &#39;package:Hmisc&#39;:
 ## 
 ##     %nin%, Label, Mean, Quantile</code></pre>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="regresión.html#cb337-1"></a><span class="kw">PseudoR2</span>(logit)</span></code></pre></div>
+<pre><code>## The following object is masked from &#39;package:qdap&#39;:
+## 
+##     Trim</code></pre>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="regresión.html#cb360-1"></a><span class="kw">PseudoR2</span>(logit)</span></code></pre></div>
 <pre><code>## McFadden 
 ## 0.167065</code></pre>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="regresión.html#cb339-1"></a><span class="kw">PseudoR2</span>(probit)</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="regresión.html#cb362-1"></a><span class="kw">PseudoR2</span>(probit)</span></code></pre></div>
 <pre><code>## McFadden 
 ## 0.170421</code></pre>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="regresión.html#cb341-1"></a><span class="kw">summary</span>(lineal)</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="regresión.html#cb364-1"></a><span class="kw">summary</span>(lineal)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = cronicas ~ s02a_02 + s02a_03, data = eh18p)
@@ -2315,14 +2279,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -0.20784 -0.06928 -0.02720  0.00608  1.03292 
 ## 
 ## Coefficients:
-##                  Estimate Std. Error t value
-## (Intercept)    -3.292e-02  1.981e-03 -16.617
-## s02a_022.Mujer  7.834e-03  1.992e-03   3.933
-## s02a_03         2.377e-03  4.748e-05  50.060
-##                Pr(&gt;|t|)    
-## (Intercept)     &lt; 2e-16 ***
-## s02a_022.Mujer  8.4e-05 ***
-## s02a_03         &lt; 2e-16 ***
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -3.292e-02  1.981e-03 -16.617  &lt; 2e-16 ***
+## s02a_022.Mujer  7.834e-03  1.992e-03   3.933  8.4e-05 ***
+## s02a_03         2.377e-03  4.748e-05  50.060  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -2330,8 +2290,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residual standard error: 0.1928 on 37514 degrees of freedom
 ## Multiple R-squared:  0.06323,    Adjusted R-squared:  0.06318 
 ## F-statistic:  1266 on 2 and 37514 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="regresión.html#cb343-1"></a><span class="co">#comparando</span></span>
-<span id="cb343-2"><a href="regresión.html#cb343-2"></a><span class="kw">library</span>(memisc)</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="regresión.html#cb366-1"></a><span class="co">#comparando</span></span>
+<span id="cb366-2"><a href="regresión.html#cb366-2"></a><span class="kw">library</span>(memisc)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;memisc&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:DescTools&#39;:
@@ -2343,22 +2303,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following objects are masked from &#39;package:Hmisc&#39;:
 ## 
 ##     %nin%, html, Mean</code></pre>
-<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     syms</code></pre>
 <pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
 ## 
 ##     collect, recode, rename, syms</code></pre>
 <pre><code>## The following object is masked from &#39;package:lubridate&#39;:
 ## 
 ##     is.interval</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     syms</code></pre>
+<pre><code>## The following objects are masked from &#39;package:NLP&#39;:
+## 
+##     annotation, content, content&lt;-</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
 ## 
 ##     contr.sum, contr.treatment, contrasts</code></pre>
 <pre><code>## The following object is masked from &#39;package:base&#39;:
 ## 
 ##     as.array</code></pre>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="regresión.html#cb353-1"></a><span class="kw">mtable</span>(logit,probit,lineal)</span></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="regresión.html#cb377-1"></a><span class="kw">mtable</span>(logit,probit,lineal)</span></code></pre></div>
 <pre><code>## 
 ## Calls:
 ## logit: glm(formula = cronicas ~ s02a_02 + s02a_03, family = binomial(link = &quot;logit&quot;), 
@@ -2382,7 +2345,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   R-squared                                                  0.063     
 ## =======================================================================
 ##   Significance: *** = p &lt; 0.001; ** = p &lt; 0.01; * = p &lt; 0.05</code></pre>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="regresión.html#cb355-1"></a><span class="kw">summary</span>(<span class="kw">glm</span>(cronicas<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>eh18p))</span></code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="regresión.html#cb379-1"></a><span class="kw">summary</span>(<span class="kw">glm</span>(cronicas<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>eh18p))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = cronicas ~ s02a_02 + s02a_03, data = eh18p)
@@ -2392,14 +2355,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -0.20784  -0.06928  -0.02720   0.00608   1.03292  
 ## 
 ## Coefficients:
-##                  Estimate Std. Error t value
-## (Intercept)    -3.292e-02  1.981e-03 -16.617
-## s02a_022.Mujer  7.834e-03  1.992e-03   3.933
-## s02a_03         2.377e-03  4.748e-05  50.060
-##                Pr(&gt;|t|)    
-## (Intercept)     &lt; 2e-16 ***
-## s02a_022.Mujer  8.4e-05 ***
-## s02a_03         &lt; 2e-16 ***
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -3.292e-02  1.981e-03 -16.617  &lt; 2e-16 ***
+## s02a_022.Mujer  7.834e-03  1.992e-03   3.933  8.4e-05 ***
+## s02a_03         2.377e-03  4.748e-05  50.060  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -2411,7 +2370,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## AIC: -17037
 ## 
 ## Number of Fisher Scoring iterations: 2</code></pre>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="regresión.html#cb357-1"></a><span class="kw">summary</span>(<span class="kw">lm</span>(cronicas<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>eh18p))</span></code></pre></div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="regresión.html#cb381-1"></a><span class="kw">summary</span>(<span class="kw">lm</span>(cronicas<span class="op">~</span>s02a_<span class="dv">02</span><span class="op">+</span>s02a_<span class="dv">03</span>,<span class="dt">data=</span>eh18p))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = cronicas ~ s02a_02 + s02a_03, data = eh18p)
@@ -2421,14 +2380,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -0.20784 -0.06928 -0.02720  0.00608  1.03292 
 ## 
 ## Coefficients:
-##                  Estimate Std. Error t value
-## (Intercept)    -3.292e-02  1.981e-03 -16.617
-## s02a_022.Mujer  7.834e-03  1.992e-03   3.933
-## s02a_03         2.377e-03  4.748e-05  50.060
-##                Pr(&gt;|t|)    
-## (Intercept)     &lt; 2e-16 ***
-## s02a_022.Mujer  8.4e-05 ***
-## s02a_03         &lt; 2e-16 ***
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -3.292e-02  1.981e-03 -16.617  &lt; 2e-16 ***
+## s02a_022.Mujer  7.834e-03  1.992e-03   3.933  8.4e-05 ***
+## s02a_03         2.377e-03  4.748e-05  50.060  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
