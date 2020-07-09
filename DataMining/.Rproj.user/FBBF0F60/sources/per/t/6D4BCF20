@@ -1,0 +1,27 @@
+{
+    "id": "6D4BCF20",
+    "path": "~/GitHub/EST-384/DataMining/5_clasificacion.Rmd",
+    "project_path": "5_clasificacion.Rmd",
+    "type": "r_markdown",
+    "hash": "2383492873",
+    "contents": "",
+    "dirty": false,
+    "created": 1594330087810.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "cursorPosition": "12,6",
+        "scrollLine": "0",
+        "docOutlineVisible": "0",
+        "docOutlineSize": "120",
+        "chunk_output_type": "console"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1594330901,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1594330901660,
+    "read_only": false,
+    "read_only_alternatives": []
+}
