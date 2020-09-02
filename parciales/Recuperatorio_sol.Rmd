@@ -1,0 +1,254 @@
+---
+title: "Solucionario: Recuperatorio (30pts)"
+subtitle: "Programacion Estadística II"
+author: "Lic. Alvaro Chirino Gutierrez"
+date: "Julio, 2020"
+output: pdf_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+\hrule  
+\vspace{0.4cm}
+
+# Primer Parcial
+
+# Pregunta 1 (15 pts.)
+
+  * PCA: Empleando la base de datos de las elecciones nacionales del 20 de octubre de 2019, seleccione las mesas para Bolivia y las elecciones para presidente. 
+    + Convierta los valores absolutos a valores relativos para los partidos políticos, incluya blancos y nulos.
+    + Aplique el método de componentes principales y aplique el criterio de eigenvectores superiores a 1 para retener los componentes.
+    + Calcule los componentes retenidos e inclúyalos en la base de datos
+    + Genere un gráfico de histogramas para ver la distribución de los componentes retenidos
+    
+Solución,
+
+```{r}
+rm(list=ls())
+library(dplyr)
+load(url("https://github.com/AlvaroLimber/EST-384/raw/master/data/oct20.RData"))
+computo<-computo %>% rename(pais=1,eleccion=12)
+computo<-computo %>% filter(pais=="Bolivia", eleccion==unique(computo$eleccion)[1]) 
+    # Convierta los valores absolutos a valores relativos para los partidos políticos, incluya blancos y nulos.
+vv<-c(14:22,24:25)
+computo$total<-apply(computo[,vv],1,sum)
+for(i in vv){
+  computo[,i]<-computo[,i]/computo$total
+}
+# Aplique el método de componentes principales y aplique el criterio de eigenvalores superiores a 1 para retener los componentes.
+#####################
+#vector solo tarija para ejercicio 2
+tj<-computo[,"Departamento"]=="Tarija"
+###################
+computo<-na.omit(computo[,vv])
+mv<-cor(computo)
+cp<-eigen(mv)
+cp$values>1 #existen 3 eigenvalores mayores a 1
+# Calcule los componentes retenidos e inclúyalos en la base de datos
+aux<-as.matrix(computo) %*% cp$vectors[,1:3]
+computo<-cbind(computo,aux)
+names(computo)[12:14]<-paste0("cp",1:3)
+# Genere un gráfico de histogramas para ver la distribución de los componentes retenidos
+par(mfrow=c(1,3))
+hist(computo$cp1)
+hist(computo$cp2)
+hist(computo$cp3)
+dev.off()
+```
+    
+## Pregunta 2 (15 pts.)  
+
+Con los componentes retenidos de la pregunta anterior, defina una clasificación de las mesas empleando el método k-center y el jerárquico, encuentre el valor óptimo de $k$ entre 2 y 5 para las distancias euclideana y manhattan. 
+
+  * Para el método k-center tomé como centro solo los medoides.
+  * Para el jerárquico tome en cuenta los tres enlaces.
+
+Comente cuál es el valor óptimo de $k$ y bajo que características.
+
+Solución,
+
+```{r}
+k<-2:5
+d<-c("euclidean", "manhattan")
+enlace<-c("complete","single","average")
+#solo para tarija
+bd<-computo[tj,12:14]
+#k-center medoides
+library(cluster)
+mcenter<-matrix(NA,4,2)
+for(i in k){
+  r<-1
+  for(j in d){
+    #solo tarija
+    aux<-pam(bd,k = i,metric = j)
+    s<-silhouette(aux$clustering,dist(bd,method = d))
+    mcenter[i-1,r]<-mean(s[,3])
+    r<-r+1
+  }
+}
+#jerárquico
+mjerE<-matrix(NA,4,3)#euclideano
+mjerM<-matrix(NA,4,3)#manhathan
+
+for(i in k){
+  r<-1
+  for(j in enlace){
+    #solo tarija
+    aux1<-hclust(dist(bd,method ="euclidean"),method = j)
+    aux2<-hclust(dist(bd,method ="manhattan"),method = j)
+    clusE<-cutree(aux1,i)
+    clusM<-cutree(aux1,i)
+    sE<-silhouette(clusE,dist(bd,method ="euclidean"))
+    sM<-silhouette(clusM,dist(bd,method ="manhattan"))
+    mjerE[i-1,r]<-mean(sE[,3])
+    mjerM[i-1,r]<-mean(sM[,3])
+    r<-r+1
+  }
+}
+```
+
+```{r}
+rownames(mcenter)<-2:5
+rownames(mjerE)<-2:5
+rownames(mjerM)<-2:5
+colnames(mcenter)<-d
+colnames(mjerE)<-enlace
+colnames(mjerM)<-enlace
+mm<-cbind(mcenter,mjerE,mjerM)
+max(mm)==mm
+# el mejor es k-medoides con k=2 y distancia de manhatttan
+```
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+# Segundo Parcial
+
+# Pregunta 1 (15 pts.)
+
+Usando la encuesta a hogares 2018, realice de forma secuencial lo siguiente:
+
+  * Seleccione al jefe/jefa del hogar de hogares que tengan al menos una persona de 60 años o más
+  * Para la variable ingreso per cápita del hogar (en logaritmo natural) construya un modelo lineal con las siguientes variables dependientes:
+    + edad del jefe
+    + sexo del jefe del hogar
+    + número de miembros
+    + número de personas de 60 años o más
+    + número de personas de 5 años o menos
+    + número de personas entre 6 y 30 años
+    + número de personas entre 31 y 59 años
+    + máximo años de educación en el hogar
+    + hogar con acceso a electricidad
+    + servicio sanitario privado
+    + hogar pobre/no pobre
+  * Realice los siguientes pasos sobre el modelo
+    + Elimine a los hogares con un ingreso per capita mayor al percentil 98
+    + Según la naturaleza de las variables defina el modelo lineal y elimine a las no significativas ($p<0.05$)
+    + Realice el test de normalidad sobre los errores y comente 
+    + Realice un test de multicolinealidad y comente
+    + Realice un test de Homocedasticidad y comente
+    + Incluya la interacción edad con número de miembros
+    + Incluya los polinomios hasta el grado 3 para la variable edad 
+
+```{r}
+rm(list=ls())
+load(url("https://github.com/AlvaroLimber/EST-384/raw/master/data/eh18.Rdata"))
+# Seleccione al jefe/jefa del hogar de hogares que tengan al menos una persona de 60 años o más
+#filtro  y variables resumen del hogar
+nn<-eh18p %>% mutate(miembros=1,p60=s02a_03>=60,p5=s02a_03<=5,p6_30=(s02a_03>=6 & s02a_03<=30),p31_59=(s02a_03>=31 & s02a_03<=59)) %>% group_by(folio) %>% summarise(miembros=sum(miembros),p5=sum(p5),p6_30=sum(p6_30),p31_59=sum(p31_59),p60=sum(p60),maxedu=max(aestudio,na.rm = T))
+#base jefe
+jefe<-eh18p %>% filter(s02a_05==unique(eh18p$s02a_05)[1]) %>% select(folio,s02a_02,s02a_03,p0,yhogpc)
+#variables en la vivienda
+vv<-eh18v %>% mutate(electrico=s01a_19=="1. Si",privado=(s01a_17=="1.Usado sólo por su hogar?")) %>% select(folio,electrico,privado)
+#base consolidada
+jefe<-merge(jefe,nn)
+jefe<-merge(jefe,vv)
+#seleccion de los hogares con personas de 60 años o más
+jefe<-jefe %>% filter(p60>0)
+#corrigiendo los na para la pregunta sanitario privado
+jefe$privado[is.na(jefe$privado)]<-F
+jefe<-jefe %>% select(-folio)
+head(jefe)
+################################
+# Realice los siguientes pasos sobre el modelo
+# Elimine a los hogares con un ingreso per capita mayor al percentil 98
+aux<-quantile(jefe$yhogpc,0.98)
+jefe<-jefe %>% filter(yhogpc<aux)
+# Según la naturaleza de las variables defina el modelo lineal y elimine a las no significativas ($p<0.05$)
+jefe<-na.omit(jefe)
+jefe<-jefe %>% filter(yhogpc>0)
+model1<-lm(log(yhogpc)~.,data=jefe)
+model2<-step(model1)
+summary(model2)
+# Realice el test de normalidad sobre los errores y comente 
+library(nortest)
+ee<-residuals(model2)
+ad.test(ee)
+lillie.test(ee)#hay normalidad!!
+plot(density(ee))
+# Realice un test de multicolinealidad y comente
+library(car)
+vif(model2)
+sqrt(vif(model2))>2 # se descarta la  variable miembros
+model3<-lm(log(yhogpc)~s02a_03+p0+p6_30+maxedu+electrico+privado,data=jefe)
+# Realice un test de Homocedasticidad y comente
+library(lmtest)
+bptest(model3) # H0: Homocedasticidad, Por lo tanto es homocedastico
+# Incluya la interacción edad con número de miembros
+model4<-lm(log(yhogpc) ~ s02a_03+p0+p6_30+maxedu+electrico+privado + privado+s02a_03:miembros,data=jefe)
+summary(model4)
+# Incluya los polinomios hasta el grado 3 para la variable edad 
+model5<-lm(log(yhogpc) ~ s02a_03+p0+p6_30+maxedu+electrico+privado + privado+s02a_03:miembros+poly(s02a_03,3),data=jefe)
+summary(model5)
+```
+
+# Pregunta 2 (15 pts.)
+
+Usando la base de datos del ejercicio anterior, para la variable pobreza; elabore un modelo de clasificación usando los métodos:
+
+  * Logístico
+  * Árbol de clasificación (incluya el gráfico)
+  * Naive Bayes
+
+Considere todas las variables para la clasificación en los distintos métodos.
+
+¿Qué método es mejor?, justifique su respuesta.
+
+```{r}
+#aplicando los métodos
+jefe$p0<-jefe$p0=="Pobre"
+#solo valores validos
+index<-sample(1:2,nrow(jefe),replace = T,prob=c(0.7,0.3))
+trainBD<-jefe[index==1,]
+testBD<-jefe[index==2,]
+# Logístico
+m1<-glm(p0~.,data=trainBD,family = binomial(link="logit"))
+m2<-step(m1)
+clase<-predict(m2,testBD,type="response")>0.5
+t_logit<-table(clase,testBD$p0)
+# Árbol de clasificación
+trainBD$p0<-factor(trainBD$p0,levels = c(T,F),c("Pobre","No pobre"))
+testBD$p0<-factor(testBD$p0,levels = c(T,F),c("Pobre","No pobre"))
+library(rpart)
+mod1<-rpart(p0~.,data=trainBD)
+library(rpart.plot)
+rpart.plot(mod1)
+clase<-predict(mod1,testBD,type = "class")
+t_cart<-table(clase,testBD$p0)
+# Naive Bayes
+library(e1071)
+model1<-naiveBayes(p0~.,data=trainBD)
+clase<-predict(model1,testBD,type = "class")
+t_naive<-table(clase,testBD$p0)
+#identificando al mejor
+library(caret)
+confusionMatrix(t_logit)
+confusionMatrix(t_cart)
+confusionMatrix(t_naive)
+#El método logit es mejor
+```
+
