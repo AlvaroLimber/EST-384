@@ -70,7 +70,7 @@ Es el análisis de **conjuntos de datos** (a menudo grandes) para encontrar **re
 
 ### Importación
 
-```{r, echo=T}
+```{r, echo=T,eval=F}
 library(foreign)
 library(readr)
 apropos("read")
@@ -88,18 +88,25 @@ rm(list=ls())
 load("eh19.RData")
 load("oct20.RData")
 # cargando desde github
-
+rm(list=ls())
+load(url("https://github.com/AlvaroLimber/EST-384/raw/master/data/eh19.RData"))
+load(url("https://github.com/AlvaroLimber/EST-384/raw/master/data/oct20.RData"))
 ```
 
 ### Recopilación
 
 ```{r,echo=T,eval=F}
 read.table("clipboard",header = T)
-library(readxl)
-library(dplyr)
-library(DBI)
-library(RMySQL)
+library(readxl) # excel 
+library(DBI)  # Bases de datos relacionales en el sistema
+#library(help=DBI)  
+library(RMySQL) # bases de datos en mysql
+# web scraping (API)
 library(gtrendsR) # API
+gg<-gtrends(c("data mining","machine learning"),time="today 12-m")
+gg$interest_over_time
+plot(gg)
+gg<-gtrends(c("data mining","machine learning"),time="today 12-m",geo="BO")
 ```
 
 ### Limpieza
