@@ -120,6 +120,8 @@ std
 library(tidyr)
 bd<-gather(std,materia,nota,math:stat)
 bd
+# otra opción más relacionada a bases de datos con información de tiempo, 
+# es el comando reshape
 ```
 
 ### Ejercicio (reshape)
@@ -130,38 +132,339 @@ http://www.udape.gob.bo/portales_html/dossierweb2019/htms/CAP07/C070311.xls
 
 ```{r,echo=T}
 library(lubridate)
+date()
+today()
 ymd("20151021")
 ymd("2015/11/30")
 myd("11.2012.3")
 dmy_hms("2/12/2013 14:05:01")
 mdy("120112")
+d1<-dmy("15032020")
+class(d1)
+#ts()
 ```
 
 ### Limpieza (String)
 
 ```{r,echo=TRUE}
+
 toupper("hola")
+tolower("HOLA")
+
 abc<-letters[1:10]
 toupper(abc)
 
-tolower("HOLA")
 tolower("Juan")
-
+# Extraer partes de un texto
 substr("hola como estan",1,3)
 substr("hola como estan",3,7)
+
+# contar la cantidad de caracteres
 nchar("hola")
+
+nchar(c("hola","chau","LA                         paz"))
+
+x<-c("LA-.paz","La Paz", "La pas", "La    paz","lapaz","la 78 paz")
+
+x<-toupper(x)
+
+x<-gsub("PAS","PAZ",x)
+
+library(tm)
+x<-removeNumbers(x)
+x<-removePunctuation(x)
+x<-gsub("LAPAZ","LA PAZ",x)
+x<-stripWhitespace(x)
+
+nchar(x)
+
+nchar(gsub("  "," ",x))
+
 gsub("a","x","hola como estas")
 grepl("a",c("hola","como"))
 grepl("o",c("hola","como"))
+
+#otra alternativa
+x<-c("LA-.paz","La Paz", "La pas", "La    paz","lapaz","la 78 paz")
+x<-toupper(x)
+x[grepl("PAZ",x)]<-"LA PAZ"
+x<-gsub("PAS","PAZ",x)
+
+# para llevar a ascii
+utf8ToInt("la paz")
+utf8ToInt("@")
+
 library(stringi)
 ```
 
-### Transfomración
+Ejemplo de web scraping sobre la página https://www.worldometers.info/
+
+```{r}
+library(rvest)
+url<-"https://www.worldometers.info/coronavirus/"
+covid<-read_html(url)
+bdcov<-html_table(covid)
+bdnow<-bdcov[[1]]
+str(bdnow)
+```
+
+Tarea: limpiar la base de datos
+
+  * Convertir las variables necesarias a numéricas
+  * Debe ser una base de solo países
+  
+### Transformación
+
+```{r}
+load(url("https://github.com/AlvaroLimber/EST-384/raw/master/data/eh19.RData"))
+names(eh19p)
+```
 
 * Estandarizar variables
+
+```{r}
+summary(eh19p$s02a_03) #edad
+summary(eh19p$tothrs) # total de horas de trabajo semanal
+summary(eh19p$ylab)  # ingreso laboral mensual
+
+sd(eh19p$s02a_03)
+sd(eh19p$tothrs,na.rm = T)
+sd(eh19p$ylab,na.rm = T)
+
+x1<-scale(eh19p$s02a_03)
+x2<-scale(eh19p$tothrs)
+x3<-scale(eh19p$ylab)
+
+sd(x1);sd(x2,na.rm = T);sd(x3,na.rm = T)
+par(mfrow=c(2,3))
+boxplot(eh19p$s02a_03,ylim=c(0,25000))
+boxplot(eh19p$tothrs,ylim=c(0,25000))
+boxplot(eh19p$ylab,ylim=c(0,25000))
+
+boxplot(x1,ylim=c(-3,3))
+boxplot(x2,ylim=c(-3,3))
+boxplot(x3,ylim=c(-3,3))
+
+par(mfrow=c(2,3))
+plot(density(eh19p$s02a_03))
+plot(density(eh19p$tothrs,na.rm=T))
+plot(density(eh19p$ylab,na.rm=T))
+
+plot(density(x1))
+plot(density(x2,na.rm=T))
+plot(density(x3,na.rm=T))
+
+mean(eh19p$ylab,na.rm=T)
+median(eh19p$ylab,na.rm=T)
+```
+
+
 * Función logarítmo
+
+```{r}
+dev.off()
+curve(log,xlim=c(10,30000))
+
+x1<-log(eh19p$s02a_03)
+x2<-log(eh19p$tothrs)
+x3<-log(eh19p$ylab)
+
+par(mfrow=c(2,3))
+plot(density(eh19p$s02a_03))
+plot(density(eh19p$tothrs,na.rm=T))
+plot(density(eh19p$ylab,na.rm=T))
+
+plot(density(x1))
+plot(density(x2,na.rm=T))
+plot(density(x3,na.rm=T))
+dev.off()
+```
+
+
 * Creación de variables
+
+```{r}
+eh19p$log_ylab <-log(eh19p$ylab)
+eh19p$scale_ylab <-scale(eh19p$ylab)
+names(eh19p)
+
+#install.packages("dplyr")
+library(dplyr) # filtrado, selección, creación de variables, resumen
+#nota: dplyr se enfoca en el encadenamiento de comandos, con una lógica similar al SQL
+
+# %>% # operador pipe: ctr + mayus + m 
+
+eh19p <- eh19p %>% mutate(x1=ylab^2,llylab=log(ylab),
+                 tothrs_mensual=tothrs*4.35,mujer=s02a_02=="2.Mujer")
+
+#cut() # crear clases
+
+# grandes grupos de edad
+eh19p<-eh19p %>% mutate(gedad=cut(s02a_03,c(-1,18,60,max(s02a_03)),labels = c("<=18","19 a 60",">60") ))
+
+eh19p %>% select(1,folio,s02a_03,gedad) %>% head()
+
+table(eh19p$gedad)
+
+eh19p %>% select(gedad) %>% table()
+
+barplot(table(eh19p$gedad))
+```
+
+
 * Recodificar variables
+
+```{r}
+load(url("https://github.com/AlvaroLimber/EST-384/raw/master/data/eh19.RData"))
+library(dplyr)
+
+a<-c(1:10)
+recode(a,`1` = 20L,`2` = 20L,`4` = 30L)
+
+eh19p$sexo<-recode(eh19p$s02a_02,"1.Hombre"="H","2.Mujer"="M")
+
+table(eh19p$sexo)
+
+eh19p<-eh19p %>% mutate(sexo2=recode(s02a_02,"1.Hombre"="M","2.Mujer"="F"))
+eh19p %>% select(sexo2) %>% table()
+
+# binarias
+unique(eh19p$depto)
+# se quiere crear una nueva variable, llamada región: 
+#    Altiplano: LP, OR, PT
+#    Valle: CB, CH, TR
+#    Llano: SC, BN, PD
+# tarea
+?if_else() # trabaja con spark, para crear binarios
+?case_when() # múltiple categorías basadas en reglas
+
+v1<-c("La Paz","Oruro","Potosí")
+v2<-c("Chuquisaca","Cochabamba","Tarija")
+v3<-c("Santa Cruz","Beni","Pando")
+
+eh19p %>% mutate(altiplano = depto %in% v1 ) %>% select(altiplano) %>% table()
+  
+eh19p <- eh19p %>% mutate(altiplano = depto %in% v1 , valle = depto %in% v2,llano = depto %in% v3)
+names(eh19p)
+
+recode(eh19p$depto,"Altiplano" %in% v1)
+```
+
+
+### Definir diseño de encuesta por muestreo
+
+Si tenemos una base de datos proveniente de una encuesta por muestreo, debemos tener conocimiento de las características del diseño muestral empleado en la encuesta, ya que este diseño afecta de forma directa el proceso de estimación y tiene un error de muestreo. Principalmente lo siguiente:
+
+  * Si el diseño tiene etapas (o mono etápico con conglomerados), la variable de conglomeración y de estratificación son muy relevantes. Estas afectan directamente a los errores de las estimaciones.
+  * Si el esquema de selección de las unidades muestrales a sido autoponderada (MAS, todas las unidades tenían la **misma probabilidad** de ser seleccionadas) o no. Si no es autponderada se requiere la variable conocida como el factor de expansión (inverso de la probabilidad de selección)
+  
+Hay tres variables relevantes: conglomerados (principalmente primera etapa), estratificación (principalmente primera etapa) y factor de expansión. 
+
+Idealmente en un muestreo de varias etapas y estratificado el factor por finitud es necesario ya que permite mejorar la aproximación a la varianza.
+
+
+```{r}
+#install.packages("survey")
+library(survey) # no trabaja con el concepto de dplyr, no permite el uso de "%>%" 
+library(srvyr) # permite el uso del operador %>% 
+names(eh19p)
+#survey
+sd_eh19p<-svydesign(ids = ~upm + folio, strata = ~estrato, weights = ~factor,data = eh19p)
+str(sd_eh19p)
+
+table(eh19p$p0)
+prop.table(table(eh19p$p0))*100 # pobreza moderada en la muestra 
+
+svytable(~p0 ,design = sd_eh19p)
+prop.table(svytable(~p0 ,design = sd_eh19p))*100
+
+summary(svytable(~p0 ,design = sd_eh19p))
+
+t1<-svymean(~ylab,design = sd_eh19p,na.rm=T,deff=T)
+cv(t1)
+confint(t1)
+
+t2<-svyby(~ylab,by=~depto+area,design = sd_eh19p,FUN = svymean,na.rm=T)
+cv(t2)
+confint(t2)
+
+summary(svytable(~depto+p0 ,design = sd_eh19p)) # revisar
+
+# departamento
+prop.table(table(eh19p$depto,eh19p$p0),1)*100
+prop.table(svytable(~depto+p0 ,design = sd_eh19p),1)*100
+
+svydesign(ids=~1,data=bd)#mas
+svydesign(ids=~1,strata = estrato,data=bd)#mas estraficado
+svydesign(ids=~1,strata = ~estrato,weights = ~ponderador,data=bd)#pps estraficado
+
+svymean(~p0, design=sd_eh19p,na.rm=T)
+svytotal(~p0, design=sd_eh19p,na.rm=T)
+
+#
+svytable(~p0,design=sd_eh19p) # tablas de contigencias y hacer pruebas sobre estas
+
+t1<-svymean(~p0,design=sd_eh19p,na.rm=T) # proporciones / medias
+t2<-svytotal(~p0,design=sd_eh19p,na.rm=T) # totales clase / total
+
+cv(t1)
+cv(t2)
+
+confint(t1)
+confint(t2)
+
+sd2_eh19p<-svydesign(ids = ~1, weights = ~factor,data = eh19p) # pps
+
+t3<-svymean(~p0,design=sd2_eh19p,na.rm=T) # proporciones / medias
+
+t1
+t3
+cv(t1)*100
+cv(t3)*100
+
+summary(lm(ylab~aestudio,data=eh19p)) # ingreso= B0+B1*aestudio+e OLS
+summary(lm(ylab~aestudio,data=eh19p,weights = factor )) # Minimos cuadrados ponderados
+
+m1<-svyglm(ylab~aestudio,design=sd_eh19p)
+summary(m1)
+install.packages("jtools")
+
+library(jtools)
+summ(m1)
+
+psrsq(m1)
+
+# srvyr 
+
+library(srvyr)
+sd3_eh19p<-as_survey_design(sd_eh19p)
+
+sd_eh19p %>% select(p0) %>% svymean()
+
+sd3_eh19p %>% summarise(survey_mean(s02a_03))
+
+sd3_eh19p %>% group_by(depto,area,s02a_02) %>% summarise(m_edad=survey_mean(s02a_03))
+
+sd3_eh19p %>% group_by(depto,area,s02a_02) %>% summarise(m_edad=survey_mean(s02a_03),m_ylab=survey_mean(ylab,na.rm=T))
+
+# p0
+sd3_eh19p %>% group_by(depto) %>% survey_tally()
+
+sd3_eh19p %>% group_by(depto) %>% survey_count()
+
+sd3_eh19p %>% mutate(pobreza=p0=="Pobre") %>% summarise(p0=survey_mean(pobreza,na.rm=T))
+
+sd3_eh19p %>% mutate(pobreza=p0=="Pobre") %>% group_by(depto,area) %>%  summarise(p0=survey_mean(pobreza,na.rm=T),N=survey_total(pobreza,na.rm=T))
+
+sd4_eh19p<- eh19p %>% as_survey_design(ids=c(upm,folio),strata=estrato,weights=factor)
+
+sd4_eh19p<- eh19p %>% as_survey_design(ids=upm,strata=estrato,weights=factor)
+
+sd4_eh19p %>% mutate(pobreza=p0=="Pobre") %>% group_by(depto,area) %>%  summarise(p0=survey_mean(pobreza,na.rm=T,vartype = c("se", "ci", "var", "cv"),deff=T))
+
+sd4_eh19p %>% mutate(pobreza=p0=="Pobre") %>%  summarise(p0=survey_mean(pobreza,na.rm=T,vartype = c("se", "ci", "var", "cv"),deff=T))
+```
+
 
 ## Imputación de variables 
 
@@ -242,3 +545,25 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 (Imputación multivariante por ecuaciones encadenadas)
 
 ![](images/algoritmo1.png)
+
+### En R
+
+
+```{r}
+install.packages("mice")
+library(help=mice)
+```
+
+
+```{r}
+library(writexl)
+write_xlsx()
+
+library(xtable)
+xtable(table(eh19p$depto,eh19p$area))
+
+library(knitr)
+?kable(table(eh19p$depto,eh19p$area))
+```
+
+

@@ -1,3 +1,34 @@
+--- 
+title: "Minería de datos con R"
+subtitle: "EST-384"
+author: "Alvaro Chirino Gutierrez"
+description: "Este libro esta destinado a la materia de Programación Estadística II de la carrera de Estadística de la Universidad Mayor de San Andres."
+date: "`r Sys.Date()`"
+delete_merged_file: true
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+graphics: yes
+github-repo: alvarolimber/est-384
+bibliography: book.bib
+nocite: '@*'
+pandoc_args: ["-Fpandoc-crossref"]
+---
+
+# Prefacio {-}
+
+Placeholder
+
+
+## Audiencia  {-}
+## Estructura del libro  {-}
+## Software y acuerdos {-}
+## Datos {-}
+## Agradecimiento  {-}
+## Bibliografía {-}
+
+<!--chapter:end:index.Rmd-->
+
 ---
 output: html_document
 editor_options: 
@@ -277,193 +308,15 @@ plot(density(eh19p$ylab,na.rm=T))
 plot(density(x1))
 plot(density(x2,na.rm=T))
 plot(density(x3,na.rm=T))
-dev.off()
 ```
 
 
 * Creación de variables
 
-```{r}
-eh19p$log_ylab <-log(eh19p$ylab)
-eh19p$scale_ylab <-scale(eh19p$ylab)
-names(eh19p)
-
-#install.packages("dplyr")
-library(dplyr) # filtrado, selección, creación de variables, resumen
-#nota: dplyr se enfoca en el encadenamiento de comandos, con una lógica similar al SQL
-
-# %>% # operador pipe: ctr + mayus + m 
-
-eh19p <- eh19p %>% mutate(x1=ylab^2,llylab=log(ylab),
-                 tothrs_mensual=tothrs*4.35,mujer=s02a_02=="2.Mujer")
-
-#cut() # crear clases
-
-# grandes grupos de edad
-eh19p<-eh19p %>% mutate(gedad=cut(s02a_03,c(-1,18,60,max(s02a_03)),labels = c("<=18","19 a 60",">60") ))
-
-eh19p %>% select(1,folio,s02a_03,gedad) %>% head()
-
-table(eh19p$gedad)
-
-eh19p %>% select(gedad) %>% table()
-
-barplot(table(eh19p$gedad))
-```
 
 
 * Recodificar variables
 
-```{r}
-load(url("https://github.com/AlvaroLimber/EST-384/raw/master/data/eh19.RData"))
-library(dplyr)
-
-a<-c(1:10)
-recode(a,`1` = 20L,`2` = 20L,`4` = 30L)
-
-eh19p$sexo<-recode(eh19p$s02a_02,"1.Hombre"="H","2.Mujer"="M")
-
-table(eh19p$sexo)
-
-eh19p<-eh19p %>% mutate(sexo2=recode(s02a_02,"1.Hombre"="M","2.Mujer"="F"))
-eh19p %>% select(sexo2) %>% table()
-
-# binarias
-unique(eh19p$depto)
-# se quiere crear una nueva variable, llamada región: 
-#    Altiplano: LP, OR, PT
-#    Valle: CB, CH, TR
-#    Llano: SC, BN, PD
-# tarea
-?if_else() # trabaja con spark, para crear binarios
-?case_when() # múltiple categorías basadas en reglas
-
-v1<-c("La Paz","Oruro","Potosí")
-v2<-c("Chuquisaca","Cochabamba","Tarija")
-v3<-c("Santa Cruz","Beni","Pando")
-
-eh19p %>% mutate(altiplano = depto %in% v1 ) %>% select(altiplano) %>% table()
-  
-eh19p <- eh19p %>% mutate(altiplano = depto %in% v1 , valle = depto %in% v2,llano = depto %in% v3)
-names(eh19p)
-
-recode(eh19p$depto,"Altiplano" %in% v1)
-```
-
-
-### Definir diseño de encuesta por muestreo
-
-Si tenemos una base de datos proveniente de una encuesta por muestreo, debemos tener conocimiento de las características del diseño muestral empleado en la encuesta, ya que este diseño afecta de forma directa el proceso de estimación y tiene un error de muestreo. Principalmente lo siguiente:
-
-  * Si el diseño tiene etapas (o mono etápico con conglomerados), la variable de conglomeración y de estratificación son muy relevantes. Estas afectan directamente a los errores de las estimaciones.
-  * Si el esquema de selección de las unidades muestrales a sido autoponderada (MAS, todas las unidades tenían la **misma probabilidad** de ser seleccionadas) o no. Si no es autponderada se requiere la variable conocida como el factor de expansión (inverso de la probabilidad de selección)
-  
-Hay tres variables relevantes: conglomerados (principalmente primera etapa), estratificación (principalmente primera etapa) y factor de expansión. 
-
-Idealmente en un muestreo de varias etapas y estratificado el factor por finitud es necesario ya que permite mejorar la aproximación a la varianza.
-
-
-```{r}
-#install.packages("survey")
-library(survey) # no trabaja con el concepto de dplyr, no permite el uso de "%>%" 
-library(srvyr) # permite el uso del operador %>% 
-names(eh19p)
-#survey
-sd_eh19p<-svydesign(ids = ~upm + folio, strata = ~estrato, weights = ~factor,data = eh19p)
-str(sd_eh19p)
-
-table(eh19p$p0)
-prop.table(table(eh19p$p0))*100 # pobreza moderada en la muestra 
-
-svytable(~p0 ,design = sd_eh19p)
-prop.table(svytable(~p0 ,design = sd_eh19p))*100
-
-summary(svytable(~p0 ,design = sd_eh19p))
-
-t1<-svymean(~ylab,design = sd_eh19p,na.rm=T,deff=T)
-cv(t1)
-confint(t1)
-
-t2<-svyby(~ylab,by=~depto+area,design = sd_eh19p,FUN = svymean,na.rm=T)
-cv(t2)
-confint(t2)
-
-summary(svytable(~depto+p0 ,design = sd_eh19p)) # revisar
-
-# departamento
-prop.table(table(eh19p$depto,eh19p$p0),1)*100
-prop.table(svytable(~depto+p0 ,design = sd_eh19p),1)*100
-
-svydesign(ids=~1,data=bd)#mas
-svydesign(ids=~1,strata = estrato,data=bd)#mas estraficado
-svydesign(ids=~1,strata = ~estrato,weights = ~ponderador,data=bd)#pps estraficado
-
-svymean(~p0, design=sd_eh19p,na.rm=T)
-svytotal(~p0, design=sd_eh19p,na.rm=T)
-
-#
-svytable(~p0,design=sd_eh19p) # tablas de contigencias y hacer pruebas sobre estas
-
-t1<-svymean(~p0,design=sd_eh19p,na.rm=T) # proporciones / medias
-t2<-svytotal(~p0,design=sd_eh19p,na.rm=T) # totales clase / total
-
-cv(t1)
-cv(t2)
-
-confint(t1)
-confint(t2)
-
-sd2_eh19p<-svydesign(ids = ~1, weights = ~factor,data = eh19p) # pps
-
-t3<-svymean(~p0,design=sd2_eh19p,na.rm=T) # proporciones / medias
-
-t1
-t3
-cv(t1)*100
-cv(t3)*100
-
-summary(lm(ylab~aestudio,data=eh19p)) # ingreso= B0+B1*aestudio+e OLS
-summary(lm(ylab~aestudio,data=eh19p,weights = factor )) # Minimos cuadrados ponderados
-
-m1<-svyglm(ylab~aestudio,design=sd_eh19p)
-summary(m1)
-install.packages("jtools")
-
-library(jtools)
-summ(m1)
-
-psrsq(m1)
-
-# srvyr 
-
-library(srvyr)
-sd3_eh19p<-as_survey_design(sd_eh19p)
-
-sd_eh19p %>% select(p0) %>% svymean()
-
-sd3_eh19p %>% summarise(survey_mean(s02a_03))
-
-sd3_eh19p %>% group_by(depto,area,s02a_02) %>% summarise(m_edad=survey_mean(s02a_03))
-
-sd3_eh19p %>% group_by(depto,area,s02a_02) %>% summarise(m_edad=survey_mean(s02a_03),m_ylab=survey_mean(ylab,na.rm=T))
-
-# p0
-sd3_eh19p %>% group_by(depto) %>% survey_tally()
-
-sd3_eh19p %>% group_by(depto) %>% survey_count()
-
-sd3_eh19p %>% mutate(pobreza=p0=="Pobre") %>% summarise(p0=survey_mean(pobreza,na.rm=T))
-
-sd3_eh19p %>% mutate(pobreza=p0=="Pobre") %>% group_by(depto,area) %>%  summarise(p0=survey_mean(pobreza,na.rm=T),N=survey_total(pobreza,na.rm=T))
-
-sd4_eh19p<- eh19p %>% as_survey_design(ids=c(upm,folio),strata=estrato,weights=factor)
-
-sd4_eh19p<- eh19p %>% as_survey_design(ids=upm,strata=estrato,weights=factor)
-
-sd4_eh19p %>% mutate(pobreza=p0=="Pobre") %>% group_by(depto,area) %>%  summarise(p0=survey_mean(pobreza,na.rm=T,vartype = c("se", "ci", "var", "cv"),deff=T))
-
-sd4_eh19p %>% mutate(pobreza=p0=="Pobre") %>%  summarise(p0=survey_mean(pobreza,na.rm=T,vartype = c("se", "ci", "var", "cv"),deff=T))
-```
 
 
 ## Imputación de variables 
@@ -546,24 +399,102 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 
 ![](images/algoritmo1.png)
 
-### En R
+<!--chapter:end:1_introMD.Rmd-->
 
 
-```{r}
-install.packages("mice")
-library(help=mice)
-```
+# Modelado en Minería de datos
+
+Placeholder
 
 
-```{r}
-library(writexl)
-write_xlsx()
+## Explorando los datos
+### Resumen de los datos
+### Visualización
+## Componentes Principales
+## Análisis de correspondencia
 
-library(xtable)
-xtable(table(eh19p$depto,eh19p$area))
+<!--chapter:end:2_modelado.Rmd-->
 
-library(knitr)
-?kable(table(eh19p$depto,eh19p$area))
-```
 
+# Clustering
+
+Placeholder
+
+
+## Medidas de Disimilaridad
+### Distancia Euclideana: Variables numéricas
+### Distancia Manhattan: $p$ grande
+### Distancia Minkowski 
+### programando
+### Variables cualitativas
+### Datos mixtos 
+## Métodos de clustering
+## K-center Clustering (no jerárquicos)
+### Validación cluster
+### Distancias para variables nominales (todas nominales)
+### Distancias para variables mixtas (cuantitativas, nominales, ordinales)
+## Cluster Jerárquico
+### Algoritmo (Johnson)
+## Ejercicios
+
+<!--chapter:end:3_clustering.Rmd-->
+
+
+# Regresión
+
+Placeholder
+
+
+## Regresión lineal
+### Paso 1: Base de datos
+### Paso 2: Establecer la relación de interés.
+### Paso 3: Definir el modelo a utilizar
+### Paso 4: Optimizar el modelo
+### Paso 5: Validar el modelo
+### Paso 6: Predicir a partir del modelo
+## Probit y Logit
+### En R:
+
+<!--chapter:end:4_regresion.Rmd-->
+
+
+# Clasificación
+
+Placeholder
+
+
+## Logit Probit
+### Pasos
+## Arboles de clasificación (CART)
+### Pasos
+### Proceso de pruning (podado) 
+## Naive Bayes
+## Ejercicios.
+
+<!--chapter:end:5_clasificacion.Rmd-->
+
+
+# Minería de Texto
+
+Placeholder
+
+
+## Introducción
+### En la práctica
+### ¿Por qué importa?
+### Las consecuencias de ignorarlo
+### Beneficios
+### Flujo de trabajo en la minería de texto
+### Librerías en R para texto
+## Recolección de texto
+### CSV
+### Colección de documentos
+### Twitter (API)
+## Nubes de palabras 
+## Análisis de sentimiento (sentimental scoring)
+### Polarización y léxico subjetivo
+### Polarización en QDAP
+### Librería syuzhet
+
+<!--chapter:end:6_mineriatexto.Rmd-->
 
