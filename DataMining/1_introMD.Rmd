@@ -483,7 +483,7 @@ Sea $Y$ una matriz de datos con $n$ observaciones y $p$ variables. Sea $R$ una m
 
 Los valores observados son colectados en $Y_{obs}$, las observaciones perdidas en $Y_{mis}$. Así, $Y=(Y_{obs},Y_{mis})$.
 
-La distribución de $R$ depende de $Y=(Y_{obs},Y_{mis})$. Sea $\psi$ que contiene los parametros del modelos de los datos perdidos, asi la expresion del modelo de los datos perdidos es $\Pr(R|Y_\mathrm{obs},Y_\mathrm{mis},\psi)$
+La distribución de $R$ depende de $Y=(Y_{obs},Y_{mis})$. Sea $\psi$ que contiene los parámetros del modelo de los datos perdidos, así la expresión del modelo de los datos perdidos es $\Pr(R|Y_\mathrm{obs},Y_\mathrm{mis},\psi)$
 
 ### MCAR, MAR, MNAR
 
@@ -521,8 +521,6 @@ $$
 
 ![](images/impu2.png){width=800px}
 
-
-
 ### Influx and outflux
 
 $$
@@ -548,22 +546,104 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 
 ### En R
 
+#### Métodos ad-hoc
+
+* Listwise deletion (trabajar solo con casos completos)
 
 ```{r}
-install.packages("mice")
-library(help=mice)
+table(is.na(airquality$Ozone))
+
+R<-(!is.na(airquality))*1
+
+mean(airquality$Ozone)
+#listwise
+x<-na.omit(airquality$Ozone)
+mean(x)
+
+bd<-airquality
+bd2<-na.omit(bd)
+
+na.action(x) 
+na.action(bd2) 
+
+naprint(na.action(x))
+naprint(na.action(bd2))
+
+table(complete.cases(bd))
+
+ii<-complete.cases(bd)
+
+bd[ii,]
+
+Y_obs<-na.omit(bd)
+Y_mis<-mice::ic(bd)
+
+bd$Ozone[bd$Ozone=="**"]<-NA
+#gsub recode
+
+table(R[,1],R[,2])
+chisq.test(table(R[,1],R[,2]))
+
+apply(R,2,mean)
+
+table(R[,1],R[,3])
+chisq.test(table(R[,1],R[,3]))
+
+table(R[,1],R[,4])
+chisq.test(table(R[,1],R[,4]))
+
+
+R<-as.data.frame(R)
+m1<-glm(Ozone~Solar.R+Wind,data = R,family = "binomial") # logit
+
+summary(m1)
+
+summary(lm(Ozone~Solar.R,data=bd2))
+```
+
+* Pairwise deletion (casos parciales)
+
+```{r}
+na.rm
+na.action
+na.omit
+naprint
+is.na
+complete.cases
+ic
+```
+
+
+* Mean imputation
+
+```{r}
+imp <- mice(airquality, method = "mean", m = 1, maxit = 1)
+complete(imp)
+```
+
+
+* Regression imputation
+
+```{r}
+fit <- lm(Ozone ~ Solar.R, data = airquality)
+pred <- predict(fit, newdata = ic(airquality))
+
+data <- airquality[, c("Ozone", "Solar.R")]
+imp <- mice(data, method = "norm.predict", seed = 1,
+           m = 1, print = FALSE)
+xyplot(imp, Ozone ~ Solar.R)
+
 ```
 
 
 ```{r}
-library(writexl)
-write_xlsx()
-
-library(xtable)
-xtable(table(eh19p$depto,eh19p$area))
-
-library(knitr)
-?kable(table(eh19p$depto,eh19p$area))
+data <- airquality[, c("Ozone", "Solar.R")]
+imp <- mice(data, method = "norm.nob", m = 1, maxit = 1,
+            seed = 1, print = FALSE)
 ```
 
+```{r}
+md.pattern(airquality, plot = FALSE)
+flux(airquality)
+```
 
