@@ -604,46 +604,102 @@ summary(lm(Ozone~Solar.R,data=bd2))
 * Pairwise deletion (casos parciales)
 
 ```{r}
-na.rm
-na.action
-na.omit
-naprint
-is.na
-complete.cases
-ic
+dim(na.omit(airquality[,1:2]))
+
+dim(na.omit(airquality[,c(1,3)]))
+
+dim(na.omit(airquality[,c(2,3)]))
+
+cor(na.omit(airquality[,c(2,3)]))
 ```
 
 
-* Mean imputation
+* Mean imputation (MCAR)
 
 ```{r}
+bd<-airquality
+m1<-mean(bd$Ozone,na.rm=T)
+bd$Ozone[is.na(bd$Ozone)]<-m1
+mean(bd$Ozone)
+par(mfrow=c(1,2))
+hist(airquality$Ozone)
+hist(bd$Ozone)
+
+par(mfrow=c(1,2))
+plot(density(airquality$Ozone,na.rm=T))
+plot(density(bd$Ozone,na.rm=T))
+
+
+library(mice)
 imp <- mice(airquality, method = "mean", m = 1, maxit = 1)
-complete(imp)
+bdi<-complete(imp)
+
+cor(na.omit(airquality[,1:2]))
+cor(bd[,1:2])
+
+plot(airquality$Ozone,airquality$Solar.R)
+plot(bdi$Ozone,bdi$Solar.R)
 ```
 
 
-* Regression imputation
+* Regression imputation (MAR)
+
+$$y_i=\beta_0+\beta_1 x_i+\epsilon_i$$
+
+$$E[y/x]=\beta_0+\beta_1 x$$
 
 ```{r}
 fit <- lm(Ozone ~ Solar.R, data = airquality)
+summary(fit)
+
 pred <- predict(fit, newdata = ic(airquality))
 
+#para el caso 10
+
+18.599+0.127*194
+
 data <- airquality[, c("Ozone", "Solar.R")]
+
 imp <- mice(data, method = "norm.predict", seed = 1,
            m = 1, print = FALSE)
-xyplot(imp, Ozone ~ Solar.R)
 
+complete(imp)
+
+plot(airquality[,1:2])
+plot(complete(imp)[,1:2])
+
+cor(na.omit(airquality[,1:2]))
+cor(complete(imp)[,1:2])
 ```
 
+* Stochastic regression imputation (MAR)
+
+$$y_i=\hat{\beta_0}+\hat{\beta_1} x_i+\hat{\epsilon_i}$$
 
 ```{r}
 data <- airquality[, c("Ozone", "Solar.R")]
 imp <- mice(data, method = "norm.nob", m = 1, maxit = 1,
             seed = 1, print = FALSE)
+complete(imp)
+
+plot(airquality[,1:2])
+plot(complete(imp)[,1:2])
+
+cor(na.omit(airquality[,1:2]))
+cor(complete(imp)[,1:2])
+
+plot(density(airquality$Ozone,na.rm=T))
+plot(density(complete(imp)[,1],na.rm=T))
+
+plot(density(airquality$Solar.R,na.rm=T))
+plot(density(complete(imp)[,2],na.rm=T))
+
+imp<-mice(airquality, method = "norm.nob", m = 1, maxit = 1,
+            seed = 1, print = FALSE)
+complete(imp)
 ```
 
 ```{r}
-md.pattern(airquality, plot = FALSE)
-flux(airquality)
+md.pattern(airquality, plot = T)
+flux(airquality)[,1:3]
 ```
-

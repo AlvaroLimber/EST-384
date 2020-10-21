@@ -1,8 +1,3 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
 # Modelado en Minería de datos
 
 ## Explorando los datos
@@ -14,153 +9,176 @@ Existen dos aproximaciones para empezar a explorar la información existente en 
 
 ### Resumen de los datos
 
-Dado el tamaño de las bases de datos resulta imposible o muy dificil conocer todas sus propiedad, el resumen de los datos intenta brindar propiedades claves de los datos, estas propiedades podrian ser:
+Dado el tamaño de las bases de datos resulta imposible o muy difícil conocer todas sus propiedad, el resumen de los datos intenta brindar propiedades claves de los datos, estas propiedades podrían ser:
 
-* Cual es el valor mas comun
-* Cuan variable o dispersa esta la informacion
-* Existen valores extraños o inesparedaps en la base de datos
-* Los datos siguen alguna distribucion
+* Cual es el valor más común
+* Cuan variable o dispersa esta la información
+* Existen valores extraños o inesperados en la base de datos
+* Los datos siguen alguna distribución
 
-A continuación se emplea la encuesta a hogares 2018 para ir respondiendo estas preguntas.
+A continuación se emplea la encuesta a hogares 2019 para ir respondiendo estas preguntas.
 
-En cuanto a los valores mas comunes, la media y la mediana de los datos son suficientes para las variables cuantitativas, mientra que para variables cualitativas, las categorias mas frecuentes son una buena opción.
+En cuanto a los valores mas comunes, la media y la mediana de los datos son suficientes para las variables cuantitativas, mientra que para variables cualitativas, las categorías mas frecuentes son una buena opción.
 
 ```{r}
-load(url("https://github.com/AlvaroLimber/EST-384/raw/master/data/eh18.Rdata"))
+load(url("https://github.com/AlvaroLimber/EST-384/raw/master/data/eh19.RData"))
 # media de edad
-mean(eh18p$s02a_03)
+mean(eh19p$s02a_03)
 #mediana de edad
-median(eh18p$s02a_03)
-# para las categorias mas frecuentes
+median(eh19p$s02a_03)
+# para las categorías más frecuentes
 library(DMwR2)
 library(dplyr)
+#para la edad
+centralValue(eh19p$s02a_03)
 #para el sexo
-centralValue(eh18p$s02a_02)
+centralValue(eh19p$s02a_02)
 #para el departamento 
-centralValue(eh18p$depto)
+centralValue(eh19p$depto)
 ```
 
-A veces es mejor ver los resultados por grupos, por ejemplo, podemos verlo por departamento y area.
+A veces es mejor ver los resultados por grupos, por ejemplo, podemos verlo por departamento y área.
 
 ```{r}
-eh18p %>% group_by(depto,area) %>% summarise(mean(s02a_03),median(s02a_03),centralValue(s02a_02),n())
+eh19p %>% group_by(depto,area,p0) %>% summarise(media_edad=mean(s02a_03),mediana_edad=median(s02a_03),centralValue(s02a_02),n())
 ```
 
 La función n() realiza un proceso de conteo.
 
-De forma similar podemos hacer para las medidas de variabilidad, las mas comunes la desviacion estandar, el rango, el rango intercuartil y los cuantiles. Usando la eh18 para la edad y el ingreso laboral.
+De forma similar podemos hacer para las medidas de variabilidad, las mas comunes la desviación estándar, el rango, el rango intercuartil y los cuantiles. Usando la eh19 para la edad y el ingreso laboral.
 
 ```{r}
 ##EDAD
 # Desviacion estandar
-sd(eh18p$s02a_03)
+sd(eh19p$s02a_03)
 # Rango
-range(eh18p$s02a_03)
+range(eh19p$s02a_03)
 # Rango intercuartil
-IQR(eh18p$s02a_03)
+IQR(eh19p$s02a_03)
 # Quantiles
-quantile(eh18p$s02a_03)
-quantile(eh18p$s02a_03,c(0.10,0.90))
+quantile(eh19p$s02a_03)
+quantile(eh19p$s02a_03,c(0.10,0.90))
 ##INGRESO LABORAL
 # Desviacion estandar
-sd(eh18p$ylab,na.rm = T)
+sd(eh19p$ylab,na.rm = T)
 # Rango
-range(eh18p$ylab,na.rm = T)
+range(eh19p$ylab,na.rm = T)
 # Rango intercuartil
-IQR(eh18p$ylab,na.rm = T)
+IQR(eh19p$ylab,na.rm = T)
 # Quantiles
-quantile(eh18p$ylab,na.rm = T)
-quantile(eh18p$s02a_03,probs=c(0.10,0.90),na.rm = T)
+quantile(eh19p$ylab,na.rm = T)
+quantile(eh19p$ylab,probs=c(0.10,0.90),na.rm = T)
 ##por departamento y area
-tapply(eh18p$ylab,list(eh18p$depto,eh18p$area),sd,na.rm=T)#opcion1
-tapply(eh18p$ylab,list(eh18p$depto,eh18p$area),quantile,na.rm=T)#con problemas
-aggregate(eh18p$ylab,list(depto=eh18p$depto,area=eh18p$area),quantile,na.rm=T)
+tapply(eh19p$ylab,list(eh19p$depto,eh19p$area),sd,na.rm=T)#opcion1
+eh19p %>% group_by(depto,area) %>% summarise(sd(ylab,na.rm=T),n())
+
+t1<-eh19p %>% group_by(depto,area) %>% summarise(quantile(ylab,na.rm=T))
+View(t1)
+
+tapply(eh19p$ylab,list(eh19p$depto,eh19p$area),quantile,na.rm=T)#con problemas
+aggregate(eh19p$ylab,list(depto=eh19p$depto,area=eh19p$area),quantile,na.rm=T)
 ```
 
-Finalmente, para explorar a fondo las variables la funcion describe es bastante útil, tambien, el comando summary.
+Finalmente, para explorar a fondo las variables la función describe es bastante útil, también, el comando summary.
 
 ```{r}
 #analizando las 5 primeras variables de la base de datos
 library(Hmisc)
-describe(eh18p[,1:5])
+describe(eh19p[,1:10])
 
-summary(eh18p$ylab)
-by(eh18p[,c("ylab","p0","s02a_03")],eh18p$area,summary)
+summary(eh19p$ylab)
+by(eh19p[,1:10],eh19p$area,summary)
+
+by(eh19p[,c("depto","ylab")],eh19p$area,describe)
+
+eh19p %>% group_by(depto) %>% summarise(n(),mean(s02a_03))
 ```
 
 ### Visualización
 
-La visualizacion es una herramienta importante para explorar y entender la base de datos. Los seres humanos son excelentes para capturar patrones visuales, y la visualización de datos intenta capitalizar en estas habilidades. Es util diferenciar las visualizaciones por:
+La visualización es una herramienta importante para explorar y entender la base de datos. Los seres humanos son excelentes para capturar patrones visuales, y la visualización de datos intenta capitalizar en estas habilidades. Es útil diferenciar las visualizaciones por:
 
-* Una sola varibles
+* Una sola variables
 * Dos variables
 * Multiples variables
 
-Los aspetor vinculados al uso de graficos de origen de R y la libreria ggplot pueden verse en el texto guia de EST-183 "BigData". A continuación se introducen de forma directa funciones en R orientadas a la visualización univariante, bivariante y multivariante.
+Los aspectos vinculados al uso de gráficos de origen de R y la librería ggplot pueden verse en el texto guía de EST-383 "BigData". A continuación se introducen de forma directa funciones en R orientadas a la visualización univariante, bivariante y multivariante.
 
-Usando al EH-2018, para variables cualitativas.
+Usando al EH-2019, para variables cualitativas.
 ```{r}
-#Graficos de origen de R
-barplot(table(eh18p$s03a_01a),main="Dónde vivia hace 5 años?")
+#Gráficos de origen de R
+barplot(table(eh19p$s03a_01a),main="Dónde vivia hace 5 años?")
 #GGPLOT
 library(ggplot2)
-ggplot(eh18p,aes(x=s03a_01a))+geom_bar()+ggtitle("Dónde vivia hace 5 años?")
+ggplot(eh19p,aes(x=s03a_01a))+geom_bar()+ggtitle("Dónde vivia hace 5 años?")
 ```
 
 Para variables del tipo cuantitativas
 
 ```{r}
 par(mfrow=c(1,2))
-boxplot(eh18p$ylab)
-hist(eh18p$ylab)
+boxplot(eh19p$ylab)
+hist(eh19p$ylab)
 dev.off()
 
-ggplot(eh18p,aes(ylab))+geom_boxplot()
-ggplot(eh18p,aes(ylab))+geom_histogram()
+ggplot(eh19p,aes(ylab))+geom_boxplot()
+ggplot(eh19p,aes(ylab))+geom_histogram()
 ```
 
 Si ahora queremos comparar usar ambas variables cuanti y cuali
 
 ```{r}
-boxplot(eh18p$ylab~eh18p$s03a_01a)
-ggplot(eh18p,aes(x=s03a_01a,y=ylab))+geom_boxplot()
-ggplot(eh18p,aes(x=s03a_01a,y=ylab))+geom_violin()
+boxplot(eh19p$ylab~eh19p$s03a_01a)
+ggplot(eh19p,aes(x=s03a_01a,y=ylab))+geom_boxplot()
+ggplot(eh19p,aes(x=s03a_01a,y=ylab))+geom_violin()
 ```
 
 Usando ambas variables cuantitativas
 
 ```{r,warning=F,message=FALSE}
-plot(eh18p$tothrs,eh18p$ylab)
-plot(eh18p[,c("ylab","tothrs","aestudio")])
+plot(eh19p$tothrs,eh19p$ylab)
+plot(eh19p[,c("ylab","tothrs","aestudio")])
 #pairs(eh18p[,c("ylab","tothrs","aestudio")]) similar al anterior
 library(GGally)
-ggpairs(eh18p,columns = c("ylab","tothrs","aestudio"))
+ggpairs(eh19p,columns = c("ylab","tothrs","aestudio"))
 
 library(ggridges)
-# basic example
-ggplot(eh18p[eh18p$s02a_03>=15,], aes(x = ylab, y = s02a_02, fill = s02a_02)) +
+ggplot(eh19p %>% filter(s02a_03>=15 & ylab<10000), aes(x = ylab, y = s02a_02, fill = s02a_02)) +
   geom_density_ridges() +
   theme_ridges() + 
   theme(legend.position = "none")+
   ggtitle("Ingreso laboral por sexo, personas de 15 años o más")
+
+ggplot(eh19p %>% filter(s02a_03>=15 & ylab<10000), aes(x = ylab, y = depto, fill = depto)) +
+  geom_density_ridges() +
+  theme_ridges() + 
+  theme(legend.position = "none")+
+  ggtitle("Ingreso laboral por departamento, personas de 15 años o más")
+
+ggplot(eh19p %>% filter(s02a_03>=15 & ylab<10000), aes(x = ylab, y = area, fill = area)) +
+  geom_density_ridges() +
+  theme_ridges() + 
+  theme(legend.position = "none")+
+  ggtitle("Ingreso laboral por rural, personas de 15 años o más")
+
 ```
 
 Ahora si combinamos variables cuanti y cuali con ggpairs.
 
 ```{r,warning=F,message=FALSE}
-ggpairs(eh18p,columns = c("ylab","tothrs","s03a_01a","area"))
+ggpairs(eh19p,columns = c("ylab","tothrs","s03a_01a","area"))
 ```
 
 Alternativas Multivariantes,
 
 ```{r}
 #trabajando a partir de una muestra de 100 individuos
-s<-sample(1:dim(eh18p)[1],100)
-i<-match(c("s02a_03","aestudio","ylab","tothrs"),names(eh18p))
-ggparcoord(eh18p[s,],columns = i,groupColumn = "area",boxplot=T)
+s<-sample(1:dim(eh19p)[1],100)
+i<-match(c("s02a_03","aestudio","ylab","tothrs"),names(eh19p))
+ggparcoord(eh19p[s,],columns = i,groupColumn = "area",boxplot=T)
 
 library("TeachingDemos")
-faces(na.omit(eh18p[s,i]))
+faces(na.omit(eh19p[s,i]))
 ```
 
 ## Componentes Principales
@@ -259,14 +277,84 @@ i-esimo \text{ componente principal} & = & \text{Combinacion lineal} \quad a_i^{
 \end{array}
 $$
 
-Los pasos sugeridos para iniciar el analisis de componentes principales son:
+$$\Sigma_{(pxp)}= A_{(p*p)} \Lambda_{(p*p)} A^t_{(p*p)}  $$
+El aspecto central de componentes principales es trabajar con menos variables, sea $m<p$, el método de componentes busca a partir de $m$, los siguiente:
+
+$$\Sigma_{(pxp)} \approx  A_{(p*m)} \Lambda_{(m*m)} A^t_{(m*p)}$$
+
+Los pasos sugeridos para iniciar el análisis de componentes principales son:
 
 1. Identificar las variables de interés dentro de la matriz de datos, si las variables tienen las mismas escalas se recomienda emplear la matriz de covarianza, si las escalas son diferentes, se recomienda trabajar con la matriz de correlaciones.
 2. Obtener los componentes principales, los eigen valores y la matriz de eigen vectores
-3. Eliminar las variables rebundantes, se sugiere identificar las variables del conjunto de datos correlacionadas con los últimos componentes
-4. Calcular nuevamente los componentes principales expluyendo las variables identificadas en el paso previo
-5. Elegir el número de componentes a retener (scree plot, tamaño de los eigen valores, etc)
-6. Analizar los resultados 
+3. (Opcional) Eliminar las variables redundantes, 
+  * se sugiere identificar las variables del conjunto de datos correlacionadas con los últimos componentes.
+4. Calcular nuevamente los componentes principales excluyendo las variables identificadas en el paso previo
+5. Elegir el número de componentes a retener $m$ (scree plot, tamaño de los eigen valores, etc)
+6. Analizar los resultados y usar los componentes
+
+Usos de componentes principales.
+
+  * Detección de valores atípicos
+  * Identificación de posibles factores 
+  * Los primeros componentes se pueden usar como indicadores
+  * Eliminan la multicolinealidad de un modelo de regresión múltiple
+
+```{r}
+load(url("https://github.com/AlvaroLimber/EST-384/blob/master/data/oct20.RData?raw=true"))
+names(computo)[18]<-"MAS"
+
+bd<-computo %>% filter(País=="Bolivia" & Elección=="Presidente y Vicepresidente")
+
+bdmun<-bd %>% group_by(Departamento,Provincia,Municipio) %>% summarise_at(vars(Inscritos:Nulos),sum)
+
+bdmun[,5:13]<-prop.table(as.matrix(bdmun[,5:13]),1)*100
+
+cov(bdmun[,5:13])
+
+sigma<-cor(bdmun[,5:13])
+
+library(corrplot)
+corrplot(sigma)
+#desc. espectral
+
+Lambda<-diag(eigen(sigma)$values)
+A<-eigen(sigma)$vectors
+
+A %*% Lambda %*% t(A)
+
+#round(A %*% t(A),2)
+
+#componentes principales 
+
+#componentes a retener
+barplot(eigen(sigma)$values)
+abline(h=1,col="red")
+plot(1:9,eigen(sigma)$values,type="b")
+
+aux<-round(eigen(sigma)$values/sum(eigen(sigma)$values),4)*100
+cumsum(aux)
+
+sigma3<-A[,1:3] %*% Lambda[1:3,1:3] %*% t(A[,1:3])
+sigma2<-A[,1:2] %*% Lambda[1:2,1:2] %*% t(A[,1:2])
+
+par(mfrow=c(1,3))
+
+colnames(sigma)<-1:9
+rownames(sigma)<-1:9
+
+corrplot(sigma)
+corrplot(sigma3)
+corrplot(sigma2)
+dev.off()
+as.matrix(bdmun[,5:13])%*%A[,1]
+
+Y<-as.matrix(scale(bdmun[,5:13]))%*%A
+plot(density(Y[,1]))
+
+plot(Y[,1],Y[,2])
+```
+
+
 
 ```{r}
 #1. Seleccione una base de datos de interés del repositorio 
@@ -307,9 +395,43 @@ summary(lm(MAS~cp1cov,data=bd))
 
 ## Análisis de correspondencia
 
-El analisis de correspondencia esta orientado a encontrar relaciones entre las categorias de variables cualitativas. 
+El análisis de correspondencia esta orientado a encontrar relaciones entre las categorías de variables cualitativas. 
 
-Esta técnica es un método visual que va más alla del test de independencia Chi-cuadrado.
+Esta técnica es un método visual que va más allá del test de independencia Chi-cuadrado.
+
+
+```{r}
+load(url("https://github.com/AlvaroLimber/EST-384/raw/master/data/endsa.RData"))
+#tarea 10 min, explorar la base de datos
+library(Hmisc)
+describe(endsa)
+names(endsa)
+aux<-attributes(endsa)
+
+names(endsa)
+#aeXX
+aux$var.labels[7:15]
+#nupXX
+aux$var.labels[23:26]
+#antXX
+aux$var.labels[16:20]
+#vfXX
+aux$var.labels[50:59]
+table(endsa$year,endsa$sexo)
+
+table(endsa$edad,endsa$sexo)
+
+library(dplyr)
+
+N<-endsa %>% filter(year==2008) %>% select(ae01,ae08) %>% table()
+N<-t1[1:4,]
+chisq.test(N)
+N
+n<-sum(N)
+P<-N/n
+addmargins(N)
+```
+
 
 Para resumir la teoría, primero divida la matriz de datos $I × J$, denotada por $N$, por su gran total $n$ para obtener la llamada matriz de correspondencia $P = N / n$. Deje que los totales marginales de fila y columna de $P$ sean los vectores $r$ y $c$ respectivamente, es decir, los vectores de masas de fila y columna, y $Dr$ y $Dc$ sean las matrices diagonales de estas matrices. El algoritmo computacional para obtener coordenadas de los perfiles de fila y columna con respecto a los ejes principales, usando el SVD, es el siguiente:
 
@@ -404,5 +526,23 @@ axis(2)
 text(rep(0,dim(FF)[1]),FF[,1],labels = lrow,col="red",cex=0.5+r*2)
 text(rep(0,dim(G)[1]),G[,1],labels = lcol,col="blue",cex=0.5+c*2)
 abline(h=0,v=0,lty=2)
+```
+
+### Un ejemplo de correspondencia simple y múltiple
+
+```{r}
+library(FactoMineR)
+library(explor)
+
+endsa08<-endsa %>% filter(year==2008)
+
+model1<-MCA(endsa08[,c("ae01","ae05","ae08","ae09")])
+explor(model1)
+
+model1$eig
+model1$call
+
+model2<-PCA(endsa08[,c("nup02","nup03","edad")])
+explor(model2)
 ```
 
