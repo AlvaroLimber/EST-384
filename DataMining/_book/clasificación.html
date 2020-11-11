@@ -24,7 +24,7 @@
 <meta name="author" content="Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2020-08-31" />
+<meta name="date" content="2020-11-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,7 +159,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.6.7" data-path="minería-de-datos.html"><a href="minería-de-datos.html#ejercicio-reshape"><i class="fa fa-check"></i><b>1.6.7</b> Ejercicio (reshape)</a></li>
 <li class="chapter" data-level="1.6.8" data-path="minería-de-datos.html"><a href="minería-de-datos.html#limpieza-fechas"><i class="fa fa-check"></i><b>1.6.8</b> Limpieza (fechas)</a></li>
 <li class="chapter" data-level="1.6.9" data-path="minería-de-datos.html"><a href="minería-de-datos.html#limpieza-string"><i class="fa fa-check"></i><b>1.6.9</b> Limpieza (String)</a></li>
-<li class="chapter" data-level="1.6.10" data-path="minería-de-datos.html"><a href="minería-de-datos.html#transfomración"><i class="fa fa-check"></i><b>1.6.10</b> Transfomración</a></li>
+<li class="chapter" data-level="1.6.10" data-path="minería-de-datos.html"><a href="minería-de-datos.html#transformación"><i class="fa fa-check"></i><b>1.6.10</b> Transformación</a></li>
+<li class="chapter" data-level="1.6.11" data-path="minería-de-datos.html"><a href="minería-de-datos.html#definir-diseño-de-encuesta-por-muestreo"><i class="fa fa-check"></i><b>1.6.11</b> Definir diseño de encuesta por muestreo</a></li>
 </ul></li>
 <li class="chapter" data-level="1.7" data-path="minería-de-datos.html"><a href="minería-de-datos.html#imputación-de-variables"><i class="fa fa-check"></i><b>1.7</b> Imputación de variables</a><ul>
 <li class="chapter" data-level="1.7.1" data-path="minería-de-datos.html"><a href="minería-de-datos.html#la-falta-de-información-es-información"><i class="fa fa-check"></i><b>1.7.1</b> La falta de información es información</a></li>
@@ -171,6 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.7.7" data-path="minería-de-datos.html"><a href="minería-de-datos.html#influx-and-outflux"><i class="fa fa-check"></i><b>1.7.7</b> Influx and outflux</a></li>
 <li class="chapter" data-level="1.7.8" data-path="minería-de-datos.html"><a href="minería-de-datos.html#imputación-de-datos-monótonos"><i class="fa fa-check"></i><b>1.7.8</b> Imputación de datos monótonos</a></li>
 <li class="chapter" data-level="1.7.9" data-path="minería-de-datos.html"><a href="minería-de-datos.html#multivariate-imputation-by-chained-equations-mice"><i class="fa fa-check"></i><b>1.7.9</b> Multivariate Imputation by Chained Equations (mice)</a></li>
+<li class="chapter" data-level="1.7.10" data-path="minería-de-datos.html"><a href="minería-de-datos.html#en-r"><i class="fa fa-check"></i><b>1.7.10</b> En R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html"><i class="fa fa-check"></i><b>2</b> Modelado en Minería de datos</a><ul>
@@ -179,7 +181,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1.2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#visualización"><i class="fa fa-check"></i><b>2.1.2</b> Visualización</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#componentes-principales"><i class="fa fa-check"></i><b>2.2</b> Componentes Principales</a></li>
-<li class="chapter" data-level="2.3" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#análisis-de-correspondencia"><i class="fa fa-check"></i><b>2.3</b> Análisis de correspondencia</a></li>
+<li class="chapter" data-level="2.3" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#análisis-de-correspondencia"><i class="fa fa-check"></i><b>2.3</b> Análisis de correspondencia</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#un-ejemplo-de-correspondencia-simple-y-múltiple"><i class="fa fa-check"></i><b>2.3.1</b> Un ejemplo de correspondencia simple y múltiple</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>3</b> Clustering</a><ul>
 <li class="chapter" data-level="3.1" data-path="clustering.html"><a href="clustering.html#medidas-de-disimilaridad"><i class="fa fa-check"></i><b>3.1</b> Medidas de Disimilaridad</a><ul>
@@ -211,7 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.6" data-path="regresión.html"><a href="regresión.html#paso-6-predicir-a-partir-del-modelo"><i class="fa fa-check"></i><b>4.1.6</b> Paso 6: Predicir a partir del modelo</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="regresión.html"><a href="regresión.html#probit-y-logit"><i class="fa fa-check"></i><b>4.2</b> Probit y Logit</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="regresión.html"><a href="regresión.html#en-r"><i class="fa fa-check"></i><b>4.2.1</b> En R:</a></li>
+<li class="chapter" data-level="4.2.1" data-path="regresión.html"><a href="regresión.html#en-r-1"><i class="fa fa-check"></i><b>4.2.1</b> En R:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="clasificación.html"><a href="clasificación.html"><i class="fa fa-check"></i><b>5</b> Clasificación</a><ul>
@@ -274,15 +278,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 * Naive bayes</li>
 </ol>
 <p>Base de datos, se empleara la base de datos de covid de México.</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="clasificación.html#cb216-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb216-2"><a href="clasificación.html#cb216-2"></a>covid&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">covid_mx</span><span class="ch">\\</span><span class="st">200627COVID19MEXICO.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="dv">99</span>,<span class="dv">98</span>))</span>
-<span id="cb216-3"><a href="clasificación.html#cb216-3"></a><span class="kw">object.size</span>(covid)<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span></span></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="clasificación.html#cb399-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb399-2"><a href="clasificación.html#cb399-2"></a>covid&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">covid_mx</span><span class="ch">\\</span><span class="st">200627COVID19MEXICO.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="dv">99</span>,<span class="dv">98</span>))</span>
+<span id="cb399-3"><a href="clasificación.html#cb399-3"></a><span class="kw">object.size</span>(covid)<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span></span></code></pre></div>
 <pre><code>## 123.5 bytes</code></pre>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="clasificación.html#cb218-1"></a>vv&lt;-<span class="kw">c</span>(<span class="st">&quot;SEXO&quot;</span>,<span class="st">&quot;FECHA_DEF&quot;</span>,<span class="st">&quot;NEUMONIA&quot;</span>,<span class="st">&quot;EDAD&quot;</span>,<span class="st">&quot;HABLA_LENGUA_INDIG&quot;</span>,<span class="st">&quot;DIABETES&quot;</span>,<span class="st">&quot;EPOC&quot;</span>,<span class="st">&quot;ASMA&quot;</span>,<span class="st">&quot;INMUSUPR&quot;</span>,<span class="st">&quot;HIPERTENSION&quot;</span>,<span class="st">&quot;OTRA_COM&quot;</span>,<span class="st">&quot;CARDIOVASCULAR&quot;</span>,<span class="st">&quot;OBESIDAD&quot;</span>,<span class="st">&quot;RENAL_CRONICA&quot;</span>,<span class="st">&quot;TABAQUISMO&quot;</span>,<span class="st">&quot;RESULTADO&quot;</span>)</span>
-<span id="cb218-2"><a href="clasificación.html#cb218-2"></a>covid&lt;-covid[,vv]</span>
-<span id="cb218-3"><a href="clasificación.html#cb218-3"></a>covid&lt;-covid <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(EDAD<span class="op">&lt;=</span><span class="dv">90</span>)</span>
-<span id="cb218-4"><a href="clasificación.html#cb218-4"></a><span class="co">#Descripción </span></span>
-<span id="cb218-5"><a href="clasificación.html#cb218-5"></a>Hmisc<span class="op">::</span><span class="kw">describe</span>(covid)</span></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="clasificación.html#cb401-1"></a>vv&lt;-<span class="kw">c</span>(<span class="st">&quot;SEXO&quot;</span>,<span class="st">&quot;FECHA_DEF&quot;</span>,<span class="st">&quot;NEUMONIA&quot;</span>,<span class="st">&quot;EDAD&quot;</span>,<span class="st">&quot;HABLA_LENGUA_INDIG&quot;</span>,<span class="st">&quot;DIABETES&quot;</span>,<span class="st">&quot;EPOC&quot;</span>,<span class="st">&quot;ASMA&quot;</span>,<span class="st">&quot;INMUSUPR&quot;</span>,<span class="st">&quot;HIPERTENSION&quot;</span>,<span class="st">&quot;OTRA_COM&quot;</span>,<span class="st">&quot;CARDIOVASCULAR&quot;</span>,<span class="st">&quot;OBESIDAD&quot;</span>,<span class="st">&quot;RENAL_CRONICA&quot;</span>,<span class="st">&quot;TABAQUISMO&quot;</span>,<span class="st">&quot;RESULTADO&quot;</span>)</span>
+<span id="cb401-2"><a href="clasificación.html#cb401-2"></a>covid&lt;-covid[,vv]</span>
+<span id="cb401-3"><a href="clasificación.html#cb401-3"></a>covid&lt;-covid <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(EDAD<span class="op">&lt;=</span><span class="dv">90</span>)</span>
+<span id="cb401-4"><a href="clasificación.html#cb401-4"></a><span class="co">#Descripción </span></span>
+<span id="cb401-5"><a href="clasificación.html#cb401-5"></a>Hmisc<span class="op">::</span><span class="kw">describe</span>(covid)</span></code></pre></div>
 <pre><code>## covid 
 ## 
 ##  16  Variables      549476  Observations
@@ -414,10 +418,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Frequency  212222 270355  66899
 ## Proportion  0.386  0.492  0.122
 ## -----------------------------------------------------------------------</code></pre>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="clasificación.html#cb220-1"></a><span class="co">#variable muerte</span></span>
-<span id="cb220-2"><a href="clasificación.html#cb220-2"></a>covid<span class="op">$</span>muerte&lt;-(covid<span class="op">$</span>FECHA_DEF<span class="op">!=</span><span class="st">&quot;9999-99-99&quot;</span>)</span>
-<span id="cb220-3"><a href="clasificación.html#cb220-3"></a>covid&lt;-covid <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>FECHA_DEF)</span>
-<span id="cb220-4"><a href="clasificación.html#cb220-4"></a>covid&lt;-<span class="kw">na.omit</span>(covid)</span></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="clasificación.html#cb403-1"></a><span class="co">#variable muerte</span></span>
+<span id="cb403-2"><a href="clasificación.html#cb403-2"></a>covid<span class="op">$</span>muerte&lt;-(covid<span class="op">$</span>FECHA_DEF<span class="op">!=</span><span class="st">&quot;9999-99-99&quot;</span>)</span>
+<span id="cb403-3"><a href="clasificación.html#cb403-3"></a>covid&lt;-covid <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>FECHA_DEF)</span>
+<span id="cb403-4"><a href="clasificación.html#cb403-4"></a>covid&lt;-<span class="kw">na.omit</span>(covid)</span></code></pre></div>
 <div id="logit-probit" class="section level2">
 <h2><span class="header-section-number">5.1</span> Logit Probit</h2>
 <ul>
@@ -430,28 +434,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="0" style="list-style-type: decimal">
 <li>Identificar la variable (1/0) que se requiere clasificar, definir covariables para construir el modelos</li>
 </ol>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="clasificación.html#cb221-1"></a><span class="kw">table</span>(covid<span class="op">$</span>muerte)</span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="clasificación.html#cb404-1"></a><span class="kw">table</span>(covid<span class="op">$</span>muerte)</span></code></pre></div>
 <pre><code>## 
 ##  FALSE   TRUE 
 ## 494841  33611</code></pre>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="clasificación.html#cb223-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(covid<span class="op">$</span>muerte))</span></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="clasificación.html#cb406-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(covid<span class="op">$</span>muerte))</span></code></pre></div>
 <pre><code>## 
 ##      FALSE       TRUE 
 ## 0.93639725 0.06360275</code></pre>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="clasificación.html#cb225-1"></a><span class="co">##################################################</span></span>
-<span id="cb225-2"><a href="clasificación.html#cb225-2"></a><span class="co">#a factor</span></span>
-<span id="cb225-3"><a href="clasificación.html#cb225-3"></a><span class="co">##################################################</span></span>
-<span id="cb225-4"><a href="clasificación.html#cb225-4"></a><span class="co">#sexo</span></span>
-<span id="cb225-5"><a href="clasificación.html#cb225-5"></a>covid<span class="op">$</span>SEXO&lt;-<span class="kw">factor</span>(covid<span class="op">$</span>SEXO,<span class="dt">levels=</span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Mujer&quot;</span>,<span class="st">&quot;Hombre&quot;</span>))</span>
-<span id="cb225-6"><a href="clasificación.html#cb225-6"></a><span class="co">#resultado</span></span>
-<span id="cb225-7"><a href="clasificación.html#cb225-7"></a>covid<span class="op">$</span>RESULTADO&lt;-<span class="kw">factor</span>(covid<span class="op">$</span>RESULTADO,<span class="dt">levels =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;COVID +&quot;</span>,<span class="st">&quot;COVID -&quot;</span>,<span class="st">&quot;COVID pendiende&quot;</span>))</span>
-<span id="cb225-8"><a href="clasificación.html#cb225-8"></a>covid2&lt;-covid<span class="co">#para cart</span></span>
-<span id="cb225-9"><a href="clasificación.html#cb225-9"></a><span class="co">#si/no</span></span>
-<span id="cb225-10"><a href="clasificación.html#cb225-10"></a>aux&lt;-<span class="kw">c</span>(<span class="st">&quot;NEUMONIA&quot;</span>,<span class="st">&quot;HABLA_LENGUA_INDIG&quot;</span>,<span class="st">&quot;DIABETES&quot;</span>,<span class="st">&quot;EPOC&quot;</span>,<span class="st">&quot;ASMA&quot;</span>,<span class="st">&quot;INMUSUPR&quot;</span>,<span class="st">&quot;HIPERTENSION&quot;</span>,<span class="st">&quot;OTRA_COM&quot;</span>,<span class="st">&quot;CARDIOVASCULAR&quot;</span>,<span class="st">&quot;OBESIDAD&quot;</span>,<span class="st">&quot;RENAL_CRONICA&quot;</span>,<span class="st">&quot;TABAQUISMO&quot;</span>)</span>
-<span id="cb225-11"><a href="clasificación.html#cb225-11"></a><span class="cf">for</span>(i <span class="cf">in</span> aux){</span>
-<span id="cb225-12"><a href="clasificación.html#cb225-12"></a>  covid[[i]]&lt;-covid[[i]]<span class="op">==</span><span class="dv">1</span></span>
-<span id="cb225-13"><a href="clasificación.html#cb225-13"></a>}</span>
-<span id="cb225-14"><a href="clasificación.html#cb225-14"></a><span class="kw">str</span>(covid)</span></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="clasificación.html#cb408-1"></a><span class="co">##################################################</span></span>
+<span id="cb408-2"><a href="clasificación.html#cb408-2"></a><span class="co">#a factor</span></span>
+<span id="cb408-3"><a href="clasificación.html#cb408-3"></a><span class="co">##################################################</span></span>
+<span id="cb408-4"><a href="clasificación.html#cb408-4"></a><span class="co">#sexo</span></span>
+<span id="cb408-5"><a href="clasificación.html#cb408-5"></a>covid<span class="op">$</span>SEXO&lt;-<span class="kw">factor</span>(covid<span class="op">$</span>SEXO,<span class="dt">levels=</span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Mujer&quot;</span>,<span class="st">&quot;Hombre&quot;</span>))</span>
+<span id="cb408-6"><a href="clasificación.html#cb408-6"></a><span class="co">#resultado</span></span>
+<span id="cb408-7"><a href="clasificación.html#cb408-7"></a>covid<span class="op">$</span>RESULTADO&lt;-<span class="kw">factor</span>(covid<span class="op">$</span>RESULTADO,<span class="dt">levels =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;COVID +&quot;</span>,<span class="st">&quot;COVID -&quot;</span>,<span class="st">&quot;COVID pendiende&quot;</span>))</span>
+<span id="cb408-8"><a href="clasificación.html#cb408-8"></a>covid2&lt;-covid<span class="co">#para cart</span></span>
+<span id="cb408-9"><a href="clasificación.html#cb408-9"></a><span class="co">#si/no</span></span>
+<span id="cb408-10"><a href="clasificación.html#cb408-10"></a>aux&lt;-<span class="kw">c</span>(<span class="st">&quot;NEUMONIA&quot;</span>,<span class="st">&quot;HABLA_LENGUA_INDIG&quot;</span>,<span class="st">&quot;DIABETES&quot;</span>,<span class="st">&quot;EPOC&quot;</span>,<span class="st">&quot;ASMA&quot;</span>,<span class="st">&quot;INMUSUPR&quot;</span>,<span class="st">&quot;HIPERTENSION&quot;</span>,<span class="st">&quot;OTRA_COM&quot;</span>,<span class="st">&quot;CARDIOVASCULAR&quot;</span>,<span class="st">&quot;OBESIDAD&quot;</span>,<span class="st">&quot;RENAL_CRONICA&quot;</span>,<span class="st">&quot;TABAQUISMO&quot;</span>)</span>
+<span id="cb408-11"><a href="clasificación.html#cb408-11"></a><span class="cf">for</span>(i <span class="cf">in</span> aux){</span>
+<span id="cb408-12"><a href="clasificación.html#cb408-12"></a>  covid[[i]]&lt;-covid[[i]]<span class="op">==</span><span class="dv">1</span></span>
+<span id="cb408-13"><a href="clasificación.html#cb408-13"></a>}</span>
+<span id="cb408-14"><a href="clasificación.html#cb408-14"></a><span class="kw">str</span>(covid)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    528452 obs. of  16 variables:
 ##  $ SEXO              : Factor w/ 2 levels &quot;Mujer&quot;,&quot;Hombre&quot;: 2 2 2 2 2 1 2 1 2 2 ...
 ##  $ NEUMONIA          : logi  FALSE FALSE TRUE FALSE FALSE FALSE ...
@@ -471,24 +475,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ muerte            : logi  FALSE FALSE TRUE TRUE FALSE FALSE ...
 ##  - attr(*, &quot;na.action&quot;)= &#39;omit&#39; Named int [1:21024] 23 184 230 236 363 642 737 820 831 915 ...
 ##   ..- attr(*, &quot;names&quot;)= chr [1:21024] &quot;23&quot; &quot;184&quot; &quot;230&quot; &quot;236&quot; ...</code></pre>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="clasificación.html#cb227-1"></a><span class="co">## Bases: trainbd, testbd</span></span>
-<span id="cb227-2"><a href="clasificación.html#cb227-2"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb227-3"><a href="clasificación.html#cb227-3"></a>index =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="kw">nrow</span>(covid), <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">0.3</span>))</span>
-<span id="cb227-4"><a href="clasificación.html#cb227-4"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(index))</span></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="clasificación.html#cb410-1"></a><span class="co">## Bases: trainbd, testbd</span></span>
+<span id="cb410-2"><a href="clasificación.html#cb410-2"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb410-3"><a href="clasificación.html#cb410-3"></a>index =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="kw">nrow</span>(covid), <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">0.3</span>))</span>
+<span id="cb410-4"><a href="clasificación.html#cb410-4"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(index))</span></code></pre></div>
 <pre><code>## index
 ##         1         2 
 ## 0.7001544 0.2998456</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="clasificación.html#cb229-1"></a>trainbd&lt;-covid[index<span class="op">==</span><span class="dv">1</span>,]</span>
-<span id="cb229-2"><a href="clasificación.html#cb229-2"></a>testbd&lt;-covid[index<span class="op">==</span><span class="dv">2</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="clasificación.html#cb412-1"></a>trainbd&lt;-covid[index<span class="op">==</span><span class="dv">1</span>,]</span>
+<span id="cb412-2"><a href="clasificación.html#cb412-2"></a>testbd&lt;-covid[index<span class="op">==</span><span class="dv">2</span>,]</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Especificar el modelo (logit/probit)</li>
 </ol>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="clasificación.html#cb230-1"></a>m1&lt;-<span class="kw">glm</span>(muerte<span class="op">~</span>.,<span class="dt">data=</span>trainbd,<span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;logit&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="clasificación.html#cb413-1"></a>m1&lt;-<span class="kw">glm</span>(muerte<span class="op">~</span>.,<span class="dt">data=</span>trainbd,<span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;logit&quot;</span>))</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Identificar las variables significativas</li>
 <li>Construir el modelo con variables significativas</li>
 </ol>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="clasificación.html#cb231-1"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="clasificación.html#cb414-1"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = muerte ~ ., family = binomial(link = &quot;logit&quot;), 
@@ -499,24 +503,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -2.2988  -0.2468  -0.1466  -0.0944   3.8471  
 ## 
 ## Coefficients:
-##                            Estimate Std. Error  z value Pr(&gt;|z|)    
-## (Intercept)              -6.0453094  0.0351339 -172.065  &lt; 2e-16 ***
-## SEXOHombre                0.4528000  0.0167200   27.081  &lt; 2e-16 ***
-## NEUMONIATRUE              2.1601129  0.0166393  129.820  &lt; 2e-16 ***
-## EDAD                      0.0503957  0.0005735   87.881  &lt; 2e-16 ***
-## HABLA_LENGUA_INDIGTRUE    0.1299336  0.0636812    2.040   0.0413 *  
-## DIABETESTRUE              0.3568379  0.0185218   19.266  &lt; 2e-16 ***
-## EPOCTRUE                  0.0606881  0.0396321    1.531   0.1257    
-## ASMATRUE                 -0.2211289  0.0539182   -4.101 4.11e-05 ***
-## INMUSUPRTRUE              0.3809713  0.0467945    8.141 3.91e-16 ***
-## HIPERTENSIONTRUE          0.1546319  0.0187518    8.246  &lt; 2e-16 ***
-## OTRA_COMTRUE              0.5776581  0.0358269   16.124  &lt; 2e-16 ***
-## CARDIOVASCULARTRUE       -0.0544158  0.0376414   -1.446   0.1483    
-## OBESIDADTRUE              0.1697086  0.0194157    8.741  &lt; 2e-16 ***
-## RENAL_CRONICATRUE         0.7287407  0.0354132   20.578  &lt; 2e-16 ***
-## TABAQUISMOTRUE           -0.0631770  0.0281778   -2.242   0.0250 *  
-## RESULTADOCOVID -         -1.1795001  0.0193564  -60.936  &lt; 2e-16 ***
-## RESULTADOCOVID pendiende -1.3541807  0.0317650  -42.631  &lt; 2e-16 ***
+##                            Estimate Std. Error  z value
+## (Intercept)              -6.0453094  0.0351339 -172.065
+## SEXOHombre                0.4528000  0.0167200   27.081
+## NEUMONIATRUE              2.1601129  0.0166393  129.820
+## EDAD                      0.0503957  0.0005735   87.881
+## HABLA_LENGUA_INDIGTRUE    0.1299336  0.0636812    2.040
+## DIABETESTRUE              0.3568379  0.0185218   19.266
+## EPOCTRUE                  0.0606881  0.0396321    1.531
+## ASMATRUE                 -0.2211289  0.0539182   -4.101
+## INMUSUPRTRUE              0.3809713  0.0467945    8.141
+## HIPERTENSIONTRUE          0.1546319  0.0187518    8.246
+## OTRA_COMTRUE              0.5776581  0.0358269   16.124
+## CARDIOVASCULARTRUE       -0.0544158  0.0376414   -1.446
+## OBESIDADTRUE              0.1697086  0.0194157    8.741
+## RENAL_CRONICATRUE         0.7287407  0.0354132   20.578
+## TABAQUISMOTRUE           -0.0631770  0.0281778   -2.242
+## RESULTADOCOVID -         -1.1795001  0.0193564  -60.936
+## RESULTADOCOVID pendiende -1.3541807  0.0317650  -42.631
+##                                      Pr(&gt;|z|)    
+## (Intercept)              &lt; 0.0000000000000002 ***
+## SEXOHombre               &lt; 0.0000000000000002 ***
+## NEUMONIATRUE             &lt; 0.0000000000000002 ***
+## EDAD                     &lt; 0.0000000000000002 ***
+## HABLA_LENGUA_INDIGTRUE                 0.0413 *  
+## DIABETESTRUE             &lt; 0.0000000000000002 ***
+## EPOCTRUE                               0.1257    
+## ASMATRUE                 0.000041102762764731 ***
+## INMUSUPRTRUE             0.000000000000000391 ***
+## HIPERTENSIONTRUE         &lt; 0.0000000000000002 ***
+## OTRA_COMTRUE             &lt; 0.0000000000000002 ***
+## CARDIOVASCULARTRUE                     0.1483    
+## OBESIDADTRUE             &lt; 0.0000000000000002 ***
+## RENAL_CRONICATRUE        &lt; 0.0000000000000002 ***
+## TABAQUISMOTRUE                         0.0250 *  
+## RESULTADOCOVID -         &lt; 0.0000000000000002 ***
+## RESULTADOCOVID pendiende &lt; 0.0000000000000002 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
@@ -527,7 +549,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## AIC: 113076
 ## 
 ## Number of Fisher Scoring iterations: 7</code></pre>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="clasificación.html#cb233-1"></a>m2&lt;-<span class="kw">step</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="clasificación.html#cb416-1"></a>m2&lt;-<span class="kw">step</span>(m1)</span></code></pre></div>
 <pre><code>## Start:  AIC=113075.8
 ## muerte ~ SEXO + NEUMONIA + EDAD + HABLA_LENGUA_INDIG + DIABETES + 
 ##     EPOC + ASMA + INMUSUPR + HIPERTENSION + OTRA_COM + CARDIOVASCULAR + 
@@ -550,7 +572,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## - RESULTADO           2   118350 118380
 ## - EDAD                1   121441 121473
 ## - NEUMONIA            1   131172 131204</code></pre>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="clasificación.html#cb235-1"></a><span class="kw">summary</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="clasificación.html#cb418-1"></a><span class="kw">summary</span>(m2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = muerte ~ SEXO + NEUMONIA + EDAD + HABLA_LENGUA_INDIG + 
@@ -563,24 +585,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## -2.2988  -0.2468  -0.1466  -0.0944   3.8471  
 ## 
 ## Coefficients:
-##                            Estimate Std. Error  z value Pr(&gt;|z|)    
-## (Intercept)              -6.0453094  0.0351339 -172.065  &lt; 2e-16 ***
-## SEXOHombre                0.4528000  0.0167200   27.081  &lt; 2e-16 ***
-## NEUMONIATRUE              2.1601129  0.0166393  129.820  &lt; 2e-16 ***
-## EDAD                      0.0503957  0.0005735   87.881  &lt; 2e-16 ***
-## HABLA_LENGUA_INDIGTRUE    0.1299336  0.0636812    2.040   0.0413 *  
-## DIABETESTRUE              0.3568379  0.0185218   19.266  &lt; 2e-16 ***
-## EPOCTRUE                  0.0606881  0.0396321    1.531   0.1257    
-## ASMATRUE                 -0.2211289  0.0539182   -4.101 4.11e-05 ***
-## INMUSUPRTRUE              0.3809713  0.0467945    8.141 3.91e-16 ***
-## HIPERTENSIONTRUE          0.1546319  0.0187518    8.246  &lt; 2e-16 ***
-## OTRA_COMTRUE              0.5776581  0.0358269   16.124  &lt; 2e-16 ***
-## CARDIOVASCULARTRUE       -0.0544158  0.0376414   -1.446   0.1483    
-## OBESIDADTRUE              0.1697086  0.0194157    8.741  &lt; 2e-16 ***
-## RENAL_CRONICATRUE         0.7287407  0.0354132   20.578  &lt; 2e-16 ***
-## TABAQUISMOTRUE           -0.0631770  0.0281778   -2.242   0.0250 *  
-## RESULTADOCOVID -         -1.1795001  0.0193564  -60.936  &lt; 2e-16 ***
-## RESULTADOCOVID pendiende -1.3541807  0.0317650  -42.631  &lt; 2e-16 ***
+##                            Estimate Std. Error  z value
+## (Intercept)              -6.0453094  0.0351339 -172.065
+## SEXOHombre                0.4528000  0.0167200   27.081
+## NEUMONIATRUE              2.1601129  0.0166393  129.820
+## EDAD                      0.0503957  0.0005735   87.881
+## HABLA_LENGUA_INDIGTRUE    0.1299336  0.0636812    2.040
+## DIABETESTRUE              0.3568379  0.0185218   19.266
+## EPOCTRUE                  0.0606881  0.0396321    1.531
+## ASMATRUE                 -0.2211289  0.0539182   -4.101
+## INMUSUPRTRUE              0.3809713  0.0467945    8.141
+## HIPERTENSIONTRUE          0.1546319  0.0187518    8.246
+## OTRA_COMTRUE              0.5776581  0.0358269   16.124
+## CARDIOVASCULARTRUE       -0.0544158  0.0376414   -1.446
+## OBESIDADTRUE              0.1697086  0.0194157    8.741
+## RENAL_CRONICATRUE         0.7287407  0.0354132   20.578
+## TABAQUISMOTRUE           -0.0631770  0.0281778   -2.242
+## RESULTADOCOVID -         -1.1795001  0.0193564  -60.936
+## RESULTADOCOVID pendiende -1.3541807  0.0317650  -42.631
+##                                      Pr(&gt;|z|)    
+## (Intercept)              &lt; 0.0000000000000002 ***
+## SEXOHombre               &lt; 0.0000000000000002 ***
+## NEUMONIATRUE             &lt; 0.0000000000000002 ***
+## EDAD                     &lt; 0.0000000000000002 ***
+## HABLA_LENGUA_INDIGTRUE                 0.0413 *  
+## DIABETESTRUE             &lt; 0.0000000000000002 ***
+## EPOCTRUE                               0.1257    
+## ASMATRUE                 0.000041102762764731 ***
+## INMUSUPRTRUE             0.000000000000000391 ***
+## HIPERTENSIONTRUE         &lt; 0.0000000000000002 ***
+## OTRA_COMTRUE             &lt; 0.0000000000000002 ***
+## CARDIOVASCULARTRUE                     0.1483    
+## OBESIDADTRUE             &lt; 0.0000000000000002 ***
+## RENAL_CRONICATRUE        &lt; 0.0000000000000002 ***
+## TABAQUISMOTRUE                         0.0250 *  
+## RESULTADOCOVID -         &lt; 0.0000000000000002 ***
+## RESULTADOCOVID pendiende &lt; 0.0000000000000002 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
@@ -594,18 +634,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" style="list-style-type: decimal">
 <li>Predecir la clase de pertenencia en la base de test (<span class="math inline">\(prob&gt;0.5\)</span>)</li>
 </ol>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="clasificación.html#cb237-1"></a>clase&lt;-<span class="kw">predict</span>(m2,testbd,<span class="dt">type=</span><span class="st">&quot;response&quot;</span>)<span class="op">&gt;</span><span class="fl">0.5</span></span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="clasificación.html#cb420-1"></a>clase&lt;-<span class="kw">predict</span>(m2,testbd,<span class="dt">type=</span><span class="st">&quot;response&quot;</span>)<span class="op">&gt;</span><span class="fl">0.5</span></span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Observar la clasificación dada en base a la probabilidad fijada</li>
 </ol>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="clasificación.html#cb238-1"></a><span class="kw">table</span>(clase)</span></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="clasificación.html#cb421-1"></a><span class="kw">table</span>(clase)</span></code></pre></div>
 <pre><code>## clase
 ##  FALSE   TRUE 
 ## 153984   4470</code></pre>
 <ol start="6" style="list-style-type: decimal">
 <li>Comparar lo observado y lo predicho</li>
 </ol>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="clasificación.html#cb240-1"></a><span class="kw">table</span>(testbd<span class="op">$</span>muerte,clase)</span></code></pre></div>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="clasificación.html#cb423-1"></a><span class="kw">table</span>(testbd<span class="op">$</span>muerte,clase)</span></code></pre></div>
 <pre><code>##        clase
 ##          FALSE   TRUE
 ##   FALSE 146404   2041
@@ -613,7 +653,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="7" style="list-style-type: decimal">
 <li>Generar la matriz de confusión (librería caret)</li>
 </ol>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="clasificación.html#cb242-1"></a><span class="kw">library</span>(caret)</span></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="clasificación.html#cb425-1"></a><span class="kw">library</span>(caret)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;caret&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:vegan&#39;:
@@ -622,36 +662,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following object is masked from &#39;package:survival&#39;:
 ## 
 ##     cluster</code></pre>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="clasificación.html#cb246-1"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(testbd<span class="op">$</span>muerte,clase))</span></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="clasificación.html#cb429-1"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(testbd<span class="op">$</span>muerte,clase))</span></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##        clase
 ##          FALSE   TRUE
 ##   FALSE 146404   2041
 ##   TRUE    7580   2429
-##                                           
-##                Accuracy : 0.9393          
-##                  95% CI : (0.9381, 0.9405)
-##     No Information Rate : 0.9718          
-##     P-Value [Acc &gt; NIR] : 1               
-##                                           
-##                   Kappa : 0.3086          
-##                                           
-##  Mcnemar&#39;s Test P-Value : &lt;2e-16          
-##                                           
-##             Sensitivity : 0.9508          
-##             Specificity : 0.5434          
-##          Pos Pred Value : 0.9863          
-##          Neg Pred Value : 0.2427          
-##              Prevalence : 0.9718          
-##          Detection Rate : 0.9240          
-##    Detection Prevalence : 0.9368          
-##       Balanced Accuracy : 0.7471          
-##                                           
-##        &#39;Positive&#39; Class : FALSE           
+##                                              
+##                Accuracy : 0.9393             
+##                  95% CI : (0.9381, 0.9405)   
+##     No Information Rate : 0.9718             
+##     P-Value [Acc &gt; NIR] : 1                  
+##                                              
+##                   Kappa : 0.3086             
+##                                              
+##  Mcnemar&#39;s Test P-Value : &lt;0.0000000000000002
+##                                              
+##             Sensitivity : 0.9508             
+##             Specificity : 0.5434             
+##          Pos Pred Value : 0.9863             
+##          Neg Pred Value : 0.2427             
+##              Prevalence : 0.9718             
+##          Detection Rate : 0.9240             
+##    Detection Prevalence : 0.9368             
+##       Balanced Accuracy : 0.7471             
+##                                              
+##        &#39;Positive&#39; Class : FALSE              
 ## </code></pre>
 <p>Efectos marginales</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="clasificación.html#cb248-1"></a><span class="kw">library</span>(mfx)</span></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="clasificación.html#cb431-1"></a><span class="kw">library</span>(mfx)</span></code></pre></div>
 <pre><code>## Loading required package: sandwich</code></pre>
 <pre><code>## Loading required package: lmtest</code></pre>
 <pre><code>## Loading required package: zoo</code></pre>
@@ -663,17 +703,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Loading required package: MASS</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;MASS&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:srvyr&#39;:
+## 
+##     select</code></pre>
 <pre><code>## The following object is masked from &#39;package:dplyr&#39;:
 ## 
 ##     select</code></pre>
 <pre><code>## Loading required package: betareg</code></pre>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="clasificación.html#cb258-1"></a>info&lt;-<span class="kw">logitmfx</span>(<span class="kw">formula</span>(m2),<span class="dt">data=</span>testbd)</span>
-<span id="cb258-2"><a href="clasificación.html#cb258-2"></a><span class="kw">barplot</span>(info<span class="op">$</span>mfxest[,<span class="dv">1</span>],<span class="dt">horiz =</span> T,<span class="dt">las=</span><span class="dv">1</span>,<span class="dt">cex.names =</span> <span class="fl">0.5</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.1</span>,<span class="fl">0.1</span>),<span class="dt">pos=</span><span class="op">-</span><span class="fl">0.02</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="clasificación.html#cb442-1"></a>info&lt;-<span class="kw">logitmfx</span>(<span class="kw">formula</span>(m2),<span class="dt">data=</span>testbd)</span>
+<span id="cb442-2"><a href="clasificación.html#cb442-2"></a><span class="kw">barplot</span>(info<span class="op">$</span>mfxest[,<span class="dv">1</span>],<span class="dt">horiz =</span> T,<span class="dt">las=</span><span class="dv">1</span>,<span class="dt">cex.names =</span> <span class="fl">0.5</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.1</span>,<span class="fl">0.1</span>),<span class="dt">pos=</span><span class="op">-</span><span class="fl">0.02</span>)</span></code></pre></div>
 <pre><code>## Warning in plot.window(xlim, ylim, log = log, ...): &quot;pos&quot; is not a
 ## graphical parameter</code></pre>
 <pre><code>## Warning in title(main = main, sub = sub, xlab = xlab, ylab =
 ## ylab, ...): &quot;pos&quot; is not a graphical parameter</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
 </div>
 </div>
 <div id="arboles-de-clasificación-cart" class="section level2">
@@ -685,17 +728,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Cargar la librería rpart</li>
 </ol>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="clasificación.html#cb261-1"></a><span class="kw">library</span>(rpart)</span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="clasificación.html#cb445-1"></a><span class="kw">library</span>(rpart)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Usar la función rpart para construir el modelo de clasificación</li>
 </ol>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="clasificación.html#cb262-1"></a>covid2<span class="op">$</span>muerte&lt;-<span class="kw">factor</span>(covid2<span class="op">$</span>muerte,<span class="kw">c</span>(T,F),<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Muerte&quot;</span>,<span class="st">&quot;No muerte&quot;</span>))</span>
-<span id="cb262-2"><a href="clasificación.html#cb262-2"></a><span class="co">#si/no</span></span>
-<span id="cb262-3"><a href="clasificación.html#cb262-3"></a>aux&lt;-<span class="kw">c</span>(<span class="st">&quot;NEUMONIA&quot;</span>,<span class="st">&quot;HABLA_LENGUA_INDIG&quot;</span>,<span class="st">&quot;DIABETES&quot;</span>,<span class="st">&quot;EPOC&quot;</span>,<span class="st">&quot;ASMA&quot;</span>,<span class="st">&quot;INMUSUPR&quot;</span>,<span class="st">&quot;HIPERTENSION&quot;</span>,<span class="st">&quot;OTRA_COM&quot;</span>,<span class="st">&quot;CARDIOVASCULAR&quot;</span>,<span class="st">&quot;OBESIDAD&quot;</span>,<span class="st">&quot;RENAL_CRONICA&quot;</span>,<span class="st">&quot;TABAQUISMO&quot;</span>)</span>
-<span id="cb262-4"><a href="clasificación.html#cb262-4"></a><span class="cf">for</span>(i <span class="cf">in</span> aux){</span>
-<span id="cb262-5"><a href="clasificación.html#cb262-5"></a>  covid2[[i]]&lt;-<span class="kw">factor</span>(covid2[[i]],<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="kw">c</span>(<span class="st">&quot;SI&quot;</span>,<span class="st">&quot;NO&quot;</span>))</span>
-<span id="cb262-6"><a href="clasificación.html#cb262-6"></a>}</span>
-<span id="cb262-7"><a href="clasificación.html#cb262-7"></a><span class="kw">str</span>(covid2)</span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="clasificación.html#cb446-1"></a>covid2<span class="op">$</span>muerte&lt;-<span class="kw">factor</span>(covid2<span class="op">$</span>muerte,<span class="kw">c</span>(T,F),<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Muerte&quot;</span>,<span class="st">&quot;No muerte&quot;</span>))</span>
+<span id="cb446-2"><a href="clasificación.html#cb446-2"></a><span class="co">#si/no</span></span>
+<span id="cb446-3"><a href="clasificación.html#cb446-3"></a>aux&lt;-<span class="kw">c</span>(<span class="st">&quot;NEUMONIA&quot;</span>,<span class="st">&quot;HABLA_LENGUA_INDIG&quot;</span>,<span class="st">&quot;DIABETES&quot;</span>,<span class="st">&quot;EPOC&quot;</span>,<span class="st">&quot;ASMA&quot;</span>,<span class="st">&quot;INMUSUPR&quot;</span>,<span class="st">&quot;HIPERTENSION&quot;</span>,<span class="st">&quot;OTRA_COM&quot;</span>,<span class="st">&quot;CARDIOVASCULAR&quot;</span>,<span class="st">&quot;OBESIDAD&quot;</span>,<span class="st">&quot;RENAL_CRONICA&quot;</span>,<span class="st">&quot;TABAQUISMO&quot;</span>)</span>
+<span id="cb446-4"><a href="clasificación.html#cb446-4"></a><span class="cf">for</span>(i <span class="cf">in</span> aux){</span>
+<span id="cb446-5"><a href="clasificación.html#cb446-5"></a>  covid2[[i]]&lt;-<span class="kw">factor</span>(covid2[[i]],<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="kw">c</span>(<span class="st">&quot;SI&quot;</span>,<span class="st">&quot;NO&quot;</span>))</span>
+<span id="cb446-6"><a href="clasificación.html#cb446-6"></a>}</span>
+<span id="cb446-7"><a href="clasificación.html#cb446-7"></a><span class="kw">str</span>(covid2)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    528452 obs. of  16 variables:
 ##  $ SEXO              : Factor w/ 2 levels &quot;Mujer&quot;,&quot;Hombre&quot;: 2 2 2 2 2 1 2 1 2 2 ...
 ##  $ NEUMONIA          : Factor w/ 2 levels &quot;SI&quot;,&quot;NO&quot;: 2 2 1 2 2 2 2 2 2 2 ...
@@ -715,21 +758,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ muerte            : Factor w/ 2 levels &quot;Muerte&quot;,&quot;No muerte&quot;: 2 2 1 1 2 2 2 2 2 2 ...
 ##  - attr(*, &quot;na.action&quot;)= &#39;omit&#39; Named int [1:21024] 23 184 230 236 363 642 737 820 831 915 ...
 ##   ..- attr(*, &quot;names&quot;)= chr [1:21024] &quot;23&quot; &quot;184&quot; &quot;230&quot; &quot;236&quot; ...</code></pre>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="clasificación.html#cb264-1"></a><span class="co">## Bases: trainbd, testbd</span></span>
-<span id="cb264-2"><a href="clasificación.html#cb264-2"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb264-3"><a href="clasificación.html#cb264-3"></a>index =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="kw">nrow</span>(covid2), <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">0.3</span>))</span>
-<span id="cb264-4"><a href="clasificación.html#cb264-4"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(index))</span></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="clasificación.html#cb448-1"></a><span class="co">## Bases: trainbd, testbd</span></span>
+<span id="cb448-2"><a href="clasificación.html#cb448-2"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb448-3"><a href="clasificación.html#cb448-3"></a>index =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="kw">nrow</span>(covid2), <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">0.3</span>))</span>
+<span id="cb448-4"><a href="clasificación.html#cb448-4"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(index))</span></code></pre></div>
 <pre><code>## index
 ##         1         2 
 ## 0.7001544 0.2998456</code></pre>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="clasificación.html#cb266-1"></a>trainbd&lt;-covid2[index<span class="op">==</span><span class="dv">1</span>,]</span>
-<span id="cb266-2"><a href="clasificación.html#cb266-2"></a>testbd&lt;-covid2[index<span class="op">==</span><span class="dv">2</span>,]</span>
-<span id="cb266-3"><a href="clasificación.html#cb266-3"></a></span>
-<span id="cb266-4"><a href="clasificación.html#cb266-4"></a>mod1&lt;-<span class="kw">rpart</span>(muerte<span class="op">~</span>.,<span class="dt">data=</span>trainbd)</span></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="clasificación.html#cb450-1"></a>trainbd&lt;-covid2[index<span class="op">==</span><span class="dv">1</span>,]</span>
+<span id="cb450-2"><a href="clasificación.html#cb450-2"></a>testbd&lt;-covid2[index<span class="op">==</span><span class="dv">2</span>,]</span>
+<span id="cb450-3"><a href="clasificación.html#cb450-3"></a></span>
+<span id="cb450-4"><a href="clasificación.html#cb450-4"></a>mod1&lt;-<span class="kw">rpart</span>(muerte<span class="op">~</span>.,<span class="dt">data=</span>trainbd)</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Explorar los nodos creados por rpart</li>
 </ol>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="clasificación.html#cb267-1"></a>mod1</span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="clasificación.html#cb451-1"></a>mod1</span></code></pre></div>
 <pre><code>## n= 369998 
 ## 
 ## node), split, n, loss, yval, (yprob)
@@ -747,7 +790,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" style="list-style-type: decimal">
 <li>Examinar los parámetros del árbol con printcp</li>
 </ol>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="clasificación.html#cb269-1"></a><span class="kw">printcp</span>(mod1)</span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="clasificación.html#cb453-1"></a><span class="kw">printcp</span>(mod1)</span></code></pre></div>
 <pre><code>## 
 ## Classification tree:
 ## rpart(formula = muerte ~ ., data = trainbd)
@@ -765,12 +808,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="5" style="list-style-type: decimal">
 <li>Usar el comando plotcp para explorar los parámetros de forma gráfica</li>
 </ol>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="clasificación.html#cb271-1"></a><span class="kw">plotcp</span>(mod1)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="clasificación.html#cb455-1"></a><span class="kw">plotcp</span>(mod1)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Usar la función summary para para examinar el modelo</li>
 </ol>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="clasificación.html#cb272-1"></a><span class="kw">summary</span>(mod1)</span></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="clasificación.html#cb456-1"></a><span class="kw">summary</span>(mod1)</span></code></pre></div>
 <pre><code>## Call:
 ## rpart(formula = muerte ~ ., data = trainbd)
 ##   n= 369998 
@@ -871,28 +914,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="7" style="list-style-type: decimal">
 <li>Usar la función plot y text(,all=T, n=T)</li>
 </ol>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="clasificación.html#cb274-1"></a><span class="kw">plot</span>(mod1)</span>
-<span id="cb274-2"><a href="clasificación.html#cb274-2"></a><span class="kw">text</span>(mod1,<span class="dt">all=</span>T,<span class="dt">use.n=</span>T)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="clasificación.html#cb275-1"></a><span class="co">#install.packages(&quot;rpart.plot&quot;)</span></span>
-<span id="cb275-2"><a href="clasificación.html#cb275-2"></a><span class="kw">library</span>(rpart.plot)</span>
-<span id="cb275-3"><a href="clasificación.html#cb275-3"></a><span class="kw">rpart.plot</span>(mod1)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-61-2.png" width="672" /></p>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="clasificación.html#cb458-1"></a><span class="kw">plot</span>(mod1)</span>
+<span id="cb458-2"><a href="clasificación.html#cb458-2"></a><span class="kw">text</span>(mod1,<span class="dt">all=</span>T,<span class="dt">use.n=</span>T)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="clasificación.html#cb459-1"></a><span class="co">#install.packages(&quot;rpart.plot&quot;)</span></span>
+<span id="cb459-2"><a href="clasificación.html#cb459-2"></a><span class="kw">library</span>(rpart.plot)</span>
+<span id="cb459-3"><a href="clasificación.html#cb459-3"></a><span class="kw">rpart.plot</span>(mod1)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-82-2.png" width="672" /></p>
 <ol start="8" style="list-style-type: decimal">
 <li>Ajustes en el layout plot(…,uniform=TRUE, branch=0.6, margin=0.1)</li>
 </ol>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="clasificación.html#cb276-1"></a><span class="kw">plot</span>(mod1,<span class="dt">uniform=</span>T, <span class="dt">branch=</span><span class="dv">1</span>, <span class="dt">margin=</span><span class="fl">0.1</span>)</span>
-<span id="cb276-2"><a href="clasificación.html#cb276-2"></a><span class="kw">text</span>(mod1,<span class="dt">all=</span>T,<span class="dt">use.n=</span>T)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="clasificación.html#cb460-1"></a><span class="kw">plot</span>(mod1,<span class="dt">uniform=</span>T, <span class="dt">branch=</span><span class="dv">1</span>, <span class="dt">margin=</span><span class="fl">0.1</span>)</span>
+<span id="cb460-2"><a href="clasificación.html#cb460-2"></a><span class="kw">text</span>(mod1,<span class="dt">all=</span>T,<span class="dt">use.n=</span>T)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
 <p>Predicción de la clasificación</p>
 <ol start="9" style="list-style-type: decimal">
 <li>predict(…, testbd, type=“class”), predicción sobre la base de test</li>
 </ol>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="clasificación.html#cb277-1"></a>clase&lt;-<span class="kw">predict</span>(mod1,testbd,<span class="dt">type =</span> <span class="st">&quot;class&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="clasificación.html#cb461-1"></a>clase&lt;-<span class="kw">predict</span>(mod1,testbd,<span class="dt">type =</span> <span class="st">&quot;class&quot;</span>)</span></code></pre></div>
 <ol start="10" style="list-style-type: decimal">
 <li>Elaborar una tabla de contingencia de la clasificación</li>
 </ol>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="clasificación.html#cb278-1"></a><span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte)</span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="clasificación.html#cb462-1"></a><span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte)</span></code></pre></div>
 <pre><code>##            
 ## clase       Muerte No muerte
 ##   Muerte      2405      1862
@@ -900,34 +943,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="11" style="list-style-type: decimal">
 <li>Emplear el comando confusionMatrix sobre la tabla del paso anterior, para evaluar la calidad de la clasificación. Mcnemar’s Test H0: <span class="math inline">\(ij=ji\)</span></li>
 </ol>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="clasificación.html#cb280-1"></a><span class="kw">library</span>(caret)</span>
-<span id="cb280-2"><a href="clasificación.html#cb280-2"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte))</span></code></pre></div>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="clasificación.html#cb464-1"></a><span class="kw">library</span>(caret)</span>
+<span id="cb464-2"><a href="clasificación.html#cb464-2"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte))</span></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##            
 ## clase       Muerte No muerte
 ##   Muerte      2405      1862
 ##   No muerte   7604    146583
-##                                           
-##                Accuracy : 0.9403          
-##                  95% CI : (0.9391, 0.9414)
-##     No Information Rate : 0.9368          
-##     P-Value [Acc &gt; NIR] : 8.06e-09        
-##                                           
-##                   Kappa : 0.3109          
-##                                           
-##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
-##                                           
-##             Sensitivity : 0.24028         
-##             Specificity : 0.98746         
-##          Pos Pred Value : 0.56363         
-##          Neg Pred Value : 0.95068         
-##              Prevalence : 0.06317         
-##          Detection Rate : 0.01518         
-##    Detection Prevalence : 0.02693         
-##       Balanced Accuracy : 0.61387         
-##                                           
-##        &#39;Positive&#39; Class : Muerte          
+##                                                
+##                Accuracy : 0.9403               
+##                  95% CI : (0.9391, 0.9414)     
+##     No Information Rate : 0.9368               
+##     P-Value [Acc &gt; NIR] : 0.00000000806        
+##                                                
+##                   Kappa : 0.3109               
+##                                                
+##  Mcnemar&#39;s Test P-Value : &lt; 0.00000000000000022
+##                                                
+##             Sensitivity : 0.24028              
+##             Specificity : 0.98746              
+##          Pos Pred Value : 0.56363              
+##          Neg Pred Value : 0.95068              
+##              Prevalence : 0.06317              
+##          Detection Rate : 0.01518              
+##    Detection Prevalence : 0.02693              
+##       Balanced Accuracy : 0.61387              
+##                                                
+##        &#39;Positive&#39; Class : Muerte               
 ## </code></pre>
 </div>
 <div id="proceso-de-pruning-podado" class="section level3">
@@ -937,61 +980,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Encuentre el valor mínimo en cross-validation error. (xerror)</li>
 </ol>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="clasificación.html#cb282-1"></a><span class="kw">min</span>(mod1<span class="op">$</span>cptable[,<span class="st">&quot;xerror&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="clasificación.html#cb466-1"></a><span class="kw">min</span>(mod1<span class="op">$</span>cptable[,<span class="st">&quot;xerror&quot;</span>])</span></code></pre></div>
 <pre><code>## [1] 0.9566986</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Encontrar el registro que contiene el valor del anterior paso. (which.min, cptable)</li>
 </ol>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="clasificación.html#cb284-1"></a><span class="kw">which.min</span>(mod1<span class="op">$</span>cptable[,<span class="st">&quot;xerror&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="clasificación.html#cb468-1"></a><span class="kw">which.min</span>(mod1<span class="op">$</span>cptable[,<span class="st">&quot;xerror&quot;</span>])</span></code></pre></div>
 <pre><code>## 2 
 ## 2</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Obtenga el “cost complexity parameter” del valor mínimo encontrado (CP)</li>
 </ol>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="clasificación.html#cb286-1"></a>mod1.cp&lt;-mod1<span class="op">$</span>cptable[<span class="dv">2</span>,<span class="st">&quot;CP&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="clasificación.html#cb470-1"></a>mod1.cp&lt;-mod1<span class="op">$</span>cptable[<span class="dv">2</span>,<span class="st">&quot;CP&quot;</span>]</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Realizar el podado con la función prune, empleando el modelo original y el CP del valor mínimo en xerror (paso anterior)</li>
 </ol>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="clasificación.html#cb287-1"></a>mod1.prune&lt;-<span class="kw">prune</span>(mod1,<span class="dt">cp=</span>mod1.cp)</span></code></pre></div>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="clasificación.html#cb471-1"></a>mod1.prune&lt;-<span class="kw">prune</span>(mod1,<span class="dt">cp=</span>mod1.cp)</span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Visualice el nuevo árbol</li>
 </ol>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="clasificación.html#cb288-1"></a><span class="kw">rpart.plot</span>(mod1.prune)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="clasificación.html#cb472-1"></a><span class="kw">rpart.plot</span>(mod1.prune)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Realice la predicción a partir del árbol podado</li>
 </ol>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="clasificación.html#cb289-1"></a>clase&lt;-<span class="kw">predict</span>(mod1.prune,testbd,<span class="dt">type =</span> <span class="st">&quot;class&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="clasificación.html#cb473-1"></a>clase&lt;-<span class="kw">predict</span>(mod1.prune,testbd,<span class="dt">type =</span> <span class="st">&quot;class&quot;</span>)</span></code></pre></div>
 <ol start="7" style="list-style-type: decimal">
 <li>Evalúe los resultados con la matriz de confusión</li>
 </ol>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="clasificación.html#cb290-1"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte))</span></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="clasificación.html#cb474-1"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte))</span></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##            
 ## clase       Muerte No muerte
 ##   Muerte      2405      1862
 ##   No muerte   7604    146583
-##                                           
-##                Accuracy : 0.9403          
-##                  95% CI : (0.9391, 0.9414)
-##     No Information Rate : 0.9368          
-##     P-Value [Acc &gt; NIR] : 8.06e-09        
-##                                           
-##                   Kappa : 0.3109          
-##                                           
-##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
-##                                           
-##             Sensitivity : 0.24028         
-##             Specificity : 0.98746         
-##          Pos Pred Value : 0.56363         
-##          Neg Pred Value : 0.95068         
-##              Prevalence : 0.06317         
-##          Detection Rate : 0.01518         
-##    Detection Prevalence : 0.02693         
-##       Balanced Accuracy : 0.61387         
-##                                           
-##        &#39;Positive&#39; Class : Muerte          
+##                                                
+##                Accuracy : 0.9403               
+##                  95% CI : (0.9391, 0.9414)     
+##     No Information Rate : 0.9368               
+##     P-Value [Acc &gt; NIR] : 0.00000000806        
+##                                                
+##                   Kappa : 0.3109               
+##                                                
+##  Mcnemar&#39;s Test P-Value : &lt; 0.00000000000000022
+##                                                
+##             Sensitivity : 0.24028              
+##             Specificity : 0.98746              
+##          Pos Pred Value : 0.56363              
+##          Neg Pred Value : 0.95068              
+##              Prevalence : 0.06317              
+##          Detection Rate : 0.01518              
+##    Detection Prevalence : 0.02693              
+##       Balanced Accuracy : 0.61387              
+##                                                
+##        &#39;Positive&#39; Class : Muerte               
 ## </code></pre>
 </div>
 </div>
@@ -1013,17 +1056,17 @@ Pasos,</p>
 <ol style="list-style-type: decimal">
 <li>Cargar la librería e1071 y emplear la función naiveBayes para construir el clasificador</li>
 </ol>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="clasificación.html#cb292-1"></a><span class="kw">library</span>(e1071)</span></code></pre></div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="clasificación.html#cb476-1"></a><span class="kw">library</span>(e1071)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;e1071&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:Hmisc&#39;:
 ## 
 ##     impute</code></pre>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="clasificación.html#cb295-1"></a>mod1&lt;-<span class="kw">naiveBayes</span>(muerte<span class="op">~</span>.,<span class="dt">data=</span>trainbd)</span></code></pre></div>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="clasificación.html#cb479-1"></a>mod1&lt;-<span class="kw">naiveBayes</span>(muerte<span class="op">~</span>.,<span class="dt">data=</span>trainbd)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Explorar los resultados</li>
 </ol>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="clasificación.html#cb296-1"></a>mod1</span></code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="clasificación.html#cb480-1"></a>mod1</span></code></pre></div>
 <pre><code>## 
 ## Naive Bayes Classifier for Discrete Predictors
 ## 
@@ -1113,37 +1156,37 @@ Pasos,</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Predecir los resultados en la base de testeo</li>
 </ol>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="clasificación.html#cb298-1"></a>clase&lt;-<span class="kw">predict</span>(mod1,testbd,<span class="dt">type =</span> <span class="st">&quot;class&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="clasificación.html#cb482-1"></a>clase&lt;-<span class="kw">predict</span>(mod1,testbd,<span class="dt">type =</span> <span class="st">&quot;class&quot;</span>)</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Realizar la matriz de confusión</li>
 </ol>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="clasificación.html#cb299-1"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte))</span></code></pre></div>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="clasificación.html#cb483-1"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte))</span></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##            
 ## clase       Muerte No muerte
 ##   Muerte      5261      8124
 ##   No muerte   4748    140321
-##                                           
-##                Accuracy : 0.9188          
-##                  95% CI : (0.9174, 0.9201)
-##     No Information Rate : 0.9368          
-##     P-Value [Acc &gt; NIR] : 1               
-##                                           
-##                   Kappa : 0.4069          
-##                                           
-##  Mcnemar&#39;s Test P-Value : &lt;2e-16          
-##                                           
-##             Sensitivity : 0.52563         
-##             Specificity : 0.94527         
-##          Pos Pred Value : 0.39305         
-##          Neg Pred Value : 0.96727         
-##              Prevalence : 0.06317         
-##          Detection Rate : 0.03320         
-##    Detection Prevalence : 0.08447         
-##       Balanced Accuracy : 0.73545         
-##                                           
-##        &#39;Positive&#39; Class : Muerte          
+##                                              
+##                Accuracy : 0.9188             
+##                  95% CI : (0.9174, 0.9201)   
+##     No Information Rate : 0.9368             
+##     P-Value [Acc &gt; NIR] : 1                  
+##                                              
+##                   Kappa : 0.4069             
+##                                              
+##  Mcnemar&#39;s Test P-Value : &lt;0.0000000000000002
+##                                              
+##             Sensitivity : 0.52563            
+##             Specificity : 0.94527            
+##          Pos Pred Value : 0.39305            
+##          Neg Pred Value : 0.96727            
+##              Prevalence : 0.06317            
+##          Detection Rate : 0.03320            
+##    Detection Prevalence : 0.08447            
+##       Balanced Accuracy : 0.73545            
+##                                              
+##        &#39;Positive&#39; Class : Muerte             
 ## </code></pre>
 </div>
 <div id="ejercicios." class="section level2">

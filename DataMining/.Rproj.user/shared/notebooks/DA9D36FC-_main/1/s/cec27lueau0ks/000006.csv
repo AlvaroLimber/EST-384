@@ -1,0 +1,4 @@
+"0","recode(eh19p$depto,""Altiplano"" %in% v1)
+"
+"2","Error: Argument 2 must be named, not unnamed.
+"

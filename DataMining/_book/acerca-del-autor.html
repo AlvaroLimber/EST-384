@@ -24,7 +24,7 @@
 <meta name="author" content="Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2020-08-31" />
+<meta name="date" content="2020-11-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,7 +159,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.6.7" data-path="minería-de-datos.html"><a href="minería-de-datos.html#ejercicio-reshape"><i class="fa fa-check"></i><b>1.6.7</b> Ejercicio (reshape)</a></li>
 <li class="chapter" data-level="1.6.8" data-path="minería-de-datos.html"><a href="minería-de-datos.html#limpieza-fechas"><i class="fa fa-check"></i><b>1.6.8</b> Limpieza (fechas)</a></li>
 <li class="chapter" data-level="1.6.9" data-path="minería-de-datos.html"><a href="minería-de-datos.html#limpieza-string"><i class="fa fa-check"></i><b>1.6.9</b> Limpieza (String)</a></li>
-<li class="chapter" data-level="1.6.10" data-path="minería-de-datos.html"><a href="minería-de-datos.html#transfomración"><i class="fa fa-check"></i><b>1.6.10</b> Transfomración</a></li>
+<li class="chapter" data-level="1.6.10" data-path="minería-de-datos.html"><a href="minería-de-datos.html#transformación"><i class="fa fa-check"></i><b>1.6.10</b> Transformación</a></li>
+<li class="chapter" data-level="1.6.11" data-path="minería-de-datos.html"><a href="minería-de-datos.html#definir-diseño-de-encuesta-por-muestreo"><i class="fa fa-check"></i><b>1.6.11</b> Definir diseño de encuesta por muestreo</a></li>
 </ul></li>
 <li class="chapter" data-level="1.7" data-path="minería-de-datos.html"><a href="minería-de-datos.html#imputación-de-variables"><i class="fa fa-check"></i><b>1.7</b> Imputación de variables</a><ul>
 <li class="chapter" data-level="1.7.1" data-path="minería-de-datos.html"><a href="minería-de-datos.html#la-falta-de-información-es-información"><i class="fa fa-check"></i><b>1.7.1</b> La falta de información es información</a></li>
@@ -171,6 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.7.7" data-path="minería-de-datos.html"><a href="minería-de-datos.html#influx-and-outflux"><i class="fa fa-check"></i><b>1.7.7</b> Influx and outflux</a></li>
 <li class="chapter" data-level="1.7.8" data-path="minería-de-datos.html"><a href="minería-de-datos.html#imputación-de-datos-monótonos"><i class="fa fa-check"></i><b>1.7.8</b> Imputación de datos monótonos</a></li>
 <li class="chapter" data-level="1.7.9" data-path="minería-de-datos.html"><a href="minería-de-datos.html#multivariate-imputation-by-chained-equations-mice"><i class="fa fa-check"></i><b>1.7.9</b> Multivariate Imputation by Chained Equations (mice)</a></li>
+<li class="chapter" data-level="1.7.10" data-path="minería-de-datos.html"><a href="minería-de-datos.html#en-r"><i class="fa fa-check"></i><b>1.7.10</b> En R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html"><i class="fa fa-check"></i><b>2</b> Modelado en Minería de datos</a><ul>
@@ -179,7 +181,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1.2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#visualización"><i class="fa fa-check"></i><b>2.1.2</b> Visualización</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#componentes-principales"><i class="fa fa-check"></i><b>2.2</b> Componentes Principales</a></li>
-<li class="chapter" data-level="2.3" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#análisis-de-correspondencia"><i class="fa fa-check"></i><b>2.3</b> Análisis de correspondencia</a></li>
+<li class="chapter" data-level="2.3" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#análisis-de-correspondencia"><i class="fa fa-check"></i><b>2.3</b> Análisis de correspondencia</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#un-ejemplo-de-correspondencia-simple-y-múltiple"><i class="fa fa-check"></i><b>2.3.1</b> Un ejemplo de correspondencia simple y múltiple</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>3</b> Clustering</a><ul>
 <li class="chapter" data-level="3.1" data-path="clustering.html"><a href="clustering.html#medidas-de-disimilaridad"><i class="fa fa-check"></i><b>3.1</b> Medidas de Disimilaridad</a><ul>
@@ -211,7 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.6" data-path="regresión.html"><a href="regresión.html#paso-6-predicir-a-partir-del-modelo"><i class="fa fa-check"></i><b>4.1.6</b> Paso 6: Predicir a partir del modelo</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="regresión.html"><a href="regresión.html#probit-y-logit"><i class="fa fa-check"></i><b>4.2</b> Probit y Logit</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="regresión.html"><a href="regresión.html#en-r"><i class="fa fa-check"></i><b>4.2.1</b> En R:</a></li>
+<li class="chapter" data-level="4.2.1" data-path="regresión.html"><a href="regresión.html#en-r-1"><i class="fa fa-check"></i><b>4.2.1</b> En R:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="clasificación.html"><a href="clasificación.html"><i class="fa fa-check"></i><b>5</b> Clasificación</a><ul>

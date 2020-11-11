@@ -142,7 +142,7 @@ Algoritmo
 2. Para cada observación calcular las distancia euclidiana (u otra) a los centroides y reasignar la observación en base a la menor distancia, re calcular los centroides en base a la re asignación de cada observación
 3. Repetir el paso 2 hasta que que ya no existan más re asignaciones
 
-```{r}
+```{r,eval=F}
 library(dplyr)
 load(url('https://raw.githubusercontent.com/AlvaroLimber/EST-383/master/data/oct20.RData'))
 # preparación de la base de datos
@@ -198,6 +198,7 @@ Ejemplo:
 
 
 ```{r}
+rm(list=ls())
 library(dplyr)
 set.seed(12345)
 bd<-data.frame(matrix(rnorm(1000),100,10))
@@ -239,6 +240,15 @@ bd$k<-c(1:k,sample(1:k,nf-k,replace = T))
 #3. Repetir el paso 2 hasta que que ya no existan más re asignaciones
   return(list(k=bd$k,centros=centros))
 }
+set.seed(12345)
+bdtest<-data.frame(matrix(rnorm(1000),100,10))
+mod1<-kcenter(bdtest,k=5)# media
+mod2<-kcenter(bdtest,k=5,centro = "mediana")
+mod3<-kmeans(bdtest,5)
+
+table(mod1$k)
+table(mod2$k)
+table(mod3$cluster)
 ```
 
 
@@ -289,8 +299,9 @@ kcenter<-function(bd,k=3,d=2,tipo="media",seed=123456){
 * Pensar en un gráfico que permita ver como se asignaron los cluster 
 
 ```{r}
-bd<-data.frame(x=rnorm(100),y=rnorm(100),z=rnorm(100))
-kcenter(bd,k=4,d=1,tipo="mediana")
+bdtest$k<-mod1$k
+head(bdtest)
+#componentes principales
 ```
 
 
@@ -310,10 +321,21 @@ $$s_i=\frac{b_i-a_i}{max(a_i,b_i)}$$
 Idealmente se espera que $a_i < b_i$ y los $a_i$ cercanos a $0$. 
 
 ```{r}
-library(cluster)
-kk<-kmeans(bd,3)
-s <- silhouette(kk$cluster, dist(bd))
-plot(s)
+  library(cluster)
+aux<-dist(bdtest[,1:10])
+#mod1
+s1<-silhouette(mod1$k,aux)
+#mod2
+s2<-silhouette(mod2$k,aux)
+#mod1
+s3<-silhouette(mod3$cluster,aux)
+##############################
+mean(s1[,3]);mean(s2[,3]);mean(s3[,3])
+
+plot(s1)
+plot(s2)
+plot(s3)
+
 #sobre la base IRIS
 data("iris")
 aux<-kmeans(iris[,-5],3)
@@ -324,17 +346,26 @@ plot(s)
 > Medoide: es el punto de datos que es "menos diferente" de todos los otros puntos de datos. A diferencia del centroide, el medoide tiene que ser uno de los puntos originales.
 
 ```{r}
-pam(bd,k=3)
-kmeans(bd,3)
+mod4<-pam(bdtest,k=5)
+mod4$medoids
+mod4$clustering
+
+aux<-dist(bdtest[,1:10])
+s4<-silhouette(mod4$clustering,aux)
+plot(s4)
+#iris
+aux2<-pam(iris[,-5],3)
+ss <- silhouette(aux2$clustering, dist(iris[,-5]))
+plot(ss)
 ```
 
-* ¿Cúal es el número óptimo de $k$? 
+* ¿Cuál es el número óptimo de $k$? 
 
 ```{r}
 library(fpc)# Flexible Procedures for Clustering
 sol <- pamk(iris[,-5], krange=2:10, criterion="asw", usepam=TRUE)
-sol
-pamk(bd,krange=2:10,usepam = T)
+sol$nc
+pamk(bdtest,krange=2:10,usepam = T)
 ```
 
 
@@ -381,9 +412,20 @@ dist(aux1)
 ```
 
 
+```{r,eval=F}
+# creando variables binarias (dummy)
+library(fastDummies)
+dummy_cols()
+crime <- data.frame(city = c("SF", "SF", "NYC"),
+    year = c(1990, 2000, 1990),
+    crime = 1:3)
+dummy_cols(crime, select_columns = c("city", "year"))
+```
+
+
 ### Distancias para variables mixtas (cuantitativas, nominales, ordinales)
 
-```{r}
+```{r,eval=F}
 library(cluster)
 data("flower")
 str(flower)
@@ -403,24 +445,53 @@ El objetivo es obtener una jerarquía de posibles soluciones que van desde un so
 ### Algoritmo (Johnson)
 
 1. Se inicia con $n$ grupos y se genera una matriz de $nxn$ de distancias, $D=\{d_{ik}\}$
-2. Buscar en la matriz de distancia los pares de cluster más cercanos entre ellos, "los cluster mas similares", si defifinimos los clusters $V$ y $U$, estamos interesados en encontrar $d_{UV}$
+2. Buscar en la matriz de distancia los pares de cluster más cercanos entre ellos, "los cluster mas similares", si definimos los clusters $V$ y $U$, estamos interesados en encontrar $d_{UV}$
 3. Unir los cluster $U$ y $V$, re etiquetar el nuevo cluster como $UV$. Actualizar la matriz de distancias a) remover las filas y columnas correspondientes a $U$ y $V$ b) incluimos las nuevas filas y columnas para el nuevo cluster $UV$.
 4. Repetimos el paso 2 y 3 un total de $n-1$ veces.
 
 El momento de definir el cluster más cercano, se puede emplear los siguientes enlaces:
 
 * Single linkage (Enlace simple): Se elige al cluster más cercano, con la regla de que las distincia individual entre las observaciones dentro de los clusters es la más corta 
-* Complete linkage (Enlace completo): Se elige el cluster mas cercano, con la regla que las distnaicas individuales entre las observaciones dentro de los cluster es la más larga
+* Complete linkage (Enlace completo): Se elige el cluster mas cercano, con la regla que las distancias individuales entre las observaciones dentro de los cluster es la más larga
 * Average linkage (Enlace promedio): Se elige el cluster mas cercano, considerando el promedio de las distancias entre los cluster.
 
->Nota: Se debe elegir la matriz de distancias acorde a la naturaleza de los datos, se recomienda:
+> Nota: Se debe elegir la matriz de distancias acorde a la naturaleza de los datos, se recomienda:
 
   * Todas Numéricas: Euclideana o Manhatan
   * Todas nominales: Transformación a binarias y usar la distancia binomial
   * Mixtas: Distancia de Gower
 
 
-```{r}
+```{r,eval=F}
+aux2<-matrix(rbinom(200,1,0.4),nrow = 20)
+md<-vegdist(aux2,binary = T)
+mod1<-hclust(md,method = "single")
+mod2<-hclust(md,method = "complete")
+mod3<-hclust(md,method = "average")
+#dendograma
+plot(mod1,main="single")
+plot(mod2,main="complete")
+plot(mod3,main="average")
+
+plot(mod1,main="single",hang = -0.1,cex=0.8)
+amod1<-cutree(mod1,5)
+amod2<-cutree(mod2,5)
+amod3<-cutree(mod3,5)
+
+plot(mod1,main="single",hang = -0.1,cex=0.8)
+rect.hclust(mod1,3)
+
+plot(mod2,main="complete",hang = -0.1,cex=0.8)
+rect.hclust(mod2,3)
+
+plot(mod3,main="average",hang = -0.1,cex=0.8)
+rect.hclust(mod3,4)
+
+plot(silhouette(amod1,md))
+plot(silhouette(amod2,md))
+plot(silhouette(amod3,md))
+
+
 d <- dist(scale(iris[,-5]))#euclideana
 h <- hclust(d)
 plot(h,hang=-0.1,labels=iris[["Species"]],cex=0.5)
@@ -432,7 +503,7 @@ rect.hclust(h,k=5)
 
 Probando los tres tipos de enlaces para $k=3$
 
-```{r}
+```{r,eval=F}
 hs <- hclust(d,method = "single")
 hc <- hclust(d,method = "complete")
 ha <- hclust(d,method = "average")

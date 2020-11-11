@@ -24,7 +24,7 @@
 <meta name="author" content="Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2020-08-31" />
+<meta name="date" content="2020-11-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,7 +159,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.6.7" data-path="minería-de-datos.html"><a href="minería-de-datos.html#ejercicio-reshape"><i class="fa fa-check"></i><b>1.6.7</b> Ejercicio (reshape)</a></li>
 <li class="chapter" data-level="1.6.8" data-path="minería-de-datos.html"><a href="minería-de-datos.html#limpieza-fechas"><i class="fa fa-check"></i><b>1.6.8</b> Limpieza (fechas)</a></li>
 <li class="chapter" data-level="1.6.9" data-path="minería-de-datos.html"><a href="minería-de-datos.html#limpieza-string"><i class="fa fa-check"></i><b>1.6.9</b> Limpieza (String)</a></li>
-<li class="chapter" data-level="1.6.10" data-path="minería-de-datos.html"><a href="minería-de-datos.html#transfomración"><i class="fa fa-check"></i><b>1.6.10</b> Transfomración</a></li>
+<li class="chapter" data-level="1.6.10" data-path="minería-de-datos.html"><a href="minería-de-datos.html#transformación"><i class="fa fa-check"></i><b>1.6.10</b> Transformación</a></li>
+<li class="chapter" data-level="1.6.11" data-path="minería-de-datos.html"><a href="minería-de-datos.html#definir-diseño-de-encuesta-por-muestreo"><i class="fa fa-check"></i><b>1.6.11</b> Definir diseño de encuesta por muestreo</a></li>
 </ul></li>
 <li class="chapter" data-level="1.7" data-path="minería-de-datos.html"><a href="minería-de-datos.html#imputación-de-variables"><i class="fa fa-check"></i><b>1.7</b> Imputación de variables</a><ul>
 <li class="chapter" data-level="1.7.1" data-path="minería-de-datos.html"><a href="minería-de-datos.html#la-falta-de-información-es-información"><i class="fa fa-check"></i><b>1.7.1</b> La falta de información es información</a></li>
@@ -171,6 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.7.7" data-path="minería-de-datos.html"><a href="minería-de-datos.html#influx-and-outflux"><i class="fa fa-check"></i><b>1.7.7</b> Influx and outflux</a></li>
 <li class="chapter" data-level="1.7.8" data-path="minería-de-datos.html"><a href="minería-de-datos.html#imputación-de-datos-monótonos"><i class="fa fa-check"></i><b>1.7.8</b> Imputación de datos monótonos</a></li>
 <li class="chapter" data-level="1.7.9" data-path="minería-de-datos.html"><a href="minería-de-datos.html#multivariate-imputation-by-chained-equations-mice"><i class="fa fa-check"></i><b>1.7.9</b> Multivariate Imputation by Chained Equations (mice)</a></li>
+<li class="chapter" data-level="1.7.10" data-path="minería-de-datos.html"><a href="minería-de-datos.html#en-r"><i class="fa fa-check"></i><b>1.7.10</b> En R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html"><i class="fa fa-check"></i><b>2</b> Modelado en Minería de datos</a><ul>
@@ -179,7 +181,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1.2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#visualización"><i class="fa fa-check"></i><b>2.1.2</b> Visualización</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#componentes-principales"><i class="fa fa-check"></i><b>2.2</b> Componentes Principales</a></li>
-<li class="chapter" data-level="2.3" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#análisis-de-correspondencia"><i class="fa fa-check"></i><b>2.3</b> Análisis de correspondencia</a></li>
+<li class="chapter" data-level="2.3" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#análisis-de-correspondencia"><i class="fa fa-check"></i><b>2.3</b> Análisis de correspondencia</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#un-ejemplo-de-correspondencia-simple-y-múltiple"><i class="fa fa-check"></i><b>2.3.1</b> Un ejemplo de correspondencia simple y múltiple</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>3</b> Clustering</a><ul>
 <li class="chapter" data-level="3.1" data-path="clustering.html"><a href="clustering.html#medidas-de-disimilaridad"><i class="fa fa-check"></i><b>3.1</b> Medidas de Disimilaridad</a><ul>
@@ -211,7 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.6" data-path="regresión.html"><a href="regresión.html#paso-6-predicir-a-partir-del-modelo"><i class="fa fa-check"></i><b>4.1.6</b> Paso 6: Predicir a partir del modelo</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="regresión.html"><a href="regresión.html#probit-y-logit"><i class="fa fa-check"></i><b>4.2</b> Probit y Logit</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="regresión.html"><a href="regresión.html#en-r"><i class="fa fa-check"></i><b>4.2.1</b> En R:</a></li>
+<li class="chapter" data-level="4.2.1" data-path="regresión.html"><a href="regresión.html#en-r-1"><i class="fa fa-check"></i><b>4.2.1</b> En R:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="clasificación.html"><a href="clasificación.html"><i class="fa fa-check"></i><b>5</b> Clasificación</a><ul>
@@ -274,116 +278,129 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="resumen-de-los-datos" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Resumen de los datos</h3>
-<p>Dado el tamaño de las bases de datos resulta imposible o muy dificil conocer todas sus propiedad, el resumen de los datos intenta brindar propiedades claves de los datos, estas propiedades podrian ser:</p>
+<p>Dado el tamaño de las bases de datos resulta imposible o muy difícil conocer todas sus propiedad, el resumen de los datos intenta brindar propiedades claves de los datos, estas propiedades podrían ser:</p>
 <ul>
-<li>Cual es el valor mas comun</li>
-<li>Cuan variable o dispersa esta la informacion</li>
-<li>Existen valores extraños o inesparedaps en la base de datos</li>
-<li>Los datos siguen alguna distribucion</li>
+<li>Cual es el valor más común</li>
+<li>Cuan variable o dispersa esta la información</li>
+<li>Existen valores extraños o inesperados en la base de datos</li>
+<li>Los datos siguen alguna distribución</li>
 </ul>
-<p>A continuación se emplea la encuesta a hogares 2018 para ir respondiendo estas preguntas.</p>
-<p>En cuanto a los valores mas comunes, la media y la mediana de los datos son suficientes para las variables cuantitativas, mientra que para variables cualitativas, las categorias mas frecuentes son una buena opción.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="modelado-en-minería-de-datos.html#cb44-1"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/eh18.Rdata&quot;</span>))</span>
-<span id="cb44-2"><a href="modelado-en-minería-de-datos.html#cb44-2"></a><span class="co"># media de edad</span></span>
-<span id="cb44-3"><a href="modelado-en-minería-de-datos.html#cb44-3"></a><span class="kw">mean</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
-<pre><code>## [1] 29.59059</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="modelado-en-minería-de-datos.html#cb46-1"></a><span class="co">#mediana de edad</span></span>
-<span id="cb46-2"><a href="modelado-en-minería-de-datos.html#cb46-2"></a><span class="kw">median</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
+<p>A continuación se emplea la encuesta a hogares 2019 para ir respondiendo estas preguntas.</p>
+<p>En cuanto a los valores mas comunes, la media y la mediana de los datos son suficientes para las variables cuantitativas, mientra que para variables cualitativas, las categorías mas frecuentes son una buena opción.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="modelado-en-minería-de-datos.html#cb185-1"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/eh19.RData&quot;</span>))</span>
+<span id="cb185-2"><a href="modelado-en-minería-de-datos.html#cb185-2"></a><span class="co"># media de edad</span></span>
+<span id="cb185-3"><a href="modelado-en-minería-de-datos.html#cb185-3"></a><span class="kw">mean</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
+<pre><code>## [1] 29.69211</code></pre>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="modelado-en-minería-de-datos.html#cb187-1"></a><span class="co">#mediana de edad</span></span>
+<span id="cb187-2"><a href="modelado-en-minería-de-datos.html#cb187-2"></a><span class="kw">median</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
 <pre><code>## [1] 26</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="modelado-en-minería-de-datos.html#cb48-1"></a><span class="co"># para las categorias mas frecuentes</span></span>
-<span id="cb48-2"><a href="modelado-en-minería-de-datos.html#cb48-2"></a><span class="kw">library</span>(DMwR2)</span></code></pre></div>
-<pre><code>## Registered S3 method overwritten by &#39;quantmod&#39;:
-##   method            from
-##   as.zoo.data.frame zoo</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="modelado-en-minería-de-datos.html#cb50-1"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="modelado-en-minería-de-datos.html#cb54-1"></a><span class="co">#para el sexo</span></span>
-<span id="cb54-2"><a href="modelado-en-minería-de-datos.html#cb54-2"></a><span class="kw">centralValue</span>(eh18p<span class="op">$</span>s02a_<span class="dv">02</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="modelado-en-minería-de-datos.html#cb189-1"></a><span class="co"># para las categorías más frecuentes</span></span>
+<span id="cb189-2"><a href="modelado-en-minería-de-datos.html#cb189-2"></a><span class="kw">library</span>(DMwR2)</span>
+<span id="cb189-3"><a href="modelado-en-minería-de-datos.html#cb189-3"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb189-4"><a href="modelado-en-minería-de-datos.html#cb189-4"></a><span class="co">#para la edad</span></span>
+<span id="cb189-5"><a href="modelado-en-minería-de-datos.html#cb189-5"></a><span class="kw">centralValue</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
+<pre><code>## [1] 26</code></pre>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="modelado-en-minería-de-datos.html#cb191-1"></a><span class="co">#para el sexo</span></span>
+<span id="cb191-2"><a href="modelado-en-minería-de-datos.html#cb191-2"></a><span class="kw">centralValue</span>(eh19p<span class="op">$</span>s02a_<span class="dv">02</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2.Mujer&quot;</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="modelado-en-minería-de-datos.html#cb56-1"></a><span class="co">#para el departamento </span></span>
-<span id="cb56-2"><a href="modelado-en-minería-de-datos.html#cb56-2"></a><span class="kw">centralValue</span>(eh18p<span class="op">$</span>depto)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="modelado-en-minería-de-datos.html#cb193-1"></a><span class="co">#para el departamento </span></span>
+<span id="cb193-2"><a href="modelado-en-minería-de-datos.html#cb193-2"></a><span class="kw">centralValue</span>(eh19p<span class="op">$</span>depto)</span></code></pre></div>
 <pre><code>## [1] &quot;La Paz&quot;</code></pre>
-<p>A veces es mejor ver los resultados por grupos, por ejemplo, podemos verlo por departamento y area.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="modelado-en-minería-de-datos.html#cb58-1"></a>eh18p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">mean</span>(s02a_<span class="dv">03</span>),<span class="kw">median</span>(s02a_<span class="dv">03</span>),<span class="kw">centralValue</span>(s02a_<span class="dv">02</span>),<span class="kw">n</span>())</span></code></pre></div>
-<pre><code>## `summarise()` regrouping output by &#39;depto&#39; (override with `.groups` argument)</code></pre>
-<pre><code>## # A tibble: 18 x 6
-## # Groups:   depto [9]
-##    depto  area  `mean(s02a_03)` `median(s02a_03~ `centralValue(s~ `n()`
-##    &lt;fct&gt;  &lt;fct&gt;           &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;            &lt;int&gt;
-##  1 Chuqu~ Urba~            28.7             24   2.Mujer           1116
-##  2 Chuqu~ Rural            31.0             27   2.Mujer           1001
-##  3 La Paz Urba~            30.4             27   2.Mujer           8716
-##  4 La Paz Rural            34.3             31   2.Mujer           1254
-##  5 Cocha~ Urba~            30.4             27   2.Mujer           6398
-##  6 Cocha~ Rural            31.1             27.5 1.Hombre          1180
-##  7 Oruro  Urba~            28.7             26   2.Mujer           1456
-##  8 Oruro  Rural            36.4             34   2.Mujer            732
-##  9 Potosí Urba~            26.1             23   2.Mujer            939
-## 10 Potosí Rural            35.6             34.5 2.Mujer            916
-## 11 Tarija Urba~            29.4             27   2.Mujer           2170
-## 12 Tarija Rural            29.7             27   2.Mujer            918
-## 13 Santa~ Urba~            27.8             25   2.Mujer           5694
-## 14 Santa~ Rural            29.9             26   1.Hombre           867
-## 15 Beni   Urba~            26.8             22   2.Mujer           1866
-## 16 Beni   Rural            26.0             19   1.Hombre           650
-## 17 Pando  Urba~            25.5             23   1.Hombre           857
-## 18 Pando  Rural            22.6             18   1.Hombre           787</code></pre>
+<p>A veces es mejor ver los resultados por grupos, por ejemplo, podemos verlo por departamento y área.</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="modelado-en-minería-de-datos.html#cb195-1"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area,p0) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">media_edad=</span><span class="kw">mean</span>(s02a_<span class="dv">03</span>),<span class="dt">mediana_edad=</span><span class="kw">median</span>(s02a_<span class="dv">03</span>),<span class="kw">centralValue</span>(s02a_<span class="dv">02</span>),<span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by &#39;depto&#39;, &#39;area&#39; (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 43 x 7
+## # Groups:   depto, area [18]
+##    depto   area   p0    media_edad mediana_edad `centralValue(s0~ `n()`
+##    &lt;fct&gt;   &lt;fct&gt;  &lt;fct&gt;      &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;             &lt;int&gt;
+##  1 Chuqui~ Urbana No p~       32.5         28   2.Mujer             987
+##  2 Chuqui~ Urbana Pobre       24.6         20   2.Mujer             832
+##  3 Chuqui~ Urbana &lt;NA&gt;        14           14   2.Mujer               1
+##  4 Chuqui~ Rural  No p~       35.6         35.5 1.Hombre            436
+##  5 Chuqui~ Rural  Pobre       32.0         26   2.Mujer             876
+##  6 Chuqui~ Rural  &lt;NA&gt;        51           51   2.Mujer               1
+##  7 La Paz  Urbana No p~       33.9         30.5 2.Mujer            5356
+##  8 La Paz  Urbana Pobre       25.7         21   2.Mujer            3246
+##  9 La Paz  Urbana &lt;NA&gt;        28.9         29.5 2.Mujer              14
+## 10 La Paz  Rural  No p~       35.1         30.5 1.Hombre            480
+## # ... with 33 more rows</code></pre>
 <p>La función n() realiza un proceso de conteo.</p>
-<p>De forma similar podemos hacer para las medidas de variabilidad, las mas comunes la desviacion estandar, el rango, el rango intercuartil y los cuantiles. Usando la eh18 para la edad y el ingreso laboral.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="modelado-en-minería-de-datos.html#cb61-1"></a><span class="co">##EDAD</span></span>
-<span id="cb61-2"><a href="modelado-en-minería-de-datos.html#cb61-2"></a><span class="co"># Desviacion estandar</span></span>
-<span id="cb61-3"><a href="modelado-en-minería-de-datos.html#cb61-3"></a><span class="kw">sd</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
-<pre><code>## [1] 20.97181</code></pre>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="modelado-en-minería-de-datos.html#cb63-1"></a><span class="co"># Rango</span></span>
-<span id="cb63-2"><a href="modelado-en-minería-de-datos.html#cb63-2"></a><span class="kw">range</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
+<p>De forma similar podemos hacer para las medidas de variabilidad, las mas comunes la desviación estándar, el rango, el rango intercuartil y los cuantiles. Usando la eh19 para la edad y el ingreso laboral.</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="modelado-en-minería-de-datos.html#cb198-1"></a><span class="co">##EDAD</span></span>
+<span id="cb198-2"><a href="modelado-en-minería-de-datos.html#cb198-2"></a><span class="co"># Desviacion estandar</span></span>
+<span id="cb198-3"><a href="modelado-en-minería-de-datos.html#cb198-3"></a><span class="kw">sd</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
+<pre><code>## [1] 21.05689</code></pre>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="modelado-en-minería-de-datos.html#cb200-1"></a><span class="co"># Rango</span></span>
+<span id="cb200-2"><a href="modelado-en-minería-de-datos.html#cb200-2"></a><span class="kw">range</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
 <pre><code>## [1]  0 98</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="modelado-en-minería-de-datos.html#cb65-1"></a><span class="co"># Rango intercuartil</span></span>
-<span id="cb65-2"><a href="modelado-en-minería-de-datos.html#cb65-2"></a><span class="kw">IQR</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="modelado-en-minería-de-datos.html#cb202-1"></a><span class="co"># Rango intercuartil</span></span>
+<span id="cb202-2"><a href="modelado-en-minería-de-datos.html#cb202-2"></a><span class="kw">IQR</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
 <pre><code>## [1] 32</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="modelado-en-minería-de-datos.html#cb67-1"></a><span class="co"># Quantiles</span></span>
-<span id="cb67-2"><a href="modelado-en-minería-de-datos.html#cb67-2"></a><span class="kw">quantile</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="modelado-en-minería-de-datos.html#cb204-1"></a><span class="co"># Quantiles</span></span>
+<span id="cb204-2"><a href="modelado-en-minería-de-datos.html#cb204-2"></a><span class="kw">quantile</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
 <pre><code>##   0%  25%  50%  75% 100% 
 ##    0   12   26   44   98</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="modelado-en-minería-de-datos.html#cb69-1"></a><span class="kw">quantile</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>,<span class="kw">c</span>(<span class="fl">0.10</span>,<span class="fl">0.90</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="modelado-en-minería-de-datos.html#cb206-1"></a><span class="kw">quantile</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>,<span class="kw">c</span>(<span class="fl">0.10</span>,<span class="fl">0.90</span>))</span></code></pre></div>
 <pre><code>## 10% 90% 
 ##   5  61</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="modelado-en-minería-de-datos.html#cb71-1"></a><span class="co">##INGRESO LABORAL</span></span>
-<span id="cb71-2"><a href="modelado-en-minería-de-datos.html#cb71-2"></a><span class="co"># Desviacion estandar</span></span>
-<span id="cb71-3"><a href="modelado-en-minería-de-datos.html#cb71-3"></a><span class="kw">sd</span>(eh18p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</span></code></pre></div>
-<pre><code>## [1] 2242.593</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="modelado-en-minería-de-datos.html#cb73-1"></a><span class="co"># Rango</span></span>
-<span id="cb73-2"><a href="modelado-en-minería-de-datos.html#cb73-2"></a><span class="kw">range</span>(eh18p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</span></code></pre></div>
-<pre><code>## [1]     4.166667 36196.667969</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="modelado-en-minería-de-datos.html#cb75-1"></a><span class="co"># Rango intercuartil</span></span>
-<span id="cb75-2"><a href="modelado-en-minería-de-datos.html#cb75-2"></a><span class="kw">IQR</span>(eh18p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</span></code></pre></div>
-<pre><code>## [1] 2397</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="modelado-en-minería-de-datos.html#cb77-1"></a><span class="co"># Quantiles</span></span>
-<span id="cb77-2"><a href="modelado-en-minería-de-datos.html#cb77-2"></a><span class="kw">quantile</span>(eh18p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</span></code></pre></div>
-<pre><code>##           0%          25%          50%          75%         100% 
-##     4.166667  1500.000000  2554.699951  3897.000000 36196.667969</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="modelado-en-minería-de-datos.html#cb79-1"></a><span class="kw">quantile</span>(eh18p<span class="op">$</span>s02a_<span class="dv">03</span>,<span class="dt">probs=</span><span class="kw">c</span>(<span class="fl">0.10</span>,<span class="fl">0.90</span>),<span class="dt">na.rm =</span> T)</span></code></pre></div>
-<pre><code>## 10% 90% 
-##   5  61</code></pre>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="modelado-en-minería-de-datos.html#cb81-1"></a><span class="co">##por departamento y area</span></span>
-<span id="cb81-2"><a href="modelado-en-minería-de-datos.html#cb81-2"></a><span class="kw">tapply</span>(eh18p<span class="op">$</span>ylab,<span class="kw">list</span>(eh18p<span class="op">$</span>depto,eh18p<span class="op">$</span>area),sd,<span class="dt">na.rm=</span>T)<span class="co">#opcion1</span></span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="modelado-en-minería-de-datos.html#cb208-1"></a><span class="co">##INGRESO LABORAL</span></span>
+<span id="cb208-2"><a href="modelado-en-minería-de-datos.html#cb208-2"></a><span class="co"># Desviacion estandar</span></span>
+<span id="cb208-3"><a href="modelado-en-minería-de-datos.html#cb208-3"></a><span class="kw">sd</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</span></code></pre></div>
+<pre><code>## [1] 2470.079</code></pre>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="modelado-en-minería-de-datos.html#cb210-1"></a><span class="co"># Rango</span></span>
+<span id="cb210-2"><a href="modelado-en-minería-de-datos.html#cb210-2"></a><span class="kw">range</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</span></code></pre></div>
+<pre><code>## [1]    10.00 32916.67</code></pre>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="modelado-en-minería-de-datos.html#cb212-1"></a><span class="co"># Rango intercuartil</span></span>
+<span id="cb212-2"><a href="modelado-en-minería-de-datos.html#cb212-2"></a><span class="kw">IQR</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</span></code></pre></div>
+<pre><code>## [1] 2583.5</code></pre>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="modelado-en-minería-de-datos.html#cb214-1"></a><span class="co"># Quantiles</span></span>
+<span id="cb214-2"><a href="modelado-en-minería-de-datos.html#cb214-2"></a><span class="kw">quantile</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</span></code></pre></div>
+<pre><code>##       0%      25%      50%      75%     100% 
+##    10.00  1416.50  2598.00  4000.00 32916.67</code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="modelado-en-minería-de-datos.html#cb216-1"></a><span class="kw">quantile</span>(eh19p<span class="op">$</span>ylab,<span class="dt">probs=</span><span class="kw">c</span>(<span class="fl">0.10</span>,<span class="fl">0.90</span>),<span class="dt">na.rm =</span> T)</span></code></pre></div>
+<pre><code>##       10%       90% 
+##  649.2667 5984.3335</code></pre>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="modelado-en-minería-de-datos.html#cb218-1"></a><span class="co">##por departamento y area</span></span>
+<span id="cb218-2"><a href="modelado-en-minería-de-datos.html#cb218-2"></a><span class="kw">tapply</span>(eh19p<span class="op">$</span>ylab,<span class="kw">list</span>(eh19p<span class="op">$</span>depto,eh19p<span class="op">$</span>area),sd,<span class="dt">na.rm=</span>T)<span class="co">#opcion1</span></span></code></pre></div>
 <pre><code>##              Urbana    Rural
-## Chuquisaca 2586.058 1735.306
-## La Paz     2154.421 1703.794
-## Cochabamba 2313.400 1654.140
-## Oruro      2425.280 1622.623
-## Potosí     2308.412 1534.399
-## Tarija     2287.537 2142.638
-## Santa Cruz 2156.938 2134.006
-## Beni       2419.952 1809.108
-## Pando      1778.112 2050.242</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="modelado-en-minería-de-datos.html#cb83-1"></a><span class="kw">tapply</span>(eh18p<span class="op">$</span>ylab,<span class="kw">list</span>(eh18p<span class="op">$</span>depto,eh18p<span class="op">$</span>area),quantile,<span class="dt">na.rm=</span>T)<span class="co">#con problemas</span></span></code></pre></div>
+## Chuquisaca 2774.932 2088.921
+## La Paz     2246.716 1848.078
+## Cochabamba 2403.059 1684.063
+## Oruro      2539.094 1970.399
+## Potosí     2227.650 2880.285
+## Tarija     2515.370 1893.959
+## Santa Cruz 2702.120 2076.687
+## Beni       2735.839 1639.508
+## Pando      2661.182 2043.595</code></pre>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="modelado-en-minería-de-datos.html#cb220-1"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">sd</span>(ylab,<span class="dt">na.rm=</span>T),<span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by &#39;depto&#39; (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 18 x 4
+## # Groups:   depto [9]
+##    depto      area   `sd(ylab, na.rm = T)` `n()`
+##    &lt;fct&gt;      &lt;fct&gt;                  &lt;dbl&gt; &lt;int&gt;
+##  1 Chuquisaca Urbana                 2775.  1820
+##  2 Chuquisaca Rural                  2089.  1313
+##  3 La Paz     Urbana                 2247.  8616
+##  4 La Paz     Rural                  1848.  1097
+##  5 Cochabamba Urbana                 2403.  6251
+##  6 Cochabamba Rural                  1684.  1186
+##  7 Oruro      Urbana                 2539.  1804
+##  8 Oruro      Rural                  1970.   967
+##  9 Potosí     Urbana                 2228.  1208
+## 10 Potosí     Rural                  2880.  1159
+## 11 Tarija     Urbana                 2515.  2313
+## 12 Tarija     Rural                  1894.   844
+## 13 Santa Cruz Urbana                 2702.  6043
+## 14 Santa Cruz Rural                  2077.   838
+## 15 Beni       Urbana                 2736.  1634
+## 16 Beni       Rural                  1640.   609
+## 17 Pando      Urbana                 2661.  1059
+## 18 Pando      Rural                  2044.   844</code></pre>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="modelado-en-minería-de-datos.html#cb223-1"></a>t1&lt;-eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">quantile</span>(ylab,<span class="dt">na.rm=</span>T))</span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by &#39;depto&#39;, &#39;area&#39; (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="modelado-en-minería-de-datos.html#cb225-1"></a><span class="kw">View</span>(t1)</span>
+<span id="cb225-2"><a href="modelado-en-minería-de-datos.html#cb225-2"></a></span>
+<span id="cb225-3"><a href="modelado-en-minería-de-datos.html#cb225-3"></a><span class="kw">tapply</span>(eh19p<span class="op">$</span>ylab,<span class="kw">list</span>(eh19p<span class="op">$</span>depto,eh19p<span class="op">$</span>area),quantile,<span class="dt">na.rm=</span>T)<span class="co">#con problemas</span></span></code></pre></div>
 <pre><code>##            Urbana    Rural    
 ## Chuquisaca Numeric,5 Numeric,5
 ## La Paz     Numeric,5 Numeric,5
@@ -394,219 +411,366 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Santa Cruz Numeric,5 Numeric,5
 ## Beni       Numeric,5 Numeric,5
 ## Pando      Numeric,5 Numeric,5</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="modelado-en-minería-de-datos.html#cb85-1"></a><span class="kw">aggregate</span>(eh18p<span class="op">$</span>ylab,<span class="kw">list</span>(<span class="dt">depto=</span>eh18p<span class="op">$</span>depto,<span class="dt">area=</span>eh18p<span class="op">$</span>area),quantile,<span class="dt">na.rm=</span>T)</span></code></pre></div>
-<pre><code>##         depto   area         x.0%        x.25%        x.50%
-## 1  Chuquisaca Urbana    39.583336  1317.083344  2598.000000
-## 2      La Paz Urbana     6.666667  1732.000000  2650.000000
-## 3  Cochabamba Urbana    80.000000  1850.833374  2700.000000
-## 4       Oruro Urbana    15.000000  1608.679932  2598.000000
-## 5      Potosí Urbana   160.000000  1724.750000  3064.550049
-## 6      Tarija Urbana    86.599998  1794.533325  2814.500000
-## 7  Santa Cruz Urbana    80.000000  2121.699951  2976.875000
-## 8        Beni Urbana    50.000000  1729.834961  2500.000000
-## 9       Pando Urbana   250.000000  2475.000000  3291.666748
-## 10 Chuquisaca  Rural    36.666668   519.599976  1012.489990
-## 11     La Paz  Rural    12.500000   300.000000   825.000000
-## 12 Cochabamba  Rural    23.333334   523.649994  1590.000061
-## 13      Oruro  Rural    19.166668   286.458336   653.916687
-## 14     Potosí  Rural    25.833334   225.000000   516.250000
-## 15     Tarija  Rural     4.166667   995.883316  1967.666687
-## 16 Santa Cruz  Rural    66.666672  1230.000000  2262.250000
-## 17       Beni  Rural   100.000000   705.000000  1800.000000
-## 18      Pando  Rural    80.000000  1207.500000  2167.500000
-##           x.75%       x.100%
-## 1   4369.449707 16123.333008
-## 2   3897.000000 23437.484375
-## 3   4000.000000 36196.667969
-## 4   4330.000000 16166.666992
-## 5   4500.000000 14072.500000
-## 6   4330.000000 21833.000000
-## 7   4156.799805 35668.664062
-## 8   4105.924927 22700.000000
-## 9   4538.041748 11367.666016
-## 10  2078.399902 10120.000000
-## 11  2249.166748 15433.333008
-## 12  2598.000000 10825.000000
-## 13  2051.324982 10175.500000
-## 14  1435.208374  7333.333496
-## 15  3366.749939 16730.000000
-## 16  3167.366516 22465.667969
-## 17  3500.000000  7577.500000
-## 18  3449.133362 19750.000000</code></pre>
-<p>Finalmente, para explorar a fondo las variables la funcion describe es bastante útil, tambien, el comando summary.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="modelado-en-minería-de-datos.html#cb87-1"></a><span class="co">#analizando las 5 primeras variables de la base de datos</span></span>
-<span id="cb87-2"><a href="modelado-en-minería-de-datos.html#cb87-2"></a><span class="kw">library</span>(Hmisc)</span></code></pre></div>
-<pre><code>## Loading required package: lattice</code></pre>
-<pre><code>## Loading required package: survival</code></pre>
-<pre><code>## Loading required package: Formula</code></pre>
-<pre><code>## Loading required package: ggplot2</code></pre>
-<pre><code>## 
-## Attaching package: &#39;Hmisc&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="modelado-en-minería-de-datos.html#cb227-1"></a><span class="kw">aggregate</span>(eh19p<span class="op">$</span>ylab,<span class="kw">list</span>(<span class="dt">depto=</span>eh19p<span class="op">$</span>depto,<span class="dt">area=</span>eh19p<span class="op">$</span>area),quantile,<span class="dt">na.rm=</span>T)</span></code></pre></div>
+<pre><code>##         depto   area        x.0%       x.25%       x.50%       x.75%
+## 1  Chuquisaca Urbana    83.33334  1206.58752  2355.00000  3597.50000
+## 2      La Paz Urbana    10.00000  1739.75000  2793.92493  4156.79980
+## 3  Cochabamba Urbana    96.66667  1796.00000  2800.00000  4141.66675
+## 4       Oruro Urbana    25.00000  1515.50000  2811.76001  4330.00000
+## 5      Potosí Urbana    66.66667  1500.00000  2598.00000  4000.00000
+## 6      Tarija Urbana    41.66667  1732.00000  2736.56006  4333.33350
+## 7  Santa Cruz Urbana    60.00000  2035.09998  3000.00000  4409.60010
+## 8        Beni Urbana   151.55000  2036.87497  2734.00000  4185.83325
+## 9       Pando Urbana   216.50000  2121.27496  3101.66663  4568.69824
+## 10 Chuquisaca  Rural    26.66667   333.33334   842.91672  2079.63330
+## 11     La Paz  Rural    20.00000   342.16667  1057.08337  2549.61664
+## 12 Cochabamba  Rural    11.66667   705.83337  1550.00000  2705.00012
+## 13      Oruro  Rural    33.33334   389.69998  1034.59998  2537.50000
+## 14     Potosí  Rural    25.00000   625.00000   993.75000  2691.66669
+## 15     Tarija  Rural    41.66667   722.79167  1630.63000  3031.00000
+## 16 Santa Cruz  Rural    45.00000  1213.70834  2381.50000  3809.99994
+## 17       Beni  Rural   133.33334  1500.00000  2416.13989  3199.66663
+## 18      Pando  Rural   150.00000  1500.00000  2592.75000  4100.00000
+##         x.100%
+## 1  32916.66797
+## 2  23916.66602
+## 3  30000.00000
+## 4  30000.00000
+## 5  15900.00000
+## 6  20000.00000
+## 7  24500.00000
+## 8  22389.00000
+## 9  20000.00000
+## 10 14750.00000
+## 11 14433.43262
+## 12 12549.16699
+## 13 14283.33301
+## 14 24216.66602
+## 15 11150.58301
+## 16 12561.33008
+## 17  8000.00000
+## 18 12340.50000</code></pre>
+<p>Finalmente, para explorar a fondo las variables la función describe es bastante útil, también, el comando summary.</p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="modelado-en-minería-de-datos.html#cb229-1"></a><span class="co">#analizando las 5 primeras variables de la base de datos</span></span>
+<span id="cb229-2"><a href="modelado-en-minería-de-datos.html#cb229-2"></a><span class="kw">library</span>(Hmisc)</span>
+<span id="cb229-3"><a href="modelado-en-minería-de-datos.html#cb229-3"></a><span class="kw">describe</span>(eh19p[,<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</span></code></pre></div>
+<pre><code>## eh19p[, 1:10] 
 ## 
-##     src, summarize</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     format.pval, units</code></pre>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="modelado-en-minería-de-datos.html#cb95-1"></a><span class="kw">describe</span>(eh18p[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</span></code></pre></div>
-<pre><code>## eh18p[, 1:5] 
-## 
-##  5  Variables      37517  Observations
+##  10  Variables      39605  Observations
 ## -----------------------------------------------------------------------
 ## folio 
 ##        n  missing distinct 
-##    37517        0    11195 
+##    39605        0    11869 
 ## 
-## lowest : 111-00419704629-A-0011 111-00419704629-A-0021 111-00419704629-A-0041 111-00419704629-A-0051 111-00419704629-A-0071
-## highest: 953-11761951198-D-0081 953-11761951198-D-0091 953-11761951198-D-0101 953-11761951198-D-0111 953-11761951198-D-0121
-## -----------------------------------------------------------------------
-## nro 
-##        n  missing distinct     Info     Mean      Gmd      .05 
-##    37517        0       13    0.948    2.639    1.712        1 
-##      .10      .25      .50      .75      .90      .95 
-##        1        1        2        4        5        6 
-## 
-## lowest :  1  2  3  4  5, highest:  9 10 11 12 13
-##                                                                       
-## Value          1     2     3     4     5     6     7     8     9    10
-## Frequency  11195  9399  7215  4892  2654  1230   536   231   110    39
-## Proportion 0.298 0.251 0.192 0.130 0.071 0.033 0.014 0.006 0.003 0.001
-##                             
-## Value         11    12    13
-## Frequency     13     2     1
-## Proportion 0.000 0.000 0.000
+## lowest : 111-00416110273-A-0021 111-00416110273-A-0031 111-00416110273-A-0051 111-00416110273-A-0071 111-00416110273-A-0091
+## highest: 953-12108090472-A-0021 953-12108090472-A-0031 953-12108090472-A-0051 953-12108090472-A-0061 953-12108090472-A-0071
 ## -----------------------------------------------------------------------
 ## depto 
 ##        n  missing distinct 
-##    37517        0        9 
+##    39605        0        9 
 ## 
 ## lowest : Chuquisaca La Paz     Cochabamba Oruro      Potosí    
 ## highest: Potosí     Tarija     Santa Cruz Beni       Pando     
 ##                                                                  
 ## Value      Chuquisaca     La Paz Cochabamba      Oruro     Potosí
-## Frequency        2117       9970       7578       2188       1855
-## Proportion      0.056      0.266      0.202      0.058      0.049
+## Frequency        3133       9713       7437       2771       2367
+## Proportion      0.079      0.245      0.188      0.070      0.060
 ##                                                       
 ## Value          Tarija Santa Cruz       Beni      Pando
-## Frequency        3088       6561       2516       1644
-## Proportion      0.082      0.175      0.067      0.044
+## Frequency        3157       6881       2243       1903
+## Proportion      0.080      0.174      0.057      0.048
 ## -----------------------------------------------------------------------
 ## area 
 ##        n  missing distinct 
-##    37517        0        2 
+##    39605        0        2 
 ##                         
 ## Value      Urbana  Rural
-## Frequency   29212   8305
-## Proportion  0.779  0.221
+## Frequency   30748   8857
+## Proportion  0.776  0.224
+## -----------------------------------------------------------------------
+## nro 
+##        n  missing distinct     Info     Mean      Gmd      .05 
+##    39605        0       15    0.948    2.636    1.709        1 
+##      .10      .25      .50      .75      .90      .95 
+##        1        1        2        4        5        6 
+## 
+## lowest :  1  2  3  4  5, highest: 11 12 13 14 15
+##                                                                       
+## Value          1     2     3     4     5     6     7     8     9    10
+## Frequency  11869  9879  7555  5211  2847  1307   551   232    98    31
+## Proportion 0.300 0.249 0.191 0.132 0.072 0.033 0.014 0.006 0.002 0.001
+##                                         
+## Value         11    12    13    14    15
+## Frequency     15     5     3     1     1
+## Proportion 0.000 0.000 0.000 0.000 0.000
 ## -----------------------------------------------------------------------
 ## s02a_02 
 ##        n  missing distinct 
-##    37517        0        2 
+##    39605        0        2 
 ##                             
 ## Value      1.Hombre  2.Mujer
-## Frequency     18419    19098
-## Proportion    0.491    0.509
+## Frequency     19295    20310
+## Proportion    0.487    0.513
+## -----------------------------------------------------------------------
+## s02a_03 
+##        n  missing distinct     Info     Mean      Gmd      .05 
+##    39605        0       99        1    29.69    23.76        2 
+##      .10      .25      .50      .75      .90      .95 
+##        5       12       26       44       61       69 
+## 
+## lowest :  0  1  2  3  4, highest: 94 95 96 97 98
+## -----------------------------------------------------------------------
+## s02a_04a 
+##        n  missing distinct     Info     Mean      Gmd      .05 
+##    39605        0       31    0.999    15.36     10.1        2 
+##      .10      .25      .50      .75      .90      .95 
+##        3        8       15       23       28       29 
+## 
+## lowest :  1  2  3  4  5, highest: 27 28 29 30 31
+## -----------------------------------------------------------------------
+## s02a_04b 
+##        n  missing distinct     Info     Mean      Gmd      .05 
+##    39605        0       12    0.993    6.568    3.919        1 
+##      .10      .25      .50      .75      .90      .95 
+##        2        4        7       10       11       12 
+## 
+## lowest :  1  2  3  4  5, highest:  8  9 10 11 12
+##                                                                       
+## Value          1     2     3     4     5     6     7     8     9    10
+## Frequency   3190  2936  3258  3259  3489  3255  3337  3564  3348  3491
+## Proportion 0.081 0.074 0.082 0.082 0.088 0.082 0.084 0.090 0.085 0.088
+##                       
+## Value         11    12
+## Frequency   3364  3114
+## Proportion 0.085 0.079
+## -----------------------------------------------------------------------
+## s02a_04c 
+##        n  missing distinct     Info     Mean      Gmd      .05 
+##    39605        0      100        1     1989    23.77     1950 
+##      .10      .25      .50      .75      .90      .95 
+##     1958     1974     1993     2007     2014     2016 
+## 
+## lowest : 1920 1921 1922 1923 1924, highest: 2015 2016 2017 2018 2019
+## -----------------------------------------------------------------------
+## s02a_05 
+##        n  missing distinct 
+##    39605        0       13 
+## 
+## lowest : 1.JEFE O JEFA DEL HOGAR                 2.ESPOSA/O O CONVIVIENTE                3.HIJO/A O ENTENADO/A                   4.HIJO/A ADOPTADO/A                     5.YERNO O NUERA                        
+## highest: 9.NIETO/NIETA                           10.OTRO PARIENTE                        11.OTRO QUE NO ES PARIENTE              12.EMPLEADA/O DEL HOGAR CAMA ADENTRO    13.PARIENTE DE LA  EMPLEADA/O DEL HOGAR
 ## -----------------------------------------------------------------------</code></pre>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="modelado-en-minería-de-datos.html#cb97-1"></a><span class="kw">summary</span>(eh18p<span class="op">$</span>ylab)</span></code></pre></div>
-<pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA&#39;s 
-##     4.17  1500.00  2554.70  2959.39  3897.00 36196.67    22852</code></pre>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="modelado-en-minería-de-datos.html#cb99-1"></a><span class="kw">by</span>(eh18p[,<span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;p0&quot;</span>,<span class="st">&quot;s02a_03&quot;</span>)],eh18p<span class="op">$</span>area,summary)</span></code></pre></div>
-<pre><code>## eh18p$area: Urbana
-##       ylab                 p0           s02a_03     
-##  Min.   :    6.67   No Pobre:21225   Min.   : 0.00  
-##  1st Qu.: 1839.08   Pobre   : 7971   1st Qu.:13.00  
-##  Median : 2788.52   NA&#39;s    :   16   Median :26.00  
-##  Mean   : 3238.21                    Mean   :29.17  
-##  3rd Qu.: 4082.50                    3rd Qu.:43.00  
-##  Max.   :36196.67                    Max.   :98.00  
-##  NA&#39;s   :17573                                      
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="modelado-en-minería-de-datos.html#cb231-1"></a><span class="kw">summary</span>(eh19p<span class="op">$</span>ylab)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##      10    1416    2598    3075    4000   32917   23816</code></pre>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="modelado-en-minería-de-datos.html#cb233-1"></a><span class="kw">by</span>(eh19p[,<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>],eh19p<span class="op">$</span>area,summary)</span></code></pre></div>
+<pre><code>## eh19p$area: Urbana
+##     folio                  depto          area            nro        
+##  Length:30748       La Paz    :8616   Urbana:30748   Min.   : 1.000  
+##  Class :character   Cochabamba:6251   Rural :    0   1st Qu.: 1.000  
+##  Mode  :character   Santa Cruz:6043                  Median : 2.000  
+##                     Tarija    :2313                  Mean   : 2.626  
+##                     Chuquisaca:1820                  3rd Qu.: 4.000  
+##                     Oruro     :1804                  Max.   :15.000  
+##                     (Other)   :3901                                  
+##      s02a_02         s02a_03         s02a_04a        s02a_04b     
+##  1.Hombre:14893   Min.   : 0.00   Min.   : 1.00   Min.   : 1.000  
+##  2.Mujer :15855   1st Qu.:12.00   1st Qu.: 8.00   1st Qu.: 4.000  
+##                   Median :26.00   Median :15.00   Median : 7.000  
+##                   Mean   :29.27   Mean   :15.41   Mean   : 6.553  
+##                   3rd Qu.:43.00   3rd Qu.:23.00   3rd Qu.:10.000  
+##                   Max.   :98.00   Max.   :31.00   Max.   :12.000  
+##                                                                   
+##     s02a_04c                        s02a_05     
+##  Min.   :1920   3.HIJO/A O ENTENADO/A   :13795  
+##  1st Qu.:1976   1.JEFE O JEFA DEL HOGAR : 9086  
+##  Median :1993   2.ESPOSA/O O CONVIVIENTE: 5508  
+##  Mean   :1990   9.NIETO/NIETA           : 1055  
+##  3rd Qu.:2006   6.HERMANO/A O CUÑADO/A  :  379  
+##  Max.   :2019   7.PADRES                :  247  
+##                 (Other)                 :  678  
 ## ----------------------------------------------------- 
-## eh18p$area: Rural
-##       ylab                  p0          s02a_03     
-##  Min.   :    4.167   No Pobre:4049   Min.   : 0.00  
-##  1st Qu.:  476.392   Pobre   :4254   1st Qu.:11.00  
-##  Median : 1300.000   NA&#39;s    :   2   Median :27.00  
-##  Mean   : 1886.938                   Mean   :31.06  
-##  3rd Qu.: 2657.667                   3rd Qu.:49.00  
-##  Max.   :22465.668                   Max.   :98.00  
-##  NA&#39;s   :5279</code></pre>
+## eh19p$area: Rural
+##     folio                  depto          area           nro        
+##  Length:8857        Chuquisaca:1313   Urbana:   0   Min.   : 1.000  
+##  Class :character   Cochabamba:1186   Rural :8857   1st Qu.: 1.000  
+##  Mode  :character   Potosí    :1159                 Median : 2.000  
+##                     La Paz    :1097                 Mean   : 2.671  
+##                     Oruro     : 967                 3rd Qu.: 4.000  
+##                     Tarija    : 844                 Max.   :13.000  
+##                     (Other)   :2291                                 
+##      s02a_02        s02a_03         s02a_04a        s02a_04b    
+##  1.Hombre:4402   Min.   : 0.00   Min.   : 1.00   Min.   : 1.00  
+##  2.Mujer :4455   1st Qu.:11.00   1st Qu.: 8.00   1st Qu.: 4.00  
+##                  Median :27.00   Median :15.00   Median : 7.00  
+##                  Mean   :31.16   Mean   :15.15   Mean   : 6.62  
+##                  3rd Qu.:50.00   3rd Qu.:23.00   3rd Qu.:10.00  
+##                  Max.   :98.00   Max.   :31.00   Max.   :12.00  
+##                                                                 
+##     s02a_04c                        s02a_05    
+##  Min.   :1921   3.HIJO/A O ENTENADO/A   :3603  
+##  1st Qu.:1969   1.JEFE O JEFA DEL HOGAR :2783  
+##  Median :1992   2.ESPOSA/O O CONVIVIENTE:1797  
+##  Mean   :1988   9.NIETO/NIETA           : 320  
+##  3rd Qu.:2008   6.HERMANO/A O CUÑADO/A  :  73  
+##  Max.   :2019   7.PADRES                :  71  
+##                 (Other)                 : 210</code></pre>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="modelado-en-minería-de-datos.html#cb235-1"></a><span class="kw">by</span>(eh19p[,<span class="kw">c</span>(<span class="st">&quot;depto&quot;</span>,<span class="st">&quot;ylab&quot;</span>)],eh19p<span class="op">$</span>area,describe)</span></code></pre></div>
+<pre><code>## eh19p$area: Urbana
+## data[x, , drop = FALSE] 
+## 
+##  2  Variables      30748  Observations
+## -----------------------------------------------------------------------
+## depto 
+##        n  missing distinct 
+##    30748        0        9 
+## 
+## lowest : Chuquisaca La Paz     Cochabamba Oruro      Potosí    
+## highest: Potosí     Tarija     Santa Cruz Beni       Pando     
+##                                                                  
+## Value      Chuquisaca     La Paz Cochabamba      Oruro     Potosí
+## Frequency        1820       8616       6251       1804       1208
+## Proportion      0.059      0.280      0.203      0.059      0.039
+##                                                       
+## Value          Tarija Santa Cruz       Beni      Pando
+## Frequency        2313       6043       1634       1059
+## Proportion      0.075      0.197      0.053      0.034
+## -----------------------------------------------------------------------
+## ylab 
+##        n  missing distinct     Info     Mean      Gmd      .05 
+##    12417    18331     3796        1     3339     2454    600.0 
+##      .10      .25      .50      .75      .90      .95 
+##    952.6   1792.0   2800.0   4200.1   6200.0   7903.3 
+## 
+## lowest :    10.00000    11.66667    16.66667    25.00000    35.00000
+## highest: 24083.33398 24491.41602 24500.00000 30000.00000 32916.66797
+## -----------------------------------------------------------------------
+## ----------------------------------------------------- 
+## eh19p$area: Rural
+## data[x, , drop = FALSE] 
+## 
+##  2  Variables      8857  Observations
+## -----------------------------------------------------------------------
+## depto 
+##        n  missing distinct 
+##     8857        0        9 
+## 
+## lowest : Chuquisaca La Paz     Cochabamba Oruro      Potosí    
+## highest: Potosí     Tarija     Santa Cruz Beni       Pando     
+##                                                                  
+## Value      Chuquisaca     La Paz Cochabamba      Oruro     Potosí
+## Frequency        1313       1097       1186        967       1159
+## Proportion      0.148      0.124      0.134      0.109      0.131
+##                                                       
+## Value          Tarija Santa Cruz       Beni      Pando
+## Frequency         844        838        609        844
+## Proportion      0.095      0.095      0.069      0.095
+## -----------------------------------------------------------------------
+## ylab 
+##        n  missing distinct     Info     Mean      Gmd      .05 
+##     3372     5485     1588        1     2103     2100    142.6 
+##      .10      .25      .50      .75      .90      .95 
+##    233.3    600.0   1499.5   2994.8   4750.0   6158.1 
+## 
+## lowest :    11.66667    20.00000    25.00000    26.66667    30.83333
+## highest: 14433.43262 14750.00000 18599.50781 22545.50000 24216.66602
+## -----------------------------------------------------------------------</code></pre>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="modelado-en-minería-de-datos.html#cb237-1"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">n</span>(),<span class="kw">mean</span>(s02a_<span class="dv">03</span>))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##   depto      `n()` `mean(s02a_03)`
+##   &lt;fct&gt;      &lt;int&gt;           &lt;dbl&gt;
+## 1 Chuquisaca  3133            30.7
+## 2 La Paz      9713            30.9
+## 3 Cochabamba  7437            29.8
+## 4 Oruro       2771            32.8
+## 5 Potosí      2367            30.7
+## 6 Tarija      3157            29.2
+## 7 Santa Cruz  6881            28.6
+## 8 Beni        2243            25.9
+## 9 Pando       1903            24.8</code></pre>
 </div>
 <div id="visualización" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Visualización</h3>
-<p>La visualizacion es una herramienta importante para explorar y entender la base de datos. Los seres humanos son excelentes para capturar patrones visuales, y la visualización de datos intenta capitalizar en estas habilidades. Es util diferenciar las visualizaciones por:</p>
+<p>La visualización es una herramienta importante para explorar y entender la base de datos. Los seres humanos son excelentes para capturar patrones visuales, y la visualización de datos intenta capitalizar en estas habilidades. Es útil diferenciar las visualizaciones por:</p>
 <ul>
-<li>Una sola varibles</li>
+<li>Una sola variables</li>
 <li>Dos variables</li>
 <li>Multiples variables</li>
 </ul>
-<p>Los aspetor vinculados al uso de graficos de origen de R y la libreria ggplot pueden verse en el texto guia de EST-183 “BigData”. A continuación se introducen de forma directa funciones en R orientadas a la visualización univariante, bivariante y multivariante.</p>
-<p>Usando al EH-2018, para variables cualitativas.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="modelado-en-minería-de-datos.html#cb101-1"></a><span class="co">#Graficos de origen de R</span></span>
-<span id="cb101-2"><a href="modelado-en-minería-de-datos.html#cb101-2"></a><span class="kw">barplot</span>(<span class="kw">table</span>(eh18p<span class="op">$</span>s03a_01a),<span class="dt">main=</span><span class="st">&quot;Dónde vivia hace 5 años?&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="modelado-en-minería-de-datos.html#cb102-1"></a><span class="co">#GGPLOT</span></span>
-<span id="cb102-2"><a href="modelado-en-minería-de-datos.html#cb102-2"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb102-3"><a href="modelado-en-minería-de-datos.html#cb102-3"></a><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(<span class="dt">x=</span>s03a_01a))<span class="op">+</span><span class="kw">geom_bar</span>()<span class="op">+</span><span class="kw">ggtitle</span>(<span class="st">&quot;Dónde vivia hace 5 años?&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-13-2.png" width="672" /></p>
+<p>Los aspectos vinculados al uso de gráficos de origen de R y la librería ggplot pueden verse en el texto guía de EST-383 “BigData”. A continuación se introducen de forma directa funciones en R orientadas a la visualización univariante, bivariante y multivariante.</p>
+<p>Usando al EH-2019, para variables cualitativas.</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="modelado-en-minería-de-datos.html#cb240-1"></a><span class="co">#Gráficos de origen de R</span></span>
+<span id="cb240-2"><a href="modelado-en-minería-de-datos.html#cb240-2"></a><span class="kw">barplot</span>(<span class="kw">table</span>(eh19p<span class="op">$</span>s03a_01a),<span class="dt">main=</span><span class="st">&quot;Dónde vivia hace 5 años?&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="modelado-en-minería-de-datos.html#cb241-1"></a><span class="co">#GGPLOT</span></span>
+<span id="cb241-2"><a href="modelado-en-minería-de-datos.html#cb241-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb241-3"><a href="modelado-en-minería-de-datos.html#cb241-3"></a><span class="kw">ggplot</span>(eh19p,<span class="kw">aes</span>(<span class="dt">x=</span>s03a_01a))<span class="op">+</span><span class="kw">geom_bar</span>()<span class="op">+</span><span class="kw">ggtitle</span>(<span class="st">&quot;Dónde vivia hace 5 años?&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-2.png" width="672" /></p>
 <p>Para variables del tipo cuantitativas</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="modelado-en-minería-de-datos.html#cb103-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb103-2"><a href="modelado-en-minería-de-datos.html#cb103-2"></a><span class="kw">boxplot</span>(eh18p<span class="op">$</span>ylab)</span>
-<span id="cb103-3"><a href="modelado-en-minería-de-datos.html#cb103-3"></a><span class="kw">hist</span>(eh18p<span class="op">$</span>ylab)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="modelado-en-minería-de-datos.html#cb104-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="modelado-en-minería-de-datos.html#cb242-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb242-2"><a href="modelado-en-minería-de-datos.html#cb242-2"></a><span class="kw">boxplot</span>(eh19p<span class="op">$</span>ylab)</span>
+<span id="cb242-3"><a href="modelado-en-minería-de-datos.html#cb242-3"></a><span class="kw">hist</span>(eh19p<span class="op">$</span>ylab)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="modelado-en-minería-de-datos.html#cb243-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
 <pre><code>## null device 
 ##           1</code></pre>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="modelado-en-minería-de-datos.html#cb106-1"></a><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(ylab))<span class="op">+</span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 22852 rows containing non-finite values
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="modelado-en-minería-de-datos.html#cb245-1"></a><span class="kw">ggplot</span>(eh19p,<span class="kw">aes</span>(ylab))<span class="op">+</span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 23816 rows containing non-finite values
 ## (stat_boxplot).</code></pre>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="modelado-en-minería-de-datos.html#cb108-1"></a><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(ylab))<span class="op">+</span><span class="kw">geom_histogram</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="modelado-en-minería-de-datos.html#cb247-1"></a><span class="kw">ggplot</span>(eh19p,<span class="kw">aes</span>(ylab))<span class="op">+</span><span class="kw">geom_histogram</span>()</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<pre><code>## Warning: Removed 22852 rows containing non-finite values (stat_bin).</code></pre>
+<pre><code>## Warning: Removed 23816 rows containing non-finite values (stat_bin).</code></pre>
 <p>Si ahora queremos comparar usar ambas variables cuanti y cuali</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="modelado-en-minería-de-datos.html#cb111-1"></a><span class="kw">boxplot</span>(eh18p<span class="op">$</span>ylab<span class="op">~</span>eh18p<span class="op">$</span>s03a_01a)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="modelado-en-minería-de-datos.html#cb112-1"></a><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(<span class="dt">x=</span>s03a_01a,<span class="dt">y=</span>ylab))<span class="op">+</span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 22852 rows containing non-finite values
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="modelado-en-minería-de-datos.html#cb250-1"></a><span class="kw">boxplot</span>(eh19p<span class="op">$</span>ylab<span class="op">~</span>eh19p<span class="op">$</span>s03a_01a)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="modelado-en-minería-de-datos.html#cb251-1"></a><span class="kw">ggplot</span>(eh19p,<span class="kw">aes</span>(<span class="dt">x=</span>s03a_01a,<span class="dt">y=</span>ylab))<span class="op">+</span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 23816 rows containing non-finite values
 ## (stat_boxplot).</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-15-2.png" width="672" /></p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="modelado-en-minería-de-datos.html#cb114-1"></a><span class="kw">ggplot</span>(eh18p,<span class="kw">aes</span>(<span class="dt">x=</span>s03a_01a,<span class="dt">y=</span>ylab))<span class="op">+</span><span class="kw">geom_violin</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 22852 rows containing non-finite values
+<p><img src="_main_files/figure-html/unnamed-chunk-28-2.png" width="672" /></p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="modelado-en-minería-de-datos.html#cb253-1"></a><span class="kw">ggplot</span>(eh19p,<span class="kw">aes</span>(<span class="dt">x=</span>s03a_01a,<span class="dt">y=</span>ylab))<span class="op">+</span><span class="kw">geom_violin</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 23816 rows containing non-finite values
 ## (stat_ydensity).</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-15-3.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-3.png" width="672" /></p>
 <p>Usando ambas variables cuantitativas</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="modelado-en-minería-de-datos.html#cb116-1"></a><span class="kw">plot</span>(eh18p<span class="op">$</span>tothrs,eh18p<span class="op">$</span>ylab)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="modelado-en-minería-de-datos.html#cb117-1"></a><span class="kw">plot</span>(eh18p[,<span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>,<span class="st">&quot;aestudio&quot;</span>)])</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-16-2.png" width="672" /></p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="modelado-en-minería-de-datos.html#cb118-1"></a><span class="co">#pairs(eh18p[,c(&quot;ylab&quot;,&quot;tothrs&quot;,&quot;aestudio&quot;)]) similar al anterior</span></span>
-<span id="cb118-2"><a href="modelado-en-minería-de-datos.html#cb118-2"></a><span class="kw">library</span>(GGally)</span>
-<span id="cb118-3"><a href="modelado-en-minería-de-datos.html#cb118-3"></a><span class="kw">ggpairs</span>(eh18p,<span class="dt">columns =</span> <span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>,<span class="st">&quot;aestudio&quot;</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-16-3.png" width="672" /></p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="modelado-en-minería-de-datos.html#cb119-1"></a><span class="kw">library</span>(ggridges)</span>
-<span id="cb119-2"><a href="modelado-en-minería-de-datos.html#cb119-2"></a><span class="co"># basic example</span></span>
-<span id="cb119-3"><a href="modelado-en-minería-de-datos.html#cb119-3"></a><span class="kw">ggplot</span>(eh18p[eh18p<span class="op">$</span>s02a_<span class="dv">03</span><span class="op">&gt;=</span><span class="dv">15</span>,], <span class="kw">aes</span>(<span class="dt">x =</span> ylab, <span class="dt">y =</span> s02a_<span class="dv">02</span>, <span class="dt">fill =</span> s02a_<span class="dv">02</span>)) <span class="op">+</span></span>
-<span id="cb119-4"><a href="modelado-en-minería-de-datos.html#cb119-4"></a><span class="st">  </span><span class="kw">geom_density_ridges</span>() <span class="op">+</span></span>
-<span id="cb119-5"><a href="modelado-en-minería-de-datos.html#cb119-5"></a><span class="st">  </span><span class="kw">theme_ridges</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb119-6"><a href="modelado-en-minería-de-datos.html#cb119-6"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)<span class="op">+</span></span>
-<span id="cb119-7"><a href="modelado-en-minería-de-datos.html#cb119-7"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Ingreso laboral por sexo, personas de 15 años o más&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-16-4.png" width="672" /></p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="modelado-en-minería-de-datos.html#cb255-1"></a><span class="kw">plot</span>(eh19p<span class="op">$</span>tothrs,eh19p<span class="op">$</span>ylab)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="modelado-en-minería-de-datos.html#cb256-1"></a><span class="kw">plot</span>(eh19p[,<span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>,<span class="st">&quot;aestudio&quot;</span>)])</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-2.png" width="672" /></p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="modelado-en-minería-de-datos.html#cb257-1"></a><span class="co">#pairs(eh18p[,c(&quot;ylab&quot;,&quot;tothrs&quot;,&quot;aestudio&quot;)]) similar al anterior</span></span>
+<span id="cb257-2"><a href="modelado-en-minería-de-datos.html#cb257-2"></a><span class="kw">library</span>(GGally)</span>
+<span id="cb257-3"><a href="modelado-en-minería-de-datos.html#cb257-3"></a><span class="kw">ggpairs</span>(eh19p,<span class="dt">columns =</span> <span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>,<span class="st">&quot;aestudio&quot;</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-3.png" width="672" /></p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="modelado-en-minería-de-datos.html#cb258-1"></a><span class="kw">library</span>(ggridges)</span>
+<span id="cb258-2"><a href="modelado-en-minería-de-datos.html#cb258-2"></a><span class="kw">ggplot</span>(eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(s02a_<span class="dv">03</span><span class="op">&gt;=</span><span class="dv">15</span> <span class="op">&amp;</span><span class="st"> </span>ylab<span class="op">&lt;</span><span class="dv">10000</span>), <span class="kw">aes</span>(<span class="dt">x =</span> ylab, <span class="dt">y =</span> s02a_<span class="dv">02</span>, <span class="dt">fill =</span> s02a_<span class="dv">02</span>)) <span class="op">+</span></span>
+<span id="cb258-3"><a href="modelado-en-minería-de-datos.html#cb258-3"></a><span class="st">  </span><span class="kw">geom_density_ridges</span>() <span class="op">+</span></span>
+<span id="cb258-4"><a href="modelado-en-minería-de-datos.html#cb258-4"></a><span class="st">  </span><span class="kw">theme_ridges</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb258-5"><a href="modelado-en-minería-de-datos.html#cb258-5"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)<span class="op">+</span></span>
+<span id="cb258-6"><a href="modelado-en-minería-de-datos.html#cb258-6"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Ingreso laboral por sexo, personas de 15 años o más&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-4.png" width="672" /></p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="modelado-en-minería-de-datos.html#cb259-1"></a><span class="kw">ggplot</span>(eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(s02a_<span class="dv">03</span><span class="op">&gt;=</span><span class="dv">15</span> <span class="op">&amp;</span><span class="st"> </span>ylab<span class="op">&lt;</span><span class="dv">10000</span>), <span class="kw">aes</span>(<span class="dt">x =</span> ylab, <span class="dt">y =</span> depto, <span class="dt">fill =</span> depto)) <span class="op">+</span></span>
+<span id="cb259-2"><a href="modelado-en-minería-de-datos.html#cb259-2"></a><span class="st">  </span><span class="kw">geom_density_ridges</span>() <span class="op">+</span></span>
+<span id="cb259-3"><a href="modelado-en-minería-de-datos.html#cb259-3"></a><span class="st">  </span><span class="kw">theme_ridges</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb259-4"><a href="modelado-en-minería-de-datos.html#cb259-4"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)<span class="op">+</span></span>
+<span id="cb259-5"><a href="modelado-en-minería-de-datos.html#cb259-5"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Ingreso laboral por departamento, personas de 15 años o más&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-5.png" width="672" /></p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="modelado-en-minería-de-datos.html#cb260-1"></a><span class="kw">ggplot</span>(eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(s02a_<span class="dv">03</span><span class="op">&gt;=</span><span class="dv">15</span> <span class="op">&amp;</span><span class="st"> </span>ylab<span class="op">&lt;</span><span class="dv">10000</span>), <span class="kw">aes</span>(<span class="dt">x =</span> ylab, <span class="dt">y =</span> area, <span class="dt">fill =</span> area)) <span class="op">+</span></span>
+<span id="cb260-2"><a href="modelado-en-minería-de-datos.html#cb260-2"></a><span class="st">  </span><span class="kw">geom_density_ridges</span>() <span class="op">+</span></span>
+<span id="cb260-3"><a href="modelado-en-minería-de-datos.html#cb260-3"></a><span class="st">  </span><span class="kw">theme_ridges</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb260-4"><a href="modelado-en-minería-de-datos.html#cb260-4"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)<span class="op">+</span></span>
+<span id="cb260-5"><a href="modelado-en-minería-de-datos.html#cb260-5"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Ingreso laboral por rural, personas de 15 años o más&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-6.png" width="672" /></p>
 <p>Ahora si combinamos variables cuanti y cuali con ggpairs.</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="modelado-en-minería-de-datos.html#cb120-1"></a><span class="kw">ggpairs</span>(eh18p,<span class="dt">columns =</span> <span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>,<span class="st">&quot;s03a_01a&quot;</span>,<span class="st">&quot;area&quot;</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="modelado-en-minería-de-datos.html#cb261-1"></a><span class="kw">ggpairs</span>(eh19p,<span class="dt">columns =</span> <span class="kw">c</span>(<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>,<span class="st">&quot;s03a_01a&quot;</span>,<span class="st">&quot;area&quot;</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <p>Alternativas Multivariantes,</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="modelado-en-minería-de-datos.html#cb121-1"></a><span class="co">#trabajando a partir de una muestra de 100 individuos</span></span>
-<span id="cb121-2"><a href="modelado-en-minería-de-datos.html#cb121-2"></a>s&lt;-<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(eh18p)[<span class="dv">1</span>],<span class="dv">100</span>)</span>
-<span id="cb121-3"><a href="modelado-en-minería-de-datos.html#cb121-3"></a>i&lt;-<span class="kw">match</span>(<span class="kw">c</span>(<span class="st">&quot;s02a_03&quot;</span>,<span class="st">&quot;aestudio&quot;</span>,<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>),<span class="kw">names</span>(eh18p))</span>
-<span id="cb121-4"><a href="modelado-en-minería-de-datos.html#cb121-4"></a><span class="kw">ggparcoord</span>(eh18p[s,],<span class="dt">columns =</span> i,<span class="dt">groupColumn =</span> <span class="st">&quot;area&quot;</span>,<span class="dt">boxplot=</span>T)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="modelado-en-minería-de-datos.html#cb122-1"></a><span class="kw">library</span>(<span class="st">&quot;TeachingDemos&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;TeachingDemos&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:Hmisc&#39;:
-## 
-##     cnvrt.coords, subplot</code></pre>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="modelado-en-minería-de-datos.html#cb125-1"></a><span class="kw">faces</span>(<span class="kw">na.omit</span>(eh18p[s,i]))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-18-2.png" width="672" /></p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="modelado-en-minería-de-datos.html#cb262-1"></a><span class="co">#trabajando a partir de una muestra de 100 individuos</span></span>
+<span id="cb262-2"><a href="modelado-en-minería-de-datos.html#cb262-2"></a>s&lt;-<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(eh19p)[<span class="dv">1</span>],<span class="dv">100</span>)</span>
+<span id="cb262-3"><a href="modelado-en-minería-de-datos.html#cb262-3"></a>i&lt;-<span class="kw">match</span>(<span class="kw">c</span>(<span class="st">&quot;s02a_03&quot;</span>,<span class="st">&quot;aestudio&quot;</span>,<span class="st">&quot;ylab&quot;</span>,<span class="st">&quot;tothrs&quot;</span>),<span class="kw">names</span>(eh19p))</span>
+<span id="cb262-4"><a href="modelado-en-minería-de-datos.html#cb262-4"></a><span class="kw">ggparcoord</span>(eh19p[s,],<span class="dt">columns =</span> i,<span class="dt">groupColumn =</span> <span class="st">&quot;area&quot;</span>,<span class="dt">boxplot=</span>T)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="modelado-en-minería-de-datos.html#cb263-1"></a><span class="kw">library</span>(<span class="st">&quot;TeachingDemos&quot;</span>)</span>
+<span id="cb263-2"><a href="modelado-en-minería-de-datos.html#cb263-2"></a><span class="kw">faces</span>(<span class="kw">na.omit</span>(eh19p[s,i]))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-31-2.png" width="672" /></p>
 </div>
 </div>
 <div id="componentes-principales" class="section level2">
@@ -686,39 +850,489 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
                                    &amp;   &amp; Var(a_i^{&#39;}X) \quad \text{sujeto a} \quad a_i^{&#39;} a_i=1 \quad y \\                                                    &amp;   &amp; Cov(a_i^{&#39;}X,a_k^{&#39;}X)=0 \quad para \quad k&lt;i             
 \end{array}
 \]</span></p>
-<p>Los pasos sugeridos para iniciar el analisis de componentes principales son:</p>
+<p><span class="math display">\[\Sigma_{(pxp)}= A_{(p*p)} \Lambda_{(p*p)} A^t_{(p*p)}  \]</span>
+El aspecto central de componentes principales es trabajar con menos variables, sea <span class="math inline">\(m&lt;p\)</span>, el método de componentes busca a partir de <span class="math inline">\(m\)</span>, los siguiente:</p>
+<p><span class="math display">\[\Sigma_{(pxp)} \approx  A_{(p*m)} \Lambda_{(m*m)} A^t_{(m*p)}\]</span></p>
+<p>Los pasos sugeridos para iniciar el análisis de componentes principales son:</p>
 <ol style="list-style-type: decimal">
 <li>Identificar las variables de interés dentro de la matriz de datos, si las variables tienen las mismas escalas se recomienda emplear la matriz de covarianza, si las escalas son diferentes, se recomienda trabajar con la matriz de correlaciones.</li>
 <li>Obtener los componentes principales, los eigen valores y la matriz de eigen vectores</li>
-<li>Eliminar las variables rebundantes, se sugiere identificar las variables del conjunto de datos correlacionadas con los últimos componentes</li>
-<li>Calcular nuevamente los componentes principales expluyendo las variables identificadas en el paso previo</li>
-<li>Elegir el número de componentes a retener (scree plot, tamaño de los eigen valores, etc)</li>
-<li>Analizar los resultados</li>
+<li>(Opcional) Eliminar las variables redundantes,</li>
 </ol>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="modelado-en-minería-de-datos.html#cb126-1"></a><span class="co">#1. Seleccione una base de datos de interés del repositorio </span></span>
-<span id="cb126-2"><a href="modelado-en-minería-de-datos.html#cb126-2"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/blob/master/data/oct20.RData?raw=true&quot;</span>))</span>
-<span id="cb126-3"><a href="modelado-en-minería-de-datos.html#cb126-3"></a><span class="co">#2. Seleccione las variables para el PCA (Según la motivación) </span></span>
-<span id="cb126-4"><a href="modelado-en-minería-de-datos.html#cb126-4"></a>vv&lt;-<span class="kw">c</span>(<span class="dv">14</span><span class="op">:</span><span class="dv">22</span>,<span class="dv">24</span>,<span class="dv">25</span>)</span>
-<span id="cb126-5"><a href="modelado-en-minería-de-datos.html#cb126-5"></a><span class="co">#2A TRANFORMAR </span></span>
-<span id="cb126-6"><a href="modelado-en-minería-de-datos.html#cb126-6"></a>vval&lt;-<span class="kw">apply</span>(computo[,vv],<span class="dv">1</span>,sum)</span>
-<span id="cb126-7"><a href="modelado-en-minería-de-datos.html#cb126-7"></a>aux&lt;-computo[,vv]<span class="op">/</span>vval</span>
-<span id="cb126-8"><a href="modelado-en-minería-de-datos.html#cb126-8"></a><span class="co">#2B LIMPIEZA </span></span>
-<span id="cb126-9"><a href="modelado-en-minería-de-datos.html#cb126-9"></a><span class="co">#3. Calcule el PCA</span></span>
-<span id="cb126-10"><a href="modelado-en-minería-de-datos.html#cb126-10"></a>aux1&lt;-<span class="kw">na.omit</span>(aux)</span>
-<span id="cb126-11"><a href="modelado-en-minería-de-datos.html#cb126-11"></a>cp1&lt;-<span class="kw">eigen</span>(<span class="kw">cov</span>(aux1))</span>
-<span id="cb126-12"><a href="modelado-en-minería-de-datos.html#cb126-12"></a>cp2&lt;-<span class="kw">eigen</span>(<span class="kw">cor</span>(aux1))</span>
-<span id="cb126-13"><a href="modelado-en-minería-de-datos.html#cb126-13"></a><span class="co">#4. Identifique el número de CPs que explican hasta el 90% de la varianza</span></span>
-<span id="cb126-14"><a href="modelado-en-minería-de-datos.html#cb126-14"></a><span class="kw">cumsum</span>(cp1<span class="op">$</span>values)<span class="op">/</span><span class="kw">sum</span>(cp1<span class="op">$</span>values) </span></code></pre></div>
+<ul>
+<li>se sugiere identificar las variables del conjunto de datos correlacionadas con los últimos componentes.</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Calcular nuevamente los componentes principales excluyendo las variables identificadas en el paso previo</li>
+<li>Elegir el número de componentes a retener <span class="math inline">\(m\)</span> (scree plot, tamaño de los eigen valores, etc)</li>
+<li>Analizar los resultados y usar los componentes</li>
+</ol>
+<p>Usos de componentes principales.</p>
+<ul>
+<li>Detección de valores atípicos</li>
+<li>Identificación de posibles factores</li>
+<li>Los primeros componentes se pueden usar como indicadores</li>
+<li>Eliminan la multicolinealidad de un modelo de regresión múltiple</li>
+</ul>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="modelado-en-minería-de-datos.html#cb264-1"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/blob/master/data/oct20.RData?raw=true&quot;</span>))</span>
+<span id="cb264-2"><a href="modelado-en-minería-de-datos.html#cb264-2"></a><span class="kw">names</span>(computo)[<span class="dv">18</span>]&lt;-<span class="st">&quot;MAS&quot;</span></span>
+<span id="cb264-3"><a href="modelado-en-minería-de-datos.html#cb264-3"></a></span>
+<span id="cb264-4"><a href="modelado-en-minería-de-datos.html#cb264-4"></a>bd&lt;-computo <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(País<span class="op">==</span><span class="st">&quot;Bolivia&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Elección==<span class="st">&quot;Presidente y Vicepresidente&quot;</span>)</span>
+<span id="cb264-5"><a href="modelado-en-minería-de-datos.html#cb264-5"></a></span>
+<span id="cb264-6"><a href="modelado-en-minería-de-datos.html#cb264-6"></a>bdmun&lt;-bd <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Departamento,Provincia,Municipio) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise_at</span>(<span class="kw">vars</span>(Inscritos<span class="op">:</span>Nulos),sum)</span>
+<span id="cb264-7"><a href="modelado-en-minería-de-datos.html#cb264-7"></a></span>
+<span id="cb264-8"><a href="modelado-en-minería-de-datos.html#cb264-8"></a>bdmun[,<span class="dv">5</span><span class="op">:</span><span class="dv">13</span>]&lt;-<span class="kw">prop.table</span>(<span class="kw">as.matrix</span>(bdmun[,<span class="dv">5</span><span class="op">:</span><span class="dv">13</span>]),<span class="dv">1</span>)<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb264-9"><a href="modelado-en-minería-de-datos.html#cb264-9"></a></span>
+<span id="cb264-10"><a href="modelado-en-minería-de-datos.html#cb264-10"></a><span class="kw">cov</span>(bdmun[,<span class="dv">5</span><span class="op">:</span><span class="dv">13</span>])</span></code></pre></div>
+<pre><code>##                    CC         FPV          MTS          UCS
+## CC       229.38080031 -2.09801049 -16.59325886 -0.390870255
+## FPV       -2.09801049  0.18638642   0.50970626  0.092315798
+## MTS      -16.59325886  0.50970626   8.23441135  0.234687473
+## UCS       -0.39087026  0.09231580   0.23468747  0.196770971
+## MAS     -249.50296353  1.41367645  10.40910089 -0.402938082
+## 21F       35.49784986 -0.57462867  -5.41710138 -0.182375753
+## PDC       -1.86605304  0.49553362   3.48928083  0.409571826
+## MNR        5.64850407 -0.05669375  -0.88593478 -0.006117697
+## PAN-BOL   -0.07599806  0.03171437   0.01910823  0.048955719
+##                  MAS         21F         PDC           MNR     PAN-BOL
+## CC      -249.5029635  35.4978499  -1.8660530   5.648504075 -0.07599806
+## FPV        1.4136764  -0.5746287   0.4955336  -0.056693755  0.03171437
+## MTS       10.4091009  -5.4171014   3.4892808  -0.885934778  0.01910823
+## UCS       -0.4029381  -0.1823758   0.4095718  -0.006117697  0.04895572
+## MAS      333.1052479 -69.5776991 -13.4371126 -11.567664567 -0.43964740
+## 21F      -69.5776991  42.7813484  -8.2966775   6.115120503 -0.34583640
+## PDC      -13.4371126  -8.2966775  20.2437456  -1.658049785  0.61976111
+## MNR      -11.5676646   6.1151205  -1.6580498   2.465499159 -0.05466316
+## PAN-BOL   -0.4396474  -0.3458364   0.6197611  -0.054663155  0.19660559</code></pre>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="modelado-en-minería-de-datos.html#cb266-1"></a>sigma&lt;-<span class="kw">cor</span>(bdmun[,<span class="dv">5</span><span class="op">:</span><span class="dv">13</span>])</span>
+<span id="cb266-2"><a href="modelado-en-minería-de-datos.html#cb266-2"></a></span>
+<span id="cb266-3"><a href="modelado-en-minería-de-datos.html#cb266-3"></a><span class="kw">library</span>(corrplot)</span>
+<span id="cb266-4"><a href="modelado-en-minería-de-datos.html#cb266-4"></a><span class="kw">corrplot</span>(sigma)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="modelado-en-minería-de-datos.html#cb267-1"></a><span class="co">#desc. espectral</span></span>
+<span id="cb267-2"><a href="modelado-en-minería-de-datos.html#cb267-2"></a></span>
+<span id="cb267-3"><a href="modelado-en-minería-de-datos.html#cb267-3"></a>Lambda&lt;-<span class="kw">diag</span>(<span class="kw">eigen</span>(sigma)<span class="op">$</span>values)</span>
+<span id="cb267-4"><a href="modelado-en-minería-de-datos.html#cb267-4"></a>A&lt;-<span class="kw">eigen</span>(sigma)<span class="op">$</span>vectors</span>
+<span id="cb267-5"><a href="modelado-en-minería-de-datos.html#cb267-5"></a></span>
+<span id="cb267-6"><a href="modelado-en-minería-de-datos.html#cb267-6"></a>A <span class="op">%*%</span><span class="st"> </span>Lambda <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(A)</span></code></pre></div>
+<pre><code>##              [,1]        [,2]       [,3]         [,4]        [,5]
+##  [1,]  1.00000000 -0.32086474 -0.3818008 -0.058179981 -0.90262309
+##  [2,] -0.32086474  1.00000000  0.4114306  0.482045890  0.17941228
+##  [3,] -0.38180084  0.41143057  1.0000000  0.184371214  0.19874957
+##  [4,] -0.05817998  0.48204589  0.1843712  1.000000000 -0.04976993
+##  [5,] -0.90262309  0.17941228  0.1987496 -0.049769934  1.00000000
+##  [6,]  0.35834082 -0.20349462 -0.2886180 -0.062857825 -0.58284368
+##  [7,] -0.02738420  0.25510593  0.2702553  0.205212648 -0.16363258
+##  [8,]  0.23752126 -0.08363261 -0.1966224 -0.008783245 -0.40364774
+##  [9,] -0.01131686  0.16567275  0.0150178  0.248900051 -0.05432701
+##              [,6]       [,7]         [,8]        [,9]
+##  [1,]  0.35834082 -0.0273842  0.237521258 -0.01131686
+##  [2,] -0.20349462  0.2551059 -0.083632612  0.16567275
+##  [3,] -0.28861802  0.2702553 -0.196622422  0.01501780
+##  [4,] -0.06285783  0.2052126 -0.008783245  0.24890005
+##  [5,] -0.58284368 -0.1636326 -0.403647735 -0.05432701
+##  [6,]  1.00000000 -0.2819237  0.595422656 -0.11924647
+##  [7,] -0.28192367  1.0000000 -0.234692765  0.31065686
+##  [8,]  0.59542266 -0.2346928  1.000000000 -0.07851350
+##  [9,] -0.11924647  0.3106569 -0.078513499  1.00000000</code></pre>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="modelado-en-minería-de-datos.html#cb269-1"></a><span class="co">#round(A %*% t(A),2)</span></span>
+<span id="cb269-2"><a href="modelado-en-minería-de-datos.html#cb269-2"></a></span>
+<span id="cb269-3"><a href="modelado-en-minería-de-datos.html#cb269-3"></a><span class="co">#componentes principales </span></span>
+<span id="cb269-4"><a href="modelado-en-minería-de-datos.html#cb269-4"></a></span>
+<span id="cb269-5"><a href="modelado-en-minería-de-datos.html#cb269-5"></a><span class="co">#componentes a retener</span></span>
+<span id="cb269-6"><a href="modelado-en-minería-de-datos.html#cb269-6"></a><span class="kw">barplot</span>(<span class="kw">eigen</span>(sigma)<span class="op">$</span>values)</span>
+<span id="cb269-7"><a href="modelado-en-minería-de-datos.html#cb269-7"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">1</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-32-2.png" width="672" /></p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="modelado-en-minería-de-datos.html#cb270-1"></a><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>,<span class="kw">eigen</span>(sigma)<span class="op">$</span>values,<span class="dt">type=</span><span class="st">&quot;b&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-32-3.png" width="672" /></p>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="modelado-en-minería-de-datos.html#cb271-1"></a>aux&lt;-<span class="kw">round</span>(<span class="kw">eigen</span>(sigma)<span class="op">$</span>values<span class="op">/</span><span class="kw">sum</span>(<span class="kw">eigen</span>(sigma)<span class="op">$</span>values),<span class="dv">4</span>)<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb271-2"><a href="modelado-en-minería-de-datos.html#cb271-2"></a><span class="kw">cumsum</span>(aux)</span></code></pre></div>
+<pre><code>## [1]  33.12  53.36  67.22  77.29  85.31  90.96  95.75 100.01 100.01</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="modelado-en-minería-de-datos.html#cb273-1"></a>sigma3&lt;-A[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] <span class="op">%*%</span><span class="st"> </span>Lambda[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(A[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])</span>
+<span id="cb273-2"><a href="modelado-en-minería-de-datos.html#cb273-2"></a>sigma2&lt;-A[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="op">%*%</span><span class="st"> </span>Lambda[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(A[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span>
+<span id="cb273-3"><a href="modelado-en-minería-de-datos.html#cb273-3"></a></span>
+<span id="cb273-4"><a href="modelado-en-minería-de-datos.html#cb273-4"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb273-5"><a href="modelado-en-minería-de-datos.html#cb273-5"></a></span>
+<span id="cb273-6"><a href="modelado-en-minería-de-datos.html#cb273-6"></a><span class="kw">colnames</span>(sigma)&lt;-<span class="dv">1</span><span class="op">:</span><span class="dv">9</span></span>
+<span id="cb273-7"><a href="modelado-en-minería-de-datos.html#cb273-7"></a><span class="kw">rownames</span>(sigma)&lt;-<span class="dv">1</span><span class="op">:</span><span class="dv">9</span></span>
+<span id="cb273-8"><a href="modelado-en-minería-de-datos.html#cb273-8"></a></span>
+<span id="cb273-9"><a href="modelado-en-minería-de-datos.html#cb273-9"></a><span class="kw">corrplot</span>(sigma)</span>
+<span id="cb273-10"><a href="modelado-en-minería-de-datos.html#cb273-10"></a><span class="kw">corrplot</span>(sigma3)</span>
+<span id="cb273-11"><a href="modelado-en-minería-de-datos.html#cb273-11"></a><span class="kw">corrplot</span>(sigma2)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-32-4.png" width="672" /></p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="modelado-en-minería-de-datos.html#cb274-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<pre><code>## null device 
+##           1</code></pre>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="modelado-en-minería-de-datos.html#cb276-1"></a><span class="kw">as.matrix</span>(bdmun[,<span class="dv">5</span><span class="op">:</span><span class="dv">13</span>])<span class="op">%*%</span>A[,<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>##               [,1]
+##   [1,]  -5.3879940
+##   [2,]   9.8581564
+##   [3,]  -1.5069018
+##   [4,]   9.5957026
+##   [5,]  -6.0727426
+##   [6,]  10.2036950
+##   [7,]  -4.5777091
+##   [8,]   7.2265148
+##   [9,]   9.1327336
+##  [10,]   3.0186036
+##  [11,]   4.9851015
+##  [12,]  11.6909217
+##  [13,] -12.6842356
+##  [14,] -13.6968262
+##  [15,] -16.2162176
+##  [16,]  12.3414047
+##  [17,]  14.4096106
+##  [18,] -14.8981304
+##  [19,]  13.3536094
+##  [20,] -28.0012634
+##  [21,] -27.4405125
+##  [22,] -21.3330370
+##  [23,] -10.6524174
+##  [24,]  -3.0214342
+##  [25,] -15.8435323
+##  [26,] -12.3914245
+##  [27,]  -4.3952446
+##  [28,] -12.4443213
+##  [29,] -29.9990727
+##  [30,] -35.4245622
+##  [31,] -29.9140946
+##  [32,] -32.5619743
+##  [33,]  13.4092851
+##  [34,] -18.2720500
+##  [35,] -27.2945428
+##  [36,] -29.5427858
+##  [37,] -27.2671925
+##  [38,] -20.3482866
+##  [39,] -32.3094742
+##  [40,] -14.7264115
+##  [41,] -31.2043390
+##  [42,] -31.8980892
+##  [43,] -30.2074258
+##  [44,] -29.3667784
+##  [45,] -29.3379440
+##  [46,] -29.4721459
+##  [47,] -31.7284278
+##  [48,] -29.0107244
+##  [49,] -22.5250197
+##  [50,] -39.8307602
+##  [51,] -41.0969095
+##  [52,] -41.6207036
+##  [53,] -35.6189208
+##  [54,] -38.8706782
+##  [55,] -40.3937045
+##  [56,] -36.1674086
+##  [57,] -27.6935240
+##  [58,] -32.6865200
+##  [59,] -13.4113036
+##  [60,] -24.4487864
+##  [61,] -32.6298672
+##  [62,] -39.4663503
+##  [63,] -36.3782592
+##  [64,] -39.9744544
+##  [65,] -39.9810357
+##  [66,] -39.4998171
+##  [67,] -39.8329196
+##  [68,] -38.5728304
+##  [69,]   1.5685691
+##  [70,] -33.8526575
+##  [71,]  -7.4235962
+##  [72,] -40.8601326
+##  [73,] -36.1002928
+##  [74,] -32.6412171
+##  [75,] -37.9093953
+##  [76,] -27.7756703
+##  [77,] -25.1065115
+##  [78,] -35.6165447
+##  [79,] -23.8411157
+##  [80,] -40.0180967
+##  [81,] -30.3381198
+##  [82,] -42.4024884
+##  [83,] -41.2632414
+##  [84,] -18.7457137
+##  [85,] -25.5523195
+##  [86,] -23.7548518
+##  [87,] -32.3757839
+##  [88,] -31.9818037
+##  [89,]   2.2938813
+##  [90,]  -6.1658502
+##  [91,] -26.1580147
+##  [92,]  -3.6390996
+##  [93,] -15.2341034
+##  [94,] -41.4407766
+##  [95,] -37.2122458
+##  [96,] -38.4407716
+##  [97,]  -7.0568021
+##  [98,] -11.0126507
+##  [99,] -37.3246419
+## [100,] -36.2109035
+## [101,] -23.9223557
+## [102,] -34.9009966
+## [103,] -29.8146639
+## [104,] -35.3174108
+## [105,] -34.0978395
+## [106,] -34.8825805
+## [107,] -35.1971706
+## [108,] -35.1678037
+## [109,] -35.5789758
+## [110,] -35.0373872
+## [111,] -32.4570900
+## [112,] -32.4419557
+## [113,] -33.4898312
+## [114,] -26.8277117
+## [115,] -10.1047042
+## [116,] -24.9468945
+## [117,] -38.1303050
+## [118,] -37.6057514
+## [119,] -38.4853227
+## [120,] -37.0010204
+## [121,] -40.2290550
+## [122,] -17.7265777
+## [123,] -37.2184939
+## [124,] -37.9420055
+## [125,] -31.6877403
+## [126,] -36.2836734
+## [127,] -34.4431782
+## [128,] -25.8223735
+## [129,] -24.2148767
+## [130,] -29.8715610
+## [131,] -37.3810976
+## [132,] -35.7426051
+## [133,] -26.5910644
+## [134,] -34.3505089
+## [135,] -32.6145043
+## [136,] -18.2360380
+## [137,] -18.2432574
+## [138,] -30.9911014
+## [139,] -29.1385693
+## [140,] -25.4349664
+## [141,] -24.1915053
+## [142,] -19.0204117
+## [143,] -31.7311148
+## [144,] -38.5147148
+## [145,] -37.0846187
+## [146,] -37.8787157
+## [147,] -37.4807212
+## [148,] -32.8741260
+## [149,] -34.9910638
+## [150,] -33.8188993
+## [151,] -37.3440974
+## [152,] -31.1069810
+## [153,] -25.8212289
+## [154,] -26.2395090
+## [155,] -33.4967587
+## [156,] -33.3820752
+## [157,] -35.3449648
+## [158,] -29.7917915
+## [159,] -17.5489357
+## [160,] -30.4101526
+## [161,]   3.0564052
+## [162,] -39.1509579
+## [163,]  -2.1069118
+## [164,] -12.4523420
+## [165,] -22.6541782
+## [166,] -32.3124013
+## [167,] -31.4982931
+## [168,] -27.1146780
+## [169,] -33.5231794
+## [170,] -35.0088178
+## [171,] -36.6951659
+## [172,] -35.5348259
+## [173,] -15.4604170
+## [174,] -36.2120410
+## [175,] -34.3170142
+## [176,] -36.5857828
+## [177,] -34.0517266
+## [178,] -37.6546898
+## [179,]  10.1730707
+## [180,]  -7.4603047
+## [181,]  -5.4264362
+## [182,] -29.6837047
+## [183,] -16.0444123
+## [184,] -23.1385472
+## [185,] -30.3241663
+## [186,] -36.7275467
+## [187,] -28.3135517
+## [188,] -28.6365149
+## [189,] -32.2535510
+## [190,]  -0.9116476
+## [191,] -30.7276427
+## [192,] -36.0823173
+## [193,] -33.0059806
+## [194,]   4.9269802
+## [195,]  -0.8641924
+## [196,]  -0.4758113
+## [197,] -11.1225902
+## [198,]   0.9303554
+## [199,]  -0.1338435
+## [200,] -12.1972536
+## [201,]   9.0320757
+## [202,] -30.9954762
+## [203,] -21.3172641
+## [204,] -19.0047628
+## [205,] -12.8761910
+## [206,] -24.4031095
+## [207,] -24.6021190
+## [208,] -34.1423876
+## [209,]  -1.2988197
+## [210,]   8.3946994
+## [211,] -32.1263476
+## [212,] -30.0990131
+## [213,] -38.4424639
+## [214,] -27.1992587
+## [215,] -26.6730862
+## [216,] -36.4671882
+## [217,] -32.6905601
+## [218,] -28.5862038
+## [219,]   4.4185207
+## [220,] -15.2504511
+## [221,] -11.1634786
+## [222,]   0.7305325
+## [223,]  -4.3561980
+## [224,]  -8.3785171
+## [225,] -10.5448133
+## [226,]  -3.2154940
+## [227,]  -7.8953066
+## [228,] -10.3254753
+## [229,]   7.8938375
+## [230,]  -8.6329288
+## [231,]   5.0356261
+## [232,]   3.2351315
+## [233,]  -6.6563079
+## [234,] -37.2416372
+## [235,] -37.5239707
+## [236,]   9.9836077
+## [237,] -21.7393729
+## [238,]  -7.1246449
+## [239,] -35.9819133
+## [240,] -36.7826681
+## [241,] -34.6955397
+## [242,] -30.9828833
+## [243,] -35.7856729
+## [244,] -32.9800349
+## [245,] -29.6737813
+## [246,] -19.9581488
+## [247,] -29.7882623
+## [248,] -26.9243743
+## [249,] -27.8424468
+## [250,] -27.3234881
+## [251,] -37.2245672
+## [252,] -39.5340804
+## [253,] -21.6272997
+## [254,] -35.6306536
+## [255,] -25.9575731
+## [256,] -23.5190648
+## [257,] -29.8975877
+## [258,] -30.6559925
+## [259,] -15.5745296
+## [260,] -16.6778772
+## [261,] -31.6594618
+## [262,] -34.7818243
+## [263,] -12.4898857
+## [264,] -17.8690953
+## [265,] -24.3279529
+## [266,] -15.5840870
+## [267,] -38.1694016
+## [268,] -37.4327963
+## [269,] -26.3399328
+## [270,]  20.2781277
+## [271,] -30.9265705
+## [272,] -29.5600596
+## [273,]  -8.2777515
+## [274,]   4.5896583
+## [275,] -10.2339725
+## [276,]   1.3836692
+## [277,]  21.4925562
+## [278,]  14.6741470
+## [279,]  -0.7844150
+## [280,]   2.8319042
+## [281,]  17.2455682
+## [282,]  13.6897997
+## [283,]  -1.0772254
+## [284,]  -6.4769526
+## [285,]  12.7192358
+## [286,] -12.4088390
+## [287,]  -2.7848645
+## [288,] -22.0559062
+## [289,] -12.9869448
+## [290,]  -7.7673430
+## [291,]  -5.8168102
+## [292,]   5.8302470
+## [293,]   7.3227940
+## [294,]  -0.2483735
+## [295,]   4.5372606
+## [296,]  15.0610187
+## [297,]  -0.8787057
+## [298,] -15.7075010
+## [299,]   1.1971226
+## [300,]  -3.4708909
+## [301,]  -5.8044182
+## [302,]  -7.9239877
+## [303,] -24.8868601
+## [304,] -13.8763433
+## [305,] -15.1706755
+## [306,]  -8.9847194
+## [307,] -20.9846343
+## [308,] -10.2188924
+## [309,]   7.3083232
+## [310,] -27.3347937
+## [311,]   4.1131126
+## [312,] -16.6478408
+## [313,]  -3.2389921
+## [314,]   3.7037605
+## [315,]   3.9028753
+## [316,] -15.5961318
+## [317,]  17.2832730
+## [318,]  25.8263118
+## [319,]  -7.3465568
+## [320,]   9.4576133
+## [321,]  20.4977083
+## [322,]  -2.8713831
+## [323,]   5.6009689
+## [324,]  14.8737372
+## [325,]  15.0745800
+## [326,]  -2.3079776
+## [327,]  12.3451573
+## [328,]  13.3613824
+## [329,]   1.1002287
+## [330,]  -5.3290524
+## [331,] -19.6727311
+## [332,] -11.0124148
+## [333,] -33.5659735
+## [334,]   8.1077561
+## [335,] -10.1705556
+## [336,]   1.5149081
+## [337,]  -5.5069444
+## [338,] -21.1801154
+## [339,]  -2.7832261
+## [340,]  -6.5915367</code></pre>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="modelado-en-minería-de-datos.html#cb278-1"></a>Y&lt;-<span class="kw">as.matrix</span>(<span class="kw">scale</span>(bdmun[,<span class="dv">5</span><span class="op">:</span><span class="dv">13</span>]))<span class="op">%*%</span>A</span>
+<span id="cb278-2"><a href="modelado-en-minería-de-datos.html#cb278-2"></a><span class="kw">plot</span>(<span class="kw">density</span>(Y[,<span class="dv">1</span>]))</span>
+<span id="cb278-3"><a href="modelado-en-minería-de-datos.html#cb278-3"></a></span>
+<span id="cb278-4"><a href="modelado-en-minería-de-datos.html#cb278-4"></a><span class="kw">plot</span>(Y[,<span class="dv">1</span>],Y[,<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="modelado-en-minería-de-datos.html#cb279-1"></a><span class="co">#1. Seleccione una base de datos de interés del repositorio </span></span>
+<span id="cb279-2"><a href="modelado-en-minería-de-datos.html#cb279-2"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/blob/master/data/oct20.RData?raw=true&quot;</span>))</span>
+<span id="cb279-3"><a href="modelado-en-minería-de-datos.html#cb279-3"></a><span class="co">#2. Seleccione las variables para el PCA (Según la motivación) </span></span>
+<span id="cb279-4"><a href="modelado-en-minería-de-datos.html#cb279-4"></a>vv&lt;-<span class="kw">c</span>(<span class="dv">14</span><span class="op">:</span><span class="dv">22</span>,<span class="dv">24</span>,<span class="dv">25</span>)</span>
+<span id="cb279-5"><a href="modelado-en-minería-de-datos.html#cb279-5"></a><span class="co">#2A TRANFORMAR </span></span>
+<span id="cb279-6"><a href="modelado-en-minería-de-datos.html#cb279-6"></a>vval&lt;-<span class="kw">apply</span>(computo[,vv],<span class="dv">1</span>,sum)</span>
+<span id="cb279-7"><a href="modelado-en-minería-de-datos.html#cb279-7"></a>aux&lt;-computo[,vv]<span class="op">/</span>vval</span>
+<span id="cb279-8"><a href="modelado-en-minería-de-datos.html#cb279-8"></a><span class="co">#2B LIMPIEZA </span></span>
+<span id="cb279-9"><a href="modelado-en-minería-de-datos.html#cb279-9"></a><span class="co">#3. Calcule el PCA</span></span>
+<span id="cb279-10"><a href="modelado-en-minería-de-datos.html#cb279-10"></a>aux1&lt;-<span class="kw">na.omit</span>(aux)</span>
+<span id="cb279-11"><a href="modelado-en-minería-de-datos.html#cb279-11"></a>cp1&lt;-<span class="kw">eigen</span>(<span class="kw">cov</span>(aux1))</span>
+<span id="cb279-12"><a href="modelado-en-minería-de-datos.html#cb279-12"></a>cp2&lt;-<span class="kw">eigen</span>(<span class="kw">cor</span>(aux1))</span>
+<span id="cb279-13"><a href="modelado-en-minería-de-datos.html#cb279-13"></a><span class="co">#4. Identifique el número de CPs que explican hasta el 90% de la varianza</span></span>
+<span id="cb279-14"><a href="modelado-en-minería-de-datos.html#cb279-14"></a><span class="kw">cumsum</span>(cp1<span class="op">$</span>values)<span class="op">/</span><span class="kw">sum</span>(cp1<span class="op">$</span>values) </span></code></pre></div>
 <pre><code>##  [1] 0.6437488 0.8650934 0.9435882 0.9722772 0.9839750 0.9903314
 ##  [7] 0.9952079 0.9977119 0.9991579 1.0000000 1.0000000</code></pre>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="modelado-en-minería-de-datos.html#cb128-1"></a><span class="kw">cumsum</span>(cp2<span class="op">$</span>values)<span class="op">/</span><span class="kw">sum</span>(cp2<span class="op">$</span>values) </span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="modelado-en-minería-de-datos.html#cb281-1"></a><span class="kw">cumsum</span>(cp2<span class="op">$</span>values)<span class="op">/</span><span class="kw">sum</span>(cp2<span class="op">$</span>values) </span></code></pre></div>
 <pre><code>##  [1] 0.2060107 0.3791103 0.4915437 0.5920446 0.6774866 0.7601857
 ##  [7] 0.8319256 0.8991550 0.9562490 1.0000000 1.0000000</code></pre>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="modelado-en-minería-de-datos.html#cb130-1"></a><span class="co">#5. Identifique las variables correlacionadas con la cantidad de </span></span>
-<span id="cb130-2"><a href="modelado-en-minería-de-datos.html#cb130-2"></a><span class="co">#componentes fuera del 90% del paso anterior</span></span>
-<span id="cb130-3"><a href="modelado-en-minería-de-datos.html#cb130-3"></a>cp11cov&lt;-<span class="kw">as.matrix</span>(aux1)<span class="op">%*%</span>cp1<span class="op">$</span>vectors[,<span class="dv">11</span>] </span>
-<span id="cb130-4"><a href="modelado-en-minería-de-datos.html#cb130-4"></a>cp11cor&lt;-<span class="kw">as.matrix</span>(aux1)<span class="op">%*%</span>cp2<span class="op">$</span>vectors[,<span class="dv">11</span>] </span>
-<span id="cb130-5"><a href="modelado-en-minería-de-datos.html#cb130-5"></a><span class="kw">cor</span>(<span class="kw">cbind</span>(aux1,cp11cov,cp11cor))[<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>,<span class="dv">12</span><span class="op">:</span><span class="dv">13</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="modelado-en-minería-de-datos.html#cb283-1"></a><span class="co">#5. Identifique las variables correlacionadas con la cantidad de </span></span>
+<span id="cb283-2"><a href="modelado-en-minería-de-datos.html#cb283-2"></a><span class="co">#componentes fuera del 90% del paso anterior</span></span>
+<span id="cb283-3"><a href="modelado-en-minería-de-datos.html#cb283-3"></a>cp11cov&lt;-<span class="kw">as.matrix</span>(aux1)<span class="op">%*%</span>cp1<span class="op">$</span>vectors[,<span class="dv">11</span>] </span>
+<span id="cb283-4"><a href="modelado-en-minería-de-datos.html#cb283-4"></a>cp11cor&lt;-<span class="kw">as.matrix</span>(aux1)<span class="op">%*%</span>cp2<span class="op">$</span>vectors[,<span class="dv">11</span>] </span>
+<span id="cb283-5"><a href="modelado-en-minería-de-datos.html#cb283-5"></a><span class="kw">cor</span>(<span class="kw">cbind</span>(aux1,cp11cov,cp11cor))[<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>,<span class="dv">12</span><span class="op">:</span><span class="dv">13</span>]</span></code></pre></div>
 <pre><code>##                cp11cov     cp11cor
 ## CC          0.53979440 -0.30842297
 ## FPV        -0.55376059  0.21633850
@@ -731,19 +1345,19 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
 ## PAN-BOL     0.11710134  0.09577694
 ## Blancos    -0.07666553  0.50453525
 ## Nulos      -0.11039942  0.18712933</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="modelado-en-minería-de-datos.html#cb132-1"></a>cp11&lt;-<span class="kw">eigen</span>(<span class="kw">cov</span>(aux1[,<span class="op">-</span><span class="dv">2</span>]))</span>
-<span id="cb132-2"><a href="modelado-en-minería-de-datos.html#cb132-2"></a><span class="kw">cumsum</span>(cp11<span class="op">$</span>values)<span class="op">/</span><span class="kw">sum</span>(cp11<span class="op">$</span>values)</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="modelado-en-minería-de-datos.html#cb285-1"></a>cp11&lt;-<span class="kw">eigen</span>(<span class="kw">cov</span>(aux1[,<span class="op">-</span><span class="dv">2</span>]))</span>
+<span id="cb285-2"><a href="modelado-en-minería-de-datos.html#cb285-2"></a><span class="kw">cumsum</span>(cp11<span class="op">$</span>values)<span class="op">/</span><span class="kw">sum</span>(cp11<span class="op">$</span>values)</span></code></pre></div>
 <pre><code>##  [1] 0.6443329 0.8658697 0.9444240 0.9730984 0.9847943 0.9911498
 ##  [7] 0.9960295 0.9984949 0.9999206 1.0000000</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="modelado-en-minería-de-datos.html#cb134-1"></a>cp10cov&lt;-<span class="kw">as.matrix</span>(aux1[,<span class="op">-</span><span class="dv">2</span>])<span class="op">%*%</span>cp11<span class="op">$</span>vectors[,<span class="dv">10</span>] </span>
-<span id="cb134-2"><a href="modelado-en-minería-de-datos.html#cb134-2"></a><span class="co">#6. Calcule nuevamente el componente principal eliminando las variables rebundantes</span></span>
-<span id="cb134-3"><a href="modelado-en-minería-de-datos.html#cb134-3"></a><span class="co">#7. Determine la cantidad de componentes principales a retener</span></span>
-<span id="cb134-4"><a href="modelado-en-minería-de-datos.html#cb134-4"></a>cp1cov&lt;-<span class="kw">as.matrix</span>(aux1[,<span class="op">-</span><span class="dv">2</span>])<span class="op">%*%</span>cp11<span class="op">$</span>vectors[,<span class="dv">1</span>] </span>
-<span id="cb134-5"><a href="modelado-en-minería-de-datos.html#cb134-5"></a>cp2cov&lt;-<span class="kw">as.matrix</span>(aux1[,<span class="op">-</span><span class="dv">2</span>])<span class="op">%*%</span>cp11<span class="op">$</span>vectors[,<span class="dv">2</span>] </span>
-<span id="cb134-6"><a href="modelado-en-minería-de-datos.html#cb134-6"></a><span class="kw">plot</span>(cp1cov,cp2cov)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="modelado-en-minería-de-datos.html#cb135-1"></a><span class="co">#8. Defina un indicador a partir de estos</span></span>
-<span id="cb135-2"><a href="modelado-en-minería-de-datos.html#cb135-2"></a><span class="kw">cor</span>(<span class="kw">cbind</span>(aux1,cp1cov,cp2cov))[<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>,<span class="dv">12</span><span class="op">:</span><span class="dv">13</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="modelado-en-minería-de-datos.html#cb287-1"></a>cp10cov&lt;-<span class="kw">as.matrix</span>(aux1[,<span class="op">-</span><span class="dv">2</span>])<span class="op">%*%</span>cp11<span class="op">$</span>vectors[,<span class="dv">10</span>] </span>
+<span id="cb287-2"><a href="modelado-en-minería-de-datos.html#cb287-2"></a><span class="co">#6. Calcule nuevamente el componente principal eliminando las variables rebundantes</span></span>
+<span id="cb287-3"><a href="modelado-en-minería-de-datos.html#cb287-3"></a><span class="co">#7. Determine la cantidad de componentes principales a retener</span></span>
+<span id="cb287-4"><a href="modelado-en-minería-de-datos.html#cb287-4"></a>cp1cov&lt;-<span class="kw">as.matrix</span>(aux1[,<span class="op">-</span><span class="dv">2</span>])<span class="op">%*%</span>cp11<span class="op">$</span>vectors[,<span class="dv">1</span>] </span>
+<span id="cb287-5"><a href="modelado-en-minería-de-datos.html#cb287-5"></a>cp2cov&lt;-<span class="kw">as.matrix</span>(aux1[,<span class="op">-</span><span class="dv">2</span>])<span class="op">%*%</span>cp11<span class="op">$</span>vectors[,<span class="dv">2</span>] </span>
+<span id="cb287-6"><a href="modelado-en-minería-de-datos.html#cb287-6"></a><span class="kw">plot</span>(cp1cov,cp2cov)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="modelado-en-minería-de-datos.html#cb288-1"></a><span class="co">#8. Defina un indicador a partir de estos</span></span>
+<span id="cb288-2"><a href="modelado-en-minería-de-datos.html#cb288-2"></a><span class="kw">cor</span>(<span class="kw">cbind</span>(aux1,cp1cov,cp2cov))[<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>,<span class="dv">12</span><span class="op">:</span><span class="dv">13</span>]</span></code></pre></div>
 <pre><code>##                 cp1cov      cp2cov
 ## CC          0.92113465  0.35759774
 ## FPV        -0.08074887 -0.10802564
@@ -756,10 +1370,10 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
 ## PAN-BOL     0.04776390 -0.01901819
 ## Blancos    -0.17330606 -0.88168972
 ## Nulos      -0.08874645  0.06391096</code></pre>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="modelado-en-minería-de-datos.html#cb137-1"></a>bd&lt;-<span class="kw">cbind</span>(aux1,cp1cov,cp2cov)</span>
-<span id="cb137-2"><a href="modelado-en-minería-de-datos.html#cb137-2"></a><span class="kw">names</span>(bd)[<span class="dv">5</span>]&lt;-<span class="st">&quot;MAS&quot;</span></span>
-<span id="cb137-3"><a href="modelado-en-minería-de-datos.html#cb137-3"></a><span class="co">#9. Modele un modelo lineal empleando los CPs retenidos.</span></span>
-<span id="cb137-4"><a href="modelado-en-minería-de-datos.html#cb137-4"></a><span class="kw">summary</span>(<span class="kw">lm</span>(MAS<span class="op">~</span>cp1cov,<span class="dt">data=</span>bd))</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="modelado-en-minería-de-datos.html#cb290-1"></a>bd&lt;-<span class="kw">cbind</span>(aux1,cp1cov,cp2cov)</span>
+<span id="cb290-2"><a href="modelado-en-minería-de-datos.html#cb290-2"></a><span class="kw">names</span>(bd)[<span class="dv">5</span>]&lt;-<span class="st">&quot;MAS&quot;</span></span>
+<span id="cb290-3"><a href="modelado-en-minería-de-datos.html#cb290-3"></a><span class="co">#9. Modele un modelo lineal empleando los CPs retenidos.</span></span>
+<span id="cb290-4"><a href="modelado-en-minería-de-datos.html#cb290-4"></a><span class="kw">summary</span>(<span class="kw">lm</span>(MAS<span class="op">~</span>cp1cov,<span class="dt">data=</span>bd))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = MAS ~ cp1cov, data = bd)
@@ -769,20 +1383,49 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
 ## -0.39544 -0.05881  0.01417  0.06187  0.16168 
 ## 
 ## Coefficients:
-##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  0.3407735  0.0003141  1085.0   &lt;2e-16 ***
-## cp1cov      -0.7053686  0.0011240  -627.5   &lt;2e-16 ***
+##               Estimate Std. Error t value            Pr(&gt;|t|)    
+## (Intercept)  0.3407735  0.0003141  1085.0 &lt;0.0000000000000002 ***
+## cp1cov      -0.7053686  0.0011240  -627.5 &lt;0.0000000000000002 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 0.07868 on 68069 degrees of freedom
 ## Multiple R-squared:  0.8526, Adjusted R-squared:  0.8526 
-## F-statistic: 3.938e+05 on 1 and 68069 DF,  p-value: &lt; 2.2e-16</code></pre>
+## F-statistic: 3.938e+05 on 1 and 68069 DF,  p-value: &lt; 0.00000000000000022</code></pre>
 </div>
 <div id="análisis-de-correspondencia" class="section level2">
 <h2><span class="header-section-number">2.3</span> Análisis de correspondencia</h2>
-<p>El analisis de correspondencia esta orientado a encontrar relaciones entre las categorias de variables cualitativas.</p>
-<p>Esta técnica es un método visual que va más alla del test de independencia Chi-cuadrado.</p>
+<p>El análisis de correspondencia esta orientado a encontrar relaciones entre las categorías de variables cualitativas.</p>
+<p>Esta técnica es un método visual que va más allá del test de independencia Chi-cuadrado.</p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="modelado-en-minería-de-datos.html#cb292-1"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/endsa.RData&quot;</span>))</span>
+<span id="cb292-2"><a href="modelado-en-minería-de-datos.html#cb292-2"></a><span class="co">#tarea 10 min, explorar la base de datos</span></span>
+<span id="cb292-3"><a href="modelado-en-minería-de-datos.html#cb292-3"></a><span class="kw">library</span>(Hmisc)</span>
+<span id="cb292-4"><a href="modelado-en-minería-de-datos.html#cb292-4"></a><span class="kw">describe</span>(endsa)</span>
+<span id="cb292-5"><a href="modelado-en-minería-de-datos.html#cb292-5"></a><span class="kw">names</span>(endsa)</span>
+<span id="cb292-6"><a href="modelado-en-minería-de-datos.html#cb292-6"></a>aux&lt;-<span class="kw">attributes</span>(endsa)</span>
+<span id="cb292-7"><a href="modelado-en-minería-de-datos.html#cb292-7"></a></span>
+<span id="cb292-8"><a href="modelado-en-minería-de-datos.html#cb292-8"></a><span class="kw">names</span>(endsa)</span>
+<span id="cb292-9"><a href="modelado-en-minería-de-datos.html#cb292-9"></a><span class="co">#aeXX</span></span>
+<span id="cb292-10"><a href="modelado-en-minería-de-datos.html#cb292-10"></a>aux<span class="op">$</span>var.labels[<span class="dv">7</span><span class="op">:</span><span class="dv">15</span>]</span>
+<span id="cb292-11"><a href="modelado-en-minería-de-datos.html#cb292-11"></a><span class="co">#nupXX</span></span>
+<span id="cb292-12"><a href="modelado-en-minería-de-datos.html#cb292-12"></a>aux<span class="op">$</span>var.labels[<span class="dv">23</span><span class="op">:</span><span class="dv">26</span>]</span>
+<span id="cb292-13"><a href="modelado-en-minería-de-datos.html#cb292-13"></a><span class="co">#antXX</span></span>
+<span id="cb292-14"><a href="modelado-en-minería-de-datos.html#cb292-14"></a>aux<span class="op">$</span>var.labels[<span class="dv">16</span><span class="op">:</span><span class="dv">20</span>]</span>
+<span id="cb292-15"><a href="modelado-en-minería-de-datos.html#cb292-15"></a><span class="co">#vfXX</span></span>
+<span id="cb292-16"><a href="modelado-en-minería-de-datos.html#cb292-16"></a>aux<span class="op">$</span>var.labels[<span class="dv">50</span><span class="op">:</span><span class="dv">59</span>]</span>
+<span id="cb292-17"><a href="modelado-en-minería-de-datos.html#cb292-17"></a><span class="kw">table</span>(endsa<span class="op">$</span>year,endsa<span class="op">$</span>sexo)</span>
+<span id="cb292-18"><a href="modelado-en-minería-de-datos.html#cb292-18"></a></span>
+<span id="cb292-19"><a href="modelado-en-minería-de-datos.html#cb292-19"></a><span class="kw">table</span>(endsa<span class="op">$</span>edad,endsa<span class="op">$</span>sexo)</span>
+<span id="cb292-20"><a href="modelado-en-minería-de-datos.html#cb292-20"></a></span>
+<span id="cb292-21"><a href="modelado-en-minería-de-datos.html#cb292-21"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb292-22"><a href="modelado-en-minería-de-datos.html#cb292-22"></a></span>
+<span id="cb292-23"><a href="modelado-en-minería-de-datos.html#cb292-23"></a>N&lt;-endsa <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">2008</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ae01,ae08) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</span>
+<span id="cb292-24"><a href="modelado-en-minería-de-datos.html#cb292-24"></a>N&lt;-t1[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,]</span>
+<span id="cb292-25"><a href="modelado-en-minería-de-datos.html#cb292-25"></a><span class="kw">chisq.test</span>(N)</span>
+<span id="cb292-26"><a href="modelado-en-minería-de-datos.html#cb292-26"></a>N</span>
+<span id="cb292-27"><a href="modelado-en-minería-de-datos.html#cb292-27"></a>n&lt;-<span class="kw">sum</span>(N)</span>
+<span id="cb292-28"><a href="modelado-en-minería-de-datos.html#cb292-28"></a>P&lt;-N<span class="op">/</span>n</span>
+<span id="cb292-29"><a href="modelado-en-minería-de-datos.html#cb292-29"></a><span class="kw">addmargins</span>(N)</span></code></pre></div>
 <p>Para resumir la teoría, primero divida la matriz de datos <span class="math inline">\(I × J\)</span>, denotada por <span class="math inline">\(N\)</span>, por su gran total <span class="math inline">\(n\)</span> para obtener la llamada matriz de correspondencia <span class="math inline">\(P = N / n\)</span>. Deje que los totales marginales de fila y columna de <span class="math inline">\(P\)</span> sean los vectores <span class="math inline">\(r\)</span> y <span class="math inline">\(c\)</span> respectivamente, es decir, los vectores de masas de fila y columna, y <span class="math inline">\(Dr\)</span> y <span class="math inline">\(Dc\)</span> sean las matrices diagonales de estas matrices. El algoritmo computacional para obtener coordenadas de los perfiles de fila y columna con respecto a los ejes principales, usando el SVD, es el siguiente:</p>
 <ol style="list-style-type: decimal">
 <li>Calcular la matriz de residuos estadarizados: <span class="math inline">\(S=D_r^{-1/2}(P-rc^t)D_c^{-1/2}\)</span></li>
@@ -796,85 +1439,101 @@ i-esimo \text{ componente principal} &amp; = &amp; \text{Combinacion lineal} \qu
 <li>Graficar las coordenadas de F y G según la la inercia contenida en la matriz <span class="math inline">\(D_{\alpha}\)</span></li>
 </ol>
 <p>En R, existe la libreria ca que permite acceder a las coordenadas del método de correspondencia.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="modelado-en-minería-de-datos.html#cb139-1"></a><span class="co">#ejemplo CA</span></span>
-<span id="cb139-2"><a href="modelado-en-minería-de-datos.html#cb139-2"></a><span class="co">#install.packages(&quot;ca&quot;)</span></span>
-<span id="cb139-3"><a href="modelado-en-minería-de-datos.html#cb139-3"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb139-4"><a href="modelado-en-minería-de-datos.html#cb139-4"></a><span class="kw">library</span>(ca)</span>
-<span id="cb139-5"><a href="modelado-en-minería-de-datos.html#cb139-5"></a><span class="kw">data</span>(<span class="st">&quot;smoke&quot;</span>)</span>
-<span id="cb139-6"><a href="modelado-en-minería-de-datos.html#cb139-6"></a>model&lt;-<span class="kw">ca</span>(smoke)</span>
-<span id="cb139-7"><a href="modelado-en-minería-de-datos.html#cb139-7"></a><span class="kw">plot</span>(model)</span>
-<span id="cb139-8"><a href="modelado-en-minería-de-datos.html#cb139-8"></a><span class="kw">names</span>(model)</span>
-<span id="cb139-9"><a href="modelado-en-minería-de-datos.html#cb139-9"></a><span class="kw">summary</span>(model)</span>
-<span id="cb139-10"><a href="modelado-en-minería-de-datos.html#cb139-10"></a><span class="co">#ejemplo ENDSA</span></span>
-<span id="cb139-11"><a href="modelado-en-minería-de-datos.html#cb139-11"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/endsa.RData&quot;</span>))</span>
-<span id="cb139-12"><a href="modelado-en-minería-de-datos.html#cb139-12"></a>ll&lt;-<span class="kw">attributes</span>(endsa)</span>
-<span id="cb139-13"><a href="modelado-en-minería-de-datos.html#cb139-13"></a>ll<span class="op">$</span>var.labels</span>
-<span id="cb139-14"><a href="modelado-en-minería-de-datos.html#cb139-14"></a>t1&lt;-endsa <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">2008</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">7</span>,<span class="dv">14</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</span>
-<span id="cb139-15"><a href="modelado-en-minería-de-datos.html#cb139-15"></a>t1&lt;-t1[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,]</span>
-<span id="cb139-16"><a href="modelado-en-minería-de-datos.html#cb139-16"></a><span class="co">#test chi2</span></span>
-<span id="cb139-17"><a href="modelado-en-minería-de-datos.html#cb139-17"></a><span class="kw">chisq.test</span>(t1)</span>
-<span id="cb139-18"><a href="modelado-en-minería-de-datos.html#cb139-18"></a>model&lt;-<span class="kw">ca</span>(t1)</span>
-<span id="cb139-19"><a href="modelado-en-minería-de-datos.html#cb139-19"></a>model</span>
-<span id="cb139-20"><a href="modelado-en-minería-de-datos.html#cb139-20"></a><span class="kw">plot</span>(model)</span>
-<span id="cb139-21"><a href="modelado-en-minería-de-datos.html#cb139-21"></a><span class="co">#programando el ca</span></span>
-<span id="cb139-22"><a href="modelado-en-minería-de-datos.html#cb139-22"></a>lcol&lt;-<span class="kw">colnames</span>(t1)</span>
-<span id="cb139-23"><a href="modelado-en-minería-de-datos.html#cb139-23"></a>lrow&lt;-<span class="kw">rownames</span>(t1)</span>
-<span id="cb139-24"><a href="modelado-en-minería-de-datos.html#cb139-24"></a>P&lt;-<span class="kw">prop.table</span>(t1)</span>
-<span id="cb139-25"><a href="modelado-en-minería-de-datos.html#cb139-25"></a>r&lt;-<span class="kw">margin.table</span>(P,<span class="dv">1</span>)</span>
-<span id="cb139-26"><a href="modelado-en-minería-de-datos.html#cb139-26"></a>c&lt;-<span class="kw">margin.table</span>(P,<span class="dv">2</span>)</span>
-<span id="cb139-27"><a href="modelado-en-minería-de-datos.html#cb139-27"></a>Dr&lt;-<span class="kw">diag</span>(r)</span>
-<span id="cb139-28"><a href="modelado-en-minería-de-datos.html#cb139-28"></a>Dc&lt;-<span class="kw">diag</span>(c)</span>
-<span id="cb139-29"><a href="modelado-en-minería-de-datos.html#cb139-29"></a><span class="co">##Paso 1</span></span>
-<span id="cb139-30"><a href="modelado-en-minería-de-datos.html#cb139-30"></a>P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c)</span>
-<span id="cb139-31"><a href="modelado-en-minería-de-datos.html#cb139-31"></a><span class="co">#error en las matriz diagonales</span></span>
-<span id="cb139-32"><a href="modelado-en-minería-de-datos.html#cb139-32"></a>Dr<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)<span class="op">%*%</span>(P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c))<span class="op">%*%</span><span class="st"> </span>Dc<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)</span>
-<span id="cb139-33"><a href="modelado-en-minería-de-datos.html#cb139-33"></a><span class="co"># corrigiendo el problema</span></span>
-<span id="cb139-34"><a href="modelado-en-minería-de-datos.html#cb139-34"></a>S&lt;-<span class="kw">diag</span>(r<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>))<span class="op">%*%</span>(P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c))<span class="op">%*%</span><span class="st"> </span><span class="kw">diag</span>(c<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>))</span>
-<span id="cb139-35"><a href="modelado-en-minería-de-datos.html#cb139-35"></a><span class="co"># 2 descomposición SVD</span></span>
-<span id="cb139-36"><a href="modelado-en-minería-de-datos.html#cb139-36"></a><span class="kw">svd</span>(S)</span>
-<span id="cb139-37"><a href="modelado-en-minería-de-datos.html#cb139-37"></a>U&lt;-<span class="kw">svd</span>(S)<span class="op">$</span>u</span>
-<span id="cb139-38"><a href="modelado-en-minería-de-datos.html#cb139-38"></a>V&lt;-<span class="kw">svd</span>(S)<span class="op">$</span>v</span>
-<span id="cb139-39"><a href="modelado-en-minería-de-datos.html#cb139-39"></a>Da&lt;-<span class="kw">diag</span>(<span class="kw">svd</span>(S)<span class="op">$</span>d)</span>
-<span id="cb139-40"><a href="modelado-en-minería-de-datos.html#cb139-40"></a><span class="co">#verificando las propiedades</span></span>
-<span id="cb139-41"><a href="modelado-en-minería-de-datos.html#cb139-41"></a>U <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(U) </span>
-<span id="cb139-42"><a href="modelado-en-minería-de-datos.html#cb139-42"></a><span class="kw">t</span>(V) <span class="op">%*%</span><span class="st"> </span>V</span>
-<span id="cb139-43"><a href="modelado-en-minería-de-datos.html#cb139-43"></a>U <span class="op">%*%</span><span class="st"> </span>Da <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(V)</span>
-<span id="cb139-44"><a href="modelado-en-minería-de-datos.html#cb139-44"></a>S</span>
-<span id="cb139-45"><a href="modelado-en-minería-de-datos.html#cb139-45"></a><span class="co"># 3 Coordenadas principales filas</span></span>
-<span id="cb139-46"><a href="modelado-en-minería-de-datos.html#cb139-46"></a>FF&lt;-<span class="st"> </span><span class="kw">diag</span>(r<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>U <span class="op">%*%</span><span class="st"> </span>Da</span>
-<span id="cb139-47"><a href="modelado-en-minería-de-datos.html#cb139-47"></a><span class="co"># 4 Coordenadas principales columnas</span></span>
-<span id="cb139-48"><a href="modelado-en-minería-de-datos.html#cb139-48"></a>G&lt;-<span class="st"> </span><span class="kw">diag</span>(c<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>V <span class="op">%*%</span><span class="st"> </span>Da</span>
-<span id="cb139-49"><a href="modelado-en-minería-de-datos.html#cb139-49"></a><span class="co"># 5 Coordenadas estandar filas</span></span>
-<span id="cb139-50"><a href="modelado-en-minería-de-datos.html#cb139-50"></a>X&lt;-<span class="st"> </span><span class="kw">diag</span>(r<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>U </span>
-<span id="cb139-51"><a href="modelado-en-minería-de-datos.html#cb139-51"></a><span class="co"># 6 Coordenadas estandar columnas</span></span>
-<span id="cb139-52"><a href="modelado-en-minería-de-datos.html#cb139-52"></a>Y&lt;-<span class="st"> </span><span class="kw">diag</span>(c<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>V </span>
-<span id="cb139-53"><a href="modelado-en-minería-de-datos.html#cb139-53"></a><span class="co"># 7 inercia</span></span>
-<span id="cb139-54"><a href="modelado-en-minería-de-datos.html#cb139-54"></a><span class="kw">sum</span>(((P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c))<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span>(r<span class="op">%*%</span><span class="kw">t</span>(c)))</span>
-<span id="cb139-55"><a href="modelado-en-minería-de-datos.html#cb139-55"></a><span class="co">#graficando</span></span>
-<span id="cb139-56"><a href="modelado-en-minería-de-datos.html#cb139-56"></a>xmin&lt;-<span class="kw">min</span>(<span class="kw">c</span>(FF[,<span class="dv">1</span>],G[,<span class="dv">1</span>]))</span>
-<span id="cb139-57"><a href="modelado-en-minería-de-datos.html#cb139-57"></a>xmax&lt;-<span class="kw">max</span>(<span class="kw">c</span>(FF[,<span class="dv">1</span>],G[,<span class="dv">1</span>]))</span>
-<span id="cb139-58"><a href="modelado-en-minería-de-datos.html#cb139-58"></a>ymin&lt;-<span class="kw">min</span>(<span class="kw">c</span>(FF[,<span class="dv">2</span>],G[,<span class="dv">2</span>]))</span>
-<span id="cb139-59"><a href="modelado-en-minería-de-datos.html#cb139-59"></a>ymax&lt;-<span class="kw">max</span>(<span class="kw">c</span>(FF[,<span class="dv">2</span>],G[,<span class="dv">2</span>]))</span>
-<span id="cb139-60"><a href="modelado-en-minería-de-datos.html#cb139-60"></a><span class="kw">plot</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(xmin,xmax)<span class="op">*</span><span class="fl">1.5</span>,<span class="dt">ylim=</span><span class="kw">c</span>(ymin,ymax)<span class="op">*</span><span class="fl">1.1</span>)</span>
-<span id="cb139-61"><a href="modelado-en-minería-de-datos.html#cb139-61"></a><span class="kw">points</span>(G[,<span class="dv">1</span>],G[,<span class="dv">2</span>],<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb139-62"><a href="modelado-en-minería-de-datos.html#cb139-62"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span>
-<span id="cb139-63"><a href="modelado-en-minería-de-datos.html#cb139-63"></a><span class="co">#incluyendo el texto</span></span>
-<span id="cb139-64"><a href="modelado-en-minería-de-datos.html#cb139-64"></a><span class="kw">plot</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">xlim=</span><span class="kw">c</span>(xmin,xmax)<span class="op">*</span><span class="fl">1.5</span>,<span class="dt">ylim=</span><span class="kw">c</span>(ymin,ymax)<span class="op">*</span><span class="fl">1.1</span>,<span class="dt">type =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb139-65"><a href="modelado-en-minería-de-datos.html#cb139-65"></a><span class="kw">text</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">labels =</span> lrow,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">0.7</span>)</span>
-<span id="cb139-66"><a href="modelado-en-minería-de-datos.html#cb139-66"></a><span class="kw">text</span>(G[,<span class="dv">1</span>],G[,<span class="dv">2</span>],<span class="dt">labels =</span> lcol,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">cex=</span><span class="fl">0.7</span>)</span>
-<span id="cb139-67"><a href="modelado-en-minería-de-datos.html#cb139-67"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span>
-<span id="cb139-68"><a href="modelado-en-minería-de-datos.html#cb139-68"></a><span class="co">#incluyendo mas información</span></span>
-<span id="cb139-69"><a href="modelado-en-minería-de-datos.html#cb139-69"></a><span class="kw">plot</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">xlim=</span><span class="kw">c</span>(xmin,xmax)<span class="op">*</span><span class="fl">1.5</span>,<span class="dt">ylim=</span><span class="kw">c</span>(ymin,ymax)<span class="op">*</span><span class="fl">1.1</span>,<span class="dt">type =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb139-70"><a href="modelado-en-minería-de-datos.html#cb139-70"></a><span class="kw">text</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">labels =</span> lrow,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>r<span class="op">*</span><span class="dv">2</span>)</span>
-<span id="cb139-71"><a href="modelado-en-minería-de-datos.html#cb139-71"></a><span class="kw">text</span>(G[,<span class="dv">1</span>],G[,<span class="dv">2</span>],<span class="dt">labels =</span> lcol,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>c<span class="op">*</span><span class="dv">2</span>)</span>
-<span id="cb139-72"><a href="modelado-en-minería-de-datos.html#cb139-72"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span>
-<span id="cb139-73"><a href="modelado-en-minería-de-datos.html#cb139-73"></a><span class="co">#viendo solo una dimensión</span></span>
-<span id="cb139-74"><a href="modelado-en-minería-de-datos.html#cb139-74"></a><span class="kw">plot</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">dim</span>(FF)[<span class="dv">1</span>]),FF[,<span class="dv">1</span>],<span class="dt">type =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">axes =</span> F)</span>
-<span id="cb139-75"><a href="modelado-en-minería-de-datos.html#cb139-75"></a><span class="kw">axis</span>(<span class="dv">2</span>)</span>
-<span id="cb139-76"><a href="modelado-en-minería-de-datos.html#cb139-76"></a><span class="kw">text</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">dim</span>(FF)[<span class="dv">1</span>]),FF[,<span class="dv">1</span>],<span class="dt">labels =</span> lrow,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>r<span class="op">*</span><span class="dv">2</span>)</span>
-<span id="cb139-77"><a href="modelado-en-minería-de-datos.html#cb139-77"></a><span class="kw">text</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">dim</span>(G)[<span class="dv">1</span>]),G[,<span class="dv">1</span>],<span class="dt">labels =</span> lcol,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>c<span class="op">*</span><span class="dv">2</span>)</span>
-<span id="cb139-78"><a href="modelado-en-minería-de-datos.html#cb139-78"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="modelado-en-minería-de-datos.html#cb293-1"></a><span class="co">#ejemplo CA</span></span>
+<span id="cb293-2"><a href="modelado-en-minería-de-datos.html#cb293-2"></a><span class="co">#install.packages(&quot;ca&quot;)</span></span>
+<span id="cb293-3"><a href="modelado-en-minería-de-datos.html#cb293-3"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb293-4"><a href="modelado-en-minería-de-datos.html#cb293-4"></a><span class="kw">library</span>(ca)</span>
+<span id="cb293-5"><a href="modelado-en-minería-de-datos.html#cb293-5"></a><span class="kw">data</span>(<span class="st">&quot;smoke&quot;</span>)</span>
+<span id="cb293-6"><a href="modelado-en-minería-de-datos.html#cb293-6"></a>model&lt;-<span class="kw">ca</span>(smoke)</span>
+<span id="cb293-7"><a href="modelado-en-minería-de-datos.html#cb293-7"></a><span class="kw">plot</span>(model)</span>
+<span id="cb293-8"><a href="modelado-en-minería-de-datos.html#cb293-8"></a><span class="kw">names</span>(model)</span>
+<span id="cb293-9"><a href="modelado-en-minería-de-datos.html#cb293-9"></a><span class="kw">summary</span>(model)</span>
+<span id="cb293-10"><a href="modelado-en-minería-de-datos.html#cb293-10"></a><span class="co">#ejemplo ENDSA</span></span>
+<span id="cb293-11"><a href="modelado-en-minería-de-datos.html#cb293-11"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/endsa.RData&quot;</span>))</span>
+<span id="cb293-12"><a href="modelado-en-minería-de-datos.html#cb293-12"></a>ll&lt;-<span class="kw">attributes</span>(endsa)</span>
+<span id="cb293-13"><a href="modelado-en-minería-de-datos.html#cb293-13"></a>ll<span class="op">$</span>var.labels</span>
+<span id="cb293-14"><a href="modelado-en-minería-de-datos.html#cb293-14"></a>t1&lt;-endsa <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">2008</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">7</span>,<span class="dv">14</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</span>
+<span id="cb293-15"><a href="modelado-en-minería-de-datos.html#cb293-15"></a>t1&lt;-t1[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,]</span>
+<span id="cb293-16"><a href="modelado-en-minería-de-datos.html#cb293-16"></a><span class="co">#test chi2</span></span>
+<span id="cb293-17"><a href="modelado-en-minería-de-datos.html#cb293-17"></a><span class="kw">chisq.test</span>(t1)</span>
+<span id="cb293-18"><a href="modelado-en-minería-de-datos.html#cb293-18"></a>model&lt;-<span class="kw">ca</span>(t1)</span>
+<span id="cb293-19"><a href="modelado-en-minería-de-datos.html#cb293-19"></a>model</span>
+<span id="cb293-20"><a href="modelado-en-minería-de-datos.html#cb293-20"></a><span class="kw">plot</span>(model)</span>
+<span id="cb293-21"><a href="modelado-en-minería-de-datos.html#cb293-21"></a><span class="co">#programando el ca</span></span>
+<span id="cb293-22"><a href="modelado-en-minería-de-datos.html#cb293-22"></a>lcol&lt;-<span class="kw">colnames</span>(t1)</span>
+<span id="cb293-23"><a href="modelado-en-minería-de-datos.html#cb293-23"></a>lrow&lt;-<span class="kw">rownames</span>(t1)</span>
+<span id="cb293-24"><a href="modelado-en-minería-de-datos.html#cb293-24"></a>P&lt;-<span class="kw">prop.table</span>(t1)</span>
+<span id="cb293-25"><a href="modelado-en-minería-de-datos.html#cb293-25"></a>r&lt;-<span class="kw">margin.table</span>(P,<span class="dv">1</span>)</span>
+<span id="cb293-26"><a href="modelado-en-minería-de-datos.html#cb293-26"></a>c&lt;-<span class="kw">margin.table</span>(P,<span class="dv">2</span>)</span>
+<span id="cb293-27"><a href="modelado-en-minería-de-datos.html#cb293-27"></a>Dr&lt;-<span class="kw">diag</span>(r)</span>
+<span id="cb293-28"><a href="modelado-en-minería-de-datos.html#cb293-28"></a>Dc&lt;-<span class="kw">diag</span>(c)</span>
+<span id="cb293-29"><a href="modelado-en-minería-de-datos.html#cb293-29"></a><span class="co">##Paso 1</span></span>
+<span id="cb293-30"><a href="modelado-en-minería-de-datos.html#cb293-30"></a>P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c)</span>
+<span id="cb293-31"><a href="modelado-en-minería-de-datos.html#cb293-31"></a><span class="co">#error en las matriz diagonales</span></span>
+<span id="cb293-32"><a href="modelado-en-minería-de-datos.html#cb293-32"></a>Dr<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)<span class="op">%*%</span>(P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c))<span class="op">%*%</span><span class="st"> </span>Dc<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)</span>
+<span id="cb293-33"><a href="modelado-en-minería-de-datos.html#cb293-33"></a><span class="co"># corrigiendo el problema</span></span>
+<span id="cb293-34"><a href="modelado-en-minería-de-datos.html#cb293-34"></a>S&lt;-<span class="kw">diag</span>(r<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>))<span class="op">%*%</span>(P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c))<span class="op">%*%</span><span class="st"> </span><span class="kw">diag</span>(c<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>))</span>
+<span id="cb293-35"><a href="modelado-en-minería-de-datos.html#cb293-35"></a><span class="co"># 2 descomposición SVD</span></span>
+<span id="cb293-36"><a href="modelado-en-minería-de-datos.html#cb293-36"></a><span class="kw">svd</span>(S)</span>
+<span id="cb293-37"><a href="modelado-en-minería-de-datos.html#cb293-37"></a>U&lt;-<span class="kw">svd</span>(S)<span class="op">$</span>u</span>
+<span id="cb293-38"><a href="modelado-en-minería-de-datos.html#cb293-38"></a>V&lt;-<span class="kw">svd</span>(S)<span class="op">$</span>v</span>
+<span id="cb293-39"><a href="modelado-en-minería-de-datos.html#cb293-39"></a>Da&lt;-<span class="kw">diag</span>(<span class="kw">svd</span>(S)<span class="op">$</span>d)</span>
+<span id="cb293-40"><a href="modelado-en-minería-de-datos.html#cb293-40"></a><span class="co">#verificando las propiedades</span></span>
+<span id="cb293-41"><a href="modelado-en-minería-de-datos.html#cb293-41"></a>U <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(U) </span>
+<span id="cb293-42"><a href="modelado-en-minería-de-datos.html#cb293-42"></a><span class="kw">t</span>(V) <span class="op">%*%</span><span class="st"> </span>V</span>
+<span id="cb293-43"><a href="modelado-en-minería-de-datos.html#cb293-43"></a>U <span class="op">%*%</span><span class="st"> </span>Da <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(V)</span>
+<span id="cb293-44"><a href="modelado-en-minería-de-datos.html#cb293-44"></a>S</span>
+<span id="cb293-45"><a href="modelado-en-minería-de-datos.html#cb293-45"></a><span class="co"># 3 Coordenadas principales filas</span></span>
+<span id="cb293-46"><a href="modelado-en-minería-de-datos.html#cb293-46"></a>FF&lt;-<span class="st"> </span><span class="kw">diag</span>(r<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>U <span class="op">%*%</span><span class="st"> </span>Da</span>
+<span id="cb293-47"><a href="modelado-en-minería-de-datos.html#cb293-47"></a><span class="co"># 4 Coordenadas principales columnas</span></span>
+<span id="cb293-48"><a href="modelado-en-minería-de-datos.html#cb293-48"></a>G&lt;-<span class="st"> </span><span class="kw">diag</span>(c<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>V <span class="op">%*%</span><span class="st"> </span>Da</span>
+<span id="cb293-49"><a href="modelado-en-minería-de-datos.html#cb293-49"></a><span class="co"># 5 Coordenadas estandar filas</span></span>
+<span id="cb293-50"><a href="modelado-en-minería-de-datos.html#cb293-50"></a>X&lt;-<span class="st"> </span><span class="kw">diag</span>(r<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>U </span>
+<span id="cb293-51"><a href="modelado-en-minería-de-datos.html#cb293-51"></a><span class="co"># 6 Coordenadas estandar columnas</span></span>
+<span id="cb293-52"><a href="modelado-en-minería-de-datos.html#cb293-52"></a>Y&lt;-<span class="st"> </span><span class="kw">diag</span>(c<span class="op">^</span>(<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">%*%</span><span class="st"> </span>V </span>
+<span id="cb293-53"><a href="modelado-en-minería-de-datos.html#cb293-53"></a><span class="co"># 7 inercia</span></span>
+<span id="cb293-54"><a href="modelado-en-minería-de-datos.html#cb293-54"></a><span class="kw">sum</span>(((P<span class="op">-</span>r<span class="op">%*%</span><span class="kw">t</span>(c))<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span>(r<span class="op">%*%</span><span class="kw">t</span>(c)))</span>
+<span id="cb293-55"><a href="modelado-en-minería-de-datos.html#cb293-55"></a><span class="co">#graficando</span></span>
+<span id="cb293-56"><a href="modelado-en-minería-de-datos.html#cb293-56"></a>xmin&lt;-<span class="kw">min</span>(<span class="kw">c</span>(FF[,<span class="dv">1</span>],G[,<span class="dv">1</span>]))</span>
+<span id="cb293-57"><a href="modelado-en-minería-de-datos.html#cb293-57"></a>xmax&lt;-<span class="kw">max</span>(<span class="kw">c</span>(FF[,<span class="dv">1</span>],G[,<span class="dv">1</span>]))</span>
+<span id="cb293-58"><a href="modelado-en-minería-de-datos.html#cb293-58"></a>ymin&lt;-<span class="kw">min</span>(<span class="kw">c</span>(FF[,<span class="dv">2</span>],G[,<span class="dv">2</span>]))</span>
+<span id="cb293-59"><a href="modelado-en-minería-de-datos.html#cb293-59"></a>ymax&lt;-<span class="kw">max</span>(<span class="kw">c</span>(FF[,<span class="dv">2</span>],G[,<span class="dv">2</span>]))</span>
+<span id="cb293-60"><a href="modelado-en-minería-de-datos.html#cb293-60"></a><span class="kw">plot</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(xmin,xmax)<span class="op">*</span><span class="fl">1.5</span>,<span class="dt">ylim=</span><span class="kw">c</span>(ymin,ymax)<span class="op">*</span><span class="fl">1.1</span>)</span>
+<span id="cb293-61"><a href="modelado-en-minería-de-datos.html#cb293-61"></a><span class="kw">points</span>(G[,<span class="dv">1</span>],G[,<span class="dv">2</span>],<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb293-62"><a href="modelado-en-minería-de-datos.html#cb293-62"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span>
+<span id="cb293-63"><a href="modelado-en-minería-de-datos.html#cb293-63"></a><span class="co">#incluyendo el texto</span></span>
+<span id="cb293-64"><a href="modelado-en-minería-de-datos.html#cb293-64"></a><span class="kw">plot</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">xlim=</span><span class="kw">c</span>(xmin,xmax)<span class="op">*</span><span class="fl">1.5</span>,<span class="dt">ylim=</span><span class="kw">c</span>(ymin,ymax)<span class="op">*</span><span class="fl">1.1</span>,<span class="dt">type =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb293-65"><a href="modelado-en-minería-de-datos.html#cb293-65"></a><span class="kw">text</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">labels =</span> lrow,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">0.7</span>)</span>
+<span id="cb293-66"><a href="modelado-en-minería-de-datos.html#cb293-66"></a><span class="kw">text</span>(G[,<span class="dv">1</span>],G[,<span class="dv">2</span>],<span class="dt">labels =</span> lcol,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">cex=</span><span class="fl">0.7</span>)</span>
+<span id="cb293-67"><a href="modelado-en-minería-de-datos.html#cb293-67"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span>
+<span id="cb293-68"><a href="modelado-en-minería-de-datos.html#cb293-68"></a><span class="co">#incluyendo mas información</span></span>
+<span id="cb293-69"><a href="modelado-en-minería-de-datos.html#cb293-69"></a><span class="kw">plot</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">xlim=</span><span class="kw">c</span>(xmin,xmax)<span class="op">*</span><span class="fl">1.5</span>,<span class="dt">ylim=</span><span class="kw">c</span>(ymin,ymax)<span class="op">*</span><span class="fl">1.1</span>,<span class="dt">type =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb293-70"><a href="modelado-en-minería-de-datos.html#cb293-70"></a><span class="kw">text</span>(FF[,<span class="dv">1</span>],FF[,<span class="dv">2</span>],<span class="dt">labels =</span> lrow,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>r<span class="op">*</span><span class="dv">2</span>)</span>
+<span id="cb293-71"><a href="modelado-en-minería-de-datos.html#cb293-71"></a><span class="kw">text</span>(G[,<span class="dv">1</span>],G[,<span class="dv">2</span>],<span class="dt">labels =</span> lcol,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>c<span class="op">*</span><span class="dv">2</span>)</span>
+<span id="cb293-72"><a href="modelado-en-minería-de-datos.html#cb293-72"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span>
+<span id="cb293-73"><a href="modelado-en-minería-de-datos.html#cb293-73"></a><span class="co">#viendo solo una dimensión</span></span>
+<span id="cb293-74"><a href="modelado-en-minería-de-datos.html#cb293-74"></a><span class="kw">plot</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">dim</span>(FF)[<span class="dv">1</span>]),FF[,<span class="dv">1</span>],<span class="dt">type =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">axes =</span> F)</span>
+<span id="cb293-75"><a href="modelado-en-minería-de-datos.html#cb293-75"></a><span class="kw">axis</span>(<span class="dv">2</span>)</span>
+<span id="cb293-76"><a href="modelado-en-minería-de-datos.html#cb293-76"></a><span class="kw">text</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">dim</span>(FF)[<span class="dv">1</span>]),FF[,<span class="dv">1</span>],<span class="dt">labels =</span> lrow,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>r<span class="op">*</span><span class="dv">2</span>)</span>
+<span id="cb293-77"><a href="modelado-en-minería-de-datos.html#cb293-77"></a><span class="kw">text</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">dim</span>(G)[<span class="dv">1</span>]),G[,<span class="dv">1</span>],<span class="dt">labels =</span> lcol,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">cex=</span><span class="fl">0.5</span><span class="op">+</span>c<span class="op">*</span><span class="dv">2</span>)</span>
+<span id="cb293-78"><a href="modelado-en-minería-de-datos.html#cb293-78"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span></code></pre></div>
+<div id="un-ejemplo-de-correspondencia-simple-y-múltiple" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Un ejemplo de correspondencia simple y múltiple</h3>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="modelado-en-minería-de-datos.html#cb294-1"></a><span class="kw">library</span>(FactoMineR)</span>
+<span id="cb294-2"><a href="modelado-en-minería-de-datos.html#cb294-2"></a><span class="kw">library</span>(explor)</span>
+<span id="cb294-3"><a href="modelado-en-minería-de-datos.html#cb294-3"></a></span>
+<span id="cb294-4"><a href="modelado-en-minería-de-datos.html#cb294-4"></a>endsa08&lt;-endsa <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">2008</span>)</span>
+<span id="cb294-5"><a href="modelado-en-minería-de-datos.html#cb294-5"></a></span>
+<span id="cb294-6"><a href="modelado-en-minería-de-datos.html#cb294-6"></a>model1&lt;-<span class="kw">MCA</span>(endsa08[,<span class="kw">c</span>(<span class="st">&quot;ae01&quot;</span>,<span class="st">&quot;ae05&quot;</span>,<span class="st">&quot;ae08&quot;</span>,<span class="st">&quot;ae09&quot;</span>)])</span>
+<span id="cb294-7"><a href="modelado-en-minería-de-datos.html#cb294-7"></a><span class="kw">explor</span>(model1)</span>
+<span id="cb294-8"><a href="modelado-en-minería-de-datos.html#cb294-8"></a></span>
+<span id="cb294-9"><a href="modelado-en-minería-de-datos.html#cb294-9"></a>model1<span class="op">$</span>eig</span>
+<span id="cb294-10"><a href="modelado-en-minería-de-datos.html#cb294-10"></a>model1<span class="op">$</span>call</span>
+<span id="cb294-11"><a href="modelado-en-minería-de-datos.html#cb294-11"></a></span>
+<span id="cb294-12"><a href="modelado-en-minería-de-datos.html#cb294-12"></a>model2&lt;-<span class="kw">PCA</span>(endsa08[,<span class="kw">c</span>(<span class="st">&quot;nup02&quot;</span>,<span class="st">&quot;nup03&quot;</span>,<span class="st">&quot;edad&quot;</span>)])</span>
+<span id="cb294-13"><a href="modelado-en-minería-de-datos.html#cb294-13"></a><span class="kw">explor</span>(model2)</span></code></pre></div>
 
+</div>
 </div>
 </div>
             </section>

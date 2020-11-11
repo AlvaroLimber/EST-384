@@ -24,7 +24,7 @@
 <meta name="author" content="Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2020-08-31" />
+<meta name="date" content="2020-11-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,7 +159,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.6.7" data-path="minería-de-datos.html"><a href="minería-de-datos.html#ejercicio-reshape"><i class="fa fa-check"></i><b>1.6.7</b> Ejercicio (reshape)</a></li>
 <li class="chapter" data-level="1.6.8" data-path="minería-de-datos.html"><a href="minería-de-datos.html#limpieza-fechas"><i class="fa fa-check"></i><b>1.6.8</b> Limpieza (fechas)</a></li>
 <li class="chapter" data-level="1.6.9" data-path="minería-de-datos.html"><a href="minería-de-datos.html#limpieza-string"><i class="fa fa-check"></i><b>1.6.9</b> Limpieza (String)</a></li>
-<li class="chapter" data-level="1.6.10" data-path="minería-de-datos.html"><a href="minería-de-datos.html#transfomración"><i class="fa fa-check"></i><b>1.6.10</b> Transfomración</a></li>
+<li class="chapter" data-level="1.6.10" data-path="minería-de-datos.html"><a href="minería-de-datos.html#transformación"><i class="fa fa-check"></i><b>1.6.10</b> Transformación</a></li>
+<li class="chapter" data-level="1.6.11" data-path="minería-de-datos.html"><a href="minería-de-datos.html#definir-diseño-de-encuesta-por-muestreo"><i class="fa fa-check"></i><b>1.6.11</b> Definir diseño de encuesta por muestreo</a></li>
 </ul></li>
 <li class="chapter" data-level="1.7" data-path="minería-de-datos.html"><a href="minería-de-datos.html#imputación-de-variables"><i class="fa fa-check"></i><b>1.7</b> Imputación de variables</a><ul>
 <li class="chapter" data-level="1.7.1" data-path="minería-de-datos.html"><a href="minería-de-datos.html#la-falta-de-información-es-información"><i class="fa fa-check"></i><b>1.7.1</b> La falta de información es información</a></li>
@@ -171,6 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.7.7" data-path="minería-de-datos.html"><a href="minería-de-datos.html#influx-and-outflux"><i class="fa fa-check"></i><b>1.7.7</b> Influx and outflux</a></li>
 <li class="chapter" data-level="1.7.8" data-path="minería-de-datos.html"><a href="minería-de-datos.html#imputación-de-datos-monótonos"><i class="fa fa-check"></i><b>1.7.8</b> Imputación de datos monótonos</a></li>
 <li class="chapter" data-level="1.7.9" data-path="minería-de-datos.html"><a href="minería-de-datos.html#multivariate-imputation-by-chained-equations-mice"><i class="fa fa-check"></i><b>1.7.9</b> Multivariate Imputation by Chained Equations (mice)</a></li>
+<li class="chapter" data-level="1.7.10" data-path="minería-de-datos.html"><a href="minería-de-datos.html#en-r"><i class="fa fa-check"></i><b>1.7.10</b> En R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html"><i class="fa fa-check"></i><b>2</b> Modelado en Minería de datos</a><ul>
@@ -179,7 +181,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1.2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#visualización"><i class="fa fa-check"></i><b>2.1.2</b> Visualización</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#componentes-principales"><i class="fa fa-check"></i><b>2.2</b> Componentes Principales</a></li>
-<li class="chapter" data-level="2.3" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#análisis-de-correspondencia"><i class="fa fa-check"></i><b>2.3</b> Análisis de correspondencia</a></li>
+<li class="chapter" data-level="2.3" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#análisis-de-correspondencia"><i class="fa fa-check"></i><b>2.3</b> Análisis de correspondencia</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="modelado-en-minería-de-datos.html"><a href="modelado-en-minería-de-datos.html#un-ejemplo-de-correspondencia-simple-y-múltiple"><i class="fa fa-check"></i><b>2.3.1</b> Un ejemplo de correspondencia simple y múltiple</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>3</b> Clustering</a><ul>
 <li class="chapter" data-level="3.1" data-path="clustering.html"><a href="clustering.html#medidas-de-disimilaridad"><i class="fa fa-check"></i><b>3.1</b> Medidas de Disimilaridad</a><ul>
@@ -211,7 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.6" data-path="regresión.html"><a href="regresión.html#paso-6-predicir-a-partir-del-modelo"><i class="fa fa-check"></i><b>4.1.6</b> Paso 6: Predicir a partir del modelo</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="regresión.html"><a href="regresión.html#probit-y-logit"><i class="fa fa-check"></i><b>4.2</b> Probit y Logit</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="regresión.html"><a href="regresión.html#en-r"><i class="fa fa-check"></i><b>4.2.1</b> En R:</a></li>
+<li class="chapter" data-level="4.2.1" data-path="regresión.html"><a href="regresión.html#en-r-1"><i class="fa fa-check"></i><b>4.2.1</b> En R:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="clasificación.html"><a href="clasificación.html"><i class="fa fa-check"></i><b>5</b> Clasificación</a><ul>
@@ -346,109 +350,50 @@ Principles of Data Mining (Hand et.al. 2001)
 <h3><span class="header-section-number">1.6.4</span> Importación</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="minería-de-datos.html#cb3-1"></a><span class="kw">library</span>(foreign)</span>
 <span id="cb3-2"><a href="minería-de-datos.html#cb3-2"></a><span class="kw">library</span>(readr)</span>
-<span id="cb3-3"><a href="minería-de-datos.html#cb3-3"></a><span class="kw">apropos</span>(<span class="st">&quot;read&quot;</span>)</span></code></pre></div>
-<pre><code>##  [1] &quot;.rs.api.readPreference&quot;             
-##  [2] &quot;.rs.api.readRStudioPreference&quot;      
-##  [3] &quot;.rs.connectionReadDSN&quot;              
-##  [4] &quot;.rs.connectionReadInstallers&quot;       
-##  [5] &quot;.rs.connectionReadOdbc&quot;             
-##  [6] &quot;.rs.connectionReadOdbcEntry&quot;        
-##  [7] &quot;.rs.connectionReadPackageInstallers&quot;
-##  [8] &quot;.rs.connectionReadPackages&quot;         
-##  [9] &quot;.rs.connectionReadSnippets&quot;         
-## [10] &quot;.rs.connectionReadWindowsRegistry&quot;  
-## [11] &quot;.rs.isREADME&quot;                       
-## [12] &quot;.rs.odbcBundleReadIni&quot;              
-## [13] &quot;.rs.onAvailablePackagesReady&quot;       
-## [14] &quot;.rs.readAliases&quot;                    
-## [15] &quot;.rs.readApiPref&quot;                    
-## [16] &quot;.rs.readDataCapture&quot;                
-## [17] &quot;.rs.readFile&quot;                       
-## [18] &quot;.rs.readIniFile&quot;                    
-## [19] &quot;.rs.readLines&quot;                      
-## [20] &quot;.rs.readPackageDescription&quot;         
-## [21] &quot;.rs.readPrefInternal&quot;               
-## [22] &quot;.rs.readRnbCache&quot;                   
-## [23] &quot;.rs.readShinytestResultRds&quot;         
-## [24] &quot;.rs.readSourceDocument&quot;             
-## [25] &quot;.rs.readUiPref&quot;                     
-## [26] &quot;.rs.readUserPref&quot;                   
-## [27] &quot;.rs.readUserState&quot;                  
-## [28] &quot;.rs.renv.readLockfilePackages&quot;      
-## [29] &quot;.rs.rnb.readConsoleData&quot;            
-## [30] &quot;read.arff&quot;                          
-## [31] &quot;read.csv&quot;                           
-## [32] &quot;read.csv2&quot;                          
-## [33] &quot;read.dbf&quot;                           
-## [34] &quot;read.dcf&quot;                           
-## [35] &quot;read.delim&quot;                         
-## [36] &quot;read.delim2&quot;                        
-## [37] &quot;read.DIF&quot;                           
-## [38] &quot;read.dta&quot;                           
-## [39] &quot;read.epiinfo&quot;                       
-## [40] &quot;read.fortran&quot;                       
-## [41] &quot;read.ftable&quot;                        
-## [42] &quot;read.fwf&quot;                           
-## [43] &quot;read.mtp&quot;                           
-## [44] &quot;read.octave&quot;                        
-## [45] &quot;read.S&quot;                             
-## [46] &quot;read.socket&quot;                        
-## [47] &quot;read.spss&quot;                          
-## [48] &quot;read.ssd&quot;                           
-## [49] &quot;read.systat&quot;                        
-## [50] &quot;read.table&quot;                         
-## [51] &quot;read.xport&quot;                         
-## [52] &quot;read_csv&quot;                           
-## [53] &quot;read_csv_chunked&quot;                   
-## [54] &quot;read_csv2&quot;                          
-## [55] &quot;read_csv2_chunked&quot;                  
-## [56] &quot;read_delim&quot;                         
-## [57] &quot;read_delim_chunked&quot;                 
-## [58] &quot;read_file&quot;                          
-## [59] &quot;read_file_raw&quot;                      
-## [60] &quot;read_fwf&quot;                           
-## [61] &quot;read_lines&quot;                         
-## [62] &quot;read_lines_chunked&quot;                 
-## [63] &quot;read_lines_raw&quot;                     
-## [64] &quot;read_lines_raw_chunked&quot;             
-## [65] &quot;read_log&quot;                           
-## [66] &quot;read_rds&quot;                           
-## [67] &quot;read_table&quot;                         
-## [68] &quot;read_table2&quot;                        
-## [69] &quot;read_tsv&quot;                           
-## [70] &quot;read_tsv_chunked&quot;                   
-## [71] &quot;readBin&quot;                            
-## [72] &quot;readChar&quot;                           
-## [73] &quot;readCitationFile&quot;                   
-## [74] &quot;readClipboard&quot;                      
-## [75] &quot;readline&quot;                           
-## [76] &quot;readLines&quot;                          
-## [77] &quot;readr_example&quot;                      
-## [78] &quot;readRDS&quot;                            
-## [79] &quot;readRegistry&quot;                       
-## [80] &quot;readRenviron&quot;                       
-## [81] &quot;Sys.readlink&quot;</code></pre>
+<span id="cb3-3"><a href="minería-de-datos.html#cb3-3"></a><span class="kw">apropos</span>(<span class="st">&quot;read&quot;</span>)</span>
+<span id="cb3-4"><a href="minería-de-datos.html#cb3-4"></a><span class="kw">getwd</span>()</span>
+<span id="cb3-5"><a href="minería-de-datos.html#cb3-5"></a><span class="kw">setwd</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Downloads</span><span class="ch">\\</span><span class="st">bd49 (1)</span><span class="ch">\\</span><span class="st">Base EH2019&quot;</span>)</span>
+<span id="cb3-6"><a href="minería-de-datos.html#cb3-6"></a><span class="kw">dir</span>()</span>
+<span id="cb3-7"><a href="minería-de-datos.html#cb3-7"></a>eh19v&lt;-<span class="kw">read.spss</span>(<span class="st">&quot;EH2019_Vivienda.sav&quot;</span>,<span class="dt">to.data.frame =</span> T)</span>
+<span id="cb3-8"><a href="minería-de-datos.html#cb3-8"></a>eh19p&lt;-<span class="kw">read.spss</span>(<span class="st">&quot;EH2019_Persona.sav&quot;</span>,<span class="dt">to.data.frame =</span> T)</span>
+<span id="cb3-9"><a href="minería-de-datos.html#cb3-9"></a><span class="kw">object.size</span>(eh19p)<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span></span>
+<span id="cb3-10"><a href="minería-de-datos.html#cb3-10"></a><span class="co">#exportación de datos</span></span>
+<span id="cb3-11"><a href="minería-de-datos.html#cb3-11"></a><span class="kw">setwd</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data&quot;</span>)</span>
+<span id="cb3-12"><a href="minería-de-datos.html#cb3-12"></a><span class="kw">save</span>(eh19p,eh19v,<span class="dt">file=</span><span class="st">&quot;eh19.RData&quot;</span>)</span>
+<span id="cb3-13"><a href="minería-de-datos.html#cb3-13"></a><span class="co"># cargando la base de datos que acabamos de guardar</span></span>
+<span id="cb3-14"><a href="minería-de-datos.html#cb3-14"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
+<span id="cb3-15"><a href="minería-de-datos.html#cb3-15"></a><span class="kw">load</span>(<span class="st">&quot;eh19.RData&quot;</span>)</span>
+<span id="cb3-16"><a href="minería-de-datos.html#cb3-16"></a><span class="kw">load</span>(<span class="st">&quot;oct20.RData&quot;</span>)</span>
+<span id="cb3-17"><a href="minería-de-datos.html#cb3-17"></a><span class="co"># cargando desde github</span></span>
+<span id="cb3-18"><a href="minería-de-datos.html#cb3-18"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
+<span id="cb3-19"><a href="minería-de-datos.html#cb3-19"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/eh19.RData&quot;</span>))</span>
+<span id="cb3-20"><a href="minería-de-datos.html#cb3-20"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/oct20.RData&quot;</span>))</span></code></pre></div>
 </div>
 <div id="recopilación-1" class="section level3">
 <h3><span class="header-section-number">1.6.5</span> Recopilación</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="minería-de-datos.html#cb5-1"></a><span class="kw">read.table</span>(<span class="st">&quot;clipboard&quot;</span>,<span class="dt">header =</span> T)</span>
-<span id="cb5-2"><a href="minería-de-datos.html#cb5-2"></a><span class="kw">library</span>(readxl)</span>
-<span id="cb5-3"><a href="minería-de-datos.html#cb5-3"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb5-4"><a href="minería-de-datos.html#cb5-4"></a><span class="kw">library</span>(DBI)</span>
-<span id="cb5-5"><a href="minería-de-datos.html#cb5-5"></a><span class="kw">library</span>(RMySQL)</span>
-<span id="cb5-6"><a href="minería-de-datos.html#cb5-6"></a><span class="kw">library</span>(gtrendsR) <span class="co"># API</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="minería-de-datos.html#cb4-1"></a><span class="kw">read.table</span>(<span class="st">&quot;clipboard&quot;</span>,<span class="dt">header =</span> T)</span>
+<span id="cb4-2"><a href="minería-de-datos.html#cb4-2"></a><span class="kw">library</span>(readxl) <span class="co"># excel </span></span>
+<span id="cb4-3"><a href="minería-de-datos.html#cb4-3"></a><span class="kw">library</span>(DBI)  <span class="co"># Bases de datos relacionales en el sistema</span></span>
+<span id="cb4-4"><a href="minería-de-datos.html#cb4-4"></a><span class="co">#library(help=DBI)  </span></span>
+<span id="cb4-5"><a href="minería-de-datos.html#cb4-5"></a><span class="kw">library</span>(RMySQL) <span class="co"># bases de datos en mysql</span></span>
+<span id="cb4-6"><a href="minería-de-datos.html#cb4-6"></a><span class="co"># web scraping (API)</span></span>
+<span id="cb4-7"><a href="minería-de-datos.html#cb4-7"></a><span class="kw">library</span>(gtrendsR) <span class="co"># API</span></span>
+<span id="cb4-8"><a href="minería-de-datos.html#cb4-8"></a>gg&lt;-<span class="kw">gtrends</span>(<span class="kw">c</span>(<span class="st">&quot;data mining&quot;</span>,<span class="st">&quot;machine learning&quot;</span>),<span class="dt">time=</span><span class="st">&quot;today 12-m&quot;</span>)</span>
+<span id="cb4-9"><a href="minería-de-datos.html#cb4-9"></a>gg<span class="op">$</span>interest_over_time</span>
+<span id="cb4-10"><a href="minería-de-datos.html#cb4-10"></a><span class="kw">plot</span>(gg)</span>
+<span id="cb4-11"><a href="minería-de-datos.html#cb4-11"></a>gg&lt;-<span class="kw">gtrends</span>(<span class="kw">c</span>(<span class="st">&quot;data mining&quot;</span>,<span class="st">&quot;machine learning&quot;</span>),<span class="dt">time=</span><span class="st">&quot;today 12-m&quot;</span>,<span class="dt">geo=</span><span class="st">&quot;BO&quot;</span>)</span></code></pre></div>
 </div>
 <div id="limpieza" class="section level3">
 <h3><span class="header-section-number">1.6.6</span> Limpieza</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="minería-de-datos.html#cb6-1"></a>std&lt;-<span class="kw">data.frame</span>(<span class="dt">name=</span><span class="kw">c</span>(<span class="st">&quot;ana&quot;</span>,<span class="st">&quot;juan&quot;</span>,<span class="st">&quot;carla&quot;</span>),<span class="dt">math=</span><span class="kw">c</span>(<span class="dv">86</span>,<span class="dv">43</span>,<span class="dv">80</span>),<span class="dt">stat=</span><span class="kw">c</span>(<span class="dv">90</span>,<span class="dv">75</span>,<span class="dv">82</span>))</span>
-<span id="cb6-2"><a href="minería-de-datos.html#cb6-2"></a>std</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="minería-de-datos.html#cb5-1"></a>std&lt;-<span class="kw">data.frame</span>(<span class="dt">name=</span><span class="kw">c</span>(<span class="st">&quot;ana&quot;</span>,<span class="st">&quot;juan&quot;</span>,<span class="st">&quot;carla&quot;</span>),<span class="dt">math=</span><span class="kw">c</span>(<span class="dv">86</span>,<span class="dv">43</span>,<span class="dv">80</span>),<span class="dt">stat=</span><span class="kw">c</span>(<span class="dv">90</span>,<span class="dv">75</span>,<span class="dv">82</span>))</span>
+<span id="cb5-2"><a href="minería-de-datos.html#cb5-2"></a>std</span></code></pre></div>
 <pre><code>##    name math stat
 ## 1   ana   86   90
 ## 2  juan   43   75
 ## 3 carla   80   82</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="minería-de-datos.html#cb8-1"></a><span class="kw">library</span>(tidyr)</span>
-<span id="cb8-2"><a href="minería-de-datos.html#cb8-2"></a>bd&lt;-<span class="kw">gather</span>(std,materia,nota,math<span class="op">:</span>stat)</span>
-<span id="cb8-3"><a href="minería-de-datos.html#cb8-3"></a>bd</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="minería-de-datos.html#cb7-1"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb7-2"><a href="minería-de-datos.html#cb7-2"></a>bd&lt;-<span class="kw">gather</span>(std,materia,nota,math<span class="op">:</span>stat)</span>
+<span id="cb7-3"><a href="minería-de-datos.html#cb7-3"></a>bd</span></code></pre></div>
 <pre><code>##    name materia nota
 ## 1   ana    math   86
 ## 2  juan    math   43
@@ -456,6 +401,8 @@ Principles of Data Mining (Hand et.al. 2001)
 ## 4   ana    stat   90
 ## 5  juan    stat   75
 ## 6 carla    stat   82</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="minería-de-datos.html#cb9-1"></a><span class="co"># otra opción más relacionada a bases de datos con información de tiempo, </span></span>
+<span id="cb9-2"><a href="minería-de-datos.html#cb9-2"></a><span class="co"># es el comando reshape</span></span></code></pre></div>
 </div>
 <div id="ejercicio-reshape" class="section level3">
 <h3><span class="header-section-number">1.6.7</span> Ejercicio (reshape)</h3>
@@ -463,56 +410,663 @@ Principles of Data Mining (Hand et.al. 2001)
 </div>
 <div id="limpieza-fechas" class="section level3">
 <h3><span class="header-section-number">1.6.8</span> Limpieza (fechas)</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="minería-de-datos.html#cb10-1"></a><span class="kw">library</span>(lubridate)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;lubridate&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     date, intersect, setdiff, union</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="minería-de-datos.html#cb13-1"></a><span class="kw">ymd</span>(<span class="st">&quot;20151021&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="minería-de-datos.html#cb10-1"></a><span class="kw">library</span>(lubridate)</span>
+<span id="cb10-2"><a href="minería-de-datos.html#cb10-2"></a><span class="kw">date</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;Wed Nov 11 11:29:45 2020&quot;</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="minería-de-datos.html#cb12-1"></a><span class="kw">today</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;2020-11-11&quot;</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="minería-de-datos.html#cb14-1"></a><span class="kw">ymd</span>(<span class="st">&quot;20151021&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2015-10-21&quot;</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="minería-de-datos.html#cb15-1"></a><span class="kw">ymd</span>(<span class="st">&quot;2015/11/30&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="minería-de-datos.html#cb16-1"></a><span class="kw">ymd</span>(<span class="st">&quot;2015/11/30&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2015-11-30&quot;</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="minería-de-datos.html#cb17-1"></a><span class="kw">myd</span>(<span class="st">&quot;11.2012.3&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="minería-de-datos.html#cb18-1"></a><span class="kw">myd</span>(<span class="st">&quot;11.2012.3&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2012-11-03&quot;</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="minería-de-datos.html#cb19-1"></a><span class="kw">dmy_hms</span>(<span class="st">&quot;2/12/2013 14:05:01&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="minería-de-datos.html#cb20-1"></a><span class="kw">dmy_hms</span>(<span class="st">&quot;2/12/2013 14:05:01&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2013-12-02 14:05:01 UTC&quot;</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="minería-de-datos.html#cb21-1"></a><span class="kw">mdy</span>(<span class="st">&quot;120112&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="minería-de-datos.html#cb22-1"></a><span class="kw">mdy</span>(<span class="st">&quot;120112&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2012-12-01&quot;</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="minería-de-datos.html#cb24-1"></a>d1&lt;-<span class="kw">dmy</span>(<span class="st">&quot;15032020&quot;</span>)</span>
+<span id="cb24-2"><a href="minería-de-datos.html#cb24-2"></a><span class="kw">class</span>(d1)</span></code></pre></div>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="minería-de-datos.html#cb26-1"></a><span class="co">#ts()</span></span></code></pre></div>
 </div>
 <div id="limpieza-string" class="section level3">
 <h3><span class="header-section-number">1.6.9</span> Limpieza (String)</h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="minería-de-datos.html#cb23-1"></a><span class="kw">toupper</span>(<span class="st">&quot;hola&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="minería-de-datos.html#cb27-1"></a><span class="kw">toupper</span>(<span class="st">&quot;hola&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;HOLA&quot;</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="minería-de-datos.html#cb25-1"></a>abc&lt;-letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
-<span id="cb25-2"><a href="minería-de-datos.html#cb25-2"></a><span class="kw">toupper</span>(abc)</span></code></pre></div>
-<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot;</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="minería-de-datos.html#cb27-1"></a><span class="kw">tolower</span>(<span class="st">&quot;HOLA&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="minería-de-datos.html#cb29-1"></a><span class="kw">tolower</span>(<span class="st">&quot;HOLA&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;hola&quot;</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="minería-de-datos.html#cb29-1"></a><span class="kw">tolower</span>(<span class="st">&quot;Juan&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="minería-de-datos.html#cb31-1"></a>abc&lt;-letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
+<span id="cb31-2"><a href="minería-de-datos.html#cb31-2"></a><span class="kw">toupper</span>(abc)</span></code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot;</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="minería-de-datos.html#cb33-1"></a><span class="kw">tolower</span>(<span class="st">&quot;Juan&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;juan&quot;</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="minería-de-datos.html#cb31-1"></a><span class="kw">substr</span>(<span class="st">&quot;hola como estan&quot;</span>,<span class="dv">1</span>,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="minería-de-datos.html#cb35-1"></a><span class="co"># Extraer partes de un texto</span></span>
+<span id="cb35-2"><a href="minería-de-datos.html#cb35-2"></a><span class="kw">substr</span>(<span class="st">&quot;hola como estan&quot;</span>,<span class="dv">1</span>,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;hol&quot;</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="minería-de-datos.html#cb33-1"></a><span class="kw">substr</span>(<span class="st">&quot;hola como estan&quot;</span>,<span class="dv">3</span>,<span class="dv">7</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="minería-de-datos.html#cb37-1"></a><span class="kw">substr</span>(<span class="st">&quot;hola como estan&quot;</span>,<span class="dv">3</span>,<span class="dv">7</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;la co&quot;</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="minería-de-datos.html#cb35-1"></a><span class="kw">nchar</span>(<span class="st">&quot;hola&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="minería-de-datos.html#cb39-1"></a><span class="co"># contar la cantidad de caracteres</span></span>
+<span id="cb39-2"><a href="minería-de-datos.html#cb39-2"></a><span class="kw">nchar</span>(<span class="st">&quot;hola&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="minería-de-datos.html#cb37-1"></a><span class="kw">gsub</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;x&quot;</span>,<span class="st">&quot;hola como estas&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="minería-de-datos.html#cb41-1"></a><span class="kw">nchar</span>(<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;chau&quot;</span>,<span class="st">&quot;LA                         paz&quot;</span>))</span></code></pre></div>
+<pre><code>## [1]  4  4 30</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="minería-de-datos.html#cb43-1"></a>x&lt;-<span class="kw">c</span>(<span class="st">&quot;LA-.paz&quot;</span>,<span class="st">&quot;La Paz&quot;</span>, <span class="st">&quot;La pas&quot;</span>, <span class="st">&quot;La    paz&quot;</span>,<span class="st">&quot;lapaz&quot;</span>,<span class="st">&quot;la 78 paz&quot;</span>)</span>
+<span id="cb43-2"><a href="minería-de-datos.html#cb43-2"></a></span>
+<span id="cb43-3"><a href="minería-de-datos.html#cb43-3"></a>x&lt;-<span class="kw">toupper</span>(x)</span>
+<span id="cb43-4"><a href="minería-de-datos.html#cb43-4"></a></span>
+<span id="cb43-5"><a href="minería-de-datos.html#cb43-5"></a>x&lt;-<span class="kw">gsub</span>(<span class="st">&quot;PAS&quot;</span>,<span class="st">&quot;PAZ&quot;</span>,x)</span>
+<span id="cb43-6"><a href="minería-de-datos.html#cb43-6"></a></span>
+<span id="cb43-7"><a href="minería-de-datos.html#cb43-7"></a><span class="kw">library</span>(tm)</span>
+<span id="cb43-8"><a href="minería-de-datos.html#cb43-8"></a>x&lt;-<span class="kw">removeNumbers</span>(x)</span>
+<span id="cb43-9"><a href="minería-de-datos.html#cb43-9"></a>x&lt;-<span class="kw">removePunctuation</span>(x)</span>
+<span id="cb43-10"><a href="minería-de-datos.html#cb43-10"></a>x&lt;-<span class="kw">gsub</span>(<span class="st">&quot;LAPAZ&quot;</span>,<span class="st">&quot;LA PAZ&quot;</span>,x)</span>
+<span id="cb43-11"><a href="minería-de-datos.html#cb43-11"></a>x&lt;-<span class="kw">stripWhitespace</span>(x)</span>
+<span id="cb43-12"><a href="minería-de-datos.html#cb43-12"></a></span>
+<span id="cb43-13"><a href="minería-de-datos.html#cb43-13"></a><span class="kw">nchar</span>(x)</span></code></pre></div>
+<pre><code>## [1] 6 6 6 6 6 6</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="minería-de-datos.html#cb45-1"></a><span class="kw">nchar</span>(<span class="kw">gsub</span>(<span class="st">&quot;  &quot;</span>,<span class="st">&quot; &quot;</span>,x))</span></code></pre></div>
+<pre><code>## [1] 6 6 6 6 6 6</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="minería-de-datos.html#cb47-1"></a><span class="kw">gsub</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;x&quot;</span>,<span class="st">&quot;hola como estas&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;holx como estxs&quot;</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="minería-de-datos.html#cb39-1"></a><span class="kw">grepl</span>(<span class="st">&quot;a&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;como&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="minería-de-datos.html#cb49-1"></a><span class="kw">grepl</span>(<span class="st">&quot;a&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;como&quot;</span>))</span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="minería-de-datos.html#cb41-1"></a><span class="kw">grepl</span>(<span class="st">&quot;o&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;como&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="minería-de-datos.html#cb51-1"></a><span class="kw">grepl</span>(<span class="st">&quot;o&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;como&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] TRUE TRUE</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="minería-de-datos.html#cb43-1"></a><span class="kw">library</span>(stringi)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="minería-de-datos.html#cb53-1"></a><span class="co">#otra alternativa</span></span>
+<span id="cb53-2"><a href="minería-de-datos.html#cb53-2"></a>x&lt;-<span class="kw">c</span>(<span class="st">&quot;LA-.paz&quot;</span>,<span class="st">&quot;La Paz&quot;</span>, <span class="st">&quot;La pas&quot;</span>, <span class="st">&quot;La    paz&quot;</span>,<span class="st">&quot;lapaz&quot;</span>,<span class="st">&quot;la 78 paz&quot;</span>)</span>
+<span id="cb53-3"><a href="minería-de-datos.html#cb53-3"></a>x&lt;-<span class="kw">toupper</span>(x)</span>
+<span id="cb53-4"><a href="minería-de-datos.html#cb53-4"></a>x[<span class="kw">grepl</span>(<span class="st">&quot;PAZ&quot;</span>,x)]&lt;-<span class="st">&quot;LA PAZ&quot;</span></span>
+<span id="cb53-5"><a href="minería-de-datos.html#cb53-5"></a>x&lt;-<span class="kw">gsub</span>(<span class="st">&quot;PAS&quot;</span>,<span class="st">&quot;PAZ&quot;</span>,x)</span>
+<span id="cb53-6"><a href="minería-de-datos.html#cb53-6"></a></span>
+<span id="cb53-7"><a href="minería-de-datos.html#cb53-7"></a><span class="co"># para llevar a ascii</span></span>
+<span id="cb53-8"><a href="minería-de-datos.html#cb53-8"></a><span class="kw">utf8ToInt</span>(<span class="st">&quot;la paz&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 108  97  32 112  97 122</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="minería-de-datos.html#cb55-1"></a><span class="kw">utf8ToInt</span>(<span class="st">&quot;@&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 64</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="minería-de-datos.html#cb57-1"></a><span class="kw">library</span>(stringi)</span></code></pre></div>
+<p>Ejemplo de web scraping sobre la página <a href="https://www.worldometers.info/" class="uri">https://www.worldometers.info/</a></p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="minería-de-datos.html#cb58-1"></a><span class="kw">library</span>(rvest)</span>
+<span id="cb58-2"><a href="minería-de-datos.html#cb58-2"></a>url&lt;-<span class="st">&quot;https://www.worldometers.info/coronavirus/&quot;</span></span>
+<span id="cb58-3"><a href="minería-de-datos.html#cb58-3"></a>covid&lt;-<span class="kw">read_html</span>(url)</span>
+<span id="cb58-4"><a href="minería-de-datos.html#cb58-4"></a>bdcov&lt;-<span class="kw">html_table</span>(covid)</span>
+<span id="cb58-5"><a href="minería-de-datos.html#cb58-5"></a>bdnow&lt;-bdcov[[<span class="dv">1</span>]]</span>
+<span id="cb58-6"><a href="minería-de-datos.html#cb58-6"></a><span class="kw">str</span>(bdnow)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    235 obs. of  19 variables:
+##  $ #                 : int  NA NA NA NA NA NA NA NA 1 2 ...
+##  $ Country,Other     : chr  &quot;North America&quot; &quot;Asia&quot; &quot;South America&quot; &quot;Europe&quot; ...
+##  $ TotalCases        : chr  &quot;12,538,126&quot; &quot;14,659,295&quot; &quot;10,076,226&quot; &quot;12,767,242&quot; ...
+##  $ NewCases          : chr  &quot;+16,402&quot; &quot;+53,095&quot; &quot;+103&quot; &quot;+121,327&quot; ...
+##  $ TotalDeaths       : chr  &quot;368,071&quot; &quot;259,402&quot; &quot;304,163&quot; &quot;303,999&quot; ...
+##  $ NewDeaths         : chr  &quot;+723&quot; &quot;+990&quot; &quot;+6&quot; &quot;+2,276&quot; ...
+##  $ TotalRecovered    : chr  &quot;8,076,584&quot; &quot;13,084,184&quot; &quot;8,987,575&quot; &quot;4,717,158&quot; ...
+##  $ NewRecovered      : chr  &quot;+7,797&quot; &quot;+39,413&quot; &quot;+318&quot; &quot;+78,815&quot; ...
+##  $ ActiveCases       : chr  &quot;4,093,471&quot; &quot;1,315,709&quot; &quot;784,488&quot; &quot;7,746,085&quot; ...
+##  $ Serious,Critical  : chr  &quot;22,894&quot; &quot;23,694&quot; &quot;17,580&quot; &quot;28,517&quot; ...
+##  $ Tot Cases/1M pop  : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ Deaths/1M pop     : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ TotalTests        : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ Tests/1M pop      : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ Population        : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ Continent         : chr  &quot;North America&quot; &quot;Asia&quot; &quot;South America&quot; &quot;Europe&quot; ...
+##  $ 1 Caseevery X ppl : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ 1 Deathevery X ppl: chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ 1 Testevery X ppl : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...</code></pre>
+<p>Tarea: limpiar la base de datos</p>
+<ul>
+<li>Convertir las variables necesarias a numéricas</li>
+<li>Debe ser una base de solo países</li>
+</ul>
 </div>
-<div id="transfomración" class="section level3">
-<h3><span class="header-section-number">1.6.10</span> Transfomración</h3>
+<div id="transformación" class="section level3">
+<h3><span class="header-section-number">1.6.10</span> Transformación</h3>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="minería-de-datos.html#cb60-1"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/eh19.RData&quot;</span>))</span>
+<span id="cb60-2"><a href="minería-de-datos.html#cb60-2"></a><span class="kw">names</span>(eh19p)</span></code></pre></div>
+<pre><code>##   [1] &quot;folio&quot;          &quot;depto&quot;          &quot;area&quot;          
+##   [4] &quot;nro&quot;            &quot;s02a_02&quot;        &quot;s02a_03&quot;       
+##   [7] &quot;s02a_04a&quot;       &quot;s02a_04b&quot;       &quot;s02a_04c&quot;      
+##  [10] &quot;s02a_05&quot;        &quot;s02a_06a&quot;       &quot;s02a_06b&quot;      
+##  [13] &quot;s02a_06c&quot;       &quot;s02a_06d&quot;       &quot;s02a_06e&quot;      
+##  [16] &quot;s02a_06_b&quot;      &quot;s02a_07_1&quot;      &quot;s02a_07_2&quot;     
+##  [19] &quot;s02a_07_3&quot;      &quot;s02a_08&quot;        &quot;s02a_10&quot;       
+##  [22] &quot;s03a_01a&quot;       &quot;s03a_01b&quot;       &quot;s03a_01c&quot;      
+##  [25] &quot;s03a_01d&quot;       &quot;s03a_01d2_cod&quot;  &quot;s03a_01e&quot;      
+##  [28] &quot;s03a_02&quot;        &quot;s03a_02e&quot;       &quot;s03a_03&quot;       
+##  [31] &quot;s03a_03a&quot;       &quot;s03a_04&quot;        &quot;s03a_04npioc&quot;  
+##  [34] &quot;s04a_01a&quot;       &quot;s04a_01b&quot;       &quot;s04a_01e&quot;      
+##  [37] &quot;s04a_02a&quot;       &quot;s04a_02b&quot;       &quot;s04a_02e&quot;      
+##  [40] &quot;s04a_03a&quot;       &quot;s04a_03b&quot;       &quot;s04a_03c&quot;      
+##  [43] &quot;s04a_03d&quot;       &quot;s04a_03e&quot;       &quot;s04a_03f&quot;      
+##  [46] &quot;s04a_03g&quot;       &quot;s04a_04a&quot;       &quot;s04a_04b&quot;      
+##  [49] &quot;s04a_04e&quot;       &quot;S04A_0&quot;         &quot;S04A_1&quot;        
+##  [52] &quot;S04A_2&quot;         &quot;s04a_05a&quot;       &quot;s04a_05b&quot;      
+##  [55] &quot;s04a_05c&quot;       &quot;s04a_05d&quot;       &quot;s04a_05e&quot;      
+##  [58] &quot;s04a_06a&quot;       &quot;s04a_07a&quot;       &quot;s04a_07a_e&quot;    
+##  [61] &quot;s04a_06b&quot;       &quot;s04a_07b&quot;       &quot;s04a_07b_e&quot;    
+##  [64] &quot;s04a_06c&quot;       &quot;s04a_07c&quot;       &quot;s04a_07c_e&quot;    
+##  [67] &quot;s04a_06d&quot;       &quot;s04a_07d&quot;       &quot;s04a_07d_e&quot;    
+##  [70] &quot;s04a_06e&quot;       &quot;s04a_07e&quot;       &quot;s04a_07e_e&quot;    
+##  [73] &quot;s04a_06f&quot;       &quot;s04a_07f&quot;       &quot;s04a_07f_e&quot;    
+##  [76] &quot;s04a_06g&quot;       &quot;s04a_07g&quot;       &quot;s04a_07g_e&quot;    
+##  [79] &quot;s04a_08&quot;        &quot;s04a_08a1&quot;      &quot;s04a_08a2&quot;     
+##  [82] &quot;s04a_08b&quot;       &quot;s04a_09&quot;        &quot;s04a_09a&quot;      
+##  [85] &quot;s04b_11a&quot;       &quot;s04b_11b&quot;       &quot;s04b_12&quot;       
+##  [88] &quot;s04b_13&quot;        &quot;s04b_14a&quot;       &quot;s04b_14b&quot;      
+##  [91] &quot;s04b_15&quot;        &quot;s04b_15e&quot;       &quot;S04B_9&quot;        
+##  [94] &quot;S04B_A&quot;         &quot;S04B_B&quot;         &quot;s04b_16&quot;       
+##  [97] &quot;s04b_16e&quot;       &quot;S04B_6&quot;         &quot;S04B_7&quot;        
+## [100] &quot;S04B_8&quot;         &quot;s04b_17&quot;        &quot;s04b_17e&quot;      
+## [103] &quot;S04B_3&quot;         &quot;S04B_4&quot;         &quot;S04B_5&quot;        
+## [106] &quot;s04b_18&quot;        &quot;s04b_18e&quot;       &quot;S04B_0&quot;        
+## [109] &quot;S04B_1&quot;         &quot;S04B_2&quot;         &quot;s04b_19&quot;       
+## [112] &quot;s04b_20a1&quot;      &quot;s04b_20a2&quot;      &quot;s04b_20b&quot;      
+## [115] &quot;s04b_21a&quot;       &quot;s04b_21b&quot;       &quot;s04b_21b2&quot;     
+## [118] &quot;s04c_22&quot;        &quot;s04c_23&quot;        &quot;s04d_24&quot;       
+## [121] &quot;s04d_25&quot;        &quot;s04d_26&quot;        &quot;s04d_27a&quot;      
+## [124] &quot;s04d_27b&quot;       &quot;s04e_28a&quot;       &quot;s04e_28b&quot;      
+## [127] &quot;s04e_29a&quot;       &quot;s04e_29b&quot;       &quot;s04e_30a&quot;      
+## [130] &quot;s04e_30b&quot;       &quot;s04e_30c_cod&quot;   &quot;s04e_31a&quot;      
+## [133] &quot;s04e_31b&quot;       &quot;s04e_31c&quot;       &quot;s04e_31d&quot;      
+## [136] &quot;s04e_31e&quot;       &quot;s04e_31f&quot;       &quot;s04e_31_e&quot;     
+## [139] &quot;s04e_32a&quot;       &quot;s04e_32b&quot;       &quot;s04e_33a&quot;      
+## [142] &quot;s04e_33b&quot;       &quot;s04_e_34a&quot;      &quot;s04f_34&quot;       
+## [145] &quot;s04f_35a&quot;       &quot;s04f_35b&quot;       &quot;s04f_35c&quot;      
+## [148] &quot;s04f_35e&quot;       &quot;s05a_01&quot;        &quot;s05a_01a&quot;      
+## [151] &quot;s05a_02a&quot;       &quot;s05a_02c&quot;       &quot;s05a_03a&quot;      
+## [154] &quot;s05a_03c&quot;       &quot;s05a_04&quot;        &quot;s05a_05&quot;       
+## [157] &quot;s05a_05_e&quot;      &quot;s05a_06a&quot;       &quot;s05a_06c&quot;      
+## [160] &quot;s05a_07a&quot;       &quot;s05a_07b&quot;       &quot;s05a_08&quot;       
+## [163] &quot;s05a_09&quot;        &quot;s05b_10&quot;        &quot;s05b_11&quot;       
+## [166] &quot;s05b_11_e&quot;      &quot;s05b_11a&quot;       &quot;s05c_13a&quot;      
+## [169] &quot;s05c_13b&quot;       &quot;s05c_13c&quot;       &quot;s05c_13d&quot;      
+## [172] &quot;s05c_13e&quot;       &quot;s05c_13f&quot;       &quot;s05c_13g&quot;      
+## [175] &quot;s05c_13h&quot;       &quot;s05c_13_e&quot;      &quot;s05c_14a&quot;      
+## [178] &quot;s05c_14b&quot;       &quot;s05c_15a&quot;       &quot;s05c_15b&quot;      
+## [181] &quot;s05d_17&quot;        &quot;s05d_18&quot;        &quot;s05d_19a&quot;      
+## [184] &quot;s05d_19b&quot;       &quot;s05d_20a&quot;       &quot;s05d_20b&quot;      
+## [187] &quot;s05d_21a&quot;       &quot;s05d_21b&quot;       &quot;s05d_21e&quot;      
+## [190] &quot;s05d_22a&quot;       &quot;s05d_22b&quot;       &quot;s05d_22c&quot;      
+## [193] &quot;s05d_22d&quot;       &quot;s05d_22e&quot;       &quot;s05d_22f&quot;      
+## [196] &quot;s05d_22g&quot;       &quot;s05d_22h&quot;       &quot;s05d_22i&quot;      
+## [199] &quot;s05d_22j&quot;       &quot;s05d_22k&quot;       &quot;s05d_22l&quot;      
+## [202] &quot;s05d_22_e&quot;      &quot;s06a_01&quot;        &quot;s06a_02&quot;       
+## [205] &quot;s06a_03&quot;        &quot;s06a_04&quot;        &quot;s06a_05&quot;       
+## [208] &quot;s06a_06aa&quot;      &quot;s06a_06ab&quot;      &quot;s06a_06ac&quot;     
+## [211] &quot;s06a_06e&quot;       &quot;s06a_07&quot;        &quot;s06a_08a&quot;      
+## [214] &quot;s06a_08b&quot;       &quot;s06a_09&quot;        &quot;s06a_09e&quot;      
+## [217] &quot;s06a_10&quot;        &quot;s06a_10e&quot;       &quot;s06b_11a&quot;      
+## [220] &quot;s06b_11a_cod&quot;   &quot;s06b_11b&quot;       &quot;s06b_12a&quot;      
+## [223] &quot;s06b_12a_cod&quot;   &quot;s06b_12b&quot;       &quot;s06b_13&quot;       
+## [226] &quot;s06b_13a&quot;       &quot;s06b_13b&quot;       &quot;s06b_13c&quot;      
+## [229] &quot;s06b_14&quot;        &quot;s06b_15aa&quot;      &quot;s06b_15ab&quot;     
+## [232] &quot;s06b_15ba&quot;      &quot;s06b_15bb&quot;      &quot;s06b_15ca&quot;     
+## [235] &quot;s06b_15cb&quot;      &quot;s06b_15da&quot;      &quot;s06b_15db&quot;     
+## [238] &quot;s06b_17&quot;        &quot;s06b_18&quot;        &quot;s06b_19a&quot;      
+## [241] &quot;s06b_19b&quot;       &quot;s06b_20&quot;        &quot;s06b_20e&quot;      
+## [244] &quot;s06b_21a&quot;       &quot;s06b_21b&quot;       &quot;s06b_22&quot;       
+## [247] &quot;s06b_23aa&quot;      &quot;s06b_23ab&quot;      &quot;s06c_25a&quot;      
+## [250] &quot;s06c_25b&quot;       &quot;s06c_26a&quot;       &quot;s06c_26b&quot;      
+## [253] &quot;s06c_27aa&quot;      &quot;s06c_27ab&quot;      &quot;s06c_27ba&quot;     
+## [256] &quot;s06c_27bb&quot;      &quot;s06c_28a&quot;       &quot;s06c_28a1&quot;     
+## [259] &quot;s06c_28b&quot;       &quot;s06c_29a&quot;       &quot;s06c_29b&quot;      
+## [262] &quot;s06c_30a&quot;       &quot;s06c_30a1&quot;      &quot;s06c_30a2&quot;     
+## [265] &quot;s06c_30b&quot;       &quot;s06c_30b1&quot;      &quot;s06c_30b2&quot;     
+## [268] &quot;s06c_30c&quot;       &quot;s06c_30c1&quot;      &quot;s06c_30c2&quot;     
+## [271] &quot;s06c_30d&quot;       &quot;s06c_30d1&quot;      &quot;s06c_30d2&quot;     
+## [274] &quot;s06c_30e&quot;       &quot;s06c_30e1&quot;      &quot;s06c_30e2&quot;     
+## [277] &quot;s06d_31a&quot;       &quot;s06d_31b&quot;       &quot;s06d_32aa&quot;     
+## [280] &quot;s06d_32ab&quot;      &quot;s06d_32ba&quot;      &quot;s06d_32bb&quot;     
+## [283] &quot;s06d_32ca&quot;      &quot;s06d_32cb&quot;      &quot;s06d_32da&quot;     
+## [286] &quot;s06d_32db&quot;      &quot;s06d_32ea&quot;      &quot;s06d_32eb&quot;     
+## [289] &quot;s06d_32fa&quot;      &quot;s06d_32fb&quot;      &quot;s06d_32ga&quot;     
+## [292] &quot;s06d_32gb&quot;      &quot;s06d_32ha&quot;      &quot;s06d_32hb&quot;     
+## [295] &quot;s06d_33a&quot;       &quot;s06d_33b&quot;       &quot;s06d_34&quot;       
+## [298] &quot;s06e_35a&quot;       &quot;s06e_35a_cod&quot;   &quot;s06e_35b&quot;      
+## [301] &quot;s06e_36&quot;        &quot;s06e_37&quot;        &quot;s06e_38a&quot;      
+## [304] &quot;s06e_38b&quot;       &quot;s06e_39&quot;        &quot;s06e_40&quot;       
+## [307] &quot;s06e_40b&quot;       &quot;s06f_42a&quot;       &quot;s06f_42b&quot;      
+## [310] &quot;s06f_43a&quot;       &quot;s06f_43a1&quot;      &quot;s06f_43b&quot;      
+## [313] &quot;s06f_43b1&quot;      &quot;s06f_43c&quot;       &quot;s06f_43c1&quot;     
+## [316] &quot;s06f_44a&quot;       &quot;s06f_44b&quot;       &quot;s06f_45aa&quot;     
+## [319] &quot;s06f_45ab&quot;      &quot;s06f_45ba&quot;      &quot;s06f_45bb&quot;     
+## [322] &quot;s06f_45ca&quot;      &quot;s06f_45cb&quot;      &quot;s06f_45da&quot;     
+## [325] &quot;s06f_45db&quot;      &quot;s06f_45ea&quot;      &quot;s06f_45eb&quot;     
+## [328] &quot;s06f_45fa&quot;      &quot;s06f_45fb&quot;      &quot;s06f_45ga&quot;     
+## [331] &quot;s06f_45gb&quot;      &quot;s06f_45ha&quot;      &quot;s06f_45hb&quot;     
+## [334] &quot;s06f_46a&quot;       &quot;s06f_46b&quot;       &quot;s06g_47&quot;       
+## [337] &quot;s06g_48&quot;        &quot;s06g_49&quot;        &quot;s06g_49e&quot;      
+## [340] &quot;s06g_50&quot;        &quot;s06g_50e&quot;       &quot;s06g_51&quot;       
+## [343] &quot;s06g_51e&quot;       &quot;s06g_52&quot;        &quot;s06g_53&quot;       
+## [346] &quot;s06g_54&quot;        &quot;s06g_55&quot;        &quot;s07a_01a&quot;      
+## [349] &quot;s07a_01b&quot;       &quot;s07a_01c&quot;       &quot;s07a_01d&quot;      
+## [352] &quot;s07a_01e&quot;       &quot;s07a_01e0&quot;      &quot;s07a_01e1&quot;     
+## [355] &quot;s07a_01e1e&quot;     &quot;s07a_01e2&quot;      &quot;s07a_01e2e&quot;    
+## [358] &quot;s07a_02a&quot;       &quot;s07a_02b&quot;       &quot;s07a_02c&quot;      
+## [361] &quot;s07a_02ce&quot;      &quot;s07a_03a&quot;       &quot;s07a_03b&quot;      
+## [364] &quot;s07a_03c&quot;       &quot;s07a_04a&quot;       &quot;s07a_04b&quot;      
+## [367] &quot;s07a_04c&quot;       &quot;s07a_04d&quot;       &quot;s07b_05aa&quot;     
+## [370] &quot;s07b_05ab&quot;      &quot;s07b_05ba&quot;      &quot;s07b_05bb&quot;     
+## [373] &quot;s07b_05ca&quot;      &quot;s07b_05cb&quot;      &quot;s07b_05da&quot;     
+## [376] &quot;s07b_05db&quot;      &quot;s07b_05de&quot;      &quot;s07b_05ea&quot;     
+## [379] &quot;s07b_05eb&quot;      &quot;s07b_05ee&quot;      &quot;s07c_06&quot;       
+## [382] &quot;s07c_07&quot;        &quot;s07c_08a&quot;       &quot;s07c_08b&quot;      
+## [385] &quot;s07c_08e&quot;       &quot;s07c_09&quot;        &quot;s07c_09e&quot;      
+## [388] &quot;s07c_10&quot;        &quot;s08a_01&quot;        &quot;s08a_03a&quot;      
+## [391] &quot;s08a_03b&quot;       &quot;s08a_03c&quot;       &quot;s08a_03e&quot;      
+## [394] &quot;s08a_04&quot;        &quot;s08a_06&quot;        &quot;upm&quot;           
+## [397] &quot;estrato&quot;        &quot;factor&quot;         &quot;tipohogar&quot;     
+## [400] &quot;cobersalud&quot;     &quot;hnv_ult_a&quot;      &quot;quienatenparto&quot;
+## [403] &quot;dondeatenparto&quot; &quot;niv_ed&quot;         &quot;niv_ed_g&quot;      
+## [406] &quot;cmasi&quot;          &quot;educ_prev&quot;      &quot;aestudio&quot;      
+## [409] &quot;cob_op&quot;         &quot;caeb_op&quot;        &quot;pet&quot;           
+## [412] &quot;ocupado&quot;        &quot;cesante&quot;        &quot;aspirante&quot;     
+## [415] &quot;desocupado&quot;     &quot;pea&quot;            &quot;temporal&quot;      
+## [418] &quot;permanente&quot;     &quot;pei&quot;            &quot;condact&quot;       
+## [421] &quot;phrs&quot;           &quot;shrs&quot;           &quot;tothrs&quot;        
+## [424] &quot;yprilab&quot;        &quot;yseclab&quot;        &quot;ylab&quot;          
+## [427] &quot;ynolab&quot;         &quot;yper&quot;           &quot;yhog&quot;          
+## [430] &quot;yhogpc&quot;         &quot;z&quot;              &quot;zext&quot;          
+## [433] &quot;p0&quot;             &quot;p1&quot;             &quot;p2&quot;            
+## [436] &quot;pext0&quot;          &quot;pext1&quot;          &quot;pext2&quot;</code></pre>
 <ul>
 <li>Estandarizar variables</li>
+</ul>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="minería-de-datos.html#cb62-1"></a><span class="kw">summary</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>) <span class="co">#edad</span></span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    0.00   12.00   26.00   29.69   44.00   98.00</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="minería-de-datos.html#cb64-1"></a><span class="kw">summary</span>(eh19p<span class="op">$</span>tothrs) <span class="co"># total de horas de trabajo semanal</span></span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##    1.00   30.00   42.00   42.29   54.00  112.50   20454</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="minería-de-datos.html#cb66-1"></a><span class="kw">summary</span>(eh19p<span class="op">$</span>ylab)  <span class="co"># ingreso laboral mensual</span></span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##      10    1416    2598    3075    4000   32917   23816</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="minería-de-datos.html#cb68-1"></a><span class="kw">sd</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
+<pre><code>## [1] 21.05689</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="minería-de-datos.html#cb70-1"></a><span class="kw">sd</span>(eh19p<span class="op">$</span>tothrs,<span class="dt">na.rm =</span> T)</span></code></pre></div>
+<pre><code>## [1] 19.33807</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="minería-de-datos.html#cb72-1"></a><span class="kw">sd</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</span></code></pre></div>
+<pre><code>## [1] 2470.079</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="minería-de-datos.html#cb74-1"></a>x1&lt;-<span class="kw">scale</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span>
+<span id="cb74-2"><a href="minería-de-datos.html#cb74-2"></a>x2&lt;-<span class="kw">scale</span>(eh19p<span class="op">$</span>tothrs)</span>
+<span id="cb74-3"><a href="minería-de-datos.html#cb74-3"></a>x3&lt;-<span class="kw">scale</span>(eh19p<span class="op">$</span>ylab)</span>
+<span id="cb74-4"><a href="minería-de-datos.html#cb74-4"></a></span>
+<span id="cb74-5"><a href="minería-de-datos.html#cb74-5"></a><span class="kw">sd</span>(x1);<span class="kw">sd</span>(x2,<span class="dt">na.rm =</span> T);<span class="kw">sd</span>(x3,<span class="dt">na.rm =</span> T)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="minería-de-datos.html#cb78-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb78-2"><a href="minería-de-datos.html#cb78-2"></a><span class="kw">boxplot</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25000</span>))</span>
+<span id="cb78-3"><a href="minería-de-datos.html#cb78-3"></a><span class="kw">boxplot</span>(eh19p<span class="op">$</span>tothrs,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25000</span>))</span>
+<span id="cb78-4"><a href="minería-de-datos.html#cb78-4"></a><span class="kw">boxplot</span>(eh19p<span class="op">$</span>ylab,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25000</span>))</span>
+<span id="cb78-5"><a href="minería-de-datos.html#cb78-5"></a></span>
+<span id="cb78-6"><a href="minería-de-datos.html#cb78-6"></a><span class="kw">boxplot</span>(x1,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>))</span>
+<span id="cb78-7"><a href="minería-de-datos.html#cb78-7"></a><span class="kw">boxplot</span>(x2,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>))</span>
+<span id="cb78-8"><a href="minería-de-datos.html#cb78-8"></a><span class="kw">boxplot</span>(x3,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="minería-de-datos.html#cb79-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb79-2"><a href="minería-de-datos.html#cb79-2"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>))</span>
+<span id="cb79-3"><a href="minería-de-datos.html#cb79-3"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>tothrs,<span class="dt">na.rm=</span>T))</span>
+<span id="cb79-4"><a href="minería-de-datos.html#cb79-4"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm=</span>T))</span>
+<span id="cb79-5"><a href="minería-de-datos.html#cb79-5"></a></span>
+<span id="cb79-6"><a href="minería-de-datos.html#cb79-6"></a><span class="kw">plot</span>(<span class="kw">density</span>(x1))</span>
+<span id="cb79-7"><a href="minería-de-datos.html#cb79-7"></a><span class="kw">plot</span>(<span class="kw">density</span>(x2,<span class="dt">na.rm=</span>T))</span>
+<span id="cb79-8"><a href="minería-de-datos.html#cb79-8"></a><span class="kw">plot</span>(<span class="kw">density</span>(x3,<span class="dt">na.rm=</span>T))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="minería-de-datos.html#cb80-1"></a><span class="kw">mean</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm=</span>T)</span></code></pre></div>
+<pre><code>## [1] 3074.659</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="minería-de-datos.html#cb82-1"></a><span class="kw">median</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm=</span>T)</span></code></pre></div>
+<pre><code>## [1] 2598</code></pre>
+<ul>
 <li>Función logarítmo</li>
+</ul>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="minería-de-datos.html#cb84-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<pre><code>## null device 
+##           1</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="minería-de-datos.html#cb86-1"></a><span class="kw">curve</span>(log,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">30000</span>))</span>
+<span id="cb86-2"><a href="minería-de-datos.html#cb86-2"></a></span>
+<span id="cb86-3"><a href="minería-de-datos.html#cb86-3"></a>x1&lt;-<span class="kw">log</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span>
+<span id="cb86-4"><a href="minería-de-datos.html#cb86-4"></a>x2&lt;-<span class="kw">log</span>(eh19p<span class="op">$</span>tothrs)</span>
+<span id="cb86-5"><a href="minería-de-datos.html#cb86-5"></a>x3&lt;-<span class="kw">log</span>(eh19p<span class="op">$</span>ylab)</span>
+<span id="cb86-6"><a href="minería-de-datos.html#cb86-6"></a></span>
+<span id="cb86-7"><a href="minería-de-datos.html#cb86-7"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb86-8"><a href="minería-de-datos.html#cb86-8"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>))</span>
+<span id="cb86-9"><a href="minería-de-datos.html#cb86-9"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>tothrs,<span class="dt">na.rm=</span>T))</span>
+<span id="cb86-10"><a href="minería-de-datos.html#cb86-10"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm=</span>T))</span>
+<span id="cb86-11"><a href="minería-de-datos.html#cb86-11"></a></span>
+<span id="cb86-12"><a href="minería-de-datos.html#cb86-12"></a><span class="kw">plot</span>(<span class="kw">density</span>(x1))</span>
+<span id="cb86-13"><a href="minería-de-datos.html#cb86-13"></a><span class="kw">plot</span>(<span class="kw">density</span>(x2,<span class="dt">na.rm=</span>T))</span>
+<span id="cb86-14"><a href="minería-de-datos.html#cb86-14"></a><span class="kw">plot</span>(<span class="kw">density</span>(x3,<span class="dt">na.rm=</span>T))</span>
+<span id="cb86-15"><a href="minería-de-datos.html#cb86-15"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<pre><code>## null device 
+##           1</code></pre>
+<ul>
 <li>Creación de variables</li>
+</ul>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="minería-de-datos.html#cb88-1"></a>eh19p<span class="op">$</span>log_ylab &lt;-<span class="kw">log</span>(eh19p<span class="op">$</span>ylab)</span>
+<span id="cb88-2"><a href="minería-de-datos.html#cb88-2"></a>eh19p<span class="op">$</span>scale_ylab &lt;-<span class="kw">scale</span>(eh19p<span class="op">$</span>ylab)</span>
+<span id="cb88-3"><a href="minería-de-datos.html#cb88-3"></a><span class="kw">names</span>(eh19p)</span></code></pre></div>
+<pre><code>##   [1] &quot;folio&quot;          &quot;depto&quot;          &quot;area&quot;          
+##   [4] &quot;nro&quot;            &quot;s02a_02&quot;        &quot;s02a_03&quot;       
+##   [7] &quot;s02a_04a&quot;       &quot;s02a_04b&quot;       &quot;s02a_04c&quot;      
+##  [10] &quot;s02a_05&quot;        &quot;s02a_06a&quot;       &quot;s02a_06b&quot;      
+##  [13] &quot;s02a_06c&quot;       &quot;s02a_06d&quot;       &quot;s02a_06e&quot;      
+##  [16] &quot;s02a_06_b&quot;      &quot;s02a_07_1&quot;      &quot;s02a_07_2&quot;     
+##  [19] &quot;s02a_07_3&quot;      &quot;s02a_08&quot;        &quot;s02a_10&quot;       
+##  [22] &quot;s03a_01a&quot;       &quot;s03a_01b&quot;       &quot;s03a_01c&quot;      
+##  [25] &quot;s03a_01d&quot;       &quot;s03a_01d2_cod&quot;  &quot;s03a_01e&quot;      
+##  [28] &quot;s03a_02&quot;        &quot;s03a_02e&quot;       &quot;s03a_03&quot;       
+##  [31] &quot;s03a_03a&quot;       &quot;s03a_04&quot;        &quot;s03a_04npioc&quot;  
+##  [34] &quot;s04a_01a&quot;       &quot;s04a_01b&quot;       &quot;s04a_01e&quot;      
+##  [37] &quot;s04a_02a&quot;       &quot;s04a_02b&quot;       &quot;s04a_02e&quot;      
+##  [40] &quot;s04a_03a&quot;       &quot;s04a_03b&quot;       &quot;s04a_03c&quot;      
+##  [43] &quot;s04a_03d&quot;       &quot;s04a_03e&quot;       &quot;s04a_03f&quot;      
+##  [46] &quot;s04a_03g&quot;       &quot;s04a_04a&quot;       &quot;s04a_04b&quot;      
+##  [49] &quot;s04a_04e&quot;       &quot;S04A_0&quot;         &quot;S04A_1&quot;        
+##  [52] &quot;S04A_2&quot;         &quot;s04a_05a&quot;       &quot;s04a_05b&quot;      
+##  [55] &quot;s04a_05c&quot;       &quot;s04a_05d&quot;       &quot;s04a_05e&quot;      
+##  [58] &quot;s04a_06a&quot;       &quot;s04a_07a&quot;       &quot;s04a_07a_e&quot;    
+##  [61] &quot;s04a_06b&quot;       &quot;s04a_07b&quot;       &quot;s04a_07b_e&quot;    
+##  [64] &quot;s04a_06c&quot;       &quot;s04a_07c&quot;       &quot;s04a_07c_e&quot;    
+##  [67] &quot;s04a_06d&quot;       &quot;s04a_07d&quot;       &quot;s04a_07d_e&quot;    
+##  [70] &quot;s04a_06e&quot;       &quot;s04a_07e&quot;       &quot;s04a_07e_e&quot;    
+##  [73] &quot;s04a_06f&quot;       &quot;s04a_07f&quot;       &quot;s04a_07f_e&quot;    
+##  [76] &quot;s04a_06g&quot;       &quot;s04a_07g&quot;       &quot;s04a_07g_e&quot;    
+##  [79] &quot;s04a_08&quot;        &quot;s04a_08a1&quot;      &quot;s04a_08a2&quot;     
+##  [82] &quot;s04a_08b&quot;       &quot;s04a_09&quot;        &quot;s04a_09a&quot;      
+##  [85] &quot;s04b_11a&quot;       &quot;s04b_11b&quot;       &quot;s04b_12&quot;       
+##  [88] &quot;s04b_13&quot;        &quot;s04b_14a&quot;       &quot;s04b_14b&quot;      
+##  [91] &quot;s04b_15&quot;        &quot;s04b_15e&quot;       &quot;S04B_9&quot;        
+##  [94] &quot;S04B_A&quot;         &quot;S04B_B&quot;         &quot;s04b_16&quot;       
+##  [97] &quot;s04b_16e&quot;       &quot;S04B_6&quot;         &quot;S04B_7&quot;        
+## [100] &quot;S04B_8&quot;         &quot;s04b_17&quot;        &quot;s04b_17e&quot;      
+## [103] &quot;S04B_3&quot;         &quot;S04B_4&quot;         &quot;S04B_5&quot;        
+## [106] &quot;s04b_18&quot;        &quot;s04b_18e&quot;       &quot;S04B_0&quot;        
+## [109] &quot;S04B_1&quot;         &quot;S04B_2&quot;         &quot;s04b_19&quot;       
+## [112] &quot;s04b_20a1&quot;      &quot;s04b_20a2&quot;      &quot;s04b_20b&quot;      
+## [115] &quot;s04b_21a&quot;       &quot;s04b_21b&quot;       &quot;s04b_21b2&quot;     
+## [118] &quot;s04c_22&quot;        &quot;s04c_23&quot;        &quot;s04d_24&quot;       
+## [121] &quot;s04d_25&quot;        &quot;s04d_26&quot;        &quot;s04d_27a&quot;      
+## [124] &quot;s04d_27b&quot;       &quot;s04e_28a&quot;       &quot;s04e_28b&quot;      
+## [127] &quot;s04e_29a&quot;       &quot;s04e_29b&quot;       &quot;s04e_30a&quot;      
+## [130] &quot;s04e_30b&quot;       &quot;s04e_30c_cod&quot;   &quot;s04e_31a&quot;      
+## [133] &quot;s04e_31b&quot;       &quot;s04e_31c&quot;       &quot;s04e_31d&quot;      
+## [136] &quot;s04e_31e&quot;       &quot;s04e_31f&quot;       &quot;s04e_31_e&quot;     
+## [139] &quot;s04e_32a&quot;       &quot;s04e_32b&quot;       &quot;s04e_33a&quot;      
+## [142] &quot;s04e_33b&quot;       &quot;s04_e_34a&quot;      &quot;s04f_34&quot;       
+## [145] &quot;s04f_35a&quot;       &quot;s04f_35b&quot;       &quot;s04f_35c&quot;      
+## [148] &quot;s04f_35e&quot;       &quot;s05a_01&quot;        &quot;s05a_01a&quot;      
+## [151] &quot;s05a_02a&quot;       &quot;s05a_02c&quot;       &quot;s05a_03a&quot;      
+## [154] &quot;s05a_03c&quot;       &quot;s05a_04&quot;        &quot;s05a_05&quot;       
+## [157] &quot;s05a_05_e&quot;      &quot;s05a_06a&quot;       &quot;s05a_06c&quot;      
+## [160] &quot;s05a_07a&quot;       &quot;s05a_07b&quot;       &quot;s05a_08&quot;       
+## [163] &quot;s05a_09&quot;        &quot;s05b_10&quot;        &quot;s05b_11&quot;       
+## [166] &quot;s05b_11_e&quot;      &quot;s05b_11a&quot;       &quot;s05c_13a&quot;      
+## [169] &quot;s05c_13b&quot;       &quot;s05c_13c&quot;       &quot;s05c_13d&quot;      
+## [172] &quot;s05c_13e&quot;       &quot;s05c_13f&quot;       &quot;s05c_13g&quot;      
+## [175] &quot;s05c_13h&quot;       &quot;s05c_13_e&quot;      &quot;s05c_14a&quot;      
+## [178] &quot;s05c_14b&quot;       &quot;s05c_15a&quot;       &quot;s05c_15b&quot;      
+## [181] &quot;s05d_17&quot;        &quot;s05d_18&quot;        &quot;s05d_19a&quot;      
+## [184] &quot;s05d_19b&quot;       &quot;s05d_20a&quot;       &quot;s05d_20b&quot;      
+## [187] &quot;s05d_21a&quot;       &quot;s05d_21b&quot;       &quot;s05d_21e&quot;      
+## [190] &quot;s05d_22a&quot;       &quot;s05d_22b&quot;       &quot;s05d_22c&quot;      
+## [193] &quot;s05d_22d&quot;       &quot;s05d_22e&quot;       &quot;s05d_22f&quot;      
+## [196] &quot;s05d_22g&quot;       &quot;s05d_22h&quot;       &quot;s05d_22i&quot;      
+## [199] &quot;s05d_22j&quot;       &quot;s05d_22k&quot;       &quot;s05d_22l&quot;      
+## [202] &quot;s05d_22_e&quot;      &quot;s06a_01&quot;        &quot;s06a_02&quot;       
+## [205] &quot;s06a_03&quot;        &quot;s06a_04&quot;        &quot;s06a_05&quot;       
+## [208] &quot;s06a_06aa&quot;      &quot;s06a_06ab&quot;      &quot;s06a_06ac&quot;     
+## [211] &quot;s06a_06e&quot;       &quot;s06a_07&quot;        &quot;s06a_08a&quot;      
+## [214] &quot;s06a_08b&quot;       &quot;s06a_09&quot;        &quot;s06a_09e&quot;      
+## [217] &quot;s06a_10&quot;        &quot;s06a_10e&quot;       &quot;s06b_11a&quot;      
+## [220] &quot;s06b_11a_cod&quot;   &quot;s06b_11b&quot;       &quot;s06b_12a&quot;      
+## [223] &quot;s06b_12a_cod&quot;   &quot;s06b_12b&quot;       &quot;s06b_13&quot;       
+## [226] &quot;s06b_13a&quot;       &quot;s06b_13b&quot;       &quot;s06b_13c&quot;      
+## [229] &quot;s06b_14&quot;        &quot;s06b_15aa&quot;      &quot;s06b_15ab&quot;     
+## [232] &quot;s06b_15ba&quot;      &quot;s06b_15bb&quot;      &quot;s06b_15ca&quot;     
+## [235] &quot;s06b_15cb&quot;      &quot;s06b_15da&quot;      &quot;s06b_15db&quot;     
+## [238] &quot;s06b_17&quot;        &quot;s06b_18&quot;        &quot;s06b_19a&quot;      
+## [241] &quot;s06b_19b&quot;       &quot;s06b_20&quot;        &quot;s06b_20e&quot;      
+## [244] &quot;s06b_21a&quot;       &quot;s06b_21b&quot;       &quot;s06b_22&quot;       
+## [247] &quot;s06b_23aa&quot;      &quot;s06b_23ab&quot;      &quot;s06c_25a&quot;      
+## [250] &quot;s06c_25b&quot;       &quot;s06c_26a&quot;       &quot;s06c_26b&quot;      
+## [253] &quot;s06c_27aa&quot;      &quot;s06c_27ab&quot;      &quot;s06c_27ba&quot;     
+## [256] &quot;s06c_27bb&quot;      &quot;s06c_28a&quot;       &quot;s06c_28a1&quot;     
+## [259] &quot;s06c_28b&quot;       &quot;s06c_29a&quot;       &quot;s06c_29b&quot;      
+## [262] &quot;s06c_30a&quot;       &quot;s06c_30a1&quot;      &quot;s06c_30a2&quot;     
+## [265] &quot;s06c_30b&quot;       &quot;s06c_30b1&quot;      &quot;s06c_30b2&quot;     
+## [268] &quot;s06c_30c&quot;       &quot;s06c_30c1&quot;      &quot;s06c_30c2&quot;     
+## [271] &quot;s06c_30d&quot;       &quot;s06c_30d1&quot;      &quot;s06c_30d2&quot;     
+## [274] &quot;s06c_30e&quot;       &quot;s06c_30e1&quot;      &quot;s06c_30e2&quot;     
+## [277] &quot;s06d_31a&quot;       &quot;s06d_31b&quot;       &quot;s06d_32aa&quot;     
+## [280] &quot;s06d_32ab&quot;      &quot;s06d_32ba&quot;      &quot;s06d_32bb&quot;     
+## [283] &quot;s06d_32ca&quot;      &quot;s06d_32cb&quot;      &quot;s06d_32da&quot;     
+## [286] &quot;s06d_32db&quot;      &quot;s06d_32ea&quot;      &quot;s06d_32eb&quot;     
+## [289] &quot;s06d_32fa&quot;      &quot;s06d_32fb&quot;      &quot;s06d_32ga&quot;     
+## [292] &quot;s06d_32gb&quot;      &quot;s06d_32ha&quot;      &quot;s06d_32hb&quot;     
+## [295] &quot;s06d_33a&quot;       &quot;s06d_33b&quot;       &quot;s06d_34&quot;       
+## [298] &quot;s06e_35a&quot;       &quot;s06e_35a_cod&quot;   &quot;s06e_35b&quot;      
+## [301] &quot;s06e_36&quot;        &quot;s06e_37&quot;        &quot;s06e_38a&quot;      
+## [304] &quot;s06e_38b&quot;       &quot;s06e_39&quot;        &quot;s06e_40&quot;       
+## [307] &quot;s06e_40b&quot;       &quot;s06f_42a&quot;       &quot;s06f_42b&quot;      
+## [310] &quot;s06f_43a&quot;       &quot;s06f_43a1&quot;      &quot;s06f_43b&quot;      
+## [313] &quot;s06f_43b1&quot;      &quot;s06f_43c&quot;       &quot;s06f_43c1&quot;     
+## [316] &quot;s06f_44a&quot;       &quot;s06f_44b&quot;       &quot;s06f_45aa&quot;     
+## [319] &quot;s06f_45ab&quot;      &quot;s06f_45ba&quot;      &quot;s06f_45bb&quot;     
+## [322] &quot;s06f_45ca&quot;      &quot;s06f_45cb&quot;      &quot;s06f_45da&quot;     
+## [325] &quot;s06f_45db&quot;      &quot;s06f_45ea&quot;      &quot;s06f_45eb&quot;     
+## [328] &quot;s06f_45fa&quot;      &quot;s06f_45fb&quot;      &quot;s06f_45ga&quot;     
+## [331] &quot;s06f_45gb&quot;      &quot;s06f_45ha&quot;      &quot;s06f_45hb&quot;     
+## [334] &quot;s06f_46a&quot;       &quot;s06f_46b&quot;       &quot;s06g_47&quot;       
+## [337] &quot;s06g_48&quot;        &quot;s06g_49&quot;        &quot;s06g_49e&quot;      
+## [340] &quot;s06g_50&quot;        &quot;s06g_50e&quot;       &quot;s06g_51&quot;       
+## [343] &quot;s06g_51e&quot;       &quot;s06g_52&quot;        &quot;s06g_53&quot;       
+## [346] &quot;s06g_54&quot;        &quot;s06g_55&quot;        &quot;s07a_01a&quot;      
+## [349] &quot;s07a_01b&quot;       &quot;s07a_01c&quot;       &quot;s07a_01d&quot;      
+## [352] &quot;s07a_01e&quot;       &quot;s07a_01e0&quot;      &quot;s07a_01e1&quot;     
+## [355] &quot;s07a_01e1e&quot;     &quot;s07a_01e2&quot;      &quot;s07a_01e2e&quot;    
+## [358] &quot;s07a_02a&quot;       &quot;s07a_02b&quot;       &quot;s07a_02c&quot;      
+## [361] &quot;s07a_02ce&quot;      &quot;s07a_03a&quot;       &quot;s07a_03b&quot;      
+## [364] &quot;s07a_03c&quot;       &quot;s07a_04a&quot;       &quot;s07a_04b&quot;      
+## [367] &quot;s07a_04c&quot;       &quot;s07a_04d&quot;       &quot;s07b_05aa&quot;     
+## [370] &quot;s07b_05ab&quot;      &quot;s07b_05ba&quot;      &quot;s07b_05bb&quot;     
+## [373] &quot;s07b_05ca&quot;      &quot;s07b_05cb&quot;      &quot;s07b_05da&quot;     
+## [376] &quot;s07b_05db&quot;      &quot;s07b_05de&quot;      &quot;s07b_05ea&quot;     
+## [379] &quot;s07b_05eb&quot;      &quot;s07b_05ee&quot;      &quot;s07c_06&quot;       
+## [382] &quot;s07c_07&quot;        &quot;s07c_08a&quot;       &quot;s07c_08b&quot;      
+## [385] &quot;s07c_08e&quot;       &quot;s07c_09&quot;        &quot;s07c_09e&quot;      
+## [388] &quot;s07c_10&quot;        &quot;s08a_01&quot;        &quot;s08a_03a&quot;      
+## [391] &quot;s08a_03b&quot;       &quot;s08a_03c&quot;       &quot;s08a_03e&quot;      
+## [394] &quot;s08a_04&quot;        &quot;s08a_06&quot;        &quot;upm&quot;           
+## [397] &quot;estrato&quot;        &quot;factor&quot;         &quot;tipohogar&quot;     
+## [400] &quot;cobersalud&quot;     &quot;hnv_ult_a&quot;      &quot;quienatenparto&quot;
+## [403] &quot;dondeatenparto&quot; &quot;niv_ed&quot;         &quot;niv_ed_g&quot;      
+## [406] &quot;cmasi&quot;          &quot;educ_prev&quot;      &quot;aestudio&quot;      
+## [409] &quot;cob_op&quot;         &quot;caeb_op&quot;        &quot;pet&quot;           
+## [412] &quot;ocupado&quot;        &quot;cesante&quot;        &quot;aspirante&quot;     
+## [415] &quot;desocupado&quot;     &quot;pea&quot;            &quot;temporal&quot;      
+## [418] &quot;permanente&quot;     &quot;pei&quot;            &quot;condact&quot;       
+## [421] &quot;phrs&quot;           &quot;shrs&quot;           &quot;tothrs&quot;        
+## [424] &quot;yprilab&quot;        &quot;yseclab&quot;        &quot;ylab&quot;          
+## [427] &quot;ynolab&quot;         &quot;yper&quot;           &quot;yhog&quot;          
+## [430] &quot;yhogpc&quot;         &quot;z&quot;              &quot;zext&quot;          
+## [433] &quot;p0&quot;             &quot;p1&quot;             &quot;p2&quot;            
+## [436] &quot;pext0&quot;          &quot;pext1&quot;          &quot;pext2&quot;         
+## [439] &quot;log_ylab&quot;       &quot;scale_ylab&quot;</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="minería-de-datos.html#cb90-1"></a><span class="co">#install.packages(&quot;dplyr&quot;)</span></span>
+<span id="cb90-2"><a href="minería-de-datos.html#cb90-2"></a><span class="kw">library</span>(dplyr) <span class="co"># filtrado, selección, creación de variables, resumen</span></span>
+<span id="cb90-3"><a href="minería-de-datos.html#cb90-3"></a><span class="co">#nota: dplyr se enfoca en el encadenamiento de comandos, con una lógica similar al SQL</span></span>
+<span id="cb90-4"><a href="minería-de-datos.html#cb90-4"></a></span>
+<span id="cb90-5"><a href="minería-de-datos.html#cb90-5"></a><span class="co"># %&gt;% # operador pipe: ctr + mayus + m </span></span>
+<span id="cb90-6"><a href="minería-de-datos.html#cb90-6"></a></span>
+<span id="cb90-7"><a href="minería-de-datos.html#cb90-7"></a>eh19p &lt;-<span class="st"> </span>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">x1=</span>ylab<span class="op">^</span><span class="dv">2</span>,<span class="dt">llylab=</span><span class="kw">log</span>(ylab),</span>
+<span id="cb90-8"><a href="minería-de-datos.html#cb90-8"></a>                 <span class="dt">tothrs_mensual=</span>tothrs<span class="op">*</span><span class="fl">4.35</span>,<span class="dt">mujer=</span>s02a_<span class="dv">02</span><span class="op">==</span><span class="st">&quot;2.Mujer&quot;</span>)</span>
+<span id="cb90-9"><a href="minería-de-datos.html#cb90-9"></a></span>
+<span id="cb90-10"><a href="minería-de-datos.html#cb90-10"></a><span class="co">#cut() # crear clases</span></span>
+<span id="cb90-11"><a href="minería-de-datos.html#cb90-11"></a></span>
+<span id="cb90-12"><a href="minería-de-datos.html#cb90-12"></a><span class="co"># grandes grupos de edad</span></span>
+<span id="cb90-13"><a href="minería-de-datos.html#cb90-13"></a>eh19p&lt;-eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">gedad=</span><span class="kw">cut</span>(s02a_<span class="dv">03</span>,<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">18</span>,<span class="dv">60</span>,<span class="kw">max</span>(s02a_<span class="dv">03</span>)),<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;&lt;=18&quot;</span>,<span class="st">&quot;19 a 60&quot;</span>,<span class="st">&quot;&gt;60&quot;</span>) ))</span>
+<span id="cb90-14"><a href="minería-de-datos.html#cb90-14"></a></span>
+<span id="cb90-15"><a href="minería-de-datos.html#cb90-15"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span>,folio,s02a_<span class="dv">03</span>,gedad) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>()</span></code></pre></div>
+<pre><code>##                    folio s02a_03   gedad
+## 1 111-00416110273-A-0021      42 19 a 60
+## 2 111-00416110273-A-0021      36 19 a 60
+## 3 111-00416110273-A-0021      19 19 a 60
+## 4 111-00416110273-A-0021      13    &lt;=18
+## 5 111-00416110273-A-0021       3    &lt;=18
+## 6 111-00416110273-A-0021      86     &gt;60</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="minería-de-datos.html#cb92-1"></a><span class="kw">table</span>(eh19p<span class="op">$</span>gedad)</span></code></pre></div>
+<pre><code>## 
+##    &lt;=18 19 a 60     &gt;60 
+##   14831   20736    4038</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="minería-de-datos.html#cb94-1"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(gedad) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</span></code></pre></div>
+<pre><code>## .
+##    &lt;=18 19 a 60     &gt;60 
+##   14831   20736    4038</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="minería-de-datos.html#cb96-1"></a><span class="kw">barplot</span>(<span class="kw">table</span>(eh19p<span class="op">$</span>gedad))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<ul>
 <li>Recodificar variables</li>
 </ul>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="minería-de-datos.html#cb97-1"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/eh19.RData&quot;</span>))</span>
+<span id="cb97-2"><a href="minería-de-datos.html#cb97-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb97-3"><a href="minería-de-datos.html#cb97-3"></a></span>
+<span id="cb97-4"><a href="minería-de-datos.html#cb97-4"></a>a&lt;-<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</span>
+<span id="cb97-5"><a href="minería-de-datos.html#cb97-5"></a><span class="kw">recode</span>(a,<span class="st">`</span><span class="dt">1</span><span class="st">`</span> =<span class="st"> </span>20L,<span class="st">`</span><span class="dt">2</span><span class="st">`</span> =<span class="st"> </span>20L,<span class="st">`</span><span class="dt">4</span><span class="st">`</span> =<span class="st"> </span>30L)</span>
+<span id="cb97-6"><a href="minería-de-datos.html#cb97-6"></a></span>
+<span id="cb97-7"><a href="minería-de-datos.html#cb97-7"></a>eh19p<span class="op">$</span>sexo&lt;-<span class="kw">recode</span>(eh19p<span class="op">$</span>s02a_<span class="dv">02</span>,<span class="st">&quot;1.Hombre&quot;</span>=<span class="st">&quot;H&quot;</span>,<span class="st">&quot;2.Mujer&quot;</span>=<span class="st">&quot;M&quot;</span>)</span>
+<span id="cb97-8"><a href="minería-de-datos.html#cb97-8"></a></span>
+<span id="cb97-9"><a href="minería-de-datos.html#cb97-9"></a><span class="kw">table</span>(eh19p<span class="op">$</span>sexo)</span>
+<span id="cb97-10"><a href="minería-de-datos.html#cb97-10"></a></span>
+<span id="cb97-11"><a href="minería-de-datos.html#cb97-11"></a>eh19p&lt;-eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">sexo2=</span><span class="kw">recode</span>(s02a_<span class="dv">02</span>,<span class="st">&quot;1.Hombre&quot;</span>=<span class="st">&quot;M&quot;</span>,<span class="st">&quot;2.Mujer&quot;</span>=<span class="st">&quot;F&quot;</span>))</span>
+<span id="cb97-12"><a href="minería-de-datos.html#cb97-12"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(sexo2) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</span>
+<span id="cb97-13"><a href="minería-de-datos.html#cb97-13"></a></span>
+<span id="cb97-14"><a href="minería-de-datos.html#cb97-14"></a><span class="co"># binarias</span></span>
+<span id="cb97-15"><a href="minería-de-datos.html#cb97-15"></a><span class="kw">unique</span>(eh19p<span class="op">$</span>depto)</span>
+<span id="cb97-16"><a href="minería-de-datos.html#cb97-16"></a><span class="co"># se quiere crear una nueva variable, llamada región: </span></span>
+<span id="cb97-17"><a href="minería-de-datos.html#cb97-17"></a><span class="co">#    Altiplano: LP, OR, PT</span></span>
+<span id="cb97-18"><a href="minería-de-datos.html#cb97-18"></a><span class="co">#    Valle: CB, CH, TR</span></span>
+<span id="cb97-19"><a href="minería-de-datos.html#cb97-19"></a><span class="co">#    Llano: SC, BN, PD</span></span>
+<span id="cb97-20"><a href="minería-de-datos.html#cb97-20"></a><span class="co"># tarea</span></span>
+<span id="cb97-21"><a href="minería-de-datos.html#cb97-21"></a><span class="co">#if_else() # trabaja con spark, para crear binarios</span></span>
+<span id="cb97-22"><a href="minería-de-datos.html#cb97-22"></a><span class="co">#case_when() # múltiple categorías basadas en reglas</span></span>
+<span id="cb97-23"><a href="minería-de-datos.html#cb97-23"></a></span>
+<span id="cb97-24"><a href="minería-de-datos.html#cb97-24"></a>v1&lt;-<span class="kw">c</span>(<span class="st">&quot;La Paz&quot;</span>,<span class="st">&quot;Oruro&quot;</span>,<span class="st">&quot;Potosí&quot;</span>)</span>
+<span id="cb97-25"><a href="minería-de-datos.html#cb97-25"></a>v2&lt;-<span class="kw">c</span>(<span class="st">&quot;Chuquisaca&quot;</span>,<span class="st">&quot;Cochabamba&quot;</span>,<span class="st">&quot;Tarija&quot;</span>)</span>
+<span id="cb97-26"><a href="minería-de-datos.html#cb97-26"></a>v3&lt;-<span class="kw">c</span>(<span class="st">&quot;Santa Cruz&quot;</span>,<span class="st">&quot;Beni&quot;</span>,<span class="st">&quot;Pando&quot;</span>)</span>
+<span id="cb97-27"><a href="minería-de-datos.html#cb97-27"></a></span>
+<span id="cb97-28"><a href="minería-de-datos.html#cb97-28"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">altiplano =</span> depto <span class="op">%in%</span><span class="st"> </span>v1 ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(altiplano) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</span>
+<span id="cb97-29"><a href="minería-de-datos.html#cb97-29"></a>  </span>
+<span id="cb97-30"><a href="minería-de-datos.html#cb97-30"></a>eh19p &lt;-<span class="st"> </span>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">altiplano =</span> depto <span class="op">%in%</span><span class="st"> </span>v1 , <span class="dt">valle =</span> depto <span class="op">%in%</span><span class="st"> </span>v2,<span class="dt">llano =</span> depto <span class="op">%in%</span><span class="st"> </span>v3)</span>
+<span id="cb97-31"><a href="minería-de-datos.html#cb97-31"></a><span class="kw">names</span>(eh19p)</span></code></pre></div>
+</div>
+<div id="definir-diseño-de-encuesta-por-muestreo" class="section level3">
+<h3><span class="header-section-number">1.6.11</span> Definir diseño de encuesta por muestreo</h3>
+<p>Si tenemos una base de datos proveniente de una encuesta por muestreo, debemos tener conocimiento de las características del diseño muestral empleado en la encuesta, ya que este diseño afecta de forma directa el proceso de estimación y tiene un error de muestreo. Principalmente lo siguiente:</p>
+<ul>
+<li>Si el diseño tiene etapas (o mono etápico con conglomerados), la variable de conglomeración y de estratificación son muy relevantes. Estas afectan directamente a los errores de las estimaciones.</li>
+<li>Si el esquema de selección de las unidades muestrales a sido autoponderada (MAS, todas las unidades tenían la <strong>misma probabilidad</strong> de ser seleccionadas) o no. Si no es autponderada se requiere la variable conocida como el factor de expansión (inverso de la probabilidad de selección)</li>
+</ul>
+<p>Hay tres variables relevantes: conglomerados (principalmente primera etapa), estratificación (principalmente primera etapa) y factor de expansión.</p>
+<p>Idealmente en un muestreo de varias etapas y estratificado el factor por finitud es necesario ya que permite mejorar la aproximación a la varianza.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="minería-de-datos.html#cb98-1"></a><span class="co">#install.packages(&quot;survey&quot;)</span></span>
+<span id="cb98-2"><a href="minería-de-datos.html#cb98-2"></a><span class="kw">library</span>(survey) <span class="co"># no trabaja con el concepto de dplyr, no permite el uso de &quot;%&gt;%&quot; </span></span>
+<span id="cb98-3"><a href="minería-de-datos.html#cb98-3"></a><span class="kw">library</span>(srvyr) <span class="co"># permite el uso del operador %&gt;% </span></span>
+<span id="cb98-4"><a href="minería-de-datos.html#cb98-4"></a><span class="kw">names</span>(eh19p)</span>
+<span id="cb98-5"><a href="minería-de-datos.html#cb98-5"></a><span class="co">#survey</span></span>
+<span id="cb98-6"><a href="minería-de-datos.html#cb98-6"></a>sd_eh19p&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <span class="op">~</span>upm <span class="op">+</span><span class="st"> </span>folio, <span class="dt">strata =</span> <span class="op">~</span>estrato, <span class="dt">weights =</span> <span class="op">~</span>factor,<span class="dt">data =</span> eh19p)</span>
+<span id="cb98-7"><a href="minería-de-datos.html#cb98-7"></a><span class="kw">str</span>(sd_eh19p)</span>
+<span id="cb98-8"><a href="minería-de-datos.html#cb98-8"></a></span>
+<span id="cb98-9"><a href="minería-de-datos.html#cb98-9"></a><span class="kw">table</span>(eh19p<span class="op">$</span>p0)</span>
+<span id="cb98-10"><a href="minería-de-datos.html#cb98-10"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(eh19p<span class="op">$</span>p0))<span class="op">*</span><span class="dv">100</span> <span class="co"># pobreza moderada en la muestra </span></span>
+<span id="cb98-11"><a href="minería-de-datos.html#cb98-11"></a></span>
+<span id="cb98-12"><a href="minería-de-datos.html#cb98-12"></a><span class="kw">svytable</span>(<span class="op">~</span>p0 ,<span class="dt">design =</span> sd_eh19p)</span>
+<span id="cb98-13"><a href="minería-de-datos.html#cb98-13"></a><span class="kw">prop.table</span>(<span class="kw">svytable</span>(<span class="op">~</span>p0 ,<span class="dt">design =</span> sd_eh19p))<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb98-14"><a href="minería-de-datos.html#cb98-14"></a></span>
+<span id="cb98-15"><a href="minería-de-datos.html#cb98-15"></a><span class="kw">summary</span>(<span class="kw">svytable</span>(<span class="op">~</span>p0 ,<span class="dt">design =</span> sd_eh19p))</span>
+<span id="cb98-16"><a href="minería-de-datos.html#cb98-16"></a></span>
+<span id="cb98-17"><a href="minería-de-datos.html#cb98-17"></a>t1&lt;-<span class="kw">svymean</span>(<span class="op">~</span>ylab,<span class="dt">design =</span> sd_eh19p,<span class="dt">na.rm=</span>T,<span class="dt">deff=</span>T)</span>
+<span id="cb98-18"><a href="minería-de-datos.html#cb98-18"></a><span class="kw">cv</span>(t1)</span>
+<span id="cb98-19"><a href="minería-de-datos.html#cb98-19"></a><span class="kw">confint</span>(t1)</span>
+<span id="cb98-20"><a href="minería-de-datos.html#cb98-20"></a></span>
+<span id="cb98-21"><a href="minería-de-datos.html#cb98-21"></a>t2&lt;-<span class="kw">svyby</span>(<span class="op">~</span>ylab,<span class="dt">by=</span><span class="op">~</span>depto<span class="op">+</span>area,<span class="dt">design =</span> sd_eh19p,<span class="dt">FUN =</span> svymean,<span class="dt">na.rm=</span>T)</span>
+<span id="cb98-22"><a href="minería-de-datos.html#cb98-22"></a><span class="kw">cv</span>(t2)</span>
+<span id="cb98-23"><a href="minería-de-datos.html#cb98-23"></a><span class="kw">confint</span>(t2)</span>
+<span id="cb98-24"><a href="minería-de-datos.html#cb98-24"></a></span>
+<span id="cb98-25"><a href="minería-de-datos.html#cb98-25"></a><span class="kw">summary</span>(<span class="kw">svytable</span>(<span class="op">~</span>depto<span class="op">+</span>p0 ,<span class="dt">design =</span> sd_eh19p)) <span class="co"># revisar</span></span>
+<span id="cb98-26"><a href="minería-de-datos.html#cb98-26"></a></span>
+<span id="cb98-27"><a href="minería-de-datos.html#cb98-27"></a><span class="co"># departamento</span></span>
+<span id="cb98-28"><a href="minería-de-datos.html#cb98-28"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(eh19p<span class="op">$</span>depto,eh19p<span class="op">$</span>p0),<span class="dv">1</span>)<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb98-29"><a href="minería-de-datos.html#cb98-29"></a><span class="kw">prop.table</span>(<span class="kw">svytable</span>(<span class="op">~</span>depto<span class="op">+</span>p0 ,<span class="dt">design =</span> sd_eh19p),<span class="dv">1</span>)<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb98-30"><a href="minería-de-datos.html#cb98-30"></a></span>
+<span id="cb98-31"><a href="minería-de-datos.html#cb98-31"></a><span class="kw">svydesign</span>(<span class="dt">ids=</span><span class="op">~</span><span class="dv">1</span>,<span class="dt">data=</span>bd)<span class="co">#mas</span></span>
+<span id="cb98-32"><a href="minería-de-datos.html#cb98-32"></a><span class="kw">svydesign</span>(<span class="dt">ids=</span><span class="op">~</span><span class="dv">1</span>,<span class="dt">strata =</span> estrato,<span class="dt">data=</span>bd)<span class="co">#mas estraficado</span></span>
+<span id="cb98-33"><a href="minería-de-datos.html#cb98-33"></a><span class="kw">svydesign</span>(<span class="dt">ids=</span><span class="op">~</span><span class="dv">1</span>,<span class="dt">strata =</span> <span class="op">~</span>estrato,<span class="dt">weights =</span> <span class="op">~</span>ponderador,<span class="dt">data=</span>bd)<span class="co">#pps estraficado</span></span>
+<span id="cb98-34"><a href="minería-de-datos.html#cb98-34"></a></span>
+<span id="cb98-35"><a href="minería-de-datos.html#cb98-35"></a><span class="kw">svymean</span>(<span class="op">~</span>p0, <span class="dt">design=</span>sd_eh19p,<span class="dt">na.rm=</span>T)</span>
+<span id="cb98-36"><a href="minería-de-datos.html#cb98-36"></a><span class="kw">svytotal</span>(<span class="op">~</span>p0, <span class="dt">design=</span>sd_eh19p,<span class="dt">na.rm=</span>T)</span>
+<span id="cb98-37"><a href="minería-de-datos.html#cb98-37"></a></span>
+<span id="cb98-38"><a href="minería-de-datos.html#cb98-38"></a><span class="co">#</span></span>
+<span id="cb98-39"><a href="minería-de-datos.html#cb98-39"></a><span class="kw">svytable</span>(<span class="op">~</span>p0,<span class="dt">design=</span>sd_eh19p) <span class="co"># tablas de contigencias y hacer pruebas sobre estas</span></span>
+<span id="cb98-40"><a href="minería-de-datos.html#cb98-40"></a></span>
+<span id="cb98-41"><a href="minería-de-datos.html#cb98-41"></a>t1&lt;-<span class="kw">svymean</span>(<span class="op">~</span>p0,<span class="dt">design=</span>sd_eh19p,<span class="dt">na.rm=</span>T) <span class="co"># proporciones / medias</span></span>
+<span id="cb98-42"><a href="minería-de-datos.html#cb98-42"></a>t2&lt;-<span class="kw">svytotal</span>(<span class="op">~</span>p0,<span class="dt">design=</span>sd_eh19p,<span class="dt">na.rm=</span>T) <span class="co"># totales clase / total</span></span>
+<span id="cb98-43"><a href="minería-de-datos.html#cb98-43"></a></span>
+<span id="cb98-44"><a href="minería-de-datos.html#cb98-44"></a><span class="kw">cv</span>(t1)</span>
+<span id="cb98-45"><a href="minería-de-datos.html#cb98-45"></a><span class="kw">cv</span>(t2)</span>
+<span id="cb98-46"><a href="minería-de-datos.html#cb98-46"></a></span>
+<span id="cb98-47"><a href="minería-de-datos.html#cb98-47"></a><span class="kw">confint</span>(t1)</span>
+<span id="cb98-48"><a href="minería-de-datos.html#cb98-48"></a><span class="kw">confint</span>(t2)</span>
+<span id="cb98-49"><a href="minería-de-datos.html#cb98-49"></a></span>
+<span id="cb98-50"><a href="minería-de-datos.html#cb98-50"></a>sd2_eh19p&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <span class="op">~</span><span class="dv">1</span>, <span class="dt">weights =</span> <span class="op">~</span>factor,<span class="dt">data =</span> eh19p) <span class="co"># pps</span></span>
+<span id="cb98-51"><a href="minería-de-datos.html#cb98-51"></a></span>
+<span id="cb98-52"><a href="minería-de-datos.html#cb98-52"></a>t3&lt;-<span class="kw">svymean</span>(<span class="op">~</span>p0,<span class="dt">design=</span>sd2_eh19p,<span class="dt">na.rm=</span>T) <span class="co"># proporciones / medias</span></span>
+<span id="cb98-53"><a href="minería-de-datos.html#cb98-53"></a></span>
+<span id="cb98-54"><a href="minería-de-datos.html#cb98-54"></a>t1</span>
+<span id="cb98-55"><a href="minería-de-datos.html#cb98-55"></a>t3</span>
+<span id="cb98-56"><a href="minería-de-datos.html#cb98-56"></a><span class="kw">cv</span>(t1)<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb98-57"><a href="minería-de-datos.html#cb98-57"></a><span class="kw">cv</span>(t3)<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb98-58"><a href="minería-de-datos.html#cb98-58"></a></span>
+<span id="cb98-59"><a href="minería-de-datos.html#cb98-59"></a><span class="kw">summary</span>(<span class="kw">lm</span>(ylab<span class="op">~</span>aestudio,<span class="dt">data=</span>eh19p)) <span class="co"># ingreso= B0+B1*aestudio+e OLS</span></span>
+<span id="cb98-60"><a href="minería-de-datos.html#cb98-60"></a><span class="kw">summary</span>(<span class="kw">lm</span>(ylab<span class="op">~</span>aestudio,<span class="dt">data=</span>eh19p,<span class="dt">weights =</span> factor )) <span class="co"># Minimos cuadrados ponderados</span></span>
+<span id="cb98-61"><a href="minería-de-datos.html#cb98-61"></a></span>
+<span id="cb98-62"><a href="minería-de-datos.html#cb98-62"></a>m1&lt;-<span class="kw">svyglm</span>(ylab<span class="op">~</span>aestudio,<span class="dt">design=</span>sd_eh19p)</span>
+<span id="cb98-63"><a href="minería-de-datos.html#cb98-63"></a><span class="kw">summary</span>(m1)</span>
+<span id="cb98-64"><a href="minería-de-datos.html#cb98-64"></a><span class="kw">install.packages</span>(<span class="st">&quot;jtools&quot;</span>)</span>
+<span id="cb98-65"><a href="minería-de-datos.html#cb98-65"></a></span>
+<span id="cb98-66"><a href="minería-de-datos.html#cb98-66"></a><span class="kw">library</span>(jtools)</span>
+<span id="cb98-67"><a href="minería-de-datos.html#cb98-67"></a><span class="kw">summ</span>(m1)</span>
+<span id="cb98-68"><a href="minería-de-datos.html#cb98-68"></a></span>
+<span id="cb98-69"><a href="minería-de-datos.html#cb98-69"></a><span class="kw">psrsq</span>(m1)</span>
+<span id="cb98-70"><a href="minería-de-datos.html#cb98-70"></a></span>
+<span id="cb98-71"><a href="minería-de-datos.html#cb98-71"></a><span class="co"># srvyr </span></span>
+<span id="cb98-72"><a href="minería-de-datos.html#cb98-72"></a></span>
+<span id="cb98-73"><a href="minería-de-datos.html#cb98-73"></a><span class="kw">library</span>(srvyr)</span>
+<span id="cb98-74"><a href="minería-de-datos.html#cb98-74"></a>sd3_eh19p&lt;-<span class="kw">as_survey_design</span>(sd_eh19p)</span>
+<span id="cb98-75"><a href="minería-de-datos.html#cb98-75"></a></span>
+<span id="cb98-76"><a href="minería-de-datos.html#cb98-76"></a>sd_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(p0) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">svymean</span>()</span>
+<span id="cb98-77"><a href="minería-de-datos.html#cb98-77"></a></span>
+<span id="cb98-78"><a href="minería-de-datos.html#cb98-78"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">survey_mean</span>(s02a_<span class="dv">03</span>))</span>
+<span id="cb98-79"><a href="minería-de-datos.html#cb98-79"></a></span>
+<span id="cb98-80"><a href="minería-de-datos.html#cb98-80"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area,s02a_<span class="dv">02</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">m_edad=</span><span class="kw">survey_mean</span>(s02a_<span class="dv">03</span>))</span>
+<span id="cb98-81"><a href="minería-de-datos.html#cb98-81"></a></span>
+<span id="cb98-82"><a href="minería-de-datos.html#cb98-82"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area,s02a_<span class="dv">02</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">m_edad=</span><span class="kw">survey_mean</span>(s02a_<span class="dv">03</span>),<span class="dt">m_ylab=</span><span class="kw">survey_mean</span>(ylab,<span class="dt">na.rm=</span>T))</span>
+<span id="cb98-83"><a href="minería-de-datos.html#cb98-83"></a></span>
+<span id="cb98-84"><a href="minería-de-datos.html#cb98-84"></a><span class="co"># p0</span></span>
+<span id="cb98-85"><a href="minería-de-datos.html#cb98-85"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">survey_tally</span>()</span>
+<span id="cb98-86"><a href="minería-de-datos.html#cb98-86"></a></span>
+<span id="cb98-87"><a href="minería-de-datos.html#cb98-87"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">survey_count</span>()</span>
+<span id="cb98-88"><a href="minería-de-datos.html#cb98-88"></a></span>
+<span id="cb98-89"><a href="minería-de-datos.html#cb98-89"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">pobreza=</span>p0<span class="op">==</span><span class="st">&quot;Pobre&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">p0=</span><span class="kw">survey_mean</span>(pobreza,<span class="dt">na.rm=</span>T))</span>
+<span id="cb98-90"><a href="minería-de-datos.html#cb98-90"></a></span>
+<span id="cb98-91"><a href="minería-de-datos.html#cb98-91"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">pobreza=</span>p0<span class="op">==</span><span class="st">&quot;Pobre&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">p0=</span><span class="kw">survey_mean</span>(pobreza,<span class="dt">na.rm=</span>T),<span class="dt">N=</span><span class="kw">survey_total</span>(pobreza,<span class="dt">na.rm=</span>T))</span>
+<span id="cb98-92"><a href="minería-de-datos.html#cb98-92"></a></span>
+<span id="cb98-93"><a href="minería-de-datos.html#cb98-93"></a>sd4_eh19p&lt;-<span class="st"> </span>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_survey_design</span>(<span class="dt">ids=</span><span class="kw">c</span>(upm,folio),<span class="dt">strata=</span>estrato,<span class="dt">weights=</span>factor)</span>
+<span id="cb98-94"><a href="minería-de-datos.html#cb98-94"></a></span>
+<span id="cb98-95"><a href="minería-de-datos.html#cb98-95"></a>sd4_eh19p&lt;-<span class="st"> </span>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_survey_design</span>(<span class="dt">ids=</span>upm,<span class="dt">strata=</span>estrato,<span class="dt">weights=</span>factor)</span>
+<span id="cb98-96"><a href="minería-de-datos.html#cb98-96"></a></span>
+<span id="cb98-97"><a href="minería-de-datos.html#cb98-97"></a>sd4_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">pobreza=</span>p0<span class="op">==</span><span class="st">&quot;Pobre&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">p0=</span><span class="kw">survey_mean</span>(pobreza,<span class="dt">na.rm=</span>T,<span class="dt">vartype =</span> <span class="kw">c</span>(<span class="st">&quot;se&quot;</span>, <span class="st">&quot;ci&quot;</span>, <span class="st">&quot;var&quot;</span>, <span class="st">&quot;cv&quot;</span>),<span class="dt">deff=</span>T))</span>
+<span id="cb98-98"><a href="minería-de-datos.html#cb98-98"></a></span>
+<span id="cb98-99"><a href="minería-de-datos.html#cb98-99"></a>sd4_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">pobreza=</span>p0<span class="op">==</span><span class="st">&quot;Pobre&quot;</span>) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">p0=</span><span class="kw">survey_mean</span>(pobreza,<span class="dt">na.rm=</span>T,<span class="dt">vartype =</span> <span class="kw">c</span>(<span class="st">&quot;se&quot;</span>, <span class="st">&quot;ci&quot;</span>, <span class="st">&quot;var&quot;</span>, <span class="st">&quot;cv&quot;</span>),<span class="dt">deff=</span>T))</span></code></pre></div>
 </div>
 </div>
 <div id="imputación-de-variables" class="section level2">
@@ -531,7 +1085,7 @@ Principles of Data Mining (Hand et.al. 2001)
 <h3><span class="header-section-number">1.7.2</span> Aproximación formal</h3>
 <p>Sea <span class="math inline">\(Y\)</span> una matriz de datos con <span class="math inline">\(n\)</span> observaciones y <span class="math inline">\(p\)</span> variables. Sea <span class="math inline">\(R\)</span> una matriz de respuesta binaria, tal que si <span class="math inline">\(y_{ij}\)</span> es observada, entonces <span class="math inline">\(r_{ij}=1\)</span>.</p>
 <p>Los valores observados son colectados en <span class="math inline">\(Y_{obs}\)</span>, las observaciones perdidas en <span class="math inline">\(Y_{mis}\)</span>. Así, <span class="math inline">\(Y=(Y_{obs},Y_{mis})\)</span>.</p>
-<p>La distribución de <span class="math inline">\(R\)</span> depende de <span class="math inline">\(Y=(Y_{obs},Y_{mis})\)</span>. Sea <span class="math inline">\(\psi\)</span> que contiene los parametros del modelos de los datos perdidos, asi la expresion del modelo de los datos perdidos es <span class="math inline">\(\Pr(R|Y_\mathrm{obs},Y_\mathrm{mis},\psi)\)</span></p>
+<p>La distribución de <span class="math inline">\(R\)</span> depende de <span class="math inline">\(Y=(Y_{obs},Y_{mis})\)</span>. Sea <span class="math inline">\(\psi\)</span> que contiene los parámetros del modelo de los datos perdidos, así la expresión del modelo de los datos perdidos es <span class="math inline">\(\Pr(R|Y_\mathrm{obs},Y_\mathrm{mis},\psi)\)</span></p>
 </div>
 <div id="mcar-mar-mnar" class="section level3">
 <h3><span class="header-section-number">1.7.3</span> MCAR, MAR, MNAR</h3>
@@ -587,7 +1141,863 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 <h3><span class="header-section-number">1.7.9</span> Multivariate Imputation by Chained Equations (mice)</h3>
 <p>(Imputación multivariante por ecuaciones encadenadas)</p>
 <p><img src="images/algoritmo1.png" /></p>
+</div>
+<div id="en-r" class="section level3">
+<h3><span class="header-section-number">1.7.10</span> En R</h3>
+<div id="métodos-ad-hoc" class="section level4">
+<h4><span class="header-section-number">1.7.10.1</span> Métodos ad-hoc</h4>
+<ul>
+<li>Listwise deletion (trabajar solo con casos completos)</li>
+</ul>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="minería-de-datos.html#cb99-1"></a><span class="kw">table</span>(<span class="kw">is.na</span>(airquality<span class="op">$</span>Ozone))</span></code></pre></div>
+<pre><code>## 
+## FALSE  TRUE 
+##   116    37</code></pre>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="minería-de-datos.html#cb101-1"></a>R&lt;-(<span class="op">!</span><span class="kw">is.na</span>(airquality))<span class="op">*</span><span class="dv">1</span></span>
+<span id="cb101-2"><a href="minería-de-datos.html#cb101-2"></a></span>
+<span id="cb101-3"><a href="minería-de-datos.html#cb101-3"></a><span class="kw">mean</span>(airquality<span class="op">$</span>Ozone)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="minería-de-datos.html#cb103-1"></a><span class="co">#listwise</span></span>
+<span id="cb103-2"><a href="minería-de-datos.html#cb103-2"></a>x&lt;-<span class="kw">na.omit</span>(airquality<span class="op">$</span>Ozone)</span>
+<span id="cb103-3"><a href="minería-de-datos.html#cb103-3"></a><span class="kw">mean</span>(x)</span></code></pre></div>
+<pre><code>## [1] 42.12931</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="minería-de-datos.html#cb105-1"></a>bd&lt;-airquality</span>
+<span id="cb105-2"><a href="minería-de-datos.html#cb105-2"></a>bd2&lt;-<span class="kw">na.omit</span>(bd)</span>
+<span id="cb105-3"><a href="minería-de-datos.html#cb105-3"></a></span>
+<span id="cb105-4"><a href="minería-de-datos.html#cb105-4"></a><span class="kw">na.action</span>(x) </span></code></pre></div>
+<pre><code>##  [1]   5  10  25  26  27  32  33  34  35  36  37  39  42  43  45  46
+## [17]  52  53  54  55  56  57  58  59  60  61  65  72  75  83  84 102
+## [33] 103 107 115 119 150
+## attr(,&quot;class&quot;)
+## [1] &quot;omit&quot;</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="minería-de-datos.html#cb107-1"></a><span class="kw">na.action</span>(bd2) </span></code></pre></div>
+<pre><code>##   5   6  10  11  25  26  27  32  33  34  35  36  37  39  42  43  45 
+##   5   6  10  11  25  26  27  32  33  34  35  36  37  39  42  43  45 
+##  46  52  53  54  55  56  57  58  59  60  61  65  72  75  83  84  96 
+##  46  52  53  54  55  56  57  58  59  60  61  65  72  75  83  84  96 
+##  97  98 102 103 107 115 119 150 
+##  97  98 102 103 107 115 119 150 
+## attr(,&quot;class&quot;)
+## [1] &quot;omit&quot;</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="minería-de-datos.html#cb109-1"></a><span class="kw">naprint</span>(<span class="kw">na.action</span>(x))</span></code></pre></div>
+<pre><code>## [1] &quot;37 observations deleted due to missingness&quot;</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="minería-de-datos.html#cb111-1"></a><span class="kw">naprint</span>(<span class="kw">na.action</span>(bd2))</span></code></pre></div>
+<pre><code>## [1] &quot;42 observations deleted due to missingness&quot;</code></pre>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="minería-de-datos.html#cb113-1"></a><span class="kw">table</span>(<span class="kw">complete.cases</span>(bd))</span></code></pre></div>
+<pre><code>## 
+## FALSE  TRUE 
+##    42   111</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="minería-de-datos.html#cb115-1"></a>ii&lt;-<span class="kw">complete.cases</span>(bd)</span>
+<span id="cb115-2"><a href="minería-de-datos.html#cb115-2"></a></span>
+<span id="cb115-3"><a href="minería-de-datos.html#cb115-3"></a>bd[ii,]</span></code></pre></div>
+<pre><code>##     Ozone Solar.R Wind Temp Month Day
+## 1      41     190  7.4   67     5   1
+## 2      36     118  8.0   72     5   2
+## 3      12     149 12.6   74     5   3
+## 4      18     313 11.5   62     5   4
+## 7      23     299  8.6   65     5   7
+## 8      19      99 13.8   59     5   8
+## 9       8      19 20.1   61     5   9
+## 12     16     256  9.7   69     5  12
+## 13     11     290  9.2   66     5  13
+## 14     14     274 10.9   68     5  14
+## 15     18      65 13.2   58     5  15
+## 16     14     334 11.5   64     5  16
+## 17     34     307 12.0   66     5  17
+## 18      6      78 18.4   57     5  18
+## 19     30     322 11.5   68     5  19
+## 20     11      44  9.7   62     5  20
+## 21      1       8  9.7   59     5  21
+## 22     11     320 16.6   73     5  22
+## 23      4      25  9.7   61     5  23
+## 24     32      92 12.0   61     5  24
+## 28     23      13 12.0   67     5  28
+## 29     45     252 14.9   81     5  29
+## 30    115     223  5.7   79     5  30
+## 31     37     279  7.4   76     5  31
+## 38     29     127  9.7   82     6   7
+## 40     71     291 13.8   90     6   9
+## 41     39     323 11.5   87     6  10
+## 44     23     148  8.0   82     6  13
+## 47     21     191 14.9   77     6  16
+## 48     37     284 20.7   72     6  17
+## 49     20      37  9.2   65     6  18
+## 50     12     120 11.5   73     6  19
+## 51     13     137 10.3   76     6  20
+## 62    135     269  4.1   84     7   1
+## 63     49     248  9.2   85     7   2
+## 64     32     236  9.2   81     7   3
+## 66     64     175  4.6   83     7   5
+## 67     40     314 10.9   83     7   6
+## 68     77     276  5.1   88     7   7
+## 69     97     267  6.3   92     7   8
+## 70     97     272  5.7   92     7   9
+## 71     85     175  7.4   89     7  10
+## 73     10     264 14.3   73     7  12
+## 74     27     175 14.9   81     7  13
+## 76      7      48 14.3   80     7  15
+## 77     48     260  6.9   81     7  16
+## 78     35     274 10.3   82     7  17
+## 79     61     285  6.3   84     7  18
+## 80     79     187  5.1   87     7  19
+## 81     63     220 11.5   85     7  20
+## 82     16       7  6.9   74     7  21
+## 85     80     294  8.6   86     7  24
+## 86    108     223  8.0   85     7  25
+## 87     20      81  8.6   82     7  26
+## 88     52      82 12.0   86     7  27
+## 89     82     213  7.4   88     7  28
+## 90     50     275  7.4   86     7  29
+## 91     64     253  7.4   83     7  30
+## 92     59     254  9.2   81     7  31
+## 93     39      83  6.9   81     8   1
+## 94      9      24 13.8   81     8   2
+## 95     16      77  7.4   82     8   3
+## 99    122     255  4.0   89     8   7
+## 100    89     229 10.3   90     8   8
+## 101   110     207  8.0   90     8   9
+## 104    44     192 11.5   86     8  12
+## 105    28     273 11.5   82     8  13
+## 106    65     157  9.7   80     8  14
+## 108    22      71 10.3   77     8  16
+## 109    59      51  6.3   79     8  17
+## 110    23     115  7.4   76     8  18
+## 111    31     244 10.9   78     8  19
+## 112    44     190 10.3   78     8  20
+## 113    21     259 15.5   77     8  21
+## 114     9      36 14.3   72     8  22
+## 116    45     212  9.7   79     8  24
+## 117   168     238  3.4   81     8  25
+## 118    73     215  8.0   86     8  26
+## 120    76     203  9.7   97     8  28
+## 121   118     225  2.3   94     8  29
+## 122    84     237  6.3   96     8  30
+## 123    85     188  6.3   94     8  31
+## 124    96     167  6.9   91     9   1
+## 125    78     197  5.1   92     9   2
+## 126    73     183  2.8   93     9   3
+## 127    91     189  4.6   93     9   4
+## 128    47      95  7.4   87     9   5
+## 129    32      92 15.5   84     9   6
+## 130    20     252 10.9   80     9   7
+## 131    23     220 10.3   78     9   8
+## 132    21     230 10.9   75     9   9
+## 133    24     259  9.7   73     9  10
+## 134    44     236 14.9   81     9  11
+## 135    21     259 15.5   76     9  12
+## 136    28     238  6.3   77     9  13
+## 137     9      24 10.9   71     9  14
+## 138    13     112 11.5   71     9  15
+## 139    46     237  6.9   78     9  16
+## 140    18     224 13.8   67     9  17
+## 141    13      27 10.3   76     9  18
+## 142    24     238 10.3   68     9  19
+## 143    16     201  8.0   82     9  20
+## 144    13     238 12.6   64     9  21
+## 145    23      14  9.2   71     9  22
+## 146    36     139 10.3   81     9  23
+## 147     7      49 10.3   69     9  24
+## 148    14      20 16.6   63     9  25
+## 149    30     193  6.9   70     9  26
+## 151    14     191 14.3   75     9  28
+## 152    18     131  8.0   76     9  29
+## 153    20     223 11.5   68     9  30</code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="minería-de-datos.html#cb117-1"></a>Y_obs&lt;-<span class="kw">na.omit</span>(bd)</span>
+<span id="cb117-2"><a href="minería-de-datos.html#cb117-2"></a>Y_mis&lt;-mice<span class="op">::</span><span class="kw">ic</span>(bd)</span>
+<span id="cb117-3"><a href="minería-de-datos.html#cb117-3"></a></span>
+<span id="cb117-4"><a href="minería-de-datos.html#cb117-4"></a>bd<span class="op">$</span>Ozone[bd<span class="op">$</span>Ozone<span class="op">==</span><span class="st">&quot;**&quot;</span>]&lt;-<span class="ot">NA</span></span>
+<span id="cb117-5"><a href="minería-de-datos.html#cb117-5"></a><span class="co">#gsub recode</span></span>
+<span id="cb117-6"><a href="minería-de-datos.html#cb117-6"></a></span>
+<span id="cb117-7"><a href="minería-de-datos.html#cb117-7"></a><span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">2</span>])</span></code></pre></div>
+<pre><code>##    
+##       0   1
+##   0   2  35
+##   1   5 111</code></pre>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="minería-de-datos.html#cb119-1"></a><span class="kw">chisq.test</span>(<span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">2</span>]))</span></code></pre></div>
+<pre><code>## Warning in chisq.test(table(R[, 1], R[, 2])): Chi-squared approximation
+## may be incorrect</code></pre>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+## 
+## data:  table(R[, 1], R[, 2])
+## X-squared = 0.00000000000000000000000000001799, df = 1,
+## p-value = 1</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="minería-de-datos.html#cb122-1"></a><span class="kw">apply</span>(R,<span class="dv">2</span>,mean)</span></code></pre></div>
+<pre><code>##     Ozone   Solar.R      Wind      Temp     Month       Day 
+## 0.7581699 0.9542484 1.0000000 1.0000000 1.0000000 1.0000000</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="minería-de-datos.html#cb124-1"></a><span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">3</span>])</span></code></pre></div>
+<pre><code>##    
+##       1
+##   0  37
+##   1 116</code></pre>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="minería-de-datos.html#cb126-1"></a><span class="kw">chisq.test</span>(<span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">3</span>]))</span></code></pre></div>
+<pre><code>## 
+##  Chi-squared test for given probabilities
+## 
+## data:  table(R[, 1], R[, 3])
+## X-squared = 40.791, df = 1, p-value = 0.0000000001694</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="minería-de-datos.html#cb128-1"></a><span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">4</span>])</span></code></pre></div>
+<pre><code>##    
+##       1
+##   0  37
+##   1 116</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="minería-de-datos.html#cb130-1"></a><span class="kw">chisq.test</span>(<span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">4</span>]))</span></code></pre></div>
+<pre><code>## 
+##  Chi-squared test for given probabilities
+## 
+## data:  table(R[, 1], R[, 4])
+## X-squared = 40.791, df = 1, p-value = 0.0000000001694</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="minería-de-datos.html#cb132-1"></a>R&lt;-<span class="kw">as.data.frame</span>(R)</span>
+<span id="cb132-2"><a href="minería-de-datos.html#cb132-2"></a>m1&lt;-<span class="kw">glm</span>(Ozone<span class="op">~</span>Solar.R,<span class="dt">data =</span> R,<span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>) <span class="co"># logit</span></span>
+<span id="cb132-3"><a href="minería-de-datos.html#cb132-3"></a></span>
+<span id="cb132-4"><a href="minería-de-datos.html#cb132-4"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = Ozone ~ Solar.R, family = &quot;binomial&quot;, data = R)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.6901   0.7404   0.7404   0.7404   0.8203  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept)   0.9163     0.8367   1.095    0.273
+## Solar.R       0.2379     0.8588   0.277    0.782
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 169.27  on 152  degrees of freedom
+## Residual deviance: 169.20  on 151  degrees of freedom
+## AIC: 173.2
+## 
+## Number of Fisher Scoring iterations: 4</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="minería-de-datos.html#cb134-1"></a><span class="kw">summary</span>(<span class="kw">lm</span>(Ozone<span class="op">~</span>Solar.R,<span class="dt">data=</span>bd2))</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Ozone ~ Solar.R, data = bd2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -48.292 -21.361  -8.864  16.373 119.136 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 18.59873    6.74790   2.756 0.006856 ** 
+## Solar.R      0.12717    0.03278   3.880 0.000179 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 31.33 on 109 degrees of freedom
+## Multiple R-squared:  0.1213, Adjusted R-squared:  0.1133 
+## F-statistic: 15.05 on 1 and 109 DF,  p-value: 0.0001793</code></pre>
+<ul>
+<li>Pairwise deletion (casos parciales)</li>
+</ul>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="minería-de-datos.html#cb136-1"></a><span class="kw">dim</span>(<span class="kw">na.omit</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]))</span></code></pre></div>
+<pre><code>## [1] 111   2</code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="minería-de-datos.html#cb138-1"></a><span class="kw">dim</span>(<span class="kw">na.omit</span>(airquality[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]))</span></code></pre></div>
+<pre><code>## [1] 116   2</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="minería-de-datos.html#cb140-1"></a><span class="kw">dim</span>(<span class="kw">na.omit</span>(airquality[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]))</span></code></pre></div>
+<pre><code>## [1] 146   2</code></pre>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="minería-de-datos.html#cb142-1"></a><span class="kw">cor</span>(<span class="kw">na.omit</span>(airquality[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]))</span></code></pre></div>
+<pre><code>##             Solar.R        Wind
+## Solar.R  1.00000000 -0.05679167
+## Wind    -0.05679167  1.00000000</code></pre>
+<ul>
+<li>Mean imputation (MCAR)</li>
+</ul>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="minería-de-datos.html#cb144-1"></a>bd&lt;-airquality</span>
+<span id="cb144-2"><a href="minería-de-datos.html#cb144-2"></a>m1&lt;-<span class="kw">mean</span>(bd<span class="op">$</span>Ozone,<span class="dt">na.rm=</span>T)</span>
+<span id="cb144-3"><a href="minería-de-datos.html#cb144-3"></a>bd<span class="op">$</span>Ozone[<span class="kw">is.na</span>(bd<span class="op">$</span>Ozone)]&lt;-m1</span>
+<span id="cb144-4"><a href="minería-de-datos.html#cb144-4"></a><span class="kw">mean</span>(bd<span class="op">$</span>Ozone)</span></code></pre></div>
+<pre><code>## [1] 42.12931</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="minería-de-datos.html#cb146-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb146-2"><a href="minería-de-datos.html#cb146-2"></a><span class="kw">hist</span>(airquality<span class="op">$</span>Ozone)</span>
+<span id="cb146-3"><a href="minería-de-datos.html#cb146-3"></a><span class="kw">hist</span>(bd<span class="op">$</span>Ozone)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="minería-de-datos.html#cb147-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb147-2"><a href="minería-de-datos.html#cb147-2"></a><span class="kw">plot</span>(<span class="kw">density</span>(airquality<span class="op">$</span>Ozone,<span class="dt">na.rm=</span>T))</span>
+<span id="cb147-3"><a href="minería-de-datos.html#cb147-3"></a><span class="kw">plot</span>(<span class="kw">density</span>(bd<span class="op">$</span>Ozone,<span class="dt">na.rm=</span>T))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-2.png" width="672" /></p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="minería-de-datos.html#cb148-1"></a><span class="kw">library</span>(mice)</span>
+<span id="cb148-2"><a href="minería-de-datos.html#cb148-2"></a>imp &lt;-<span class="st"> </span><span class="kw">mice</span>(airquality, <span class="dt">method =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">maxit =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## 
+##  iter imp variable
+##   1   1  Ozone  Solar.R</code></pre>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="minería-de-datos.html#cb150-1"></a>bdi&lt;-<span class="kw">complete</span>(imp)</span>
+<span id="cb150-2"><a href="minería-de-datos.html#cb150-2"></a></span>
+<span id="cb150-3"><a href="minería-de-datos.html#cb150-3"></a><span class="kw">cor</span>(<span class="kw">na.omit</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]))</span></code></pre></div>
+<pre><code>##             Ozone   Solar.R
+## Ozone   1.0000000 0.3483417
+## Solar.R 0.3483417 1.0000000</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="minería-de-datos.html#cb152-1"></a><span class="kw">cor</span>(bd[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<pre><code>##         Ozone Solar.R
+## Ozone       1      NA
+## Solar.R    NA       1</code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="minería-de-datos.html#cb154-1"></a><span class="kw">plot</span>(airquality<span class="op">$</span>Ozone,airquality<span class="op">$</span>Solar.R)</span>
+<span id="cb154-2"><a href="minería-de-datos.html#cb154-2"></a><span class="kw">plot</span>(bdi<span class="op">$</span>Ozone,bdi<span class="op">$</span>Solar.R)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-3.png" width="672" /></p>
+<ul>
+<li>Regression imputation (MAR)</li>
+</ul>
+<p><span class="math display">\[y_i=\beta_0+\beta_1 x_i+\epsilon_i\]</span></p>
+<p><span class="math display">\[E[y/x]=\beta_0+\beta_1 x\]</span></p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="minería-de-datos.html#cb155-1"></a>fit &lt;-<span class="st"> </span><span class="kw">lm</span>(Ozone <span class="op">~</span><span class="st"> </span>Solar.R, <span class="dt">data =</span> airquality)</span>
+<span id="cb155-2"><a href="minería-de-datos.html#cb155-2"></a><span class="kw">summary</span>(fit)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Ozone ~ Solar.R, data = airquality)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -48.292 -21.361  -8.864  16.373 119.136 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 18.59873    6.74790   2.756 0.006856 ** 
+## Solar.R      0.12717    0.03278   3.880 0.000179 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 31.33 on 109 degrees of freedom
+##   (42 observations deleted due to missingness)
+## Multiple R-squared:  0.1213, Adjusted R-squared:  0.1133 
+## F-statistic: 15.05 on 1 and 109 DF,  p-value: 0.0001793</code></pre>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="minería-de-datos.html#cb157-1"></a>pred &lt;-<span class="st"> </span><span class="kw">predict</span>(fit, <span class="dt">newdata =</span> <span class="kw">ic</span>(airquality))</span>
+<span id="cb157-2"><a href="minería-de-datos.html#cb157-2"></a></span>
+<span id="cb157-3"><a href="minería-de-datos.html#cb157-3"></a><span class="co">#para el caso 10</span></span>
+<span id="cb157-4"><a href="minería-de-datos.html#cb157-4"></a></span>
+<span id="cb157-5"><a href="minería-de-datos.html#cb157-5"></a><span class="fl">18.599+0.127</span><span class="op">*</span><span class="dv">194</span></span></code></pre></div>
+<pre><code>## [1] 43.237</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="minería-de-datos.html#cb159-1"></a>data &lt;-<span class="st"> </span>airquality[, <span class="kw">c</span>(<span class="st">&quot;Ozone&quot;</span>, <span class="st">&quot;Solar.R&quot;</span>)]</span>
+<span id="cb159-2"><a href="minería-de-datos.html#cb159-2"></a></span>
+<span id="cb159-3"><a href="minería-de-datos.html#cb159-3"></a>imp &lt;-<span class="st"> </span><span class="kw">mice</span>(data, <span class="dt">method =</span> <span class="st">&quot;norm.predict&quot;</span>, <span class="dt">seed =</span> <span class="dv">1</span>,</span>
+<span id="cb159-4"><a href="minería-de-datos.html#cb159-4"></a>           <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">print =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb159-5"><a href="minería-de-datos.html#cb159-5"></a></span>
+<span id="cb159-6"><a href="minería-de-datos.html#cb159-6"></a><span class="kw">complete</span>(imp)</span></code></pre></div>
+<pre><code>##         Ozone  Solar.R
+## 1    41.00000 190.0000
+## 2    36.00000 118.0000
+## 3    12.00000 149.0000
+## 4    18.00000 313.0000
+## 5    42.27981 185.9649
+## 6    28.00000 168.9457
+## 7    23.00000 299.0000
+## 8    19.00000  99.0000
+## 9     8.00000  19.0000
+## 10   43.32279 194.0000
+## 11    7.00000 143.9171
+## 12   16.00000 256.0000
+## 13   11.00000 290.0000
+## 14   14.00000 274.0000
+## 15   18.00000  65.0000
+## 16   14.00000 334.0000
+## 17   34.00000 307.0000
+## 18    6.00000  78.0000
+## 19   30.00000 322.0000
+## 20   11.00000  44.0000
+## 21    1.00000   8.0000
+## 22   11.00000 320.0000
+## 23    4.00000  25.0000
+## 24   32.00000  92.0000
+## 25   26.57468  66.0000
+## 26   52.74360 266.0000
+## 27   42.27706 185.9617
+## 28   23.00000  13.0000
+## 29   45.00000 252.0000
+## 30  115.00000 223.0000
+## 31   37.00000 279.0000
+## 32   55.36049 286.0000
+## 33   55.49133 287.0000
+## 34   49.60333 242.0000
+## 35   42.27603 186.0000
+## 36   46.72475 220.0000
+## 37   52.48191 264.0000
+## 38   29.00000 127.0000
+## 39   53.65951 273.0000
+## 40   71.00000 291.0000
+## 41   39.00000 323.0000
+## 42   51.82769 259.0000
+## 43   50.65008 250.0000
+## 44   23.00000 148.0000
+## 45   61.37934 332.0000
+## 46   60.07089 322.0000
+## 47   21.00000 191.0000
+## 48   37.00000 284.0000
+## 49   20.00000  37.0000
+## 50   12.00000 120.0000
+## 51   13.00000 137.0000
+## 52   37.56563 150.0000
+## 53   25.65877  59.0000
+## 54   29.84580  91.0000
+## 55   50.65008 250.0000
+## 56   35.60296 135.0000
+## 57   34.55620 127.0000
+## 58   24.08864  47.0000
+## 59   30.76171  98.0000
+## 60   21.99512  31.0000
+## 61   35.99549 138.0000
+## 62  135.00000 269.0000
+## 63   49.00000 248.0000
+## 64   32.00000 236.0000
+## 65   31.15424 101.0000
+## 66   64.00000 175.0000
+## 67   40.00000 314.0000
+## 68   77.00000 276.0000
+## 69   97.00000 267.0000
+## 70   97.00000 272.0000
+## 71   85.00000 175.0000
+## 72   36.12634 139.0000
+## 73   10.00000 264.0000
+## 74   27.00000 175.0000
+## 75   56.01471 291.0000
+## 76    7.00000  48.0000
+## 77   48.00000 260.0000
+## 78   35.00000 274.0000
+## 79   61.00000 285.0000
+## 80   79.00000 187.0000
+## 81   63.00000 220.0000
+## 82   16.00000   7.0000
+## 83   51.69684 258.0000
+## 84   56.53809 295.0000
+## 85   80.00000 294.0000
+## 86  108.00000 223.0000
+## 87   20.00000  81.0000
+## 88   52.00000  82.0000
+## 89   82.00000 213.0000
+## 90   50.00000 275.0000
+## 91   64.00000 253.0000
+## 92   59.00000 254.0000
+## 93   39.00000  83.0000
+## 94    9.00000  24.0000
+## 95   16.00000  77.0000
+## 96   78.00000 228.5377
+## 97   35.00000 177.2886
+## 98   66.00000 214.2356
+## 99  122.00000 255.0000
+## 100  89.00000 229.0000
+## 101 110.00000 207.0000
+## 102  46.98644 222.0000
+## 103  35.86465 137.0000
+## 104  44.00000 192.0000
+## 105  28.00000 273.0000
+## 106  65.00000 157.0000
+## 107  26.31299  64.0000
+## 108  22.00000  71.0000
+## 109  59.00000  51.0000
+## 110  23.00000 115.0000
+## 111  31.00000 244.0000
+## 112  44.00000 190.0000
+## 113  21.00000 259.0000
+## 114   9.00000  36.0000
+## 115  51.30431 255.0000
+## 116  45.00000 212.0000
+## 117 168.00000 238.0000
+## 118  73.00000 215.0000
+## 119  37.95816 153.0000
+## 120  76.00000 203.0000
+## 121 118.00000 225.0000
+## 122  84.00000 237.0000
+## 123  85.00000 188.0000
+## 124  96.00000 167.0000
+## 125  78.00000 197.0000
+## 126  73.00000 183.0000
+## 127  91.00000 189.0000
+## 128  47.00000  95.0000
+## 129  32.00000  92.0000
+## 130  20.00000 252.0000
+## 131  23.00000 220.0000
+## 132  21.00000 230.0000
+## 133  24.00000 259.0000
+## 134  44.00000 236.0000
+## 135  21.00000 259.0000
+## 136  28.00000 238.0000
+## 137   9.00000  24.0000
+## 138  13.00000 112.0000
+## 139  46.00000 237.0000
+## 140  18.00000 224.0000
+## 141  13.00000  27.0000
+## 142  24.00000 238.0000
+## 143  16.00000 201.0000
+## 144  13.00000 238.0000
+## 145  23.00000  14.0000
+## 146  36.00000 139.0000
+## 147   7.00000  49.0000
+## 148  14.00000  20.0000
+## 149  30.00000 193.0000
+## 150  36.91140 145.0000
+## 151  14.00000 191.0000
+## 152  18.00000 131.0000
+## 153  20.00000 223.0000</code></pre>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="minería-de-datos.html#cb161-1"></a><span class="kw">plot</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="minería-de-datos.html#cb162-1"></a><span class="kw">plot</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-2.png" width="672" /></p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="minería-de-datos.html#cb163-1"></a><span class="kw">cor</span>(<span class="kw">na.omit</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]))</span></code></pre></div>
+<pre><code>##             Ozone   Solar.R
+## Ozone   1.0000000 0.3483417
+## Solar.R 0.3483417 1.0000000</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="minería-de-datos.html#cb165-1"></a><span class="kw">cor</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<pre><code>##             Ozone   Solar.R
+## Ozone   1.0000000 0.3948995
+## Solar.R 0.3948995 1.0000000</code></pre>
+<ul>
+<li>Stochastic regression imputation (MAR)</li>
+</ul>
+<p><span class="math display">\[y_i=\hat{\beta_0}+\hat{\beta_1} x_i+\hat{\epsilon_i}\]</span></p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="minería-de-datos.html#cb167-1"></a>data &lt;-<span class="st"> </span>airquality[, <span class="kw">c</span>(<span class="st">&quot;Ozone&quot;</span>, <span class="st">&quot;Solar.R&quot;</span>)]</span>
+<span id="cb167-2"><a href="minería-de-datos.html#cb167-2"></a>imp &lt;-<span class="st"> </span><span class="kw">mice</span>(data, <span class="dt">method =</span> <span class="st">&quot;norm.nob&quot;</span>, <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">maxit =</span> <span class="dv">1</span>,</span>
+<span id="cb167-3"><a href="minería-de-datos.html#cb167-3"></a>            <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">print =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb167-4"><a href="minería-de-datos.html#cb167-4"></a><span class="kw">complete</span>(imp)</span></code></pre></div>
+<pre><code>##           Ozone   Solar.R
+## 1    41.0000000 190.00000
+## 2    36.0000000 118.00000
+## 3    12.0000000 149.00000
+## 4    18.0000000 313.00000
+## 5    93.1901074 230.44150
+## 6    28.0000000 103.66507
+## 7    23.0000000 299.00000
+## 8    19.0000000  99.00000
+## 9     8.0000000  19.00000
+## 10   21.8114143 194.00000
+## 11    7.0000000 169.74746
+## 12   16.0000000 256.00000
+## 13   11.0000000 290.00000
+## 14   14.0000000 274.00000
+## 15   18.0000000  65.00000
+## 16   14.0000000 334.00000
+## 17   34.0000000 307.00000
+## 18    6.0000000  78.00000
+## 19   30.0000000 322.00000
+## 20   11.0000000  44.00000
+## 21    1.0000000   8.00000
+## 22   11.0000000 320.00000
+## 23    4.0000000  25.00000
+## 24   32.0000000  92.00000
+## 25  -12.5439113  66.00000
+## 26   53.7714213 266.00000
+## 27   47.1516807  72.91707
+## 28   23.0000000  13.00000
+## 29   45.0000000 252.00000
+## 30  115.0000000 223.00000
+## 31   37.0000000 279.00000
+## 32   37.7852286 286.00000
+## 33   41.3376364 287.00000
+## 34   29.0262061 242.00000
+## 35   65.1911154 186.00000
+## 36   82.6871079 220.00000
+## 37   83.1114195 264.00000
+## 38   29.0000000 127.00000
+## 39   39.7307790 273.00000
+## 40   71.0000000 291.00000
+## 41   39.0000000 323.00000
+## 42   90.1979525 259.00000
+## 43   41.5950585 250.00000
+## 44   23.0000000 148.00000
+## 45  115.4565706 332.00000
+## 46   76.7599696 322.00000
+## 47   21.0000000 191.00000
+## 48   37.0000000 284.00000
+## 49   20.0000000  37.00000
+## 50   12.0000000 120.00000
+## 51   13.0000000 137.00000
+## 52   23.8411395 150.00000
+## 53    0.7555855  59.00000
+## 54   -5.7687193  91.00000
+## 55   16.9902402 250.00000
+## 56  -12.7755115 135.00000
+## 57   71.3683543 127.00000
+## 58   51.3526593  47.00000
+## 59   24.4868657  98.00000
+## 60   31.6708004  31.00000
+## 61   24.7428741 138.00000
+## 62  135.0000000 269.00000
+## 63   49.0000000 248.00000
+## 64   32.0000000 236.00000
+## 65  108.3710476 101.00000
+## 66   64.0000000 175.00000
+## 67   40.0000000 314.00000
+## 68   77.0000000 276.00000
+## 69   97.0000000 267.00000
+## 70   97.0000000 272.00000
+## 71   85.0000000 175.00000
+## 72   11.7652825 139.00000
+## 73   10.0000000 264.00000
+## 74   27.0000000 175.00000
+## 75   53.6734104 291.00000
+## 76    7.0000000  48.00000
+## 77   48.0000000 260.00000
+## 78   35.0000000 274.00000
+## 79   61.0000000 285.00000
+## 80   79.0000000 187.00000
+## 81   63.0000000 220.00000
+## 82   16.0000000   7.00000
+## 83   59.1510109 258.00000
+## 84   75.2311817 295.00000
+## 85   80.0000000 294.00000
+## 86  108.0000000 223.00000
+## 87   20.0000000  81.00000
+## 88   52.0000000  82.00000
+## 89   82.0000000 213.00000
+## 90   50.0000000 275.00000
+## 91   64.0000000 253.00000
+## 92   59.0000000 254.00000
+## 93   39.0000000  83.00000
+## 94    9.0000000  24.00000
+## 95   16.0000000  77.00000
+## 96   78.0000000 254.64941
+## 97   35.0000000 199.67614
+## 98   66.0000000 216.97628
+## 99  122.0000000 255.00000
+## 100  89.0000000 229.00000
+## 101 110.0000000 207.00000
+## 102  41.4834780 222.00000
+## 103 -33.1867993 137.00000
+## 104  44.0000000 192.00000
+## 105  28.0000000 273.00000
+## 106  65.0000000 157.00000
+## 107 -12.1337321  64.00000
+## 108  22.0000000  71.00000
+## 109  59.0000000  51.00000
+## 110  23.0000000 115.00000
+## 111  31.0000000 244.00000
+## 112  44.0000000 190.00000
+## 113  21.0000000 259.00000
+## 114   9.0000000  36.00000
+## 115  62.1793726 255.00000
+## 116  45.0000000 212.00000
+## 117 168.0000000 238.00000
+## 118  73.0000000 215.00000
+## 119  38.0347443 153.00000
+## 120  76.0000000 203.00000
+## 121 118.0000000 225.00000
+## 122  84.0000000 237.00000
+## 123  85.0000000 188.00000
+## 124  96.0000000 167.00000
+## 125  78.0000000 197.00000
+## 126  73.0000000 183.00000
+## 127  91.0000000 189.00000
+## 128  47.0000000  95.00000
+## 129  32.0000000  92.00000
+## 130  20.0000000 252.00000
+## 131  23.0000000 220.00000
+## 132  21.0000000 230.00000
+## 133  24.0000000 259.00000
+## 134  44.0000000 236.00000
+## 135  21.0000000 259.00000
+## 136  28.0000000 238.00000
+## 137   9.0000000  24.00000
+## 138  13.0000000 112.00000
+## 139  46.0000000 237.00000
+## 140  18.0000000 224.00000
+## 141  13.0000000  27.00000
+## 142  24.0000000 238.00000
+## 143  16.0000000 201.00000
+## 144  13.0000000 238.00000
+## 145  23.0000000  14.00000
+## 146  36.0000000 139.00000
+## 147   7.0000000  49.00000
+## 148  14.0000000  20.00000
+## 149  30.0000000 193.00000
+## 150   7.9575138 145.00000
+## 151  14.0000000 191.00000
+## 152  18.0000000 131.00000
+## 153  20.0000000 223.00000</code></pre>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="minería-de-datos.html#cb169-1"></a><span class="kw">plot</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="minería-de-datos.html#cb170-1"></a><span class="kw">plot</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-2.png" width="672" /></p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="minería-de-datos.html#cb171-1"></a><span class="kw">cor</span>(<span class="kw">na.omit</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]))</span></code></pre></div>
+<pre><code>##             Ozone   Solar.R
+## Ozone   1.0000000 0.3483417
+## Solar.R 0.3483417 1.0000000</code></pre>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="minería-de-datos.html#cb173-1"></a><span class="kw">cor</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<pre><code>##             Ozone   Solar.R
+## Ozone   1.0000000 0.3964026
+## Solar.R 0.3964026 1.0000000</code></pre>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="minería-de-datos.html#cb175-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(airquality<span class="op">$</span>Ozone,<span class="dt">na.rm=</span>T))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-3.png" width="672" /></p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="minería-de-datos.html#cb176-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span>],<span class="dt">na.rm=</span>T))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-4.png" width="672" /></p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="minería-de-datos.html#cb177-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(airquality<span class="op">$</span>Solar.R,<span class="dt">na.rm=</span>T))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-5.png" width="672" /></p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="minería-de-datos.html#cb178-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(<span class="kw">complete</span>(imp)[,<span class="dv">2</span>],<span class="dt">na.rm=</span>T))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-6.png" width="672" /></p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="minería-de-datos.html#cb179-1"></a>imp&lt;-<span class="kw">mice</span>(airquality, <span class="dt">method =</span> <span class="st">&quot;norm.nob&quot;</span>, <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">maxit =</span> <span class="dv">1</span>,</span>
+<span id="cb179-2"><a href="minería-de-datos.html#cb179-2"></a>            <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">print =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb179-3"><a href="minería-de-datos.html#cb179-3"></a><span class="kw">complete</span>(imp)</span></code></pre></div>
+<pre><code>##           Ozone    Solar.R Wind Temp Month Day
+## 1    41.0000000 190.000000  7.4   67     5   1
+## 2    36.0000000 118.000000  8.0   72     5   2
+## 3    12.0000000 149.000000 12.6   74     5   3
+## 4    18.0000000 313.000000 11.5   62     5   4
+## 5    20.5007386 174.406477 14.3   56     5   5
+## 6    28.0000000 140.047720 14.9   66     5   6
+## 7    23.0000000 299.000000  8.6   65     5   7
+## 8    19.0000000  99.000000 13.8   59     5   8
+## 9     8.0000000  19.000000 20.1   61     5   9
+## 10   19.9813337 194.000000  8.6   69     5  10
+## 11    7.0000000 175.896881  6.9   74     5  11
+## 12   16.0000000 256.000000  9.7   69     5  12
+## 13   11.0000000 290.000000  9.2   66     5  13
+## 14   14.0000000 274.000000 10.9   68     5  14
+## 15   18.0000000  65.000000 13.2   58     5  15
+## 16   14.0000000 334.000000 11.5   64     5  16
+## 17   34.0000000 307.000000 12.0   66     5  17
+## 18    6.0000000  78.000000 18.4   57     5  18
+## 19   30.0000000 322.000000 11.5   68     5  19
+## 20   11.0000000  44.000000  9.7   62     5  20
+## 21    1.0000000   8.000000  9.7   59     5  21
+## 22   11.0000000 320.000000 16.6   73     5  22
+## 23    4.0000000  25.000000  9.7   61     5  23
+## 24   32.0000000  92.000000 12.0   61     5  24
+## 25  -43.0343740  66.000000 16.6   57     5  25
+## 26    3.3396801 266.000000 14.9   58     5  26
+## 27   18.3933655   8.744525  8.0   57     5  27
+## 28   23.0000000  13.000000 12.0   67     5  28
+## 29   45.0000000 252.000000 14.9   81     5  29
+## 30  115.0000000 223.000000  5.7   79     5  30
+## 31   37.0000000 279.000000  7.4   76     5  31
+## 32   39.7516986 286.000000  8.6   78     6   1
+## 33   31.3839433 287.000000  9.7   74     6   2
+## 34   -8.6316915 242.000000 16.1   67     6   3
+## 35   71.4038792 186.000000  9.2   84     6   4
+## 36   86.2547074 220.000000  8.6   85     6   5
+## 37   56.3247528 264.000000 14.3   79     6   6
+## 38   29.0000000 127.000000  9.7   82     6   7
+## 39   65.7382192 273.000000  6.9   87     6   8
+## 40   71.0000000 291.000000 13.8   90     6   9
+## 41   39.0000000 323.000000 11.5   87     6  10
+## 42   99.7663357 259.000000 10.9   93     6  11
+## 43   71.0135556 250.000000  9.2   92     6  12
+## 44   23.0000000 148.000000  8.0   82     6  13
+## 45   81.8344779 332.000000 13.8   80     6  14
+## 46   61.6649678 322.000000 11.5   79     6  15
+## 47   21.0000000 191.000000 14.9   77     6  16
+## 48   37.0000000 284.000000 20.7   72     6  17
+## 49   20.0000000  37.000000  9.2   65     6  18
+## 50   12.0000000 120.000000 11.5   73     6  19
+## 51   13.0000000 137.000000 10.3   76     6  20
+## 52   45.2131440 150.000000  6.3   77     6  21
+## 53   45.1192943  59.000000  1.7   76     6  22
+## 54   30.9805688  91.000000  4.6   76     6  23
+## 55   36.6503552 250.000000  6.3   76     6  24
+## 56   12.9901939 135.000000  8.0   75     6  25
+## 57   75.8450620 127.000000  8.0   78     6  26
+## 58   48.2955351  47.000000 10.3   73     6  27
+## 59   38.4690813  98.000000 11.5   80     6  28
+## 60   29.1923696  31.000000 14.9   77     6  29
+## 61   54.6909678 138.000000  8.0   83     6  30
+## 62  135.0000000 269.000000  4.1   84     7   1
+## 63   49.0000000 248.000000  9.2   85     7   2
+## 64   32.0000000 236.000000  9.2   81     7   3
+## 65   94.7972277 101.000000 10.9   84     7   4
+## 66   64.0000000 175.000000  4.6   83     7   5
+## 67   40.0000000 314.000000 10.9   83     7   6
+## 68   77.0000000 276.000000  5.1   88     7   7
+## 69   97.0000000 267.000000  6.3   92     7   8
+## 70   97.0000000 272.000000  5.7   92     7   9
+## 71   85.0000000 175.000000  7.4   89     7  10
+## 72   34.0203036 139.000000  8.6   82     7  11
+## 73   10.0000000 264.000000 14.3   73     7  12
+## 74   27.0000000 175.000000 14.9   81     7  13
+## 75   55.9305086 291.000000 14.9   91     7  14
+## 76    7.0000000  48.000000 14.3   80     7  15
+## 77   48.0000000 260.000000  6.9   81     7  16
+## 78   35.0000000 274.000000 10.3   82     7  17
+## 79   61.0000000 285.000000  6.3   84     7  18
+## 80   79.0000000 187.000000  5.1   87     7  19
+## 81   63.0000000 220.000000 11.5   85     7  20
+## 82   16.0000000   7.000000  6.9   74     7  21
+## 83   60.2221568 258.000000  9.7   81     7  22
+## 84   66.5040195 295.000000 11.5   82     7  23
+## 85   80.0000000 294.000000  8.6   86     7  24
+## 86  108.0000000 223.000000  8.0   85     7  25
+## 87   20.0000000  81.000000  8.6   82     7  26
+## 88   52.0000000  82.000000 12.0   86     7  27
+## 89   82.0000000 213.000000  7.4   88     7  28
+## 90   50.0000000 275.000000  7.4   86     7  29
+## 91   64.0000000 253.000000  7.4   83     7  30
+## 92   59.0000000 254.000000  9.2   81     7  31
+## 93   39.0000000  83.000000  6.9   81     8   1
+## 94    9.0000000  24.000000 13.8   81     8   2
+## 95   16.0000000  77.000000  7.4   82     8   3
+## 96   78.0000000 252.798784  6.9   86     8   4
+## 97   35.0000000 201.411206  7.4   85     8   5
+## 98   66.0000000 204.435959  4.6   87     8   6
+## 99  122.0000000 255.000000  4.0   89     8   7
+## 100  89.0000000 229.000000 10.3   90     8   8
+## 101 110.0000000 207.000000  8.0   90     8   9
+## 102  67.4342874 222.000000  8.6   92     8  10
+## 103  -0.5541087 137.000000 11.5   86     8  11
+## 104  44.0000000 192.000000 11.5   86     8  12
+## 105  28.0000000 273.000000 11.5   82     8  13
+## 106  65.0000000 157.000000  9.7   80     8  14
+## 107   3.6275851  64.000000 11.5   79     8  15
+## 108  22.0000000  71.000000 10.3   77     8  16
+## 109  59.0000000  51.000000  6.3   79     8  17
+## 110  23.0000000 115.000000  7.4   76     8  18
+## 111  31.0000000 244.000000 10.9   78     8  19
+## 112  44.0000000 190.000000 10.3   78     8  20
+## 113  21.0000000 259.000000 15.5   77     8  21
+## 114   9.0000000  36.000000 14.3   72     8  22
+## 115  39.3715767 255.000000 12.6   75     8  23
+## 116  45.0000000 212.000000  9.7   79     8  24
+## 117 168.0000000 238.000000  3.4   81     8  25
+## 118  73.0000000 215.000000  8.0   86     8  26
+## 119  73.3973647 153.000000  5.7   88     8  27
+## 120  76.0000000 203.000000  9.7   97     8  28
+## 121 118.0000000 225.000000  2.3   94     8  29
+## 122  84.0000000 237.000000  6.3   96     8  30
+## 123  85.0000000 188.000000  6.3   94     8  31
+## 124  96.0000000 167.000000  6.9   91     9   1
+## 125  78.0000000 197.000000  5.1   92     9   2
+## 126  73.0000000 183.000000  2.8   93     9   3
+## 127  91.0000000 189.000000  4.6   93     9   4
+## 128  47.0000000  95.000000  7.4   87     9   5
+## 129  32.0000000  92.000000 15.5   84     9   6
+## 130  20.0000000 252.000000 10.9   80     9   7
+## 131  23.0000000 220.000000 10.3   78     9   8
+## 132  21.0000000 230.000000 10.9   75     9   9
+## 133  24.0000000 259.000000  9.7   73     9  10
+## 134  44.0000000 236.000000 14.9   81     9  11
+## 135  21.0000000 259.000000 15.5   76     9  12
+## 136  28.0000000 238.000000  6.3   77     9  13
+## 137   9.0000000  24.000000 10.9   71     9  14
+## 138  13.0000000 112.000000 11.5   71     9  15
+## 139  46.0000000 237.000000  6.9   78     9  16
+## 140  18.0000000 224.000000 13.8   67     9  17
+## 141  13.0000000  27.000000 10.3   76     9  18
+## 142  24.0000000 238.000000 10.3   68     9  19
+## 143  16.0000000 201.000000  8.0   82     9  20
+## 144  13.0000000 238.000000 12.6   64     9  21
+## 145  23.0000000  14.000000  9.2   71     9  22
+## 146  36.0000000 139.000000 10.3   81     9  23
+## 147   7.0000000  49.000000 10.3   69     9  24
+## 148  14.0000000  20.000000 16.6   63     9  25
+## 149  30.0000000 193.000000  6.9   70     9  26
+## 150   6.2345801 145.000000 13.2   77     9  27
+## 151  14.0000000 191.000000 14.3   75     9  28
+## 152  18.0000000 131.000000  8.0   76     9  29
+## 153  20.0000000 223.000000 11.5   68     9  30</code></pre>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="minería-de-datos.html#cb181-1"></a><span class="kw">md.pattern</span>(airquality, <span class="dt">plot =</span> T)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<pre><code>##     Wind Temp Month Day Solar.R Ozone   
+## 111    1    1     1   1       1     1  0
+## 35     1    1     1   1       1     0  1
+## 5      1    1     1   1       0     1  1
+## 2      1    1     1   1       0     0  2
+##        0    0     0   0       7    37 44</code></pre>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="minería-de-datos.html#cb183-1"></a><span class="kw">flux</span>(airquality)[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span></code></pre></div>
+<pre><code>##              pobs     influx   outflux
+## Ozone   0.7581699 0.20938215 0.1136364
+## Solar.R 0.9542484 0.03775744 0.7954545
+## Wind    1.0000000 0.00000000 1.0000000
+## Temp    1.0000000 0.00000000 1.0000000
+## Month   1.0000000 0.00000000 1.0000000
+## Day     1.0000000 0.00000000 1.0000000</code></pre>
 
+</div>
 </div>
 </div>
 </div>

@@ -1,0 +1,26 @@
+{
+    "id": "46C81214",
+    "path": "~/GitHub/EST-384/DataMining/1_introMD.Rmd",
+    "project_path": "1_introMD.Rmd",
+    "type": "r_markdown",
+    "hash": "1414735885",
+    "contents": "",
+    "dirty": false,
+    "created": 1604087255906.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "cursorPosition": "364,16",
+        "docOutlineVisible": "1",
+        "scrollLine": "358",
+        "chunk_output_type": "console"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1605059775,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1605059775690,
+    "read_only": false,
+    "read_only_alternatives": []
+}

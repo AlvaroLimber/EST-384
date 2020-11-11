@@ -400,7 +400,7 @@ El análisis de correspondencia esta orientado a encontrar relaciones entre las 
 Esta técnica es un método visual que va más allá del test de independencia Chi-cuadrado.
 
 
-```{r}
+```{r,eval=F}
 load(url("https://github.com/AlvaroLimber/EST-384/raw/master/data/endsa.RData"))
 #tarea 10 min, explorar la base de datos
 library(Hmisc)
@@ -530,7 +530,7 @@ abline(h=0,v=0,lty=2)
 
 ### Un ejemplo de correspondencia simple y múltiple
 
-```{r}
+```{r,eval=F}
 library(FactoMineR)
 library(explor)
 
