@@ -77,10 +77,10 @@ m1_2
 ```
 
 $$ylab_i=\beta_0+\beta_1 educacion_i+\epsilon_i$$
-* Para personas de 18 a 35
+* Para personas de 18 a 35 (2019)
 
 $$E[ylab_i]=1231.7-136.7*educacion_i$$
-* Para personas de 18 años o más (jefes de hogar)
+* Para personas de 18 años o más (jefes de hogar) (2018)
 
 $$E[ylab_i]=1241.9-194.7*educacion_i$$
 ```{r,eval=F}
@@ -101,123 +101,156 @@ coefficients(m1_2)
 
 confint(m1_1,level=0.95)
 confint(m1_2,level=0.95)
-
-#mejorar el modelo
-
-
 ```
 
 ### Paso 4: Optimizar el modelo
 
 ```{r,eval=F}
-m5<-lm(log(ylab)~.,data=bd[,-c(7,8,9,11)])
-summary(m5)
-m6<-step(m5)
-summary(m6)
-#un ejemplo de laboratorio
-bd2<-as.data.frame(matrix(rnorm(1000),ncol = 8))
-names(bd2)[1]<-"y"
-bd2$x<-bd2$y+runif(125)
-plot(bd2$x,bd2$y)
-plot(bd2)
-p1<-lm(y~.,data=bd2)
-summary(p1)
-p2<-step(p1)
-summary(p2)
+m2_1<-lm(log(ylab)~aestudio,data=bd1)
+m2_2<-lm(log(ylab)~aestudio,data=bd2)
+summary(m2_1)
+
+
+plot(bd2$aestudio,log(bd2$ylab))
+abline(m2_2,col="red",lwd=3)
+summary(m2_2)
 ```
 
-Nota: Se debe tener en cuenta siempre la fuente de la información
+$$E[log(ylab_i)]=6.83-0.091*educacion_i$$
+```{r,eval=F}
+m3_1<-lm(log(ylab)~.,data=bd1[,-c(7,8,9,11:12)])
+m3_2<-lm(log(ylab)~.,data=bd2[,-c(7,8,9,11:12)])
+
+summary(m3_1)
+summary(m3_2)
+
+#stepwise
+m4_1<-step(m3_1)
+m4_2<-step(m3_2)
+
+summary(m4_1)
+summary(m4_2)
+```
+
+Nota: Se debe tener en cuenta siempre la fuente de la información y el tipo de las variables.
 
 ```{r,eval=FALSE}
-summary(m4)
-summary(lm(ylab~factor(aestudio)+s02a_02+s02a_03,data=bd))
-summary(lm(log(ylab)~factor(aestudio)+s02a_02+s02a_03,data=bd))
+barplot(table(bd1$aestudio))
+
+m5_1<-lm(log(ylab)~ factor(aestudio)+s02a_02+s02a_03+tothrs+area,data=bd1)
+m5_2<-lm(log(ylab)~ factor(aestudio)+s02a_02+s02a_03+tothrs+area,data=bd2)
+summary(m5_1)
+summary(m5_2)
+
+##########################
+bd2$hombre<-bd2$s02a_02=="1.Hombre"
+summary(lm(log(ylab)~ factor(aestudio)+hombre+s02a_03+tothrs+area,data=bd2))
+##########################
+
 #estamos suponiendo una relación lineal
 #las relaciones que encontramos son a nivel de la muestra
-#para hacer inferencia el mejor camino es la libreria survey
-summary(lm(log(ylab)~factor(aestudio)+s02a_02+s02a_03,data=bd))#MCO,OLS
-summary(lm(log(ylab)~factor(aestudio)+s02a_02+s02a_03
-           ,weights = factor ,data=bd))#MCP
-```
+#para hacer inferencia el mejor camino es la librería survey
+summary(lm(log(ylab)~ factor(aestudio)+s02a_02+s02a_03+tothrs+area,data=bd2))#MCO,OLS
 
+summary(lm(log(ylab)~ factor(aestudio)+s02a_02+s02a_03+tothrs+area,data=bd2,weights = factor))#MCP
+```
 
 ### Paso 5: Validar el modelo
 
 ```{r,eval=F}
 #Supuestos del modelo
-## los errores se distribuyen normal(media=0, varianza=constante)
-## Independencia entre los X del modelo
-# los errores se distribuyen normal
-model<-lm(log(ylab)~s02a_03+aestudio+tothrs+ynolab+s02a_02+area+cob_op,data=bd)
-summary(model)
+## los errores se distribuyen normal(media=0,varianza=constante)
+### heterocedasticidad
 
+## Independencia entre los X del modelo
+### multicolinealidad
+
+model<-m5_2
+
+# los errores se distribuyen normal
 par(mfrow=c(2,2))
 plot(model)
 dev.off()
 #errores
 ee<-residuals(model)
+
 plot(density(ee))
+points(density(rnorm(100000,mean(ee),sd(ee))),type="l",col="red")
 #prueba de normalidad
 #H0 x ~ normal()
 library(normtest)
 library(nortest)
+
 ad.test(ee)
 lillie.test(ee)
-boxplot(bd$ylab)
-#La normalidad de los errores
-plot(density(ee))
-curve(dnorm(x,mean(ee),sd(ee)),add=T,col="red")
-#limitar los datos hasta el percentil 
-punto<-c(0.01,0.90)
-puntonl<-c(0.99)
-z<-quantile(bd$ylab,punto,na.rm=T)
-znl<-quantile(bd$ynolab,puntonl,na.rm=T)
-znl
-bd2<-bd %>% filter((ylab<z[2] & ylab>z[1]))
-boxplot(bd2$ynolab)
 
-#definiendo el modelo sin atípicos
-model1<-lm(log(ylab)~s02a_03+aestudio+tothrs+s02a_02+area,data=bd2)
-summary(model1)
+
+bd2[6697,]
+bd2[7920,]
+bd2[1280,]
+
 boxplot(bd2$ylab)
 
+#limitar los datos hasta el percentil 
+punto<-c(0.05,0.95)
+
+z<-quantile(bd2$ylab,punto,na.rm=T)
+z
+
+bd2<-bd2 %>% filter((ylab<z[2] & ylab>z[1]))
+
+plot(density(bd2$ylab))
+boxplot(bd2$ylab)
+#definiendo el modelo sin atípicos
+model1<-lm(log(ylab)~ factor(aestudio)+s02a_02+s02a_03+tothrs+area,data=bd2)
+
+summary(model1)
+
 ee1<-residuals(model1)
+plot(density(ee1))
+points(density(rnorm(100000,mean(ee1),sd(ee1))),type="l",col="red")
+
 ad.test(ee1)
 lillie.test(ee1)
 ks.test(ee1,"pnorm",mean(ee1),sd(ee1))#kolmogorov Smirnofv
 
-plot(density(ee1))
-curve(dnorm(x,mean(ee1),sd(ee1)),add=T,col="red")
 plot(model1)
 
 # Distancia de Cook
-plot(cooks.distance(model1))
+cooks.distance(model1)
+
+plot(density(cooks.distance(model1)))
 cc<-cooks.distance(model1)
+
+
 bd3<-bd2[cc<quantile(cc,0.90),]
 model3<-lm(log(ylab)~s02a_03+aestudio+s02a_02+area,data=bd3)
 summary(model3)
+plot(model3)
+plot(density(cooks.distance(model3)))
+
+
 ad.test(residuals(model3))
 lillie.test(residuals(model3))
 
 plot(density(residuals(model3)))
 curve(dnorm(x,mean(residuals(model3)),sd(residuals(model3))),add=T,col="red")
-plot(model3)
-plot(cooks.distance(model3))
+
 #ajustando polinomios
 bd3<-na.omit(bd3)
-model4<-lm(log(ylab)~poly(s02a_03,2)+poly(aestudio,3)+s02a_02+area,data=bd3)
+model4<-lm(log(ylab)~poly(s02a_03,2)+factor(aestudio)+s02a_02+poly(tothrs,3)+area,data=bd3)
 summary(model4)
 
 ad.test(residuals(model4))
 ## interacciones entre variables
-model5<-lm(log(ylab)~poly(s02a_03,2)+poly(aestudio,3)+s02a_02+area+s02a_02:aestudio+area:aestudio+exp(aestudio)+I(aestudio^4),data=bd3)
+model5<-lm(log(ylab)~poly(s02a_03,2)+factor(aestudio)+s02a_02+area+s02a_02:aestudio+area:aestudio+tothrs+I(tothrs^4),data=bd3)
 summary(model5)
 ad.test(residuals(model5))
 
 #trabajando sobre los valores atípicos desde R
 library(MASS)
-modela<-rlm(ylab~s02a_02+s02a_03+area,data=bd2)
-modelb<-lm(ylab~s02a_02+s02a_03+area,data=bd2)
+modela<-rlm(ylab~s02a_02+s02a_03+area,data=bd3)
+modelb<-lm(ylab~s02a_02+s02a_03+area,data=bd3)
 summary(modela)
 summary(modelb)
 ad.test(residuals(model))
@@ -227,13 +260,16 @@ vif(model3)
 sqrt(vif(model3))>2 ##Variance Inflation Factors
 # Verificar si la varianza es constante (homocedástico) o no (heterocedástico)
 library(lmtest)
-bptest(model3) # H0: Homocedsticidad https://en.wikipedia.org/wiki/Breusch%E2%80%93Pagan_test
+bptest(model3) # H0: Homocedasticidad
+bptest(model4)
+#https://en.wikipedia.org/wiki/Breusch%E2%80%93Pagan_test
 
 #corrigiendo 
 library(rms)
-model1 = ols(ylab~s02a_02+s02a_03+area,data=bd3,x=T,y=T)
+model1 = ols(log(ylab)~s02a_02+s02a_03+aestudio+area,data=bd3,x=T,y=T)
 bptest(model1)
 aux<-robcov(model1)
+
 aux
 # H0: Homocedasticidad, implica que los EE de B no son los correctos
 ```
@@ -241,12 +277,19 @@ aux
 
 ### Paso 6: Predicir a partir del modelo
 
+$$\hat{y_i}=\hat{\beta_0}+\sum_{i=1}^p \hat{\beta_i} x_i$$
+
 ```{r,eval=F}
 test<-bd3
 yest<-predict(model3,test)
 plot(log(bd3$ylab),yest)
 plot(bd3$ylab,exp(yest))
 ```
+
+Nota: 
+
+$$y=\beta_0+\beta_1x_1+\beta_2 x_2+\beta_3 x_1x_2 $$
+$$\frac{d y}{dx_1}=\beta_1+\beta_3 x_2$$
 
 ## Probit y Logit
 
@@ -271,9 +314,59 @@ $$Y=\frac{e^{X\beta+\epsilon}}{1+e^{X\beta+\epsilon}}$$
 
 ### En R:
 
+Definir o plantear un modelo de relación $y=f(x)$ donde la variable $y$ sea de tipo binaria $(0,1)$.
+
+$$y_{pobreza}=f(x_1,x_2,\ldots)$$
+
 ```{r,eval=F}
 library(dplyr)
 load("C:\\Users\\ALVARO\\Documents\\GitHub\\EST-384\\data\\eh18.Rdata")
+#### Pobreza a nivel de ... (hogares/persona)
+
+#definir a y (0/1)
+eh18p<-eh18p %>% mutate(pobreza=(pext0=="Pobre extremo"))
+table(eh18p$pobreza)
+
+
+mod1<-glm(pobreza~aestudio+s02a_02,data=eh18p,family = binomial(link="probit"))
+mod2<-glm(pobreza~aestudio+s02a_02,data=eh18p,family = binomial(link="logit"))
+
+mod3<-glm(pobreza~aestudio+s02a_02+s02a_03+ylab,data=eh18p,family = binomial(link="logit"))
+
+
+
+
+summary(mod1)
+summary(mod2)
+#ajuste
+library(DescTools)
+PseudoR2(mod1)
+PseudoR2(mod2)
+
+#score probabilidades
+pres<-predict(mod1,eh18p,type="response")
+lres<-predict(mod2,eh18p,type="response")
+
+predict(mod1,eh18p[1,c("aestudio","s02a_02")],type="response")
+
+plot(density(lres,na.rm=T))
+points(density(pres,na.rm=T),col="red",type="l")
+points(density(pres),type = "l",col="red")
+
+#efectos marginales
+library(mfx)
+probitmfx(pobreza~I(ylab/1000)+aestudio+s02a_02,data=eh18p)
+
+logitmfx(pobreza~factor(aestudio)+s02a_02,data=eh18p)
+
+#comparando
+library(memisc)
+mtable(mod1,mod2,mod3,summary.stats="AIC")
+
+library(survey)
+?svyglm()
+
+#### enfermades crónicas 
 aux<-levels(eh18p$s04a_01a)
 eh18p<-eh18p %>% mutate(diabetes=(s04a_01a==aux[1] | s04a_01b==aux[1]),corazon=(s04a_01a==aux[4] | s04a_01b==aux[4]),hiper=(s04a_01a==aux[10] | s04a_01b==aux[10]))
 eh18p$diabetes<-(eh18p$diabetes==T); eh18p$diabetes[is.na(eh18p$diabetes)]<-F

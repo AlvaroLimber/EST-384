@@ -24,7 +24,7 @@
 <meta name="author" content="Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2020-11-11" />
+<meta name="date" content="2020-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,6 +51,8 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -219,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="clasificación.html"><a href="clasificación.html"><i class="fa fa-check"></i><b>5</b> Clasificación</a><ul>
-<li class="chapter" data-level="5.1" data-path="clasificación.html"><a href="clasificación.html#logit-probit"><i class="fa fa-check"></i><b>5.1</b> Logit Probit</a><ul>
+<li class="chapter" data-level="5.1" data-path="clasificación.html"><a href="clasificación.html#logitprobit"><i class="fa fa-check"></i><b>5.1</b> Logit/Probit</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="clasificación.html"><a href="clasificación.html#pasos"><i class="fa fa-check"></i><b>5.1.1</b> Pasos</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="clasificación.html"><a href="clasificación.html#arboles-de-clasificación-cart"><i class="fa fa-check"></i><b>5.2</b> Arboles de clasificación (CART)</a><ul>
@@ -410,99 +412,106 @@ Principles of Data Mining (Hand et.al. 2001)
 </div>
 <div id="limpieza-fechas" class="section level3">
 <h3><span class="header-section-number">1.6.8</span> Limpieza (fechas)</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="minería-de-datos.html#cb10-1"></a><span class="kw">library</span>(lubridate)</span>
-<span id="cb10-2"><a href="minería-de-datos.html#cb10-2"></a><span class="kw">date</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;Wed Nov 11 11:29:45 2020&quot;</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="minería-de-datos.html#cb12-1"></a><span class="kw">today</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2020-11-11&quot;</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="minería-de-datos.html#cb14-1"></a><span class="kw">ymd</span>(<span class="st">&quot;20151021&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="minería-de-datos.html#cb10-1"></a><span class="kw">library</span>(lubridate)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="minería-de-datos.html#cb13-1"></a><span class="kw">date</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;Sun Dec 06 14:07:55 2020&quot;</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="minería-de-datos.html#cb15-1"></a><span class="kw">today</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;2020-12-06&quot;</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="minería-de-datos.html#cb17-1"></a><span class="kw">ymd</span>(<span class="st">&quot;20151021&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2015-10-21&quot;</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="minería-de-datos.html#cb16-1"></a><span class="kw">ymd</span>(<span class="st">&quot;2015/11/30&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="minería-de-datos.html#cb19-1"></a><span class="kw">ymd</span>(<span class="st">&quot;2015/11/30&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2015-11-30&quot;</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="minería-de-datos.html#cb18-1"></a><span class="kw">myd</span>(<span class="st">&quot;11.2012.3&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="minería-de-datos.html#cb21-1"></a><span class="kw">myd</span>(<span class="st">&quot;11.2012.3&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2012-11-03&quot;</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="minería-de-datos.html#cb20-1"></a><span class="kw">dmy_hms</span>(<span class="st">&quot;2/12/2013 14:05:01&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="minería-de-datos.html#cb23-1"></a><span class="kw">dmy_hms</span>(<span class="st">&quot;2/12/2013 14:05:01&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2013-12-02 14:05:01 UTC&quot;</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="minería-de-datos.html#cb22-1"></a><span class="kw">mdy</span>(<span class="st">&quot;120112&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="minería-de-datos.html#cb25-1"></a><span class="kw">mdy</span>(<span class="st">&quot;120112&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2012-12-01&quot;</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="minería-de-datos.html#cb24-1"></a>d1&lt;-<span class="kw">dmy</span>(<span class="st">&quot;15032020&quot;</span>)</span>
-<span id="cb24-2"><a href="minería-de-datos.html#cb24-2"></a><span class="kw">class</span>(d1)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="minería-de-datos.html#cb27-1"></a>d1&lt;-<span class="kw">dmy</span>(<span class="st">&quot;15032020&quot;</span>)</span>
+<span id="cb27-2"><a href="minería-de-datos.html#cb27-2"></a><span class="kw">class</span>(d1)</span></code></pre></div>
 <pre><code>## [1] &quot;Date&quot;</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="minería-de-datos.html#cb26-1"></a><span class="co">#ts()</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="minería-de-datos.html#cb29-1"></a><span class="co">#ts()</span></span></code></pre></div>
 </div>
 <div id="limpieza-string" class="section level3">
 <h3><span class="header-section-number">1.6.9</span> Limpieza (String)</h3>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="minería-de-datos.html#cb27-1"></a><span class="kw">toupper</span>(<span class="st">&quot;hola&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="minería-de-datos.html#cb30-1"></a><span class="kw">toupper</span>(<span class="st">&quot;hola&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;HOLA&quot;</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="minería-de-datos.html#cb29-1"></a><span class="kw">tolower</span>(<span class="st">&quot;HOLA&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="minería-de-datos.html#cb32-1"></a><span class="kw">tolower</span>(<span class="st">&quot;HOLA&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;hola&quot;</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="minería-de-datos.html#cb31-1"></a>abc&lt;-letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
-<span id="cb31-2"><a href="minería-de-datos.html#cb31-2"></a><span class="kw">toupper</span>(abc)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="minería-de-datos.html#cb34-1"></a>abc&lt;-letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
+<span id="cb34-2"><a href="minería-de-datos.html#cb34-2"></a><span class="kw">toupper</span>(abc)</span></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot;</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="minería-de-datos.html#cb33-1"></a><span class="kw">tolower</span>(<span class="st">&quot;Juan&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="minería-de-datos.html#cb36-1"></a><span class="kw">tolower</span>(<span class="st">&quot;Juan&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;juan&quot;</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="minería-de-datos.html#cb35-1"></a><span class="co"># Extraer partes de un texto</span></span>
-<span id="cb35-2"><a href="minería-de-datos.html#cb35-2"></a><span class="kw">substr</span>(<span class="st">&quot;hola como estan&quot;</span>,<span class="dv">1</span>,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="minería-de-datos.html#cb38-1"></a><span class="co"># Extraer partes de un texto</span></span>
+<span id="cb38-2"><a href="minería-de-datos.html#cb38-2"></a><span class="kw">substr</span>(<span class="st">&quot;hola como estan&quot;</span>,<span class="dv">1</span>,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;hol&quot;</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="minería-de-datos.html#cb37-1"></a><span class="kw">substr</span>(<span class="st">&quot;hola como estan&quot;</span>,<span class="dv">3</span>,<span class="dv">7</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="minería-de-datos.html#cb40-1"></a><span class="kw">substr</span>(<span class="st">&quot;hola como estan&quot;</span>,<span class="dv">3</span>,<span class="dv">7</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;la co&quot;</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="minería-de-datos.html#cb39-1"></a><span class="co"># contar la cantidad de caracteres</span></span>
-<span id="cb39-2"><a href="minería-de-datos.html#cb39-2"></a><span class="kw">nchar</span>(<span class="st">&quot;hola&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="minería-de-datos.html#cb42-1"></a><span class="co"># contar la cantidad de caracteres</span></span>
+<span id="cb42-2"><a href="minería-de-datos.html#cb42-2"></a><span class="kw">nchar</span>(<span class="st">&quot;hola&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="minería-de-datos.html#cb41-1"></a><span class="kw">nchar</span>(<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;chau&quot;</span>,<span class="st">&quot;LA                         paz&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="minería-de-datos.html#cb44-1"></a><span class="kw">nchar</span>(<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;chau&quot;</span>,<span class="st">&quot;LA                         paz&quot;</span>))</span></code></pre></div>
 <pre><code>## [1]  4  4 30</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="minería-de-datos.html#cb43-1"></a>x&lt;-<span class="kw">c</span>(<span class="st">&quot;LA-.paz&quot;</span>,<span class="st">&quot;La Paz&quot;</span>, <span class="st">&quot;La pas&quot;</span>, <span class="st">&quot;La    paz&quot;</span>,<span class="st">&quot;lapaz&quot;</span>,<span class="st">&quot;la 78 paz&quot;</span>)</span>
-<span id="cb43-2"><a href="minería-de-datos.html#cb43-2"></a></span>
-<span id="cb43-3"><a href="minería-de-datos.html#cb43-3"></a>x&lt;-<span class="kw">toupper</span>(x)</span>
-<span id="cb43-4"><a href="minería-de-datos.html#cb43-4"></a></span>
-<span id="cb43-5"><a href="minería-de-datos.html#cb43-5"></a>x&lt;-<span class="kw">gsub</span>(<span class="st">&quot;PAS&quot;</span>,<span class="st">&quot;PAZ&quot;</span>,x)</span>
-<span id="cb43-6"><a href="minería-de-datos.html#cb43-6"></a></span>
-<span id="cb43-7"><a href="minería-de-datos.html#cb43-7"></a><span class="kw">library</span>(tm)</span>
-<span id="cb43-8"><a href="minería-de-datos.html#cb43-8"></a>x&lt;-<span class="kw">removeNumbers</span>(x)</span>
-<span id="cb43-9"><a href="minería-de-datos.html#cb43-9"></a>x&lt;-<span class="kw">removePunctuation</span>(x)</span>
-<span id="cb43-10"><a href="minería-de-datos.html#cb43-10"></a>x&lt;-<span class="kw">gsub</span>(<span class="st">&quot;LAPAZ&quot;</span>,<span class="st">&quot;LA PAZ&quot;</span>,x)</span>
-<span id="cb43-11"><a href="minería-de-datos.html#cb43-11"></a>x&lt;-<span class="kw">stripWhitespace</span>(x)</span>
-<span id="cb43-12"><a href="minería-de-datos.html#cb43-12"></a></span>
-<span id="cb43-13"><a href="minería-de-datos.html#cb43-13"></a><span class="kw">nchar</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="minería-de-datos.html#cb46-1"></a>x&lt;-<span class="kw">c</span>(<span class="st">&quot;LA-.paz&quot;</span>,<span class="st">&quot;La Paz&quot;</span>, <span class="st">&quot;La pas&quot;</span>, <span class="st">&quot;La    paz&quot;</span>,<span class="st">&quot;lapaz&quot;</span>,<span class="st">&quot;la 78 paz&quot;</span>)</span>
+<span id="cb46-2"><a href="minería-de-datos.html#cb46-2"></a></span>
+<span id="cb46-3"><a href="minería-de-datos.html#cb46-3"></a>x&lt;-<span class="kw">toupper</span>(x)</span>
+<span id="cb46-4"><a href="minería-de-datos.html#cb46-4"></a></span>
+<span id="cb46-5"><a href="minería-de-datos.html#cb46-5"></a>x&lt;-<span class="kw">gsub</span>(<span class="st">&quot;PAS&quot;</span>,<span class="st">&quot;PAZ&quot;</span>,x)</span>
+<span id="cb46-6"><a href="minería-de-datos.html#cb46-6"></a></span>
+<span id="cb46-7"><a href="minería-de-datos.html#cb46-7"></a><span class="kw">library</span>(tm)</span></code></pre></div>
+<pre><code>## Loading required package: NLP</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="minería-de-datos.html#cb48-1"></a>x&lt;-<span class="kw">removeNumbers</span>(x)</span>
+<span id="cb48-2"><a href="minería-de-datos.html#cb48-2"></a>x&lt;-<span class="kw">removePunctuation</span>(x)</span>
+<span id="cb48-3"><a href="minería-de-datos.html#cb48-3"></a>x&lt;-<span class="kw">gsub</span>(<span class="st">&quot;LAPAZ&quot;</span>,<span class="st">&quot;LA PAZ&quot;</span>,x)</span>
+<span id="cb48-4"><a href="minería-de-datos.html#cb48-4"></a>x&lt;-<span class="kw">stripWhitespace</span>(x)</span>
+<span id="cb48-5"><a href="minería-de-datos.html#cb48-5"></a></span>
+<span id="cb48-6"><a href="minería-de-datos.html#cb48-6"></a><span class="kw">nchar</span>(x)</span></code></pre></div>
 <pre><code>## [1] 6 6 6 6 6 6</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="minería-de-datos.html#cb45-1"></a><span class="kw">nchar</span>(<span class="kw">gsub</span>(<span class="st">&quot;  &quot;</span>,<span class="st">&quot; &quot;</span>,x))</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="minería-de-datos.html#cb50-1"></a><span class="kw">nchar</span>(<span class="kw">gsub</span>(<span class="st">&quot;  &quot;</span>,<span class="st">&quot; &quot;</span>,x))</span></code></pre></div>
 <pre><code>## [1] 6 6 6 6 6 6</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="minería-de-datos.html#cb47-1"></a><span class="kw">gsub</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;x&quot;</span>,<span class="st">&quot;hola como estas&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="minería-de-datos.html#cb52-1"></a><span class="kw">gsub</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;x&quot;</span>,<span class="st">&quot;hola como estas&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;holx como estxs&quot;</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="minería-de-datos.html#cb49-1"></a><span class="kw">grepl</span>(<span class="st">&quot;a&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;como&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="minería-de-datos.html#cb54-1"></a><span class="kw">grepl</span>(<span class="st">&quot;a&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;como&quot;</span>))</span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="minería-de-datos.html#cb51-1"></a><span class="kw">grepl</span>(<span class="st">&quot;o&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;como&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="minería-de-datos.html#cb56-1"></a><span class="kw">grepl</span>(<span class="st">&quot;o&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;como&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] TRUE TRUE</code></pre>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="minería-de-datos.html#cb53-1"></a><span class="co">#otra alternativa</span></span>
-<span id="cb53-2"><a href="minería-de-datos.html#cb53-2"></a>x&lt;-<span class="kw">c</span>(<span class="st">&quot;LA-.paz&quot;</span>,<span class="st">&quot;La Paz&quot;</span>, <span class="st">&quot;La pas&quot;</span>, <span class="st">&quot;La    paz&quot;</span>,<span class="st">&quot;lapaz&quot;</span>,<span class="st">&quot;la 78 paz&quot;</span>)</span>
-<span id="cb53-3"><a href="minería-de-datos.html#cb53-3"></a>x&lt;-<span class="kw">toupper</span>(x)</span>
-<span id="cb53-4"><a href="minería-de-datos.html#cb53-4"></a>x[<span class="kw">grepl</span>(<span class="st">&quot;PAZ&quot;</span>,x)]&lt;-<span class="st">&quot;LA PAZ&quot;</span></span>
-<span id="cb53-5"><a href="minería-de-datos.html#cb53-5"></a>x&lt;-<span class="kw">gsub</span>(<span class="st">&quot;PAS&quot;</span>,<span class="st">&quot;PAZ&quot;</span>,x)</span>
-<span id="cb53-6"><a href="minería-de-datos.html#cb53-6"></a></span>
-<span id="cb53-7"><a href="minería-de-datos.html#cb53-7"></a><span class="co"># para llevar a ascii</span></span>
-<span id="cb53-8"><a href="minería-de-datos.html#cb53-8"></a><span class="kw">utf8ToInt</span>(<span class="st">&quot;la paz&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="minería-de-datos.html#cb58-1"></a><span class="co">#otra alternativa</span></span>
+<span id="cb58-2"><a href="minería-de-datos.html#cb58-2"></a>x&lt;-<span class="kw">c</span>(<span class="st">&quot;LA-.paz&quot;</span>,<span class="st">&quot;La Paz&quot;</span>, <span class="st">&quot;La pas&quot;</span>, <span class="st">&quot;La    paz&quot;</span>,<span class="st">&quot;lapaz&quot;</span>,<span class="st">&quot;la 78 paz&quot;</span>)</span>
+<span id="cb58-3"><a href="minería-de-datos.html#cb58-3"></a>x&lt;-<span class="kw">toupper</span>(x)</span>
+<span id="cb58-4"><a href="minería-de-datos.html#cb58-4"></a>x[<span class="kw">grepl</span>(<span class="st">&quot;PAZ&quot;</span>,x)]&lt;-<span class="st">&quot;LA PAZ&quot;</span></span>
+<span id="cb58-5"><a href="minería-de-datos.html#cb58-5"></a>x&lt;-<span class="kw">gsub</span>(<span class="st">&quot;PAS&quot;</span>,<span class="st">&quot;PAZ&quot;</span>,x)</span>
+<span id="cb58-6"><a href="minería-de-datos.html#cb58-6"></a></span>
+<span id="cb58-7"><a href="minería-de-datos.html#cb58-7"></a><span class="co"># para llevar a ascii</span></span>
+<span id="cb58-8"><a href="minería-de-datos.html#cb58-8"></a><span class="kw">utf8ToInt</span>(<span class="st">&quot;la paz&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 108  97  32 112  97 122</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="minería-de-datos.html#cb55-1"></a><span class="kw">utf8ToInt</span>(<span class="st">&quot;@&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="minería-de-datos.html#cb60-1"></a><span class="kw">utf8ToInt</span>(<span class="st">&quot;@&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 64</code></pre>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="minería-de-datos.html#cb57-1"></a><span class="kw">library</span>(stringi)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="minería-de-datos.html#cb62-1"></a><span class="kw">library</span>(stringi)</span></code></pre></div>
 <p>Ejemplo de web scraping sobre la página <a href="https://www.worldometers.info/" class="uri">https://www.worldometers.info/</a></p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="minería-de-datos.html#cb58-1"></a><span class="kw">library</span>(rvest)</span>
-<span id="cb58-2"><a href="minería-de-datos.html#cb58-2"></a>url&lt;-<span class="st">&quot;https://www.worldometers.info/coronavirus/&quot;</span></span>
-<span id="cb58-3"><a href="minería-de-datos.html#cb58-3"></a>covid&lt;-<span class="kw">read_html</span>(url)</span>
-<span id="cb58-4"><a href="minería-de-datos.html#cb58-4"></a>bdcov&lt;-<span class="kw">html_table</span>(covid)</span>
-<span id="cb58-5"><a href="minería-de-datos.html#cb58-5"></a>bdnow&lt;-bdcov[[<span class="dv">1</span>]]</span>
-<span id="cb58-6"><a href="minería-de-datos.html#cb58-6"></a><span class="kw">str</span>(bdnow)</span></code></pre></div>
-<pre><code>## &#39;data.frame&#39;:    235 obs. of  19 variables:
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="minería-de-datos.html#cb63-1"></a><span class="kw">library</span>(rvest)</span></code></pre></div>
+<pre><code>## Loading required package: xml2</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="minería-de-datos.html#cb65-1"></a>url&lt;-<span class="st">&quot;https://www.worldometers.info/coronavirus/&quot;</span></span>
+<span id="cb65-2"><a href="minería-de-datos.html#cb65-2"></a>covid&lt;-<span class="kw">read_html</span>(url)</span>
+<span id="cb65-3"><a href="minería-de-datos.html#cb65-3"></a>bdcov&lt;-<span class="kw">html_table</span>(covid)</span>
+<span id="cb65-4"><a href="minería-de-datos.html#cb65-4"></a>bdnow&lt;-bdcov[[<span class="dv">1</span>]]</span>
+<span id="cb65-5"><a href="minería-de-datos.html#cb65-5"></a><span class="kw">str</span>(bdnow)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    236 obs. of  19 variables:
 ##  $ #                 : int  NA NA NA NA NA NA NA NA 1 2 ...
 ##  $ Country,Other     : chr  &quot;North America&quot; &quot;Asia&quot; &quot;South America&quot; &quot;Europe&quot; ...
-##  $ TotalCases        : chr  &quot;12,538,126&quot; &quot;14,659,295&quot; &quot;10,076,226&quot; &quot;12,767,242&quot; ...
-##  $ NewCases          : chr  &quot;+16,402&quot; &quot;+53,095&quot; &quot;+103&quot; &quot;+121,327&quot; ...
-##  $ TotalDeaths       : chr  &quot;368,071&quot; &quot;259,402&quot; &quot;304,163&quot; &quot;303,999&quot; ...
-##  $ NewDeaths         : chr  &quot;+723&quot; &quot;+990&quot; &quot;+6&quot; &quot;+2,276&quot; ...
-##  $ TotalRecovered    : chr  &quot;8,076,584&quot; &quot;13,084,184&quot; &quot;8,987,575&quot; &quot;4,717,158&quot; ...
-##  $ NewRecovered      : chr  &quot;+7,797&quot; &quot;+39,413&quot; &quot;+318&quot; &quot;+78,815&quot; ...
-##  $ ActiveCases       : chr  &quot;4,093,471&quot; &quot;1,315,709&quot; &quot;784,488&quot; &quot;7,746,085&quot; ...
-##  $ Serious,Critical  : chr  &quot;22,894&quot; &quot;23,694&quot; &quot;17,580&quot; &quot;28,517&quot; ...
+##  $ TotalCases        : chr  &quot;17,436,735&quot; &quot;17,501,104&quot; &quot;11,501,987&quot; &quot;18,418,991&quot; ...
+##  $ NewCases          : chr  &quot;+61,770&quot; &quot;+114,982&quot; &quot;+7,917&quot; &quot;+143,737&quot; ...
+##  $ TotalDeaths       : chr  &quot;427,441&quot; &quot;301,602&quot; &quot;331,784&quot; &quot;423,678&quot; ...
+##  $ NewDeaths         : chr  &quot;+976&quot; &quot;+1,454&quot; &quot;+143&quot; &quot;+2,792&quot; ...
+##  $ TotalRecovered    : chr  &quot;10,604,232&quot; &quot;15,460,498&quot; &quot;10,224,177&quot; &quot;8,212,961&quot; ...
+##  $ NewRecovered      : chr  &quot;+20,925&quot; &quot;+98,326&quot; &quot;+7,836&quot; &quot;+102,986&quot; ...
+##  $ ActiveCases       : chr  &quot;6,405,062&quot; &quot;1,739,004&quot; &quot;946,026&quot; &quot;9,782,352&quot; ...
+##  $ Serious,Critical  : chr  &quot;31,024&quot; &quot;28,094&quot; &quot;16,805&quot; &quot;27,439&quot; ...
 ##  $ Tot Cases/1M pop  : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
 ##  $ Deaths/1M pop     : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
 ##  $ TotalTests        : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
@@ -520,8 +529,8 @@ Principles of Data Mining (Hand et.al. 2001)
 </div>
 <div id="transformación" class="section level3">
 <h3><span class="header-section-number">1.6.10</span> Transformación</h3>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="minería-de-datos.html#cb60-1"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/eh19.RData&quot;</span>))</span>
-<span id="cb60-2"><a href="minería-de-datos.html#cb60-2"></a><span class="kw">names</span>(eh19p)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="minería-de-datos.html#cb67-1"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/eh19.RData&quot;</span>))</span>
+<span id="cb67-2"><a href="minería-de-datos.html#cb67-2"></a><span class="kw">names</span>(eh19p)</span></code></pre></div>
 <pre><code>##   [1] &quot;folio&quot;          &quot;depto&quot;          &quot;area&quot;          
 ##   [4] &quot;nro&quot;            &quot;s02a_02&quot;        &quot;s02a_03&quot;       
 ##   [7] &quot;s02a_04a&quot;       &quot;s02a_04b&quot;       &quot;s02a_04c&quot;      
@@ -671,80 +680,80 @@ Principles of Data Mining (Hand et.al. 2001)
 <ul>
 <li>Estandarizar variables</li>
 </ul>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="minería-de-datos.html#cb62-1"></a><span class="kw">summary</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>) <span class="co">#edad</span></span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="minería-de-datos.html#cb69-1"></a><span class="kw">summary</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>) <span class="co">#edad</span></span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    0.00   12.00   26.00   29.69   44.00   98.00</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="minería-de-datos.html#cb64-1"></a><span class="kw">summary</span>(eh19p<span class="op">$</span>tothrs) <span class="co"># total de horas de trabajo semanal</span></span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="minería-de-datos.html#cb71-1"></a><span class="kw">summary</span>(eh19p<span class="op">$</span>tothrs) <span class="co"># total de horas de trabajo semanal</span></span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##    1.00   30.00   42.00   42.29   54.00  112.50   20454</code></pre>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="minería-de-datos.html#cb66-1"></a><span class="kw">summary</span>(eh19p<span class="op">$</span>ylab)  <span class="co"># ingreso laboral mensual</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="minería-de-datos.html#cb73-1"></a><span class="kw">summary</span>(eh19p<span class="op">$</span>ylab)  <span class="co"># ingreso laboral mensual</span></span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##      10    1416    2598    3075    4000   32917   23816</code></pre>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="minería-de-datos.html#cb68-1"></a><span class="kw">sd</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="minería-de-datos.html#cb75-1"></a><span class="kw">sd</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span></code></pre></div>
 <pre><code>## [1] 21.05689</code></pre>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="minería-de-datos.html#cb70-1"></a><span class="kw">sd</span>(eh19p<span class="op">$</span>tothrs,<span class="dt">na.rm =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="minería-de-datos.html#cb77-1"></a><span class="kw">sd</span>(eh19p<span class="op">$</span>tothrs,<span class="dt">na.rm =</span> T)</span></code></pre></div>
 <pre><code>## [1] 19.33807</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="minería-de-datos.html#cb72-1"></a><span class="kw">sd</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="minería-de-datos.html#cb79-1"></a><span class="kw">sd</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm =</span> T)</span></code></pre></div>
 <pre><code>## [1] 2470.079</code></pre>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="minería-de-datos.html#cb74-1"></a>x1&lt;-<span class="kw">scale</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span>
-<span id="cb74-2"><a href="minería-de-datos.html#cb74-2"></a>x2&lt;-<span class="kw">scale</span>(eh19p<span class="op">$</span>tothrs)</span>
-<span id="cb74-3"><a href="minería-de-datos.html#cb74-3"></a>x3&lt;-<span class="kw">scale</span>(eh19p<span class="op">$</span>ylab)</span>
-<span id="cb74-4"><a href="minería-de-datos.html#cb74-4"></a></span>
-<span id="cb74-5"><a href="minería-de-datos.html#cb74-5"></a><span class="kw">sd</span>(x1);<span class="kw">sd</span>(x2,<span class="dt">na.rm =</span> T);<span class="kw">sd</span>(x3,<span class="dt">na.rm =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="minería-de-datos.html#cb81-1"></a>x1&lt;-<span class="kw">scale</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span>
+<span id="cb81-2"><a href="minería-de-datos.html#cb81-2"></a>x2&lt;-<span class="kw">scale</span>(eh19p<span class="op">$</span>tothrs)</span>
+<span id="cb81-3"><a href="minería-de-datos.html#cb81-3"></a>x3&lt;-<span class="kw">scale</span>(eh19p<span class="op">$</span>ylab)</span>
+<span id="cb81-4"><a href="minería-de-datos.html#cb81-4"></a></span>
+<span id="cb81-5"><a href="minería-de-datos.html#cb81-5"></a><span class="kw">sd</span>(x1);<span class="kw">sd</span>(x2,<span class="dt">na.rm =</span> T);<span class="kw">sd</span>(x3,<span class="dt">na.rm =</span> T)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <pre><code>## [1] 1</code></pre>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="minería-de-datos.html#cb78-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
-<span id="cb78-2"><a href="minería-de-datos.html#cb78-2"></a><span class="kw">boxplot</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25000</span>))</span>
-<span id="cb78-3"><a href="minería-de-datos.html#cb78-3"></a><span class="kw">boxplot</span>(eh19p<span class="op">$</span>tothrs,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25000</span>))</span>
-<span id="cb78-4"><a href="minería-de-datos.html#cb78-4"></a><span class="kw">boxplot</span>(eh19p<span class="op">$</span>ylab,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25000</span>))</span>
-<span id="cb78-5"><a href="minería-de-datos.html#cb78-5"></a></span>
-<span id="cb78-6"><a href="minería-de-datos.html#cb78-6"></a><span class="kw">boxplot</span>(x1,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>))</span>
-<span id="cb78-7"><a href="minería-de-datos.html#cb78-7"></a><span class="kw">boxplot</span>(x2,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>))</span>
-<span id="cb78-8"><a href="minería-de-datos.html#cb78-8"></a><span class="kw">boxplot</span>(x3,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="minería-de-datos.html#cb85-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb85-2"><a href="minería-de-datos.html#cb85-2"></a><span class="kw">boxplot</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25000</span>))</span>
+<span id="cb85-3"><a href="minería-de-datos.html#cb85-3"></a><span class="kw">boxplot</span>(eh19p<span class="op">$</span>tothrs,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25000</span>))</span>
+<span id="cb85-4"><a href="minería-de-datos.html#cb85-4"></a><span class="kw">boxplot</span>(eh19p<span class="op">$</span>ylab,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25000</span>))</span>
+<span id="cb85-5"><a href="minería-de-datos.html#cb85-5"></a></span>
+<span id="cb85-6"><a href="minería-de-datos.html#cb85-6"></a><span class="kw">boxplot</span>(x1,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>))</span>
+<span id="cb85-7"><a href="minería-de-datos.html#cb85-7"></a><span class="kw">boxplot</span>(x2,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>))</span>
+<span id="cb85-8"><a href="minería-de-datos.html#cb85-8"></a><span class="kw">boxplot</span>(x3,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="minería-de-datos.html#cb79-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
-<span id="cb79-2"><a href="minería-de-datos.html#cb79-2"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>))</span>
-<span id="cb79-3"><a href="minería-de-datos.html#cb79-3"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>tothrs,<span class="dt">na.rm=</span>T))</span>
-<span id="cb79-4"><a href="minería-de-datos.html#cb79-4"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm=</span>T))</span>
-<span id="cb79-5"><a href="minería-de-datos.html#cb79-5"></a></span>
-<span id="cb79-6"><a href="minería-de-datos.html#cb79-6"></a><span class="kw">plot</span>(<span class="kw">density</span>(x1))</span>
-<span id="cb79-7"><a href="minería-de-datos.html#cb79-7"></a><span class="kw">plot</span>(<span class="kw">density</span>(x2,<span class="dt">na.rm=</span>T))</span>
-<span id="cb79-8"><a href="minería-de-datos.html#cb79-8"></a><span class="kw">plot</span>(<span class="kw">density</span>(x3,<span class="dt">na.rm=</span>T))</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="minería-de-datos.html#cb86-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb86-2"><a href="minería-de-datos.html#cb86-2"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>))</span>
+<span id="cb86-3"><a href="minería-de-datos.html#cb86-3"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>tothrs,<span class="dt">na.rm=</span>T))</span>
+<span id="cb86-4"><a href="minería-de-datos.html#cb86-4"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm=</span>T))</span>
+<span id="cb86-5"><a href="minería-de-datos.html#cb86-5"></a></span>
+<span id="cb86-6"><a href="minería-de-datos.html#cb86-6"></a><span class="kw">plot</span>(<span class="kw">density</span>(x1))</span>
+<span id="cb86-7"><a href="minería-de-datos.html#cb86-7"></a><span class="kw">plot</span>(<span class="kw">density</span>(x2,<span class="dt">na.rm=</span>T))</span>
+<span id="cb86-8"><a href="minería-de-datos.html#cb86-8"></a><span class="kw">plot</span>(<span class="kw">density</span>(x3,<span class="dt">na.rm=</span>T))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="minería-de-datos.html#cb80-1"></a><span class="kw">mean</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="minería-de-datos.html#cb87-1"></a><span class="kw">mean</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm=</span>T)</span></code></pre></div>
 <pre><code>## [1] 3074.659</code></pre>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="minería-de-datos.html#cb82-1"></a><span class="kw">median</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="minería-de-datos.html#cb89-1"></a><span class="kw">median</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm=</span>T)</span></code></pre></div>
 <pre><code>## [1] 2598</code></pre>
 <ul>
 <li>Función logarítmo</li>
 </ul>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="minería-de-datos.html#cb84-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="minería-de-datos.html#cb91-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
 <pre><code>## null device 
 ##           1</code></pre>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="minería-de-datos.html#cb86-1"></a><span class="kw">curve</span>(log,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">30000</span>))</span>
-<span id="cb86-2"><a href="minería-de-datos.html#cb86-2"></a></span>
-<span id="cb86-3"><a href="minería-de-datos.html#cb86-3"></a>x1&lt;-<span class="kw">log</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span>
-<span id="cb86-4"><a href="minería-de-datos.html#cb86-4"></a>x2&lt;-<span class="kw">log</span>(eh19p<span class="op">$</span>tothrs)</span>
-<span id="cb86-5"><a href="minería-de-datos.html#cb86-5"></a>x3&lt;-<span class="kw">log</span>(eh19p<span class="op">$</span>ylab)</span>
-<span id="cb86-6"><a href="minería-de-datos.html#cb86-6"></a></span>
-<span id="cb86-7"><a href="minería-de-datos.html#cb86-7"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
-<span id="cb86-8"><a href="minería-de-datos.html#cb86-8"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>))</span>
-<span id="cb86-9"><a href="minería-de-datos.html#cb86-9"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>tothrs,<span class="dt">na.rm=</span>T))</span>
-<span id="cb86-10"><a href="minería-de-datos.html#cb86-10"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm=</span>T))</span>
-<span id="cb86-11"><a href="minería-de-datos.html#cb86-11"></a></span>
-<span id="cb86-12"><a href="minería-de-datos.html#cb86-12"></a><span class="kw">plot</span>(<span class="kw">density</span>(x1))</span>
-<span id="cb86-13"><a href="minería-de-datos.html#cb86-13"></a><span class="kw">plot</span>(<span class="kw">density</span>(x2,<span class="dt">na.rm=</span>T))</span>
-<span id="cb86-14"><a href="minería-de-datos.html#cb86-14"></a><span class="kw">plot</span>(<span class="kw">density</span>(x3,<span class="dt">na.rm=</span>T))</span>
-<span id="cb86-15"><a href="minería-de-datos.html#cb86-15"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="minería-de-datos.html#cb93-1"></a><span class="kw">curve</span>(log,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">30000</span>))</span>
+<span id="cb93-2"><a href="minería-de-datos.html#cb93-2"></a></span>
+<span id="cb93-3"><a href="minería-de-datos.html#cb93-3"></a>x1&lt;-<span class="kw">log</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>)</span>
+<span id="cb93-4"><a href="minería-de-datos.html#cb93-4"></a>x2&lt;-<span class="kw">log</span>(eh19p<span class="op">$</span>tothrs)</span>
+<span id="cb93-5"><a href="minería-de-datos.html#cb93-5"></a>x3&lt;-<span class="kw">log</span>(eh19p<span class="op">$</span>ylab)</span>
+<span id="cb93-6"><a href="minería-de-datos.html#cb93-6"></a></span>
+<span id="cb93-7"><a href="minería-de-datos.html#cb93-7"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb93-8"><a href="minería-de-datos.html#cb93-8"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>s02a_<span class="dv">03</span>))</span>
+<span id="cb93-9"><a href="minería-de-datos.html#cb93-9"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>tothrs,<span class="dt">na.rm=</span>T))</span>
+<span id="cb93-10"><a href="minería-de-datos.html#cb93-10"></a><span class="kw">plot</span>(<span class="kw">density</span>(eh19p<span class="op">$</span>ylab,<span class="dt">na.rm=</span>T))</span>
+<span id="cb93-11"><a href="minería-de-datos.html#cb93-11"></a></span>
+<span id="cb93-12"><a href="minería-de-datos.html#cb93-12"></a><span class="kw">plot</span>(<span class="kw">density</span>(x1))</span>
+<span id="cb93-13"><a href="minería-de-datos.html#cb93-13"></a><span class="kw">plot</span>(<span class="kw">density</span>(x2,<span class="dt">na.rm=</span>T))</span>
+<span id="cb93-14"><a href="minería-de-datos.html#cb93-14"></a><span class="kw">plot</span>(<span class="kw">density</span>(x3,<span class="dt">na.rm=</span>T))</span>
+<span id="cb93-15"><a href="minería-de-datos.html#cb93-15"></a><span class="kw">dev.off</span>()</span></code></pre></div>
 <pre><code>## null device 
 ##           1</code></pre>
 <ul>
 <li>Creación de variables</li>
 </ul>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="minería-de-datos.html#cb88-1"></a>eh19p<span class="op">$</span>log_ylab &lt;-<span class="kw">log</span>(eh19p<span class="op">$</span>ylab)</span>
-<span id="cb88-2"><a href="minería-de-datos.html#cb88-2"></a>eh19p<span class="op">$</span>scale_ylab &lt;-<span class="kw">scale</span>(eh19p<span class="op">$</span>ylab)</span>
-<span id="cb88-3"><a href="minería-de-datos.html#cb88-3"></a><span class="kw">names</span>(eh19p)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="minería-de-datos.html#cb95-1"></a>eh19p<span class="op">$</span>log_ylab &lt;-<span class="kw">log</span>(eh19p<span class="op">$</span>ylab)</span>
+<span id="cb95-2"><a href="minería-de-datos.html#cb95-2"></a>eh19p<span class="op">$</span>scale_ylab &lt;-<span class="kw">scale</span>(eh19p<span class="op">$</span>ylab)</span>
+<span id="cb95-3"><a href="minería-de-datos.html#cb95-3"></a><span class="kw">names</span>(eh19p)</span></code></pre></div>
 <pre><code>##   [1] &quot;folio&quot;          &quot;depto&quot;          &quot;area&quot;          
 ##   [4] &quot;nro&quot;            &quot;s02a_02&quot;        &quot;s02a_03&quot;       
 ##   [7] &quot;s02a_04a&quot;       &quot;s02a_04b&quot;       &quot;s02a_04c&quot;      
@@ -892,21 +901,29 @@ Principles of Data Mining (Hand et.al. 2001)
 ## [433] &quot;p0&quot;             &quot;p1&quot;             &quot;p2&quot;            
 ## [436] &quot;pext0&quot;          &quot;pext1&quot;          &quot;pext2&quot;         
 ## [439] &quot;log_ylab&quot;       &quot;scale_ylab&quot;</code></pre>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="minería-de-datos.html#cb90-1"></a><span class="co">#install.packages(&quot;dplyr&quot;)</span></span>
-<span id="cb90-2"><a href="minería-de-datos.html#cb90-2"></a><span class="kw">library</span>(dplyr) <span class="co"># filtrado, selección, creación de variables, resumen</span></span>
-<span id="cb90-3"><a href="minería-de-datos.html#cb90-3"></a><span class="co">#nota: dplyr se enfoca en el encadenamiento de comandos, con una lógica similar al SQL</span></span>
-<span id="cb90-4"><a href="minería-de-datos.html#cb90-4"></a></span>
-<span id="cb90-5"><a href="minería-de-datos.html#cb90-5"></a><span class="co"># %&gt;% # operador pipe: ctr + mayus + m </span></span>
-<span id="cb90-6"><a href="minería-de-datos.html#cb90-6"></a></span>
-<span id="cb90-7"><a href="minería-de-datos.html#cb90-7"></a>eh19p &lt;-<span class="st"> </span>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">x1=</span>ylab<span class="op">^</span><span class="dv">2</span>,<span class="dt">llylab=</span><span class="kw">log</span>(ylab),</span>
-<span id="cb90-8"><a href="minería-de-datos.html#cb90-8"></a>                 <span class="dt">tothrs_mensual=</span>tothrs<span class="op">*</span><span class="fl">4.35</span>,<span class="dt">mujer=</span>s02a_<span class="dv">02</span><span class="op">==</span><span class="st">&quot;2.Mujer&quot;</span>)</span>
-<span id="cb90-9"><a href="minería-de-datos.html#cb90-9"></a></span>
-<span id="cb90-10"><a href="minería-de-datos.html#cb90-10"></a><span class="co">#cut() # crear clases</span></span>
-<span id="cb90-11"><a href="minería-de-datos.html#cb90-11"></a></span>
-<span id="cb90-12"><a href="minería-de-datos.html#cb90-12"></a><span class="co"># grandes grupos de edad</span></span>
-<span id="cb90-13"><a href="minería-de-datos.html#cb90-13"></a>eh19p&lt;-eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">gedad=</span><span class="kw">cut</span>(s02a_<span class="dv">03</span>,<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">18</span>,<span class="dv">60</span>,<span class="kw">max</span>(s02a_<span class="dv">03</span>)),<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;&lt;=18&quot;</span>,<span class="st">&quot;19 a 60&quot;</span>,<span class="st">&quot;&gt;60&quot;</span>) ))</span>
-<span id="cb90-14"><a href="minería-de-datos.html#cb90-14"></a></span>
-<span id="cb90-15"><a href="minería-de-datos.html#cb90-15"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span>,folio,s02a_<span class="dv">03</span>,gedad) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="minería-de-datos.html#cb97-1"></a><span class="co">#install.packages(&quot;dplyr&quot;)</span></span>
+<span id="cb97-2"><a href="minería-de-datos.html#cb97-2"></a><span class="kw">library</span>(dplyr) <span class="co"># filtrado, selección, creación de variables, resumen</span></span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="minería-de-datos.html#cb101-1"></a><span class="co">#nota: dplyr se enfoca en el encadenamiento de comandos, con una lógica similar al SQL</span></span>
+<span id="cb101-2"><a href="minería-de-datos.html#cb101-2"></a></span>
+<span id="cb101-3"><a href="minería-de-datos.html#cb101-3"></a><span class="co"># %&gt;% # operador pipe: ctr + mayus + m </span></span>
+<span id="cb101-4"><a href="minería-de-datos.html#cb101-4"></a></span>
+<span id="cb101-5"><a href="minería-de-datos.html#cb101-5"></a>eh19p &lt;-<span class="st"> </span>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">x1=</span>ylab<span class="op">^</span><span class="dv">2</span>,<span class="dt">llylab=</span><span class="kw">log</span>(ylab),</span>
+<span id="cb101-6"><a href="minería-de-datos.html#cb101-6"></a>                 <span class="dt">tothrs_mensual=</span>tothrs<span class="op">*</span><span class="fl">4.35</span>,<span class="dt">mujer=</span>s02a_<span class="dv">02</span><span class="op">==</span><span class="st">&quot;2.Mujer&quot;</span>)</span>
+<span id="cb101-7"><a href="minería-de-datos.html#cb101-7"></a></span>
+<span id="cb101-8"><a href="minería-de-datos.html#cb101-8"></a><span class="co">#cut() # crear clases</span></span>
+<span id="cb101-9"><a href="minería-de-datos.html#cb101-9"></a></span>
+<span id="cb101-10"><a href="minería-de-datos.html#cb101-10"></a><span class="co"># grandes grupos de edad</span></span>
+<span id="cb101-11"><a href="minería-de-datos.html#cb101-11"></a>eh19p&lt;-eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">gedad=</span><span class="kw">cut</span>(s02a_<span class="dv">03</span>,<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">18</span>,<span class="dv">60</span>,<span class="kw">max</span>(s02a_<span class="dv">03</span>)),<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;&lt;=18&quot;</span>,<span class="st">&quot;19 a 60&quot;</span>,<span class="st">&quot;&gt;60&quot;</span>) ))</span>
+<span id="cb101-12"><a href="minería-de-datos.html#cb101-12"></a></span>
+<span id="cb101-13"><a href="minería-de-datos.html#cb101-13"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span>,folio,s02a_<span class="dv">03</span>,gedad) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>()</span></code></pre></div>
 <pre><code>##                    folio s02a_03   gedad
 ## 1 111-00416110273-A-0021      42 19 a 60
 ## 2 111-00416110273-A-0021      36 19 a 60
@@ -914,50 +931,50 @@ Principles of Data Mining (Hand et.al. 2001)
 ## 4 111-00416110273-A-0021      13    &lt;=18
 ## 5 111-00416110273-A-0021       3    &lt;=18
 ## 6 111-00416110273-A-0021      86     &gt;60</code></pre>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="minería-de-datos.html#cb92-1"></a><span class="kw">table</span>(eh19p<span class="op">$</span>gedad)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="minería-de-datos.html#cb103-1"></a><span class="kw">table</span>(eh19p<span class="op">$</span>gedad)</span></code></pre></div>
 <pre><code>## 
 ##    &lt;=18 19 a 60     &gt;60 
 ##   14831   20736    4038</code></pre>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="minería-de-datos.html#cb94-1"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(gedad) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="minería-de-datos.html#cb105-1"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(gedad) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</span></code></pre></div>
 <pre><code>## .
 ##    &lt;=18 19 a 60     &gt;60 
 ##   14831   20736    4038</code></pre>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="minería-de-datos.html#cb96-1"></a><span class="kw">barplot</span>(<span class="kw">table</span>(eh19p<span class="op">$</span>gedad))</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="minería-de-datos.html#cb107-1"></a><span class="kw">barplot</span>(<span class="kw">table</span>(eh19p<span class="op">$</span>gedad))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <ul>
 <li>Recodificar variables</li>
 </ul>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="minería-de-datos.html#cb97-1"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/eh19.RData&quot;</span>))</span>
-<span id="cb97-2"><a href="minería-de-datos.html#cb97-2"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb97-3"><a href="minería-de-datos.html#cb97-3"></a></span>
-<span id="cb97-4"><a href="minería-de-datos.html#cb97-4"></a>a&lt;-<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</span>
-<span id="cb97-5"><a href="minería-de-datos.html#cb97-5"></a><span class="kw">recode</span>(a,<span class="st">`</span><span class="dt">1</span><span class="st">`</span> =<span class="st"> </span>20L,<span class="st">`</span><span class="dt">2</span><span class="st">`</span> =<span class="st"> </span>20L,<span class="st">`</span><span class="dt">4</span><span class="st">`</span> =<span class="st"> </span>30L)</span>
-<span id="cb97-6"><a href="minería-de-datos.html#cb97-6"></a></span>
-<span id="cb97-7"><a href="minería-de-datos.html#cb97-7"></a>eh19p<span class="op">$</span>sexo&lt;-<span class="kw">recode</span>(eh19p<span class="op">$</span>s02a_<span class="dv">02</span>,<span class="st">&quot;1.Hombre&quot;</span>=<span class="st">&quot;H&quot;</span>,<span class="st">&quot;2.Mujer&quot;</span>=<span class="st">&quot;M&quot;</span>)</span>
-<span id="cb97-8"><a href="minería-de-datos.html#cb97-8"></a></span>
-<span id="cb97-9"><a href="minería-de-datos.html#cb97-9"></a><span class="kw">table</span>(eh19p<span class="op">$</span>sexo)</span>
-<span id="cb97-10"><a href="minería-de-datos.html#cb97-10"></a></span>
-<span id="cb97-11"><a href="minería-de-datos.html#cb97-11"></a>eh19p&lt;-eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">sexo2=</span><span class="kw">recode</span>(s02a_<span class="dv">02</span>,<span class="st">&quot;1.Hombre&quot;</span>=<span class="st">&quot;M&quot;</span>,<span class="st">&quot;2.Mujer&quot;</span>=<span class="st">&quot;F&quot;</span>))</span>
-<span id="cb97-12"><a href="minería-de-datos.html#cb97-12"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(sexo2) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</span>
-<span id="cb97-13"><a href="minería-de-datos.html#cb97-13"></a></span>
-<span id="cb97-14"><a href="minería-de-datos.html#cb97-14"></a><span class="co"># binarias</span></span>
-<span id="cb97-15"><a href="minería-de-datos.html#cb97-15"></a><span class="kw">unique</span>(eh19p<span class="op">$</span>depto)</span>
-<span id="cb97-16"><a href="minería-de-datos.html#cb97-16"></a><span class="co"># se quiere crear una nueva variable, llamada región: </span></span>
-<span id="cb97-17"><a href="minería-de-datos.html#cb97-17"></a><span class="co">#    Altiplano: LP, OR, PT</span></span>
-<span id="cb97-18"><a href="minería-de-datos.html#cb97-18"></a><span class="co">#    Valle: CB, CH, TR</span></span>
-<span id="cb97-19"><a href="minería-de-datos.html#cb97-19"></a><span class="co">#    Llano: SC, BN, PD</span></span>
-<span id="cb97-20"><a href="minería-de-datos.html#cb97-20"></a><span class="co"># tarea</span></span>
-<span id="cb97-21"><a href="minería-de-datos.html#cb97-21"></a><span class="co">#if_else() # trabaja con spark, para crear binarios</span></span>
-<span id="cb97-22"><a href="minería-de-datos.html#cb97-22"></a><span class="co">#case_when() # múltiple categorías basadas en reglas</span></span>
-<span id="cb97-23"><a href="minería-de-datos.html#cb97-23"></a></span>
-<span id="cb97-24"><a href="minería-de-datos.html#cb97-24"></a>v1&lt;-<span class="kw">c</span>(<span class="st">&quot;La Paz&quot;</span>,<span class="st">&quot;Oruro&quot;</span>,<span class="st">&quot;Potosí&quot;</span>)</span>
-<span id="cb97-25"><a href="minería-de-datos.html#cb97-25"></a>v2&lt;-<span class="kw">c</span>(<span class="st">&quot;Chuquisaca&quot;</span>,<span class="st">&quot;Cochabamba&quot;</span>,<span class="st">&quot;Tarija&quot;</span>)</span>
-<span id="cb97-26"><a href="minería-de-datos.html#cb97-26"></a>v3&lt;-<span class="kw">c</span>(<span class="st">&quot;Santa Cruz&quot;</span>,<span class="st">&quot;Beni&quot;</span>,<span class="st">&quot;Pando&quot;</span>)</span>
-<span id="cb97-27"><a href="minería-de-datos.html#cb97-27"></a></span>
-<span id="cb97-28"><a href="minería-de-datos.html#cb97-28"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">altiplano =</span> depto <span class="op">%in%</span><span class="st"> </span>v1 ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(altiplano) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</span>
-<span id="cb97-29"><a href="minería-de-datos.html#cb97-29"></a>  </span>
-<span id="cb97-30"><a href="minería-de-datos.html#cb97-30"></a>eh19p &lt;-<span class="st"> </span>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">altiplano =</span> depto <span class="op">%in%</span><span class="st"> </span>v1 , <span class="dt">valle =</span> depto <span class="op">%in%</span><span class="st"> </span>v2,<span class="dt">llano =</span> depto <span class="op">%in%</span><span class="st"> </span>v3)</span>
-<span id="cb97-31"><a href="minería-de-datos.html#cb97-31"></a><span class="kw">names</span>(eh19p)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="minería-de-datos.html#cb108-1"></a><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/AlvaroLimber/EST-384/raw/master/data/eh19.RData&quot;</span>))</span>
+<span id="cb108-2"><a href="minería-de-datos.html#cb108-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb108-3"><a href="minería-de-datos.html#cb108-3"></a></span>
+<span id="cb108-4"><a href="minería-de-datos.html#cb108-4"></a>a&lt;-<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</span>
+<span id="cb108-5"><a href="minería-de-datos.html#cb108-5"></a><span class="kw">recode</span>(a,<span class="st">`</span><span class="dt">1</span><span class="st">`</span> =<span class="st"> </span>20L,<span class="st">`</span><span class="dt">2</span><span class="st">`</span> =<span class="st"> </span>20L,<span class="st">`</span><span class="dt">4</span><span class="st">`</span> =<span class="st"> </span>30L)</span>
+<span id="cb108-6"><a href="minería-de-datos.html#cb108-6"></a></span>
+<span id="cb108-7"><a href="minería-de-datos.html#cb108-7"></a>eh19p<span class="op">$</span>sexo&lt;-<span class="kw">recode</span>(eh19p<span class="op">$</span>s02a_<span class="dv">02</span>,<span class="st">&quot;1.Hombre&quot;</span>=<span class="st">&quot;H&quot;</span>,<span class="st">&quot;2.Mujer&quot;</span>=<span class="st">&quot;M&quot;</span>)</span>
+<span id="cb108-8"><a href="minería-de-datos.html#cb108-8"></a></span>
+<span id="cb108-9"><a href="minería-de-datos.html#cb108-9"></a><span class="kw">table</span>(eh19p<span class="op">$</span>sexo)</span>
+<span id="cb108-10"><a href="minería-de-datos.html#cb108-10"></a></span>
+<span id="cb108-11"><a href="minería-de-datos.html#cb108-11"></a>eh19p&lt;-eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">sexo2=</span><span class="kw">recode</span>(s02a_<span class="dv">02</span>,<span class="st">&quot;1.Hombre&quot;</span>=<span class="st">&quot;M&quot;</span>,<span class="st">&quot;2.Mujer&quot;</span>=<span class="st">&quot;F&quot;</span>))</span>
+<span id="cb108-12"><a href="minería-de-datos.html#cb108-12"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(sexo2) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</span>
+<span id="cb108-13"><a href="minería-de-datos.html#cb108-13"></a></span>
+<span id="cb108-14"><a href="minería-de-datos.html#cb108-14"></a><span class="co"># binarias</span></span>
+<span id="cb108-15"><a href="minería-de-datos.html#cb108-15"></a><span class="kw">unique</span>(eh19p<span class="op">$</span>depto)</span>
+<span id="cb108-16"><a href="minería-de-datos.html#cb108-16"></a><span class="co"># se quiere crear una nueva variable, llamada región: </span></span>
+<span id="cb108-17"><a href="minería-de-datos.html#cb108-17"></a><span class="co">#    Altiplano: LP, OR, PT</span></span>
+<span id="cb108-18"><a href="minería-de-datos.html#cb108-18"></a><span class="co">#    Valle: CB, CH, TR</span></span>
+<span id="cb108-19"><a href="minería-de-datos.html#cb108-19"></a><span class="co">#    Llano: SC, BN, PD</span></span>
+<span id="cb108-20"><a href="minería-de-datos.html#cb108-20"></a><span class="co"># tarea</span></span>
+<span id="cb108-21"><a href="minería-de-datos.html#cb108-21"></a><span class="co">#if_else() # trabaja con spark, para crear binarios</span></span>
+<span id="cb108-22"><a href="minería-de-datos.html#cb108-22"></a><span class="co">#case_when() # múltiple categorías basadas en reglas</span></span>
+<span id="cb108-23"><a href="minería-de-datos.html#cb108-23"></a></span>
+<span id="cb108-24"><a href="minería-de-datos.html#cb108-24"></a>v1&lt;-<span class="kw">c</span>(<span class="st">&quot;La Paz&quot;</span>,<span class="st">&quot;Oruro&quot;</span>,<span class="st">&quot;Potosí&quot;</span>)</span>
+<span id="cb108-25"><a href="minería-de-datos.html#cb108-25"></a>v2&lt;-<span class="kw">c</span>(<span class="st">&quot;Chuquisaca&quot;</span>,<span class="st">&quot;Cochabamba&quot;</span>,<span class="st">&quot;Tarija&quot;</span>)</span>
+<span id="cb108-26"><a href="minería-de-datos.html#cb108-26"></a>v3&lt;-<span class="kw">c</span>(<span class="st">&quot;Santa Cruz&quot;</span>,<span class="st">&quot;Beni&quot;</span>,<span class="st">&quot;Pando&quot;</span>)</span>
+<span id="cb108-27"><a href="minería-de-datos.html#cb108-27"></a></span>
+<span id="cb108-28"><a href="minería-de-datos.html#cb108-28"></a>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">altiplano =</span> depto <span class="op">%in%</span><span class="st"> </span>v1 ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(altiplano) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</span>
+<span id="cb108-29"><a href="minería-de-datos.html#cb108-29"></a>  </span>
+<span id="cb108-30"><a href="minería-de-datos.html#cb108-30"></a>eh19p &lt;-<span class="st"> </span>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">altiplano =</span> depto <span class="op">%in%</span><span class="st"> </span>v1 , <span class="dt">valle =</span> depto <span class="op">%in%</span><span class="st"> </span>v2,<span class="dt">llano =</span> depto <span class="op">%in%</span><span class="st"> </span>v3)</span>
+<span id="cb108-31"><a href="minería-de-datos.html#cb108-31"></a><span class="kw">names</span>(eh19p)</span></code></pre></div>
 </div>
 <div id="definir-diseño-de-encuesta-por-muestreo" class="section level3">
 <h3><span class="header-section-number">1.6.11</span> Definir diseño de encuesta por muestreo</h3>
@@ -968,105 +985,105 @@ Principles of Data Mining (Hand et.al. 2001)
 </ul>
 <p>Hay tres variables relevantes: conglomerados (principalmente primera etapa), estratificación (principalmente primera etapa) y factor de expansión.</p>
 <p>Idealmente en un muestreo de varias etapas y estratificado el factor por finitud es necesario ya que permite mejorar la aproximación a la varianza.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="minería-de-datos.html#cb98-1"></a><span class="co">#install.packages(&quot;survey&quot;)</span></span>
-<span id="cb98-2"><a href="minería-de-datos.html#cb98-2"></a><span class="kw">library</span>(survey) <span class="co"># no trabaja con el concepto de dplyr, no permite el uso de &quot;%&gt;%&quot; </span></span>
-<span id="cb98-3"><a href="minería-de-datos.html#cb98-3"></a><span class="kw">library</span>(srvyr) <span class="co"># permite el uso del operador %&gt;% </span></span>
-<span id="cb98-4"><a href="minería-de-datos.html#cb98-4"></a><span class="kw">names</span>(eh19p)</span>
-<span id="cb98-5"><a href="minería-de-datos.html#cb98-5"></a><span class="co">#survey</span></span>
-<span id="cb98-6"><a href="minería-de-datos.html#cb98-6"></a>sd_eh19p&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <span class="op">~</span>upm <span class="op">+</span><span class="st"> </span>folio, <span class="dt">strata =</span> <span class="op">~</span>estrato, <span class="dt">weights =</span> <span class="op">~</span>factor,<span class="dt">data =</span> eh19p)</span>
-<span id="cb98-7"><a href="minería-de-datos.html#cb98-7"></a><span class="kw">str</span>(sd_eh19p)</span>
-<span id="cb98-8"><a href="minería-de-datos.html#cb98-8"></a></span>
-<span id="cb98-9"><a href="minería-de-datos.html#cb98-9"></a><span class="kw">table</span>(eh19p<span class="op">$</span>p0)</span>
-<span id="cb98-10"><a href="minería-de-datos.html#cb98-10"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(eh19p<span class="op">$</span>p0))<span class="op">*</span><span class="dv">100</span> <span class="co"># pobreza moderada en la muestra </span></span>
-<span id="cb98-11"><a href="minería-de-datos.html#cb98-11"></a></span>
-<span id="cb98-12"><a href="minería-de-datos.html#cb98-12"></a><span class="kw">svytable</span>(<span class="op">~</span>p0 ,<span class="dt">design =</span> sd_eh19p)</span>
-<span id="cb98-13"><a href="minería-de-datos.html#cb98-13"></a><span class="kw">prop.table</span>(<span class="kw">svytable</span>(<span class="op">~</span>p0 ,<span class="dt">design =</span> sd_eh19p))<span class="op">*</span><span class="dv">100</span></span>
-<span id="cb98-14"><a href="minería-de-datos.html#cb98-14"></a></span>
-<span id="cb98-15"><a href="minería-de-datos.html#cb98-15"></a><span class="kw">summary</span>(<span class="kw">svytable</span>(<span class="op">~</span>p0 ,<span class="dt">design =</span> sd_eh19p))</span>
-<span id="cb98-16"><a href="minería-de-datos.html#cb98-16"></a></span>
-<span id="cb98-17"><a href="minería-de-datos.html#cb98-17"></a>t1&lt;-<span class="kw">svymean</span>(<span class="op">~</span>ylab,<span class="dt">design =</span> sd_eh19p,<span class="dt">na.rm=</span>T,<span class="dt">deff=</span>T)</span>
-<span id="cb98-18"><a href="minería-de-datos.html#cb98-18"></a><span class="kw">cv</span>(t1)</span>
-<span id="cb98-19"><a href="minería-de-datos.html#cb98-19"></a><span class="kw">confint</span>(t1)</span>
-<span id="cb98-20"><a href="minería-de-datos.html#cb98-20"></a></span>
-<span id="cb98-21"><a href="minería-de-datos.html#cb98-21"></a>t2&lt;-<span class="kw">svyby</span>(<span class="op">~</span>ylab,<span class="dt">by=</span><span class="op">~</span>depto<span class="op">+</span>area,<span class="dt">design =</span> sd_eh19p,<span class="dt">FUN =</span> svymean,<span class="dt">na.rm=</span>T)</span>
-<span id="cb98-22"><a href="minería-de-datos.html#cb98-22"></a><span class="kw">cv</span>(t2)</span>
-<span id="cb98-23"><a href="minería-de-datos.html#cb98-23"></a><span class="kw">confint</span>(t2)</span>
-<span id="cb98-24"><a href="minería-de-datos.html#cb98-24"></a></span>
-<span id="cb98-25"><a href="minería-de-datos.html#cb98-25"></a><span class="kw">summary</span>(<span class="kw">svytable</span>(<span class="op">~</span>depto<span class="op">+</span>p0 ,<span class="dt">design =</span> sd_eh19p)) <span class="co"># revisar</span></span>
-<span id="cb98-26"><a href="minería-de-datos.html#cb98-26"></a></span>
-<span id="cb98-27"><a href="minería-de-datos.html#cb98-27"></a><span class="co"># departamento</span></span>
-<span id="cb98-28"><a href="minería-de-datos.html#cb98-28"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(eh19p<span class="op">$</span>depto,eh19p<span class="op">$</span>p0),<span class="dv">1</span>)<span class="op">*</span><span class="dv">100</span></span>
-<span id="cb98-29"><a href="minería-de-datos.html#cb98-29"></a><span class="kw">prop.table</span>(<span class="kw">svytable</span>(<span class="op">~</span>depto<span class="op">+</span>p0 ,<span class="dt">design =</span> sd_eh19p),<span class="dv">1</span>)<span class="op">*</span><span class="dv">100</span></span>
-<span id="cb98-30"><a href="minería-de-datos.html#cb98-30"></a></span>
-<span id="cb98-31"><a href="minería-de-datos.html#cb98-31"></a><span class="kw">svydesign</span>(<span class="dt">ids=</span><span class="op">~</span><span class="dv">1</span>,<span class="dt">data=</span>bd)<span class="co">#mas</span></span>
-<span id="cb98-32"><a href="minería-de-datos.html#cb98-32"></a><span class="kw">svydesign</span>(<span class="dt">ids=</span><span class="op">~</span><span class="dv">1</span>,<span class="dt">strata =</span> estrato,<span class="dt">data=</span>bd)<span class="co">#mas estraficado</span></span>
-<span id="cb98-33"><a href="minería-de-datos.html#cb98-33"></a><span class="kw">svydesign</span>(<span class="dt">ids=</span><span class="op">~</span><span class="dv">1</span>,<span class="dt">strata =</span> <span class="op">~</span>estrato,<span class="dt">weights =</span> <span class="op">~</span>ponderador,<span class="dt">data=</span>bd)<span class="co">#pps estraficado</span></span>
-<span id="cb98-34"><a href="minería-de-datos.html#cb98-34"></a></span>
-<span id="cb98-35"><a href="minería-de-datos.html#cb98-35"></a><span class="kw">svymean</span>(<span class="op">~</span>p0, <span class="dt">design=</span>sd_eh19p,<span class="dt">na.rm=</span>T)</span>
-<span id="cb98-36"><a href="minería-de-datos.html#cb98-36"></a><span class="kw">svytotal</span>(<span class="op">~</span>p0, <span class="dt">design=</span>sd_eh19p,<span class="dt">na.rm=</span>T)</span>
-<span id="cb98-37"><a href="minería-de-datos.html#cb98-37"></a></span>
-<span id="cb98-38"><a href="minería-de-datos.html#cb98-38"></a><span class="co">#</span></span>
-<span id="cb98-39"><a href="minería-de-datos.html#cb98-39"></a><span class="kw">svytable</span>(<span class="op">~</span>p0,<span class="dt">design=</span>sd_eh19p) <span class="co"># tablas de contigencias y hacer pruebas sobre estas</span></span>
-<span id="cb98-40"><a href="minería-de-datos.html#cb98-40"></a></span>
-<span id="cb98-41"><a href="minería-de-datos.html#cb98-41"></a>t1&lt;-<span class="kw">svymean</span>(<span class="op">~</span>p0,<span class="dt">design=</span>sd_eh19p,<span class="dt">na.rm=</span>T) <span class="co"># proporciones / medias</span></span>
-<span id="cb98-42"><a href="minería-de-datos.html#cb98-42"></a>t2&lt;-<span class="kw">svytotal</span>(<span class="op">~</span>p0,<span class="dt">design=</span>sd_eh19p,<span class="dt">na.rm=</span>T) <span class="co"># totales clase / total</span></span>
-<span id="cb98-43"><a href="minería-de-datos.html#cb98-43"></a></span>
-<span id="cb98-44"><a href="minería-de-datos.html#cb98-44"></a><span class="kw">cv</span>(t1)</span>
-<span id="cb98-45"><a href="minería-de-datos.html#cb98-45"></a><span class="kw">cv</span>(t2)</span>
-<span id="cb98-46"><a href="minería-de-datos.html#cb98-46"></a></span>
-<span id="cb98-47"><a href="minería-de-datos.html#cb98-47"></a><span class="kw">confint</span>(t1)</span>
-<span id="cb98-48"><a href="minería-de-datos.html#cb98-48"></a><span class="kw">confint</span>(t2)</span>
-<span id="cb98-49"><a href="minería-de-datos.html#cb98-49"></a></span>
-<span id="cb98-50"><a href="minería-de-datos.html#cb98-50"></a>sd2_eh19p&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <span class="op">~</span><span class="dv">1</span>, <span class="dt">weights =</span> <span class="op">~</span>factor,<span class="dt">data =</span> eh19p) <span class="co"># pps</span></span>
-<span id="cb98-51"><a href="minería-de-datos.html#cb98-51"></a></span>
-<span id="cb98-52"><a href="minería-de-datos.html#cb98-52"></a>t3&lt;-<span class="kw">svymean</span>(<span class="op">~</span>p0,<span class="dt">design=</span>sd2_eh19p,<span class="dt">na.rm=</span>T) <span class="co"># proporciones / medias</span></span>
-<span id="cb98-53"><a href="minería-de-datos.html#cb98-53"></a></span>
-<span id="cb98-54"><a href="minería-de-datos.html#cb98-54"></a>t1</span>
-<span id="cb98-55"><a href="minería-de-datos.html#cb98-55"></a>t3</span>
-<span id="cb98-56"><a href="minería-de-datos.html#cb98-56"></a><span class="kw">cv</span>(t1)<span class="op">*</span><span class="dv">100</span></span>
-<span id="cb98-57"><a href="minería-de-datos.html#cb98-57"></a><span class="kw">cv</span>(t3)<span class="op">*</span><span class="dv">100</span></span>
-<span id="cb98-58"><a href="minería-de-datos.html#cb98-58"></a></span>
-<span id="cb98-59"><a href="minería-de-datos.html#cb98-59"></a><span class="kw">summary</span>(<span class="kw">lm</span>(ylab<span class="op">~</span>aestudio,<span class="dt">data=</span>eh19p)) <span class="co"># ingreso= B0+B1*aestudio+e OLS</span></span>
-<span id="cb98-60"><a href="minería-de-datos.html#cb98-60"></a><span class="kw">summary</span>(<span class="kw">lm</span>(ylab<span class="op">~</span>aestudio,<span class="dt">data=</span>eh19p,<span class="dt">weights =</span> factor )) <span class="co"># Minimos cuadrados ponderados</span></span>
-<span id="cb98-61"><a href="minería-de-datos.html#cb98-61"></a></span>
-<span id="cb98-62"><a href="minería-de-datos.html#cb98-62"></a>m1&lt;-<span class="kw">svyglm</span>(ylab<span class="op">~</span>aestudio,<span class="dt">design=</span>sd_eh19p)</span>
-<span id="cb98-63"><a href="minería-de-datos.html#cb98-63"></a><span class="kw">summary</span>(m1)</span>
-<span id="cb98-64"><a href="minería-de-datos.html#cb98-64"></a><span class="kw">install.packages</span>(<span class="st">&quot;jtools&quot;</span>)</span>
-<span id="cb98-65"><a href="minería-de-datos.html#cb98-65"></a></span>
-<span id="cb98-66"><a href="minería-de-datos.html#cb98-66"></a><span class="kw">library</span>(jtools)</span>
-<span id="cb98-67"><a href="minería-de-datos.html#cb98-67"></a><span class="kw">summ</span>(m1)</span>
-<span id="cb98-68"><a href="minería-de-datos.html#cb98-68"></a></span>
-<span id="cb98-69"><a href="minería-de-datos.html#cb98-69"></a><span class="kw">psrsq</span>(m1)</span>
-<span id="cb98-70"><a href="minería-de-datos.html#cb98-70"></a></span>
-<span id="cb98-71"><a href="minería-de-datos.html#cb98-71"></a><span class="co"># srvyr </span></span>
-<span id="cb98-72"><a href="minería-de-datos.html#cb98-72"></a></span>
-<span id="cb98-73"><a href="minería-de-datos.html#cb98-73"></a><span class="kw">library</span>(srvyr)</span>
-<span id="cb98-74"><a href="minería-de-datos.html#cb98-74"></a>sd3_eh19p&lt;-<span class="kw">as_survey_design</span>(sd_eh19p)</span>
-<span id="cb98-75"><a href="minería-de-datos.html#cb98-75"></a></span>
-<span id="cb98-76"><a href="minería-de-datos.html#cb98-76"></a>sd_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(p0) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">svymean</span>()</span>
-<span id="cb98-77"><a href="minería-de-datos.html#cb98-77"></a></span>
-<span id="cb98-78"><a href="minería-de-datos.html#cb98-78"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">survey_mean</span>(s02a_<span class="dv">03</span>))</span>
-<span id="cb98-79"><a href="minería-de-datos.html#cb98-79"></a></span>
-<span id="cb98-80"><a href="minería-de-datos.html#cb98-80"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area,s02a_<span class="dv">02</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">m_edad=</span><span class="kw">survey_mean</span>(s02a_<span class="dv">03</span>))</span>
-<span id="cb98-81"><a href="minería-de-datos.html#cb98-81"></a></span>
-<span id="cb98-82"><a href="minería-de-datos.html#cb98-82"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area,s02a_<span class="dv">02</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">m_edad=</span><span class="kw">survey_mean</span>(s02a_<span class="dv">03</span>),<span class="dt">m_ylab=</span><span class="kw">survey_mean</span>(ylab,<span class="dt">na.rm=</span>T))</span>
-<span id="cb98-83"><a href="minería-de-datos.html#cb98-83"></a></span>
-<span id="cb98-84"><a href="minería-de-datos.html#cb98-84"></a><span class="co"># p0</span></span>
-<span id="cb98-85"><a href="minería-de-datos.html#cb98-85"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">survey_tally</span>()</span>
-<span id="cb98-86"><a href="minería-de-datos.html#cb98-86"></a></span>
-<span id="cb98-87"><a href="minería-de-datos.html#cb98-87"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">survey_count</span>()</span>
-<span id="cb98-88"><a href="minería-de-datos.html#cb98-88"></a></span>
-<span id="cb98-89"><a href="minería-de-datos.html#cb98-89"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">pobreza=</span>p0<span class="op">==</span><span class="st">&quot;Pobre&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">p0=</span><span class="kw">survey_mean</span>(pobreza,<span class="dt">na.rm=</span>T))</span>
-<span id="cb98-90"><a href="minería-de-datos.html#cb98-90"></a></span>
-<span id="cb98-91"><a href="minería-de-datos.html#cb98-91"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">pobreza=</span>p0<span class="op">==</span><span class="st">&quot;Pobre&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">p0=</span><span class="kw">survey_mean</span>(pobreza,<span class="dt">na.rm=</span>T),<span class="dt">N=</span><span class="kw">survey_total</span>(pobreza,<span class="dt">na.rm=</span>T))</span>
-<span id="cb98-92"><a href="minería-de-datos.html#cb98-92"></a></span>
-<span id="cb98-93"><a href="minería-de-datos.html#cb98-93"></a>sd4_eh19p&lt;-<span class="st"> </span>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_survey_design</span>(<span class="dt">ids=</span><span class="kw">c</span>(upm,folio),<span class="dt">strata=</span>estrato,<span class="dt">weights=</span>factor)</span>
-<span id="cb98-94"><a href="minería-de-datos.html#cb98-94"></a></span>
-<span id="cb98-95"><a href="minería-de-datos.html#cb98-95"></a>sd4_eh19p&lt;-<span class="st"> </span>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_survey_design</span>(<span class="dt">ids=</span>upm,<span class="dt">strata=</span>estrato,<span class="dt">weights=</span>factor)</span>
-<span id="cb98-96"><a href="minería-de-datos.html#cb98-96"></a></span>
-<span id="cb98-97"><a href="minería-de-datos.html#cb98-97"></a>sd4_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">pobreza=</span>p0<span class="op">==</span><span class="st">&quot;Pobre&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">p0=</span><span class="kw">survey_mean</span>(pobreza,<span class="dt">na.rm=</span>T,<span class="dt">vartype =</span> <span class="kw">c</span>(<span class="st">&quot;se&quot;</span>, <span class="st">&quot;ci&quot;</span>, <span class="st">&quot;var&quot;</span>, <span class="st">&quot;cv&quot;</span>),<span class="dt">deff=</span>T))</span>
-<span id="cb98-98"><a href="minería-de-datos.html#cb98-98"></a></span>
-<span id="cb98-99"><a href="minería-de-datos.html#cb98-99"></a>sd4_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">pobreza=</span>p0<span class="op">==</span><span class="st">&quot;Pobre&quot;</span>) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">p0=</span><span class="kw">survey_mean</span>(pobreza,<span class="dt">na.rm=</span>T,<span class="dt">vartype =</span> <span class="kw">c</span>(<span class="st">&quot;se&quot;</span>, <span class="st">&quot;ci&quot;</span>, <span class="st">&quot;var&quot;</span>, <span class="st">&quot;cv&quot;</span>),<span class="dt">deff=</span>T))</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="minería-de-datos.html#cb109-1"></a><span class="co">#install.packages(&quot;survey&quot;)</span></span>
+<span id="cb109-2"><a href="minería-de-datos.html#cb109-2"></a><span class="kw">library</span>(survey) <span class="co"># no trabaja con el concepto de dplyr, no permite el uso de &quot;%&gt;%&quot; </span></span>
+<span id="cb109-3"><a href="minería-de-datos.html#cb109-3"></a><span class="kw">library</span>(srvyr) <span class="co"># permite el uso del operador %&gt;% </span></span>
+<span id="cb109-4"><a href="minería-de-datos.html#cb109-4"></a><span class="kw">names</span>(eh19p)</span>
+<span id="cb109-5"><a href="minería-de-datos.html#cb109-5"></a><span class="co">#survey</span></span>
+<span id="cb109-6"><a href="minería-de-datos.html#cb109-6"></a>sd_eh19p&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <span class="op">~</span>upm <span class="op">+</span><span class="st"> </span>folio, <span class="dt">strata =</span> <span class="op">~</span>estrato, <span class="dt">weights =</span> <span class="op">~</span>factor,<span class="dt">data =</span> eh19p)</span>
+<span id="cb109-7"><a href="minería-de-datos.html#cb109-7"></a><span class="kw">str</span>(sd_eh19p)</span>
+<span id="cb109-8"><a href="minería-de-datos.html#cb109-8"></a></span>
+<span id="cb109-9"><a href="minería-de-datos.html#cb109-9"></a><span class="kw">table</span>(eh19p<span class="op">$</span>p0)</span>
+<span id="cb109-10"><a href="minería-de-datos.html#cb109-10"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(eh19p<span class="op">$</span>p0))<span class="op">*</span><span class="dv">100</span> <span class="co"># pobreza moderada en la muestra </span></span>
+<span id="cb109-11"><a href="minería-de-datos.html#cb109-11"></a></span>
+<span id="cb109-12"><a href="minería-de-datos.html#cb109-12"></a><span class="kw">svytable</span>(<span class="op">~</span>p0 ,<span class="dt">design =</span> sd_eh19p)</span>
+<span id="cb109-13"><a href="minería-de-datos.html#cb109-13"></a><span class="kw">prop.table</span>(<span class="kw">svytable</span>(<span class="op">~</span>p0 ,<span class="dt">design =</span> sd_eh19p))<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb109-14"><a href="minería-de-datos.html#cb109-14"></a></span>
+<span id="cb109-15"><a href="minería-de-datos.html#cb109-15"></a><span class="kw">summary</span>(<span class="kw">svytable</span>(<span class="op">~</span>p0 ,<span class="dt">design =</span> sd_eh19p))</span>
+<span id="cb109-16"><a href="minería-de-datos.html#cb109-16"></a></span>
+<span id="cb109-17"><a href="minería-de-datos.html#cb109-17"></a>t1&lt;-<span class="kw">svymean</span>(<span class="op">~</span>ylab,<span class="dt">design =</span> sd_eh19p,<span class="dt">na.rm=</span>T,<span class="dt">deff=</span>T)</span>
+<span id="cb109-18"><a href="minería-de-datos.html#cb109-18"></a><span class="kw">cv</span>(t1)</span>
+<span id="cb109-19"><a href="minería-de-datos.html#cb109-19"></a><span class="kw">confint</span>(t1)</span>
+<span id="cb109-20"><a href="minería-de-datos.html#cb109-20"></a></span>
+<span id="cb109-21"><a href="minería-de-datos.html#cb109-21"></a>t2&lt;-<span class="kw">svyby</span>(<span class="op">~</span>ylab,<span class="dt">by=</span><span class="op">~</span>depto<span class="op">+</span>area,<span class="dt">design =</span> sd_eh19p,<span class="dt">FUN =</span> svymean,<span class="dt">na.rm=</span>T)</span>
+<span id="cb109-22"><a href="minería-de-datos.html#cb109-22"></a><span class="kw">cv</span>(t2)</span>
+<span id="cb109-23"><a href="minería-de-datos.html#cb109-23"></a><span class="kw">confint</span>(t2)</span>
+<span id="cb109-24"><a href="minería-de-datos.html#cb109-24"></a></span>
+<span id="cb109-25"><a href="minería-de-datos.html#cb109-25"></a><span class="kw">summary</span>(<span class="kw">svytable</span>(<span class="op">~</span>depto<span class="op">+</span>p0 ,<span class="dt">design =</span> sd_eh19p)) <span class="co"># revisar</span></span>
+<span id="cb109-26"><a href="minería-de-datos.html#cb109-26"></a></span>
+<span id="cb109-27"><a href="minería-de-datos.html#cb109-27"></a><span class="co"># departamento</span></span>
+<span id="cb109-28"><a href="minería-de-datos.html#cb109-28"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(eh19p<span class="op">$</span>depto,eh19p<span class="op">$</span>p0),<span class="dv">1</span>)<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb109-29"><a href="minería-de-datos.html#cb109-29"></a><span class="kw">prop.table</span>(<span class="kw">svytable</span>(<span class="op">~</span>depto<span class="op">+</span>p0 ,<span class="dt">design =</span> sd_eh19p),<span class="dv">1</span>)<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb109-30"><a href="minería-de-datos.html#cb109-30"></a></span>
+<span id="cb109-31"><a href="minería-de-datos.html#cb109-31"></a><span class="kw">svydesign</span>(<span class="dt">ids=</span><span class="op">~</span><span class="dv">1</span>,<span class="dt">data=</span>bd)<span class="co">#mas</span></span>
+<span id="cb109-32"><a href="minería-de-datos.html#cb109-32"></a><span class="kw">svydesign</span>(<span class="dt">ids=</span><span class="op">~</span><span class="dv">1</span>,<span class="dt">strata =</span> estrato,<span class="dt">data=</span>bd)<span class="co">#mas estraficado</span></span>
+<span id="cb109-33"><a href="minería-de-datos.html#cb109-33"></a><span class="kw">svydesign</span>(<span class="dt">ids=</span><span class="op">~</span><span class="dv">1</span>,<span class="dt">strata =</span> <span class="op">~</span>estrato,<span class="dt">weights =</span> <span class="op">~</span>ponderador,<span class="dt">data=</span>bd)<span class="co">#pps estraficado</span></span>
+<span id="cb109-34"><a href="minería-de-datos.html#cb109-34"></a></span>
+<span id="cb109-35"><a href="minería-de-datos.html#cb109-35"></a><span class="kw">svymean</span>(<span class="op">~</span>p0, <span class="dt">design=</span>sd_eh19p,<span class="dt">na.rm=</span>T)</span>
+<span id="cb109-36"><a href="minería-de-datos.html#cb109-36"></a><span class="kw">svytotal</span>(<span class="op">~</span>p0, <span class="dt">design=</span>sd_eh19p,<span class="dt">na.rm=</span>T)</span>
+<span id="cb109-37"><a href="minería-de-datos.html#cb109-37"></a></span>
+<span id="cb109-38"><a href="minería-de-datos.html#cb109-38"></a><span class="co">#</span></span>
+<span id="cb109-39"><a href="minería-de-datos.html#cb109-39"></a><span class="kw">svytable</span>(<span class="op">~</span>p0,<span class="dt">design=</span>sd_eh19p) <span class="co"># tablas de contigencias y hacer pruebas sobre estas</span></span>
+<span id="cb109-40"><a href="minería-de-datos.html#cb109-40"></a></span>
+<span id="cb109-41"><a href="minería-de-datos.html#cb109-41"></a>t1&lt;-<span class="kw">svymean</span>(<span class="op">~</span>p0,<span class="dt">design=</span>sd_eh19p,<span class="dt">na.rm=</span>T) <span class="co"># proporciones / medias</span></span>
+<span id="cb109-42"><a href="minería-de-datos.html#cb109-42"></a>t2&lt;-<span class="kw">svytotal</span>(<span class="op">~</span>p0,<span class="dt">design=</span>sd_eh19p,<span class="dt">na.rm=</span>T) <span class="co"># totales clase / total</span></span>
+<span id="cb109-43"><a href="minería-de-datos.html#cb109-43"></a></span>
+<span id="cb109-44"><a href="minería-de-datos.html#cb109-44"></a><span class="kw">cv</span>(t1)</span>
+<span id="cb109-45"><a href="minería-de-datos.html#cb109-45"></a><span class="kw">cv</span>(t2)</span>
+<span id="cb109-46"><a href="minería-de-datos.html#cb109-46"></a></span>
+<span id="cb109-47"><a href="minería-de-datos.html#cb109-47"></a><span class="kw">confint</span>(t1)</span>
+<span id="cb109-48"><a href="minería-de-datos.html#cb109-48"></a><span class="kw">confint</span>(t2)</span>
+<span id="cb109-49"><a href="minería-de-datos.html#cb109-49"></a></span>
+<span id="cb109-50"><a href="minería-de-datos.html#cb109-50"></a>sd2_eh19p&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <span class="op">~</span><span class="dv">1</span>, <span class="dt">weights =</span> <span class="op">~</span>factor,<span class="dt">data =</span> eh19p) <span class="co"># pps</span></span>
+<span id="cb109-51"><a href="minería-de-datos.html#cb109-51"></a></span>
+<span id="cb109-52"><a href="minería-de-datos.html#cb109-52"></a>t3&lt;-<span class="kw">svymean</span>(<span class="op">~</span>p0,<span class="dt">design=</span>sd2_eh19p,<span class="dt">na.rm=</span>T) <span class="co"># proporciones / medias</span></span>
+<span id="cb109-53"><a href="minería-de-datos.html#cb109-53"></a></span>
+<span id="cb109-54"><a href="minería-de-datos.html#cb109-54"></a>t1</span>
+<span id="cb109-55"><a href="minería-de-datos.html#cb109-55"></a>t3</span>
+<span id="cb109-56"><a href="minería-de-datos.html#cb109-56"></a><span class="kw">cv</span>(t1)<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb109-57"><a href="minería-de-datos.html#cb109-57"></a><span class="kw">cv</span>(t3)<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb109-58"><a href="minería-de-datos.html#cb109-58"></a></span>
+<span id="cb109-59"><a href="minería-de-datos.html#cb109-59"></a><span class="kw">summary</span>(<span class="kw">lm</span>(ylab<span class="op">~</span>aestudio,<span class="dt">data=</span>eh19p)) <span class="co"># ingreso= B0+B1*aestudio+e OLS</span></span>
+<span id="cb109-60"><a href="minería-de-datos.html#cb109-60"></a><span class="kw">summary</span>(<span class="kw">lm</span>(ylab<span class="op">~</span>aestudio,<span class="dt">data=</span>eh19p,<span class="dt">weights =</span> factor )) <span class="co"># Minimos cuadrados ponderados</span></span>
+<span id="cb109-61"><a href="minería-de-datos.html#cb109-61"></a></span>
+<span id="cb109-62"><a href="minería-de-datos.html#cb109-62"></a>m1&lt;-<span class="kw">svyglm</span>(ylab<span class="op">~</span>aestudio,<span class="dt">design=</span>sd_eh19p)</span>
+<span id="cb109-63"><a href="minería-de-datos.html#cb109-63"></a><span class="kw">summary</span>(m1)</span>
+<span id="cb109-64"><a href="minería-de-datos.html#cb109-64"></a><span class="kw">install.packages</span>(<span class="st">&quot;jtools&quot;</span>)</span>
+<span id="cb109-65"><a href="minería-de-datos.html#cb109-65"></a></span>
+<span id="cb109-66"><a href="minería-de-datos.html#cb109-66"></a><span class="kw">library</span>(jtools)</span>
+<span id="cb109-67"><a href="minería-de-datos.html#cb109-67"></a><span class="kw">summ</span>(m1)</span>
+<span id="cb109-68"><a href="minería-de-datos.html#cb109-68"></a></span>
+<span id="cb109-69"><a href="minería-de-datos.html#cb109-69"></a><span class="kw">psrsq</span>(m1)</span>
+<span id="cb109-70"><a href="minería-de-datos.html#cb109-70"></a></span>
+<span id="cb109-71"><a href="minería-de-datos.html#cb109-71"></a><span class="co"># srvyr </span></span>
+<span id="cb109-72"><a href="minería-de-datos.html#cb109-72"></a></span>
+<span id="cb109-73"><a href="minería-de-datos.html#cb109-73"></a><span class="kw">library</span>(srvyr)</span>
+<span id="cb109-74"><a href="minería-de-datos.html#cb109-74"></a>sd3_eh19p&lt;-<span class="kw">as_survey_design</span>(sd_eh19p)</span>
+<span id="cb109-75"><a href="minería-de-datos.html#cb109-75"></a></span>
+<span id="cb109-76"><a href="minería-de-datos.html#cb109-76"></a>sd_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(p0) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">svymean</span>()</span>
+<span id="cb109-77"><a href="minería-de-datos.html#cb109-77"></a></span>
+<span id="cb109-78"><a href="minería-de-datos.html#cb109-78"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">survey_mean</span>(s02a_<span class="dv">03</span>))</span>
+<span id="cb109-79"><a href="minería-de-datos.html#cb109-79"></a></span>
+<span id="cb109-80"><a href="minería-de-datos.html#cb109-80"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area,s02a_<span class="dv">02</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">m_edad=</span><span class="kw">survey_mean</span>(s02a_<span class="dv">03</span>))</span>
+<span id="cb109-81"><a href="minería-de-datos.html#cb109-81"></a></span>
+<span id="cb109-82"><a href="minería-de-datos.html#cb109-82"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area,s02a_<span class="dv">02</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">m_edad=</span><span class="kw">survey_mean</span>(s02a_<span class="dv">03</span>),<span class="dt">m_ylab=</span><span class="kw">survey_mean</span>(ylab,<span class="dt">na.rm=</span>T))</span>
+<span id="cb109-83"><a href="minería-de-datos.html#cb109-83"></a></span>
+<span id="cb109-84"><a href="minería-de-datos.html#cb109-84"></a><span class="co"># p0</span></span>
+<span id="cb109-85"><a href="minería-de-datos.html#cb109-85"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">survey_tally</span>()</span>
+<span id="cb109-86"><a href="minería-de-datos.html#cb109-86"></a></span>
+<span id="cb109-87"><a href="minería-de-datos.html#cb109-87"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">survey_count</span>()</span>
+<span id="cb109-88"><a href="minería-de-datos.html#cb109-88"></a></span>
+<span id="cb109-89"><a href="minería-de-datos.html#cb109-89"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">pobreza=</span>p0<span class="op">==</span><span class="st">&quot;Pobre&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">p0=</span><span class="kw">survey_mean</span>(pobreza,<span class="dt">na.rm=</span>T))</span>
+<span id="cb109-90"><a href="minería-de-datos.html#cb109-90"></a></span>
+<span id="cb109-91"><a href="minería-de-datos.html#cb109-91"></a>sd3_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">pobreza=</span>p0<span class="op">==</span><span class="st">&quot;Pobre&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">p0=</span><span class="kw">survey_mean</span>(pobreza,<span class="dt">na.rm=</span>T),<span class="dt">N=</span><span class="kw">survey_total</span>(pobreza,<span class="dt">na.rm=</span>T))</span>
+<span id="cb109-92"><a href="minería-de-datos.html#cb109-92"></a></span>
+<span id="cb109-93"><a href="minería-de-datos.html#cb109-93"></a>sd4_eh19p&lt;-<span class="st"> </span>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_survey_design</span>(<span class="dt">ids=</span><span class="kw">c</span>(upm,folio),<span class="dt">strata=</span>estrato,<span class="dt">weights=</span>factor)</span>
+<span id="cb109-94"><a href="minería-de-datos.html#cb109-94"></a></span>
+<span id="cb109-95"><a href="minería-de-datos.html#cb109-95"></a>sd4_eh19p&lt;-<span class="st"> </span>eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_survey_design</span>(<span class="dt">ids=</span>upm,<span class="dt">strata=</span>estrato,<span class="dt">weights=</span>factor)</span>
+<span id="cb109-96"><a href="minería-de-datos.html#cb109-96"></a></span>
+<span id="cb109-97"><a href="minería-de-datos.html#cb109-97"></a>sd4_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">pobreza=</span>p0<span class="op">==</span><span class="st">&quot;Pobre&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(depto,area) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">p0=</span><span class="kw">survey_mean</span>(pobreza,<span class="dt">na.rm=</span>T,<span class="dt">vartype =</span> <span class="kw">c</span>(<span class="st">&quot;se&quot;</span>, <span class="st">&quot;ci&quot;</span>, <span class="st">&quot;var&quot;</span>, <span class="st">&quot;cv&quot;</span>),<span class="dt">deff=</span>T))</span>
+<span id="cb109-98"><a href="minería-de-datos.html#cb109-98"></a></span>
+<span id="cb109-99"><a href="minería-de-datos.html#cb109-99"></a>sd4_eh19p <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">pobreza=</span>p0<span class="op">==</span><span class="st">&quot;Pobre&quot;</span>) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">p0=</span><span class="kw">survey_mean</span>(pobreza,<span class="dt">na.rm=</span>T,<span class="dt">vartype =</span> <span class="kw">c</span>(<span class="st">&quot;se&quot;</span>, <span class="st">&quot;ci&quot;</span>, <span class="st">&quot;var&quot;</span>, <span class="st">&quot;cv&quot;</span>),<span class="dt">deff=</span>T))</span></code></pre></div>
 </div>
 </div>
 <div id="imputación-de-variables" class="section level2">
@@ -1149,28 +1166,28 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 <ul>
 <li>Listwise deletion (trabajar solo con casos completos)</li>
 </ul>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="minería-de-datos.html#cb99-1"></a><span class="kw">table</span>(<span class="kw">is.na</span>(airquality<span class="op">$</span>Ozone))</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="minería-de-datos.html#cb110-1"></a><span class="kw">table</span>(<span class="kw">is.na</span>(airquality<span class="op">$</span>Ozone))</span></code></pre></div>
 <pre><code>## 
 ## FALSE  TRUE 
 ##   116    37</code></pre>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="minería-de-datos.html#cb101-1"></a>R&lt;-(<span class="op">!</span><span class="kw">is.na</span>(airquality))<span class="op">*</span><span class="dv">1</span></span>
-<span id="cb101-2"><a href="minería-de-datos.html#cb101-2"></a></span>
-<span id="cb101-3"><a href="minería-de-datos.html#cb101-3"></a><span class="kw">mean</span>(airquality<span class="op">$</span>Ozone)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="minería-de-datos.html#cb112-1"></a>R&lt;-(<span class="op">!</span><span class="kw">is.na</span>(airquality))<span class="op">*</span><span class="dv">1</span></span>
+<span id="cb112-2"><a href="minería-de-datos.html#cb112-2"></a></span>
+<span id="cb112-3"><a href="minería-de-datos.html#cb112-3"></a><span class="kw">mean</span>(airquality<span class="op">$</span>Ozone)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="minería-de-datos.html#cb103-1"></a><span class="co">#listwise</span></span>
-<span id="cb103-2"><a href="minería-de-datos.html#cb103-2"></a>x&lt;-<span class="kw">na.omit</span>(airquality<span class="op">$</span>Ozone)</span>
-<span id="cb103-3"><a href="minería-de-datos.html#cb103-3"></a><span class="kw">mean</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="minería-de-datos.html#cb114-1"></a><span class="co">#listwise</span></span>
+<span id="cb114-2"><a href="minería-de-datos.html#cb114-2"></a>x&lt;-<span class="kw">na.omit</span>(airquality<span class="op">$</span>Ozone)</span>
+<span id="cb114-3"><a href="minería-de-datos.html#cb114-3"></a><span class="kw">mean</span>(x)</span></code></pre></div>
 <pre><code>## [1] 42.12931</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="minería-de-datos.html#cb105-1"></a>bd&lt;-airquality</span>
-<span id="cb105-2"><a href="minería-de-datos.html#cb105-2"></a>bd2&lt;-<span class="kw">na.omit</span>(bd)</span>
-<span id="cb105-3"><a href="minería-de-datos.html#cb105-3"></a></span>
-<span id="cb105-4"><a href="minería-de-datos.html#cb105-4"></a><span class="kw">na.action</span>(x) </span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="minería-de-datos.html#cb116-1"></a>bd&lt;-airquality</span>
+<span id="cb116-2"><a href="minería-de-datos.html#cb116-2"></a>bd2&lt;-<span class="kw">na.omit</span>(bd)</span>
+<span id="cb116-3"><a href="minería-de-datos.html#cb116-3"></a></span>
+<span id="cb116-4"><a href="minería-de-datos.html#cb116-4"></a><span class="kw">na.action</span>(x) </span></code></pre></div>
 <pre><code>##  [1]   5  10  25  26  27  32  33  34  35  36  37  39  42  43  45  46
 ## [17]  52  53  54  55  56  57  58  59  60  61  65  72  75  83  84 102
 ## [33] 103 107 115 119 150
 ## attr(,&quot;class&quot;)
 ## [1] &quot;omit&quot;</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="minería-de-datos.html#cb107-1"></a><span class="kw">na.action</span>(bd2) </span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="minería-de-datos.html#cb118-1"></a><span class="kw">na.action</span>(bd2) </span></code></pre></div>
 <pre><code>##   5   6  10  11  25  26  27  32  33  34  35  36  37  39  42  43  45 
 ##   5   6  10  11  25  26  27  32  33  34  35  36  37  39  42  43  45 
 ##  46  52  53  54  55  56  57  58  59  60  61  65  72  75  83  84  96 
@@ -1179,17 +1196,17 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 ##  97  98 102 103 107 115 119 150 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;omit&quot;</code></pre>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="minería-de-datos.html#cb109-1"></a><span class="kw">naprint</span>(<span class="kw">na.action</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="minería-de-datos.html#cb120-1"></a><span class="kw">naprint</span>(<span class="kw">na.action</span>(x))</span></code></pre></div>
 <pre><code>## [1] &quot;37 observations deleted due to missingness&quot;</code></pre>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="minería-de-datos.html#cb111-1"></a><span class="kw">naprint</span>(<span class="kw">na.action</span>(bd2))</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="minería-de-datos.html#cb122-1"></a><span class="kw">naprint</span>(<span class="kw">na.action</span>(bd2))</span></code></pre></div>
 <pre><code>## [1] &quot;42 observations deleted due to missingness&quot;</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="minería-de-datos.html#cb113-1"></a><span class="kw">table</span>(<span class="kw">complete.cases</span>(bd))</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="minería-de-datos.html#cb124-1"></a><span class="kw">table</span>(<span class="kw">complete.cases</span>(bd))</span></code></pre></div>
 <pre><code>## 
 ## FALSE  TRUE 
 ##    42   111</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="minería-de-datos.html#cb115-1"></a>ii&lt;-<span class="kw">complete.cases</span>(bd)</span>
-<span id="cb115-2"><a href="minería-de-datos.html#cb115-2"></a></span>
-<span id="cb115-3"><a href="minería-de-datos.html#cb115-3"></a>bd[ii,]</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="minería-de-datos.html#cb126-1"></a>ii&lt;-<span class="kw">complete.cases</span>(bd)</span>
+<span id="cb126-2"><a href="minería-de-datos.html#cb126-2"></a></span>
+<span id="cb126-3"><a href="minería-de-datos.html#cb126-3"></a>bd[ii,]</span></code></pre></div>
 <pre><code>##     Ozone Solar.R Wind Temp Month Day
 ## 1      41     190  7.4   67     5   1
 ## 2      36     118  8.0   72     5   2
@@ -1302,55 +1319,55 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 ## 151    14     191 14.3   75     9  28
 ## 152    18     131  8.0   76     9  29
 ## 153    20     223 11.5   68     9  30</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="minería-de-datos.html#cb117-1"></a>Y_obs&lt;-<span class="kw">na.omit</span>(bd)</span>
-<span id="cb117-2"><a href="minería-de-datos.html#cb117-2"></a>Y_mis&lt;-mice<span class="op">::</span><span class="kw">ic</span>(bd)</span>
-<span id="cb117-3"><a href="minería-de-datos.html#cb117-3"></a></span>
-<span id="cb117-4"><a href="minería-de-datos.html#cb117-4"></a>bd<span class="op">$</span>Ozone[bd<span class="op">$</span>Ozone<span class="op">==</span><span class="st">&quot;**&quot;</span>]&lt;-<span class="ot">NA</span></span>
-<span id="cb117-5"><a href="minería-de-datos.html#cb117-5"></a><span class="co">#gsub recode</span></span>
-<span id="cb117-6"><a href="minería-de-datos.html#cb117-6"></a></span>
-<span id="cb117-7"><a href="minería-de-datos.html#cb117-7"></a><span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="minería-de-datos.html#cb128-1"></a>Y_obs&lt;-<span class="kw">na.omit</span>(bd)</span>
+<span id="cb128-2"><a href="minería-de-datos.html#cb128-2"></a>Y_mis&lt;-mice<span class="op">::</span><span class="kw">ic</span>(bd)</span>
+<span id="cb128-3"><a href="minería-de-datos.html#cb128-3"></a></span>
+<span id="cb128-4"><a href="minería-de-datos.html#cb128-4"></a>bd<span class="op">$</span>Ozone[bd<span class="op">$</span>Ozone<span class="op">==</span><span class="st">&quot;**&quot;</span>]&lt;-<span class="ot">NA</span></span>
+<span id="cb128-5"><a href="minería-de-datos.html#cb128-5"></a><span class="co">#gsub recode</span></span>
+<span id="cb128-6"><a href="minería-de-datos.html#cb128-6"></a></span>
+<span id="cb128-7"><a href="minería-de-datos.html#cb128-7"></a><span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>##    
 ##       0   1
 ##   0   2  35
 ##   1   5 111</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="minería-de-datos.html#cb119-1"></a><span class="kw">chisq.test</span>(<span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">2</span>]))</span></code></pre></div>
-<pre><code>## Warning in chisq.test(table(R[, 1], R[, 2])): Chi-squared approximation
-## may be incorrect</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="minería-de-datos.html#cb130-1"></a><span class="kw">chisq.test</span>(<span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">2</span>]))</span></code></pre></div>
+<pre><code>## Warning in chisq.test(table(R[, 1], R[, 2])): Chi-squared
+## approximation may be incorrect</code></pre>
 <pre><code>## 
-##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+##  Pearson&#39;s Chi-squared test with Yates&#39; continuity
+##  correction
 ## 
 ## data:  table(R[, 1], R[, 2])
-## X-squared = 0.00000000000000000000000000001799, df = 1,
-## p-value = 1</code></pre>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="minería-de-datos.html#cb122-1"></a><span class="kw">apply</span>(R,<span class="dv">2</span>,mean)</span></code></pre></div>
+## X-squared = 1.799e-29, df = 1, p-value = 1</code></pre>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="minería-de-datos.html#cb133-1"></a><span class="kw">apply</span>(R,<span class="dv">2</span>,mean)</span></code></pre></div>
 <pre><code>##     Ozone   Solar.R      Wind      Temp     Month       Day 
 ## 0.7581699 0.9542484 1.0000000 1.0000000 1.0000000 1.0000000</code></pre>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="minería-de-datos.html#cb124-1"></a><span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">3</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="minería-de-datos.html#cb135-1"></a><span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">3</span>])</span></code></pre></div>
 <pre><code>##    
 ##       1
 ##   0  37
 ##   1 116</code></pre>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="minería-de-datos.html#cb126-1"></a><span class="kw">chisq.test</span>(<span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">3</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="minería-de-datos.html#cb137-1"></a><span class="kw">chisq.test</span>(<span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">3</span>]))</span></code></pre></div>
 <pre><code>## 
 ##  Chi-squared test for given probabilities
 ## 
 ## data:  table(R[, 1], R[, 3])
-## X-squared = 40.791, df = 1, p-value = 0.0000000001694</code></pre>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="minería-de-datos.html#cb128-1"></a><span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">4</span>])</span></code></pre></div>
+## X-squared = 40.791, df = 1, p-value = 1.694e-10</code></pre>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="minería-de-datos.html#cb139-1"></a><span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">4</span>])</span></code></pre></div>
 <pre><code>##    
 ##       1
 ##   0  37
 ##   1 116</code></pre>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="minería-de-datos.html#cb130-1"></a><span class="kw">chisq.test</span>(<span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">4</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="minería-de-datos.html#cb141-1"></a><span class="kw">chisq.test</span>(<span class="kw">table</span>(R[,<span class="dv">1</span>],R[,<span class="dv">4</span>]))</span></code></pre></div>
 <pre><code>## 
 ##  Chi-squared test for given probabilities
 ## 
 ## data:  table(R[, 1], R[, 4])
-## X-squared = 40.791, df = 1, p-value = 0.0000000001694</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="minería-de-datos.html#cb132-1"></a>R&lt;-<span class="kw">as.data.frame</span>(R)</span>
-<span id="cb132-2"><a href="minería-de-datos.html#cb132-2"></a>m1&lt;-<span class="kw">glm</span>(Ozone<span class="op">~</span>Solar.R,<span class="dt">data =</span> R,<span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>) <span class="co"># logit</span></span>
-<span id="cb132-3"><a href="minería-de-datos.html#cb132-3"></a></span>
-<span id="cb132-4"><a href="minería-de-datos.html#cb132-4"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
+## X-squared = 40.791, df = 1, p-value = 1.694e-10</code></pre>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="minería-de-datos.html#cb143-1"></a>R&lt;-<span class="kw">as.data.frame</span>(R)</span>
+<span id="cb143-2"><a href="minería-de-datos.html#cb143-2"></a>m1&lt;-<span class="kw">glm</span>(Ozone<span class="op">~</span>Solar.R,<span class="dt">data =</span> R,<span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>) <span class="co"># logit</span></span>
+<span id="cb143-3"><a href="minería-de-datos.html#cb143-3"></a></span>
+<span id="cb143-4"><a href="minería-de-datos.html#cb143-4"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = Ozone ~ Solar.R, family = &quot;binomial&quot;, data = R)
@@ -1371,7 +1388,7 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 ## AIC: 173.2
 ## 
 ## Number of Fisher Scoring iterations: 4</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="minería-de-datos.html#cb134-1"></a><span class="kw">summary</span>(<span class="kw">lm</span>(Ozone<span class="op">~</span>Solar.R,<span class="dt">data=</span>bd2))</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="minería-de-datos.html#cb145-1"></a><span class="kw">summary</span>(<span class="kw">lm</span>(Ozone<span class="op">~</span>Solar.R,<span class="dt">data=</span>bd2))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Ozone ~ Solar.R, data = bd2)
@@ -1393,57 +1410,62 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 <ul>
 <li>Pairwise deletion (casos parciales)</li>
 </ul>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="minería-de-datos.html#cb136-1"></a><span class="kw">dim</span>(<span class="kw">na.omit</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="minería-de-datos.html#cb147-1"></a><span class="kw">dim</span>(<span class="kw">na.omit</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]))</span></code></pre></div>
 <pre><code>## [1] 111   2</code></pre>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="minería-de-datos.html#cb138-1"></a><span class="kw">dim</span>(<span class="kw">na.omit</span>(airquality[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]))</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="minería-de-datos.html#cb149-1"></a><span class="kw">dim</span>(<span class="kw">na.omit</span>(airquality[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]))</span></code></pre></div>
 <pre><code>## [1] 116   2</code></pre>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="minería-de-datos.html#cb140-1"></a><span class="kw">dim</span>(<span class="kw">na.omit</span>(airquality[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]))</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="minería-de-datos.html#cb151-1"></a><span class="kw">dim</span>(<span class="kw">na.omit</span>(airquality[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]))</span></code></pre></div>
 <pre><code>## [1] 146   2</code></pre>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="minería-de-datos.html#cb142-1"></a><span class="kw">cor</span>(<span class="kw">na.omit</span>(airquality[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]))</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="minería-de-datos.html#cb153-1"></a><span class="kw">cor</span>(<span class="kw">na.omit</span>(airquality[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]))</span></code></pre></div>
 <pre><code>##             Solar.R        Wind
 ## Solar.R  1.00000000 -0.05679167
 ## Wind    -0.05679167  1.00000000</code></pre>
 <ul>
 <li>Mean imputation (MCAR)</li>
 </ul>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="minería-de-datos.html#cb144-1"></a>bd&lt;-airquality</span>
-<span id="cb144-2"><a href="minería-de-datos.html#cb144-2"></a>m1&lt;-<span class="kw">mean</span>(bd<span class="op">$</span>Ozone,<span class="dt">na.rm=</span>T)</span>
-<span id="cb144-3"><a href="minería-de-datos.html#cb144-3"></a>bd<span class="op">$</span>Ozone[<span class="kw">is.na</span>(bd<span class="op">$</span>Ozone)]&lt;-m1</span>
-<span id="cb144-4"><a href="minería-de-datos.html#cb144-4"></a><span class="kw">mean</span>(bd<span class="op">$</span>Ozone)</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="minería-de-datos.html#cb155-1"></a>bd&lt;-airquality</span>
+<span id="cb155-2"><a href="minería-de-datos.html#cb155-2"></a>m1&lt;-<span class="kw">mean</span>(bd<span class="op">$</span>Ozone,<span class="dt">na.rm=</span>T)</span>
+<span id="cb155-3"><a href="minería-de-datos.html#cb155-3"></a>bd<span class="op">$</span>Ozone[<span class="kw">is.na</span>(bd<span class="op">$</span>Ozone)]&lt;-m1</span>
+<span id="cb155-4"><a href="minería-de-datos.html#cb155-4"></a><span class="kw">mean</span>(bd<span class="op">$</span>Ozone)</span></code></pre></div>
 <pre><code>## [1] 42.12931</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="minería-de-datos.html#cb146-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb146-2"><a href="minería-de-datos.html#cb146-2"></a><span class="kw">hist</span>(airquality<span class="op">$</span>Ozone)</span>
-<span id="cb146-3"><a href="minería-de-datos.html#cb146-3"></a><span class="kw">hist</span>(bd<span class="op">$</span>Ozone)</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="minería-de-datos.html#cb157-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb157-2"><a href="minería-de-datos.html#cb157-2"></a><span class="kw">hist</span>(airquality<span class="op">$</span>Ozone)</span>
+<span id="cb157-3"><a href="minería-de-datos.html#cb157-3"></a><span class="kw">hist</span>(bd<span class="op">$</span>Ozone)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="minería-de-datos.html#cb147-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb147-2"><a href="minería-de-datos.html#cb147-2"></a><span class="kw">plot</span>(<span class="kw">density</span>(airquality<span class="op">$</span>Ozone,<span class="dt">na.rm=</span>T))</span>
-<span id="cb147-3"><a href="minería-de-datos.html#cb147-3"></a><span class="kw">plot</span>(<span class="kw">density</span>(bd<span class="op">$</span>Ozone,<span class="dt">na.rm=</span>T))</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="minería-de-datos.html#cb158-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb158-2"><a href="minería-de-datos.html#cb158-2"></a><span class="kw">plot</span>(<span class="kw">density</span>(airquality<span class="op">$</span>Ozone,<span class="dt">na.rm=</span>T))</span>
+<span id="cb158-3"><a href="minería-de-datos.html#cb158-3"></a><span class="kw">plot</span>(<span class="kw">density</span>(bd<span class="op">$</span>Ozone,<span class="dt">na.rm=</span>T))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-18-2.png" width="672" /></p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="minería-de-datos.html#cb148-1"></a><span class="kw">library</span>(mice)</span>
-<span id="cb148-2"><a href="minería-de-datos.html#cb148-2"></a>imp &lt;-<span class="st"> </span><span class="kw">mice</span>(airquality, <span class="dt">method =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">maxit =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="minería-de-datos.html#cb159-1"></a><span class="kw">library</span>(mice)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;mice&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     cbind, rbind</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="minería-de-datos.html#cb162-1"></a>imp &lt;-<span class="st"> </span><span class="kw">mice</span>(airquality, <span class="dt">method =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">maxit =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ##  iter imp variable
 ##   1   1  Ozone  Solar.R</code></pre>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="minería-de-datos.html#cb150-1"></a>bdi&lt;-<span class="kw">complete</span>(imp)</span>
-<span id="cb150-2"><a href="minería-de-datos.html#cb150-2"></a></span>
-<span id="cb150-3"><a href="minería-de-datos.html#cb150-3"></a><span class="kw">cor</span>(<span class="kw">na.omit</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="minería-de-datos.html#cb164-1"></a>bdi&lt;-<span class="kw">complete</span>(imp)</span>
+<span id="cb164-2"><a href="minería-de-datos.html#cb164-2"></a></span>
+<span id="cb164-3"><a href="minería-de-datos.html#cb164-3"></a><span class="kw">cor</span>(<span class="kw">na.omit</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]))</span></code></pre></div>
 <pre><code>##             Ozone   Solar.R
 ## Ozone   1.0000000 0.3483417
 ## Solar.R 0.3483417 1.0000000</code></pre>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="minería-de-datos.html#cb152-1"></a><span class="kw">cor</span>(bd[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="minería-de-datos.html#cb166-1"></a><span class="kw">cor</span>(bd[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
 <pre><code>##         Ozone Solar.R
 ## Ozone       1      NA
 ## Solar.R    NA       1</code></pre>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="minería-de-datos.html#cb154-1"></a><span class="kw">plot</span>(airquality<span class="op">$</span>Ozone,airquality<span class="op">$</span>Solar.R)</span>
-<span id="cb154-2"><a href="minería-de-datos.html#cb154-2"></a><span class="kw">plot</span>(bdi<span class="op">$</span>Ozone,bdi<span class="op">$</span>Solar.R)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="minería-de-datos.html#cb168-1"></a><span class="kw">plot</span>(airquality<span class="op">$</span>Ozone,airquality<span class="op">$</span>Solar.R)</span>
+<span id="cb168-2"><a href="minería-de-datos.html#cb168-2"></a><span class="kw">plot</span>(bdi<span class="op">$</span>Ozone,bdi<span class="op">$</span>Solar.R)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-18-3.png" width="672" /></p>
 <ul>
 <li>Regression imputation (MAR)</li>
 </ul>
 <p><span class="math display">\[y_i=\beta_0+\beta_1 x_i+\epsilon_i\]</span></p>
 <p><span class="math display">\[E[y/x]=\beta_0+\beta_1 x\]</span></p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="minería-de-datos.html#cb155-1"></a>fit &lt;-<span class="st"> </span><span class="kw">lm</span>(Ozone <span class="op">~</span><span class="st"> </span>Solar.R, <span class="dt">data =</span> airquality)</span>
-<span id="cb155-2"><a href="minería-de-datos.html#cb155-2"></a><span class="kw">summary</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="minería-de-datos.html#cb169-1"></a>fit &lt;-<span class="st"> </span><span class="kw">lm</span>(Ozone <span class="op">~</span><span class="st"> </span>Solar.R, <span class="dt">data =</span> airquality)</span>
+<span id="cb169-2"><a href="minería-de-datos.html#cb169-2"></a><span class="kw">summary</span>(fit)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Ozone ~ Solar.R, data = airquality)
@@ -1463,18 +1485,18 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 ##   (42 observations deleted due to missingness)
 ## Multiple R-squared:  0.1213, Adjusted R-squared:  0.1133 
 ## F-statistic: 15.05 on 1 and 109 DF,  p-value: 0.0001793</code></pre>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="minería-de-datos.html#cb157-1"></a>pred &lt;-<span class="st"> </span><span class="kw">predict</span>(fit, <span class="dt">newdata =</span> <span class="kw">ic</span>(airquality))</span>
-<span id="cb157-2"><a href="minería-de-datos.html#cb157-2"></a></span>
-<span id="cb157-3"><a href="minería-de-datos.html#cb157-3"></a><span class="co">#para el caso 10</span></span>
-<span id="cb157-4"><a href="minería-de-datos.html#cb157-4"></a></span>
-<span id="cb157-5"><a href="minería-de-datos.html#cb157-5"></a><span class="fl">18.599+0.127</span><span class="op">*</span><span class="dv">194</span></span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="minería-de-datos.html#cb171-1"></a>pred &lt;-<span class="st"> </span><span class="kw">predict</span>(fit, <span class="dt">newdata =</span> <span class="kw">ic</span>(airquality))</span>
+<span id="cb171-2"><a href="minería-de-datos.html#cb171-2"></a></span>
+<span id="cb171-3"><a href="minería-de-datos.html#cb171-3"></a><span class="co">#para el caso 10</span></span>
+<span id="cb171-4"><a href="minería-de-datos.html#cb171-4"></a></span>
+<span id="cb171-5"><a href="minería-de-datos.html#cb171-5"></a><span class="fl">18.599+0.127</span><span class="op">*</span><span class="dv">194</span></span></code></pre></div>
 <pre><code>## [1] 43.237</code></pre>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="minería-de-datos.html#cb159-1"></a>data &lt;-<span class="st"> </span>airquality[, <span class="kw">c</span>(<span class="st">&quot;Ozone&quot;</span>, <span class="st">&quot;Solar.R&quot;</span>)]</span>
-<span id="cb159-2"><a href="minería-de-datos.html#cb159-2"></a></span>
-<span id="cb159-3"><a href="minería-de-datos.html#cb159-3"></a>imp &lt;-<span class="st"> </span><span class="kw">mice</span>(data, <span class="dt">method =</span> <span class="st">&quot;norm.predict&quot;</span>, <span class="dt">seed =</span> <span class="dv">1</span>,</span>
-<span id="cb159-4"><a href="minería-de-datos.html#cb159-4"></a>           <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">print =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb159-5"><a href="minería-de-datos.html#cb159-5"></a></span>
-<span id="cb159-6"><a href="minería-de-datos.html#cb159-6"></a><span class="kw">complete</span>(imp)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="minería-de-datos.html#cb173-1"></a>data &lt;-<span class="st"> </span>airquality[, <span class="kw">c</span>(<span class="st">&quot;Ozone&quot;</span>, <span class="st">&quot;Solar.R&quot;</span>)]</span>
+<span id="cb173-2"><a href="minería-de-datos.html#cb173-2"></a></span>
+<span id="cb173-3"><a href="minería-de-datos.html#cb173-3"></a>imp &lt;-<span class="st"> </span><span class="kw">mice</span>(data, <span class="dt">method =</span> <span class="st">&quot;norm.predict&quot;</span>, <span class="dt">seed =</span> <span class="dv">1</span>,</span>
+<span id="cb173-4"><a href="minería-de-datos.html#cb173-4"></a>           <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">print =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb173-5"><a href="minería-de-datos.html#cb173-5"></a></span>
+<span id="cb173-6"><a href="minería-de-datos.html#cb173-6"></a><span class="kw">complete</span>(imp)</span></code></pre></div>
 <pre><code>##         Ozone  Solar.R
 ## 1    41.00000 190.0000
 ## 2    36.00000 118.0000
@@ -1629,15 +1651,15 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 ## 151  14.00000 191.0000
 ## 152  18.00000 131.0000
 ## 153  20.00000 223.0000</code></pre>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="minería-de-datos.html#cb161-1"></a><span class="kw">plot</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="minería-de-datos.html#cb175-1"></a><span class="kw">plot</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="minería-de-datos.html#cb162-1"></a><span class="kw">plot</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="minería-de-datos.html#cb176-1"></a><span class="kw">plot</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-19-2.png" width="672" /></p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="minería-de-datos.html#cb163-1"></a><span class="kw">cor</span>(<span class="kw">na.omit</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="minería-de-datos.html#cb177-1"></a><span class="kw">cor</span>(<span class="kw">na.omit</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]))</span></code></pre></div>
 <pre><code>##             Ozone   Solar.R
 ## Ozone   1.0000000 0.3483417
 ## Solar.R 0.3483417 1.0000000</code></pre>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="minería-de-datos.html#cb165-1"></a><span class="kw">cor</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="minería-de-datos.html#cb179-1"></a><span class="kw">cor</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
 <pre><code>##             Ozone   Solar.R
 ## Ozone   1.0000000 0.3948995
 ## Solar.R 0.3948995 1.0000000</code></pre>
@@ -1645,10 +1667,10 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 <li>Stochastic regression imputation (MAR)</li>
 </ul>
 <p><span class="math display">\[y_i=\hat{\beta_0}+\hat{\beta_1} x_i+\hat{\epsilon_i}\]</span></p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="minería-de-datos.html#cb167-1"></a>data &lt;-<span class="st"> </span>airquality[, <span class="kw">c</span>(<span class="st">&quot;Ozone&quot;</span>, <span class="st">&quot;Solar.R&quot;</span>)]</span>
-<span id="cb167-2"><a href="minería-de-datos.html#cb167-2"></a>imp &lt;-<span class="st"> </span><span class="kw">mice</span>(data, <span class="dt">method =</span> <span class="st">&quot;norm.nob&quot;</span>, <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">maxit =</span> <span class="dv">1</span>,</span>
-<span id="cb167-3"><a href="minería-de-datos.html#cb167-3"></a>            <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">print =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb167-4"><a href="minería-de-datos.html#cb167-4"></a><span class="kw">complete</span>(imp)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="minería-de-datos.html#cb181-1"></a>data &lt;-<span class="st"> </span>airquality[, <span class="kw">c</span>(<span class="st">&quot;Ozone&quot;</span>, <span class="st">&quot;Solar.R&quot;</span>)]</span>
+<span id="cb181-2"><a href="minería-de-datos.html#cb181-2"></a>imp &lt;-<span class="st"> </span><span class="kw">mice</span>(data, <span class="dt">method =</span> <span class="st">&quot;norm.nob&quot;</span>, <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">maxit =</span> <span class="dv">1</span>,</span>
+<span id="cb181-3"><a href="minería-de-datos.html#cb181-3"></a>            <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">print =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb181-4"><a href="minería-de-datos.html#cb181-4"></a><span class="kw">complete</span>(imp)</span></code></pre></div>
 <pre><code>##           Ozone   Solar.R
 ## 1    41.0000000 190.00000
 ## 2    36.0000000 118.00000
@@ -1803,29 +1825,29 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 ## 151  14.0000000 191.00000
 ## 152  18.0000000 131.00000
 ## 153  20.0000000 223.00000</code></pre>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="minería-de-datos.html#cb169-1"></a><span class="kw">plot</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="minería-de-datos.html#cb183-1"></a><span class="kw">plot</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="minería-de-datos.html#cb170-1"></a><span class="kw">plot</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="minería-de-datos.html#cb184-1"></a><span class="kw">plot</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-20-2.png" width="672" /></p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="minería-de-datos.html#cb171-1"></a><span class="kw">cor</span>(<span class="kw">na.omit</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="minería-de-datos.html#cb185-1"></a><span class="kw">cor</span>(<span class="kw">na.omit</span>(airquality[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]))</span></code></pre></div>
 <pre><code>##             Ozone   Solar.R
 ## Ozone   1.0000000 0.3483417
 ## Solar.R 0.3483417 1.0000000</code></pre>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="minería-de-datos.html#cb173-1"></a><span class="kw">cor</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="minería-de-datos.html#cb187-1"></a><span class="kw">cor</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
 <pre><code>##             Ozone   Solar.R
 ## Ozone   1.0000000 0.3964026
 ## Solar.R 0.3964026 1.0000000</code></pre>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="minería-de-datos.html#cb175-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(airquality<span class="op">$</span>Ozone,<span class="dt">na.rm=</span>T))</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="minería-de-datos.html#cb189-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(airquality<span class="op">$</span>Ozone,<span class="dt">na.rm=</span>T))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-20-3.png" width="672" /></p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="minería-de-datos.html#cb176-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span>],<span class="dt">na.rm=</span>T))</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="minería-de-datos.html#cb190-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(<span class="kw">complete</span>(imp)[,<span class="dv">1</span>],<span class="dt">na.rm=</span>T))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-20-4.png" width="672" /></p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="minería-de-datos.html#cb177-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(airquality<span class="op">$</span>Solar.R,<span class="dt">na.rm=</span>T))</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="minería-de-datos.html#cb191-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(airquality<span class="op">$</span>Solar.R,<span class="dt">na.rm=</span>T))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-20-5.png" width="672" /></p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="minería-de-datos.html#cb178-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(<span class="kw">complete</span>(imp)[,<span class="dv">2</span>],<span class="dt">na.rm=</span>T))</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="minería-de-datos.html#cb192-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(<span class="kw">complete</span>(imp)[,<span class="dv">2</span>],<span class="dt">na.rm=</span>T))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-20-6.png" width="672" /></p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="minería-de-datos.html#cb179-1"></a>imp&lt;-<span class="kw">mice</span>(airquality, <span class="dt">method =</span> <span class="st">&quot;norm.nob&quot;</span>, <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">maxit =</span> <span class="dv">1</span>,</span>
-<span id="cb179-2"><a href="minería-de-datos.html#cb179-2"></a>            <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">print =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb179-3"><a href="minería-de-datos.html#cb179-3"></a><span class="kw">complete</span>(imp)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="minería-de-datos.html#cb193-1"></a>imp&lt;-<span class="kw">mice</span>(airquality, <span class="dt">method =</span> <span class="st">&quot;norm.nob&quot;</span>, <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">maxit =</span> <span class="dv">1</span>,</span>
+<span id="cb193-2"><a href="minería-de-datos.html#cb193-2"></a>            <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">print =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb193-3"><a href="minería-de-datos.html#cb193-3"></a><span class="kw">complete</span>(imp)</span></code></pre></div>
 <pre><code>##           Ozone    Solar.R Wind Temp Month Day
 ## 1    41.0000000 190.000000  7.4   67     5   1
 ## 2    36.0000000 118.000000  8.0   72     5   2
@@ -1980,7 +2002,7 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 ## 151  14.0000000 191.000000 14.3   75     9  28
 ## 152  18.0000000 131.000000  8.0   76     9  29
 ## 153  20.0000000 223.000000 11.5   68     9  30</code></pre>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="minería-de-datos.html#cb181-1"></a><span class="kw">md.pattern</span>(airquality, <span class="dt">plot =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="minería-de-datos.html#cb195-1"></a><span class="kw">md.pattern</span>(airquality, <span class="dt">plot =</span> T)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <pre><code>##     Wind Temp Month Day Solar.R Ozone   
 ## 111    1    1     1   1       1     1  0
@@ -1988,7 +2010,7 @@ La variable con mayor outflux está mejor conectada a los datos faltantes, por l
 ## 5      1    1     1   1       0     1  1
 ## 2      1    1     1   1       0     0  2
 ##        0    0     0   0       7    37 44</code></pre>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="minería-de-datos.html#cb183-1"></a><span class="kw">flux</span>(airquality)[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="minería-de-datos.html#cb197-1"></a><span class="kw">flux</span>(airquality)[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>##              pobs     influx   outflux
 ## Ozone   0.7581699 0.20938215 0.1136364
 ## Solar.R 0.9542484 0.03775744 0.7954545

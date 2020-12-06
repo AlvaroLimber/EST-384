@@ -24,7 +24,7 @@
 <meta name="author" content="Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2020-11-11" />
+<meta name="date" content="2020-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,6 +51,8 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -219,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="clasificación.html"><a href="clasificación.html"><i class="fa fa-check"></i><b>5</b> Clasificación</a><ul>
-<li class="chapter" data-level="5.1" data-path="clasificación.html"><a href="clasificación.html#logit-probit"><i class="fa fa-check"></i><b>5.1</b> Logit Probit</a><ul>
+<li class="chapter" data-level="5.1" data-path="clasificación.html"><a href="clasificación.html#logitprobit"><i class="fa fa-check"></i><b>5.1</b> Logit/Probit</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="clasificación.html"><a href="clasificación.html#pasos"><i class="fa fa-check"></i><b>5.1.1</b> Pasos</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="clasificación.html"><a href="clasificación.html#arboles-de-clasificación-cart"><i class="fa fa-check"></i><b>5.2</b> Arboles de clasificación (CART)</a><ul>
@@ -278,154 +280,292 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 * Naive bayes</li>
 </ol>
 <p>Base de datos, se empleara la base de datos de covid de México.</p>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="clasificación.html#cb399-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb399-2"><a href="clasificación.html#cb399-2"></a>covid&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">covid_mx</span><span class="ch">\\</span><span class="st">200627COVID19MEXICO.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="dv">99</span>,<span class="dv">98</span>))</span>
-<span id="cb399-3"><a href="clasificación.html#cb399-3"></a><span class="kw">object.size</span>(covid)<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span></span></code></pre></div>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="clasificación.html#cb437-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb437-2"><a href="clasificación.html#cb437-2"></a>covid&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">covid_mx</span><span class="ch">\\</span><span class="st">200627COVID19MEXICO.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="dv">99</span>,<span class="dv">98</span>))</span>
+<span id="cb437-3"><a href="clasificación.html#cb437-3"></a></span>
+<span id="cb437-4"><a href="clasificación.html#cb437-4"></a><span class="kw">object.size</span>(covid)<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span></span></code></pre></div>
 <pre><code>## 123.5 bytes</code></pre>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="clasificación.html#cb401-1"></a>vv&lt;-<span class="kw">c</span>(<span class="st">&quot;SEXO&quot;</span>,<span class="st">&quot;FECHA_DEF&quot;</span>,<span class="st">&quot;NEUMONIA&quot;</span>,<span class="st">&quot;EDAD&quot;</span>,<span class="st">&quot;HABLA_LENGUA_INDIG&quot;</span>,<span class="st">&quot;DIABETES&quot;</span>,<span class="st">&quot;EPOC&quot;</span>,<span class="st">&quot;ASMA&quot;</span>,<span class="st">&quot;INMUSUPR&quot;</span>,<span class="st">&quot;HIPERTENSION&quot;</span>,<span class="st">&quot;OTRA_COM&quot;</span>,<span class="st">&quot;CARDIOVASCULAR&quot;</span>,<span class="st">&quot;OBESIDAD&quot;</span>,<span class="st">&quot;RENAL_CRONICA&quot;</span>,<span class="st">&quot;TABAQUISMO&quot;</span>,<span class="st">&quot;RESULTADO&quot;</span>)</span>
-<span id="cb401-2"><a href="clasificación.html#cb401-2"></a>covid&lt;-covid[,vv]</span>
-<span id="cb401-3"><a href="clasificación.html#cb401-3"></a>covid&lt;-covid <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(EDAD<span class="op">&lt;=</span><span class="dv">90</span>)</span>
-<span id="cb401-4"><a href="clasificación.html#cb401-4"></a><span class="co">#Descripción </span></span>
-<span id="cb401-5"><a href="clasificación.html#cb401-5"></a>Hmisc<span class="op">::</span><span class="kw">describe</span>(covid)</span></code></pre></div>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="clasificación.html#cb439-1"></a>vv&lt;-<span class="kw">c</span>(<span class="st">&quot;SEXO&quot;</span>,<span class="st">&quot;FECHA_DEF&quot;</span>,<span class="st">&quot;NEUMONIA&quot;</span>,<span class="st">&quot;EDAD&quot;</span>,<span class="st">&quot;HABLA_LENGUA_INDIG&quot;</span>,<span class="st">&quot;DIABETES&quot;</span>,<span class="st">&quot;EPOC&quot;</span>,<span class="st">&quot;ASMA&quot;</span>,<span class="st">&quot;INMUSUPR&quot;</span>,<span class="st">&quot;HIPERTENSION&quot;</span>,<span class="st">&quot;OTRA_COM&quot;</span>,<span class="st">&quot;CARDIOVASCULAR&quot;</span>,<span class="st">&quot;OBESIDAD&quot;</span>,<span class="st">&quot;RENAL_CRONICA&quot;</span>,<span class="st">&quot;TABAQUISMO&quot;</span>,<span class="st">&quot;RESULTADO&quot;</span>)</span>
+<span id="cb439-2"><a href="clasificación.html#cb439-2"></a></span>
+<span id="cb439-3"><a href="clasificación.html#cb439-3"></a>covid&lt;-covid <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(vv)</span></code></pre></div>
+<pre><code>## Note: Using an external vector in selections is ambiguous.
+## i Use `all_of(vv)` instead of `vv` to silence this message.
+## i See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
+## This message is displayed once per session.</code></pre>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="clasificación.html#cb441-1"></a><span class="co">#Descripción </span></span>
+<span id="cb441-2"><a href="clasificación.html#cb441-2"></a><span class="kw">library</span>(Hmisc)</span>
+<span id="cb441-3"><a href="clasificación.html#cb441-3"></a><span class="kw">describe</span>(covid)</span></code></pre></div>
 <pre><code>## covid 
 ## 
-##  16  Variables      549476  Observations
-## -----------------------------------------------------------------------
+##  16  Variables      551052  Observations
+## --------------------------------------------------------------------
 ## SEXO 
 ##        n  missing distinct     Info     Mean      Gmd 
-##   549476        0        2     0.75    1.507   0.4999 
+##   551052        0        2     0.75    1.507   0.4999 
 ##                         
 ## Value           1      2
-## Frequency  270904 278572
+## Frequency  271758 279294
 ## Proportion  0.493  0.507
-## -----------------------------------------------------------------------
+## --------------------------------------------------------------------
 ## FECHA_DEF 
 ##        n  missing distinct 
-##   549476        0      122 
+##   551052        0      122 
 ## 
 ## lowest : 2020-01-13 2020-01-14 2020-01-15 2020-01-29 2020-01-30
 ## highest: 2020-06-24 2020-06-25 2020-06-26 2020-06-27 9999-99-99
-## -----------------------------------------------------------------------
+## --------------------------------------------------------------------
 ## NEUMONIA 
 ##        n  missing distinct     Info     Mean      Gmd 
-##   549465       11        2    0.392    1.845   0.2615 
+##   551041       11        2    0.394    1.845   0.2624 
 ##                         
 ## Value           1      2
-## Frequency   84969 464496
+## Frequency   85595 465446
 ## Proportion  0.155  0.845
-## -----------------------------------------------------------------------
+## --------------------------------------------------------------------
 ## EDAD 
 ##        n  missing distinct     Info     Mean      Gmd      .05 
-##   549476        0       91        1    42.45    18.47       19 
+##   550932      120      118        1    42.59    18.64       19 
 ##      .10      .25      .50      .75      .90      .95 
-##       24       31       41       53       65       72 
+##       24       31       41       53       65       73 
 ## 
-## lowest :  0  1  2  3  4, highest: 86 87 88 89 90
-## -----------------------------------------------------------------------
+## lowest :   0   1   2   3   4, highest: 116 117 118 119 120
+## --------------------------------------------------------------------
 ## HABLA_LENGUA_INDIG 
 ##        n  missing distinct     Info     Mean      Gmd 
-##   531854    17622        2    0.029     1.99   0.0196 
+##   533374    17678        2    0.029     1.99  0.01962 
 ##                         
 ## Value           1      2
-## Frequency    5264 526590
+## Frequency    5285 528089
 ## Proportion   0.01   0.99
-## -----------------------------------------------------------------------
+## --------------------------------------------------------------------
 ## DIABETES 
 ##        n  missing distinct     Info     Mean      Gmd 
-##   547557     1919        2    0.328    1.875   0.2187 
+##   549108     1944        2    0.328    1.875    0.219 
 ##                         
 ## Value           1      2
-## Frequency   68437 479120
+## Frequency   68729 480379
 ## Proportion  0.125  0.875
-## -----------------------------------------------------------------------
+## --------------------------------------------------------------------
 ## EPOC 
 ##        n  missing distinct     Info     Mean      Gmd 
-##   547788     1688        2    0.047    1.984  0.03108 
+##   549338     1714        2    0.048    1.984  0.03196 
 ##                         
 ## Value           1      2
-## Frequency    8650 539138
+## Frequency    8923 540415
 ## Proportion  0.016  0.984
-## -----------------------------------------------------------------------
+## --------------------------------------------------------------------
 ## ASMA 
 ##        n  missing distinct     Info     Mean      Gmd 
-##   547781     1695        2    0.093    1.968  0.06216 
+##   549333     1719        2    0.093    1.968  0.06209 
 ##                         
 ## Value           1      2
-## Frequency   17589 530192
+## Frequency   17620 531713
 ## Proportion  0.032  0.968
-## -----------------------------------------------------------------------
+## --------------------------------------------------------------------
 ## INMUSUPR 
 ##        n  missing distinct     Info     Mean      Gmd 
-##   547565     1911        2    0.047    1.984  0.03133 
+##   549112     1940        2    0.047    1.984   0.0314 
 ##                         
 ## Value           1      2
-## Frequency    8715 538850
+## Frequency    8761 540351
 ## Proportion  0.016  0.984
-## -----------------------------------------------------------------------
+## --------------------------------------------------------------------
 ## HIPERTENSION 
 ##        n  missing distinct     Info     Mean      Gmd 
-##   547713     1763        2    0.409    1.837   0.2724 
+##   549264     1788        2     0.41    1.837   0.2735 
 ##                         
 ## Value           1      2
-## Frequency   89094 458619
+## Frequency   89795 459469
 ## Proportion  0.163  0.837
-## -----------------------------------------------------------------------
+## --------------------------------------------------------------------
 ## OTRA_COM 
 ##        n  missing distinct     Info     Mean      Gmd 
-##   546958     2518        2    0.088     1.97  0.05884 
+##   548499     2553        2    0.089     1.97  0.05905 
 ##                         
 ## Value           1      2
-## Frequency   16596 530362
+## Frequency   16702 531797
 ## Proportion   0.03   0.97
-## -----------------------------------------------------------------------
+## --------------------------------------------------------------------
 ## CARDIOVASCULAR 
 ##        n  missing distinct     Info     Mean      Gmd 
-##   547716     1760        2    0.066    1.978  0.04372 
+##   549266     1786        2    0.066    1.977  0.04433 
 ##                         
 ## Value           1      2
-## Frequency   12246 535470
-## Proportion  0.022  0.978
-## -----------------------------------------------------------------------
+## Frequency   12457 536809
+## Proportion  0.023  0.977
+## --------------------------------------------------------------------
 ## OBESIDAD 
 ##        n  missing distinct     Info     Mean      Gmd 
-##   547756     1720        2    0.411    1.836    0.274 
+##   549307     1745        2     0.41    1.836   0.2736 
 ##                         
 ## Value           1      2
-## Frequency   89749 458007
+## Frequency   89842 459465
 ## Proportion  0.164  0.836
-## -----------------------------------------------------------------------
+## --------------------------------------------------------------------
 ## RENAL_CRONICA 
 ##        n  missing distinct     Info     Mean      Gmd 
-##   547749     1727        2    0.058     1.98  0.03897 
+##   549299     1753        2    0.059     1.98  0.03911 
 ##                         
 ## Value           1      2
-## Frequency   10889 536860
+## Frequency   10961 538338
 ## Proportion   0.02   0.98
-## -----------------------------------------------------------------------
+## --------------------------------------------------------------------
 ## TABAQUISMO 
 ##        n  missing distinct     Info     Mean      Gmd 
-##   547637     1839        2    0.234    1.915    0.156 
+##   549188     1864        2    0.234    1.915    0.156 
 ##                         
 ## Value           1      2
-## Frequency   46713 500924
+## Frequency   46842 502346
 ## Proportion  0.085  0.915
-## -----------------------------------------------------------------------
+## --------------------------------------------------------------------
 ## RESULTADO 
 ##        n  missing distinct     Info     Mean      Gmd 
-##   549476        0        3    0.821    1.736    0.688 
+##   551052        0        3    0.821    1.736    0.688 
 ##                                
 ## Value           1      2      3
-## Frequency  212222 270355  66899
+## Frequency  212802 271151  67099
 ## Proportion  0.386  0.492  0.122
-## -----------------------------------------------------------------------</code></pre>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="clasificación.html#cb403-1"></a><span class="co">#variable muerte</span></span>
-<span id="cb403-2"><a href="clasificación.html#cb403-2"></a>covid<span class="op">$</span>muerte&lt;-(covid<span class="op">$</span>FECHA_DEF<span class="op">!=</span><span class="st">&quot;9999-99-99&quot;</span>)</span>
-<span id="cb403-3"><a href="clasificación.html#cb403-3"></a>covid&lt;-covid <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>FECHA_DEF)</span>
-<span id="cb403-4"><a href="clasificación.html#cb403-4"></a>covid&lt;-<span class="kw">na.omit</span>(covid)</span></code></pre></div>
-<div id="logit-probit" class="section level2">
-<h2><span class="header-section-number">5.1</span> Logit Probit</h2>
+## --------------------------------------------------------------------</code></pre>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="clasificación.html#cb443-1"></a>Hmisc<span class="op">::</span><span class="kw">describe</span>(covid)</span></code></pre></div>
+<pre><code>## covid 
+## 
+##  16  Variables      551052  Observations
+## --------------------------------------------------------------------
+## SEXO 
+##        n  missing distinct     Info     Mean      Gmd 
+##   551052        0        2     0.75    1.507   0.4999 
+##                         
+## Value           1      2
+## Frequency  271758 279294
+## Proportion  0.493  0.507
+## --------------------------------------------------------------------
+## FECHA_DEF 
+##        n  missing distinct 
+##   551052        0      122 
+## 
+## lowest : 2020-01-13 2020-01-14 2020-01-15 2020-01-29 2020-01-30
+## highest: 2020-06-24 2020-06-25 2020-06-26 2020-06-27 9999-99-99
+## --------------------------------------------------------------------
+## NEUMONIA 
+##        n  missing distinct     Info     Mean      Gmd 
+##   551041       11        2    0.394    1.845   0.2624 
+##                         
+## Value           1      2
+## Frequency   85595 465446
+## Proportion  0.155  0.845
+## --------------------------------------------------------------------
+## EDAD 
+##        n  missing distinct     Info     Mean      Gmd      .05 
+##   550932      120      118        1    42.59    18.64       19 
+##      .10      .25      .50      .75      .90      .95 
+##       24       31       41       53       65       73 
+## 
+## lowest :   0   1   2   3   4, highest: 116 117 118 119 120
+## --------------------------------------------------------------------
+## HABLA_LENGUA_INDIG 
+##        n  missing distinct     Info     Mean      Gmd 
+##   533374    17678        2    0.029     1.99  0.01962 
+##                         
+## Value           1      2
+## Frequency    5285 528089
+## Proportion   0.01   0.99
+## --------------------------------------------------------------------
+## DIABETES 
+##        n  missing distinct     Info     Mean      Gmd 
+##   549108     1944        2    0.328    1.875    0.219 
+##                         
+## Value           1      2
+## Frequency   68729 480379
+## Proportion  0.125  0.875
+## --------------------------------------------------------------------
+## EPOC 
+##        n  missing distinct     Info     Mean      Gmd 
+##   549338     1714        2    0.048    1.984  0.03196 
+##                         
+## Value           1      2
+## Frequency    8923 540415
+## Proportion  0.016  0.984
+## --------------------------------------------------------------------
+## ASMA 
+##        n  missing distinct     Info     Mean      Gmd 
+##   549333     1719        2    0.093    1.968  0.06209 
+##                         
+## Value           1      2
+## Frequency   17620 531713
+## Proportion  0.032  0.968
+## --------------------------------------------------------------------
+## INMUSUPR 
+##        n  missing distinct     Info     Mean      Gmd 
+##   549112     1940        2    0.047    1.984   0.0314 
+##                         
+## Value           1      2
+## Frequency    8761 540351
+## Proportion  0.016  0.984
+## --------------------------------------------------------------------
+## HIPERTENSION 
+##        n  missing distinct     Info     Mean      Gmd 
+##   549264     1788        2     0.41    1.837   0.2735 
+##                         
+## Value           1      2
+## Frequency   89795 459469
+## Proportion  0.163  0.837
+## --------------------------------------------------------------------
+## OTRA_COM 
+##        n  missing distinct     Info     Mean      Gmd 
+##   548499     2553        2    0.089     1.97  0.05905 
+##                         
+## Value           1      2
+## Frequency   16702 531797
+## Proportion   0.03   0.97
+## --------------------------------------------------------------------
+## CARDIOVASCULAR 
+##        n  missing distinct     Info     Mean      Gmd 
+##   549266     1786        2    0.066    1.977  0.04433 
+##                         
+## Value           1      2
+## Frequency   12457 536809
+## Proportion  0.023  0.977
+## --------------------------------------------------------------------
+## OBESIDAD 
+##        n  missing distinct     Info     Mean      Gmd 
+##   549307     1745        2     0.41    1.836   0.2736 
+##                         
+## Value           1      2
+## Frequency   89842 459465
+## Proportion  0.164  0.836
+## --------------------------------------------------------------------
+## RENAL_CRONICA 
+##        n  missing distinct     Info     Mean      Gmd 
+##   549299     1753        2    0.059     1.98  0.03911 
+##                         
+## Value           1      2
+## Frequency   10961 538338
+## Proportion   0.02   0.98
+## --------------------------------------------------------------------
+## TABAQUISMO 
+##        n  missing distinct     Info     Mean      Gmd 
+##   549188     1864        2    0.234    1.915    0.156 
+##                         
+## Value           1      2
+## Frequency   46842 502346
+## Proportion  0.085  0.915
+## --------------------------------------------------------------------
+## RESULTADO 
+##        n  missing distinct     Info     Mean      Gmd 
+##   551052        0        3    0.821    1.736    0.688 
+##                                
+## Value           1      2      3
+## Frequency  212802 271151  67099
+## Proportion  0.386  0.492  0.122
+## --------------------------------------------------------------------</code></pre>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="clasificación.html#cb445-1"></a><span class="co">#variable muerte</span></span>
+<span id="cb445-2"><a href="clasificación.html#cb445-2"></a>covid&lt;-covid <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">muerte=</span>(FECHA_DEF<span class="op">!=</span><span class="st">&quot;9999-99-99&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>FECHA_DEF) </span>
+<span id="cb445-3"><a href="clasificación.html#cb445-3"></a><span class="co"># valores perdidos</span></span>
+<span id="cb445-4"><a href="clasificación.html#cb445-4"></a>covid&lt;-<span class="kw">na.omit</span>(covid)</span></code></pre></div>
+<div id="logitprobit" class="section level2">
+<h2><span class="header-section-number">5.1</span> Logit/Probit</h2>
 <ul>
-<li>Se usa para realizar clasificaciones basadas en probabilidades</li>
+<li>Se usan para realizar clasificaciones basadas en probabilidades</li>
 <li>Las clasificaciones son del tipo 1/0</li>
 <li>Existen variaciones para clasificar considerando más grupos, empleando el logit y probit ordenado.</li>
 </ul>
@@ -434,29 +574,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="0" style="list-style-type: decimal">
 <li>Identificar la variable (1/0) que se requiere clasificar, definir covariables para construir el modelos</li>
 </ol>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="clasificación.html#cb404-1"></a><span class="kw">table</span>(covid<span class="op">$</span>muerte)</span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="clasificación.html#cb446-1"></a><span class="kw">table</span>(covid<span class="op">$</span>muerte)<span class="co">## clasificación (Y)</span></span></code></pre></div>
 <pre><code>## 
 ##  FALSE   TRUE 
-## 494841  33611</code></pre>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="clasificación.html#cb406-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(covid<span class="op">$</span>muerte))</span></code></pre></div>
+## 495886  33942</code></pre>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="clasificación.html#cb448-1"></a><span class="kw">table</span>(covid<span class="op">$</span>RESULTADO)</span></code></pre></div>
 <pre><code>## 
-##      FALSE       TRUE 
-## 0.93639725 0.06360275</code></pre>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="clasificación.html#cb408-1"></a><span class="co">##################################################</span></span>
-<span id="cb408-2"><a href="clasificación.html#cb408-2"></a><span class="co">#a factor</span></span>
-<span id="cb408-3"><a href="clasificación.html#cb408-3"></a><span class="co">##################################################</span></span>
-<span id="cb408-4"><a href="clasificación.html#cb408-4"></a><span class="co">#sexo</span></span>
-<span id="cb408-5"><a href="clasificación.html#cb408-5"></a>covid<span class="op">$</span>SEXO&lt;-<span class="kw">factor</span>(covid<span class="op">$</span>SEXO,<span class="dt">levels=</span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Mujer&quot;</span>,<span class="st">&quot;Hombre&quot;</span>))</span>
-<span id="cb408-6"><a href="clasificación.html#cb408-6"></a><span class="co">#resultado</span></span>
-<span id="cb408-7"><a href="clasificación.html#cb408-7"></a>covid<span class="op">$</span>RESULTADO&lt;-<span class="kw">factor</span>(covid<span class="op">$</span>RESULTADO,<span class="dt">levels =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;COVID +&quot;</span>,<span class="st">&quot;COVID -&quot;</span>,<span class="st">&quot;COVID pendiende&quot;</span>))</span>
-<span id="cb408-8"><a href="clasificación.html#cb408-8"></a>covid2&lt;-covid<span class="co">#para cart</span></span>
-<span id="cb408-9"><a href="clasificación.html#cb408-9"></a><span class="co">#si/no</span></span>
-<span id="cb408-10"><a href="clasificación.html#cb408-10"></a>aux&lt;-<span class="kw">c</span>(<span class="st">&quot;NEUMONIA&quot;</span>,<span class="st">&quot;HABLA_LENGUA_INDIG&quot;</span>,<span class="st">&quot;DIABETES&quot;</span>,<span class="st">&quot;EPOC&quot;</span>,<span class="st">&quot;ASMA&quot;</span>,<span class="st">&quot;INMUSUPR&quot;</span>,<span class="st">&quot;HIPERTENSION&quot;</span>,<span class="st">&quot;OTRA_COM&quot;</span>,<span class="st">&quot;CARDIOVASCULAR&quot;</span>,<span class="st">&quot;OBESIDAD&quot;</span>,<span class="st">&quot;RENAL_CRONICA&quot;</span>,<span class="st">&quot;TABAQUISMO&quot;</span>)</span>
-<span id="cb408-11"><a href="clasificación.html#cb408-11"></a><span class="cf">for</span>(i <span class="cf">in</span> aux){</span>
-<span id="cb408-12"><a href="clasificación.html#cb408-12"></a>  covid[[i]]&lt;-covid[[i]]<span class="op">==</span><span class="dv">1</span></span>
-<span id="cb408-13"><a href="clasificación.html#cb408-13"></a>}</span>
-<span id="cb408-14"><a href="clasificación.html#cb408-14"></a><span class="kw">str</span>(covid)</span></code></pre></div>
-<pre><code>## &#39;data.frame&#39;:    528452 obs. of  16 variables:
+##      1      2      3 
+## 205250 260603  63975</code></pre>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="clasificación.html#cb450-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(covid<span class="op">$</span>muerte))</span></code></pre></div>
+<pre><code>## 
+##     FALSE      TRUE 
+## 0.9359377 0.0640623</code></pre>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="clasificación.html#cb452-1"></a><span class="co">##################################################</span></span>
+<span id="cb452-2"><a href="clasificación.html#cb452-2"></a><span class="co">#a factor (X)</span></span>
+<span id="cb452-3"><a href="clasificación.html#cb452-3"></a><span class="co">##################################################</span></span>
+<span id="cb452-4"><a href="clasificación.html#cb452-4"></a><span class="co">#sexo</span></span>
+<span id="cb452-5"><a href="clasificación.html#cb452-5"></a>covid<span class="op">$</span>SEXO&lt;-<span class="kw">factor</span>(covid<span class="op">$</span>SEXO,<span class="dt">levels=</span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Mujer&quot;</span>,<span class="st">&quot;Hombre&quot;</span>))</span>
+<span id="cb452-6"><a href="clasificación.html#cb452-6"></a><span class="co">#resultado</span></span>
+<span id="cb452-7"><a href="clasificación.html#cb452-7"></a>covid<span class="op">$</span>RESULTADO&lt;-<span class="kw">factor</span>(covid<span class="op">$</span>RESULTADO,<span class="dt">levels =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;COVID +&quot;</span>,<span class="st">&quot;COVID -&quot;</span>,<span class="st">&quot;COVID pendiende&quot;</span>))</span>
+<span id="cb452-8"><a href="clasificación.html#cb452-8"></a></span>
+<span id="cb452-9"><a href="clasificación.html#cb452-9"></a>covid2&lt;-covid<span class="co">#para cart</span></span>
+<span id="cb452-10"><a href="clasificación.html#cb452-10"></a></span>
+<span id="cb452-11"><a href="clasificación.html#cb452-11"></a><span class="co">#si/no</span></span>
+<span id="cb452-12"><a href="clasificación.html#cb452-12"></a>aux&lt;-<span class="kw">c</span>(<span class="st">&quot;NEUMONIA&quot;</span>,<span class="st">&quot;HABLA_LENGUA_INDIG&quot;</span>,<span class="st">&quot;DIABETES&quot;</span>,<span class="st">&quot;EPOC&quot;</span>,<span class="st">&quot;ASMA&quot;</span>,<span class="st">&quot;INMUSUPR&quot;</span>,<span class="st">&quot;HIPERTENSION&quot;</span>,<span class="st">&quot;OTRA_COM&quot;</span>,<span class="st">&quot;CARDIOVASCULAR&quot;</span>,<span class="st">&quot;OBESIDAD&quot;</span>,<span class="st">&quot;RENAL_CRONICA&quot;</span>,<span class="st">&quot;TABAQUISMO&quot;</span>)</span>
+<span id="cb452-13"><a href="clasificación.html#cb452-13"></a><span class="cf">for</span>(i <span class="cf">in</span> aux){</span>
+<span id="cb452-14"><a href="clasificación.html#cb452-14"></a>  covid[[i]]&lt;-covid[[i]]<span class="op">==</span><span class="dv">1</span></span>
+<span id="cb452-15"><a href="clasificación.html#cb452-15"></a>}</span>
+<span id="cb452-16"><a href="clasificación.html#cb452-16"></a><span class="kw">str</span>(covid)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    529828 obs. of  16 variables:
 ##  $ SEXO              : Factor w/ 2 levels &quot;Mujer&quot;,&quot;Hombre&quot;: 2 2 2 2 2 1 2 1 2 2 ...
 ##  $ NEUMONIA          : logi  FALSE FALSE TRUE FALSE FALSE FALSE ...
 ##  $ EDAD              : int  63 39 62 86 46 40 52 46 73 61 ...
@@ -473,26 +619,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ TABAQUISMO        : logi  FALSE TRUE FALSE FALSE FALSE FALSE ...
 ##  $ RESULTADO         : Factor w/ 3 levels &quot;COVID +&quot;,&quot;COVID -&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ muerte            : logi  FALSE FALSE TRUE TRUE FALSE FALSE ...
-##  - attr(*, &quot;na.action&quot;)= &#39;omit&#39; Named int [1:21024] 23 184 230 236 363 642 737 820 831 915 ...
-##   ..- attr(*, &quot;names&quot;)= chr [1:21024] &quot;23&quot; &quot;184&quot; &quot;230&quot; &quot;236&quot; ...</code></pre>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="clasificación.html#cb410-1"></a><span class="co">## Bases: trainbd, testbd</span></span>
-<span id="cb410-2"><a href="clasificación.html#cb410-2"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb410-3"><a href="clasificación.html#cb410-3"></a>index =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="kw">nrow</span>(covid), <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">0.3</span>))</span>
-<span id="cb410-4"><a href="clasificación.html#cb410-4"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(index))</span></code></pre></div>
+##  - attr(*, &quot;na.action&quot;)= &#39;omit&#39; Named int [1:21224] 23 184 230 236 363 642 738 821 832 916 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:21224] &quot;23&quot; &quot;184&quot; &quot;230&quot; &quot;236&quot; ...</code></pre>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="clasificación.html#cb454-1"></a><span class="co">## Bases: trainbd, testbd</span></span>
+<span id="cb454-2"><a href="clasificación.html#cb454-2"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb454-3"><a href="clasificación.html#cb454-3"></a>index =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="kw">nrow</span>(covid), <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">0.3</span>))</span>
+<span id="cb454-4"><a href="clasificación.html#cb454-4"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(index))</span></code></pre></div>
 <pre><code>## index
 ##         1         2 
-## 0.7001544 0.2998456</code></pre>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="clasificación.html#cb412-1"></a>trainbd&lt;-covid[index<span class="op">==</span><span class="dv">1</span>,]</span>
-<span id="cb412-2"><a href="clasificación.html#cb412-2"></a>testbd&lt;-covid[index<span class="op">==</span><span class="dv">2</span>,]</span></code></pre></div>
+## 0.7001348 0.2998652</code></pre>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="clasificación.html#cb456-1"></a>trainbd&lt;-covid <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(index<span class="op">==</span><span class="dv">1</span>)</span>
+<span id="cb456-2"><a href="clasificación.html#cb456-2"></a>testbd&lt;-covid <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(index<span class="op">==</span><span class="dv">2</span>)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Especificar el modelo (logit/probit)</li>
 </ol>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="clasificación.html#cb413-1"></a>m1&lt;-<span class="kw">glm</span>(muerte<span class="op">~</span>.,<span class="dt">data=</span>trainbd,<span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;logit&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="clasificación.html#cb457-1"></a>m1&lt;-<span class="kw">glm</span>(muerte<span class="op">~</span>.,<span class="dt">data=</span>trainbd,<span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;logit&quot;</span>))</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Identificar las variables significativas</li>
 <li>Construir el modelo con variables significativas</li>
 </ol>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="clasificación.html#cb414-1"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="clasificación.html#cb458-1"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = muerte ~ ., family = binomial(link = &quot;logit&quot;), 
@@ -500,160 +646,166 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -2.2988  -0.2468  -0.1466  -0.0944   3.8471  
+## -2.2826  -0.2467  -0.1484  -0.0958   3.8210  
 ## 
 ## Coefficients:
-##                            Estimate Std. Error  z value
-## (Intercept)              -6.0453094  0.0351339 -172.065
-## SEXOHombre                0.4528000  0.0167200   27.081
-## NEUMONIATRUE              2.1601129  0.0166393  129.820
-## EDAD                      0.0503957  0.0005735   87.881
-## HABLA_LENGUA_INDIGTRUE    0.1299336  0.0636812    2.040
-## DIABETESTRUE              0.3568379  0.0185218   19.266
-## EPOCTRUE                  0.0606881  0.0396321    1.531
-## ASMATRUE                 -0.2211289  0.0539182   -4.101
-## INMUSUPRTRUE              0.3809713  0.0467945    8.141
-## HIPERTENSIONTRUE          0.1546319  0.0187518    8.246
-## OTRA_COMTRUE              0.5776581  0.0358269   16.124
-## CARDIOVASCULARTRUE       -0.0544158  0.0376414   -1.446
-## OBESIDADTRUE              0.1697086  0.0194157    8.741
-## RENAL_CRONICATRUE         0.7287407  0.0354132   20.578
-## TABAQUISMOTRUE           -0.0631770  0.0281778   -2.242
-## RESULTADOCOVID -         -1.1795001  0.0193564  -60.936
-## RESULTADOCOVID pendiende -1.3541807  0.0317650  -42.631
-##                                      Pr(&gt;|z|)    
-## (Intercept)              &lt; 0.0000000000000002 ***
-## SEXOHombre               &lt; 0.0000000000000002 ***
-## NEUMONIATRUE             &lt; 0.0000000000000002 ***
-## EDAD                     &lt; 0.0000000000000002 ***
-## HABLA_LENGUA_INDIGTRUE                 0.0413 *  
-## DIABETESTRUE             &lt; 0.0000000000000002 ***
-## EPOCTRUE                               0.1257    
-## ASMATRUE                 0.000041102762764731 ***
-## INMUSUPRTRUE             0.000000000000000391 ***
-## HIPERTENSIONTRUE         &lt; 0.0000000000000002 ***
-## OTRA_COMTRUE             &lt; 0.0000000000000002 ***
-## CARDIOVASCULARTRUE                     0.1483    
-## OBESIDADTRUE             &lt; 0.0000000000000002 ***
-## RENAL_CRONICATRUE        &lt; 0.0000000000000002 ***
-## TABAQUISMOTRUE                         0.0250 *  
-## RESULTADOCOVID -         &lt; 0.0000000000000002 ***
-## RESULTADOCOVID pendiende &lt; 0.0000000000000002 ***
+##                           Estimate Std. Error  z value Pr(&gt;|z|)    
+## (Intercept)              -5.943540   0.034244 -173.565  &lt; 2e-16 ***
+## SEXOHombre                0.417551   0.016632   25.105  &lt; 2e-16 ***
+## NEUMONIATRUE              2.153241   0.016580  129.871  &lt; 2e-16 ***
+## EDAD                      0.048787   0.000555   87.902  &lt; 2e-16 ***
+## HABLA_LENGUA_INDIGTRUE    0.091741   0.064177    1.429   0.1529    
+## DIABETESTRUE              0.340934   0.018483   18.446  &lt; 2e-16 ***
+## EPOCTRUE                  0.088726   0.038947    2.278   0.0227 *  
+## ASMATRUE                 -0.210955   0.053766   -3.924 8.72e-05 ***
+## INMUSUPRTRUE              0.438450   0.046619    9.405  &lt; 2e-16 ***
+## HIPERTENSIONTRUE          0.170664   0.018634    9.159  &lt; 2e-16 ***
+## OTRA_COMTRUE              0.560317   0.035851   15.629  &lt; 2e-16 ***
+## CARDIOVASCULARTRUE       -0.033038   0.036994   -0.893   0.3718    
+## OBESIDADTRUE              0.168902   0.019368    8.721  &lt; 2e-16 ***
+## RENAL_CRONICATRUE         0.694676   0.035333   19.661  &lt; 2e-16 ***
+## TABAQUISMOTRUE           -0.067679   0.028130   -2.406   0.0161 *  
+## RESULTADOCOVID -         -1.193639   0.019311  -61.811  &lt; 2e-16 ***
+## RESULTADOCOVID pendiende -1.322945   0.031301  -42.265  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 175579  on 369997  degrees of freedom
-## Residual deviance: 113042  on 369981  degrees of freedom
-## AIC: 113076
+##     Null deviance: 175828  on 370950  degrees of freedom
+## Residual deviance: 113917  on 370934  degrees of freedom
+## AIC: 113951
 ## 
 ## Number of Fisher Scoring iterations: 7</code></pre>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="clasificación.html#cb416-1"></a>m2&lt;-<span class="kw">step</span>(m1)</span></code></pre></div>
-<pre><code>## Start:  AIC=113075.8
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="clasificación.html#cb460-1"></a>m2&lt;-<span class="kw">step</span>(m1)</span></code></pre></div>
+<pre><code>## Start:  AIC=113951
 ## muerte ~ SEXO + NEUMONIA + EDAD + HABLA_LENGUA_INDIG + DIABETES + 
 ##     EPOC + ASMA + INMUSUPR + HIPERTENSION + OTRA_COM + CARDIOVASCULAR + 
 ##     OBESIDAD + RENAL_CRONICA + TABAQUISMO + RESULTADO
 ## 
 ##                      Df Deviance    AIC
-## &lt;none&gt;                    113042 113076
-## - CARDIOVASCULAR      1   113044 113076
-## - EPOC                1   113044 113076
-## - HABLA_LENGUA_INDIG  1   113046 113078
-## - TABAQUISMO          1   113047 113079
-## - ASMA                1   113059 113091
-## - INMUSUPR            1   113105 113137
-## - HIPERTENSION        1   113109 113141
-## - OBESIDAD            1   113117 113149
-## - OTRA_COM            1   113286 113318
-## - DIABETES            1   113406 113438
-## - RENAL_CRONICA       1   113445 113477
-## - SEXO                1   113789 113821
-## - RESULTADO           2   118350 118380
-## - EDAD                1   121441 121473
-## - NEUMONIA            1   131172 131204</code></pre>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="clasificación.html#cb418-1"></a><span class="kw">summary</span>(m2)</span></code></pre></div>
+## - CARDIOVASCULAR      1   113918 113950
+## &lt;none&gt;                    113917 113951
+## - HABLA_LENGUA_INDIG  1   113919 113951
+## - EPOC                1   113922 113954
+## - TABAQUISMO          1   113923 113955
+## - ASMA                1   113933 113965
+## - OBESIDAD            1   113992 114024
+## - HIPERTENSION        1   114000 114032
+## - INMUSUPR            1   114001 114033
+## - OTRA_COM            1   114147 114179
+## - DIABETES            1   114251 114283
+## - RENAL_CRONICA       1   114286 114318
+## - SEXO                1   114558 114590
+## - RESULTADO           2   119288 119318
+## - EDAD                1   122235 122267
+## - NEUMONIA            1   132039 132071
+## 
+## Step:  AIC=113949.8
+## muerte ~ SEXO + NEUMONIA + EDAD + HABLA_LENGUA_INDIG + DIABETES + 
+##     EPOC + ASMA + INMUSUPR + HIPERTENSION + OTRA_COM + OBESIDAD + 
+##     RENAL_CRONICA + TABAQUISMO + RESULTADO
+## 
+##                      Df Deviance    AIC
+## &lt;none&gt;                    113918 113950
+## - HABLA_LENGUA_INDIG  1   113920 113950
+## - EPOC                1   113923 113953
+## - TABAQUISMO          1   113924 113954
+## - ASMA                1   113934 113964
+## - OBESIDAD            1   113992 114022
+## - HIPERTENSION        1   114000 114030
+## - INMUSUPR            1   114002 114032
+## - OTRA_COM            1   114147 114177
+## - DIABETES            1   114252 114282
+## - RENAL_CRONICA       1   114286 114316
+## - SEXO                1   114558 114588
+## - RESULTADO           2   119305 119333
+## - EDAD                1   122283 122313
+## - NEUMONIA            1   132039 132069</code></pre>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="clasificación.html#cb462-1"></a><span class="kw">summary</span>(m2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = muerte ~ SEXO + NEUMONIA + EDAD + HABLA_LENGUA_INDIG + 
 ##     DIABETES + EPOC + ASMA + INMUSUPR + HIPERTENSION + OTRA_COM + 
-##     CARDIOVASCULAR + OBESIDAD + RENAL_CRONICA + TABAQUISMO + 
-##     RESULTADO, family = binomial(link = &quot;logit&quot;), data = trainbd)
+##     OBESIDAD + RENAL_CRONICA + TABAQUISMO + RESULTADO, family = binomial(link = &quot;logit&quot;), 
+##     data = trainbd)
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -2.2988  -0.2468  -0.1466  -0.0944   3.8471  
+## -2.2927  -0.2468  -0.1484  -0.0958   3.8208  
 ## 
 ## Coefficients:
-##                            Estimate Std. Error  z value
-## (Intercept)              -6.0453094  0.0351339 -172.065
-## SEXOHombre                0.4528000  0.0167200   27.081
-## NEUMONIATRUE              2.1601129  0.0166393  129.820
-## EDAD                      0.0503957  0.0005735   87.881
-## HABLA_LENGUA_INDIGTRUE    0.1299336  0.0636812    2.040
-## DIABETESTRUE              0.3568379  0.0185218   19.266
-## EPOCTRUE                  0.0606881  0.0396321    1.531
-## ASMATRUE                 -0.2211289  0.0539182   -4.101
-## INMUSUPRTRUE              0.3809713  0.0467945    8.141
-## HIPERTENSIONTRUE          0.1546319  0.0187518    8.246
-## OTRA_COMTRUE              0.5776581  0.0358269   16.124
-## CARDIOVASCULARTRUE       -0.0544158  0.0376414   -1.446
-## OBESIDADTRUE              0.1697086  0.0194157    8.741
-## RENAL_CRONICATRUE         0.7287407  0.0354132   20.578
-## TABAQUISMOTRUE           -0.0631770  0.0281778   -2.242
-## RESULTADOCOVID -         -1.1795001  0.0193564  -60.936
-## RESULTADOCOVID pendiende -1.3541807  0.0317650  -42.631
-##                                      Pr(&gt;|z|)    
-## (Intercept)              &lt; 0.0000000000000002 ***
-## SEXOHombre               &lt; 0.0000000000000002 ***
-## NEUMONIATRUE             &lt; 0.0000000000000002 ***
-## EDAD                     &lt; 0.0000000000000002 ***
-## HABLA_LENGUA_INDIGTRUE                 0.0413 *  
-## DIABETESTRUE             &lt; 0.0000000000000002 ***
-## EPOCTRUE                               0.1257    
-## ASMATRUE                 0.000041102762764731 ***
-## INMUSUPRTRUE             0.000000000000000391 ***
-## HIPERTENSIONTRUE         &lt; 0.0000000000000002 ***
-## OTRA_COMTRUE             &lt; 0.0000000000000002 ***
-## CARDIOVASCULARTRUE                     0.1483    
-## OBESIDADTRUE             &lt; 0.0000000000000002 ***
-## RENAL_CRONICATRUE        &lt; 0.0000000000000002 ***
-## TABAQUISMOTRUE                         0.0250 *  
-## RESULTADOCOVID -         &lt; 0.0000000000000002 ***
-## RESULTADOCOVID pendiende &lt; 0.0000000000000002 ***
+##                            Estimate Std. Error  z value Pr(&gt;|z|)
+## (Intercept)              -5.9410055  0.0341197 -174.123  &lt; 2e-16
+## SEXOHombre                0.4174567  0.0166315   25.100  &lt; 2e-16
+## NEUMONIATRUE              2.1531414  0.0165794  129.869  &lt; 2e-16
+## EDAD                      0.0487417  0.0005527   88.196  &lt; 2e-16
+## HABLA_LENGUA_INDIGTRUE    0.0922789  0.0641685    1.438   0.1504
+## DIABETESTRUE              0.3407050  0.0184822   18.434  &lt; 2e-16
+## EPOCTRUE                  0.0861809  0.0388458    2.219   0.0265
+## ASMATRUE                 -0.2119968  0.0537588   -3.943 8.03e-05
+## INMUSUPRTRUE              0.4366807  0.0465812    9.375  &lt; 2e-16
+## HIPERTENSIONTRUE          0.1690755  0.0185509    9.114  &lt; 2e-16
+## OTRA_COMTRUE              0.5588633  0.0358183   15.603  &lt; 2e-16
+## OBESIDADTRUE              0.1680262  0.0193444    8.686  &lt; 2e-16
+## RENAL_CRONICATRUE         0.6925070  0.0352532   19.644  &lt; 2e-16
+## TABAQUISMOTRUE           -0.0685262  0.0281168   -2.437   0.0148
+## RESULTADOCOVID -         -1.1944962  0.0192888  -61.927  &lt; 2e-16
+## RESULTADOCOVID pendiende -1.3231884  0.0313009  -42.273  &lt; 2e-16
+##                             
+## (Intercept)              ***
+## SEXOHombre               ***
+## NEUMONIATRUE             ***
+## EDAD                     ***
+## HABLA_LENGUA_INDIGTRUE      
+## DIABETESTRUE             ***
+## EPOCTRUE                 *  
+## ASMATRUE                 ***
+## INMUSUPRTRUE             ***
+## HIPERTENSIONTRUE         ***
+## OTRA_COMTRUE             ***
+## OBESIDADTRUE             ***
+## RENAL_CRONICATRUE        ***
+## TABAQUISMOTRUE           *  
+## RESULTADOCOVID -         ***
+## RESULTADOCOVID pendiende ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 175579  on 369997  degrees of freedom
-## Residual deviance: 113042  on 369981  degrees of freedom
-## AIC: 113076
+##     Null deviance: 175828  on 370950  degrees of freedom
+## Residual deviance: 113918  on 370935  degrees of freedom
+## AIC: 113950
 ## 
 ## Number of Fisher Scoring iterations: 7</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Predecir la clase de pertenencia en la base de test (<span class="math inline">\(prob&gt;0.5\)</span>)</li>
 </ol>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="clasificación.html#cb420-1"></a>clase&lt;-<span class="kw">predict</span>(m2,testbd,<span class="dt">type=</span><span class="st">&quot;response&quot;</span>)<span class="op">&gt;</span><span class="fl">0.5</span></span></code></pre></div>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="clasificación.html#cb464-1"></a>clase&lt;-<span class="kw">predict</span>(m2,testbd,<span class="dt">type=</span><span class="st">&quot;response&quot;</span>)<span class="op">&gt;</span><span class="fl">0.5</span></span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Observar la clasificación dada en base a la probabilidad fijada</li>
 </ol>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="clasificación.html#cb421-1"></a><span class="kw">table</span>(clase)</span></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="clasificación.html#cb465-1"></a><span class="kw">table</span>(clase)</span></code></pre></div>
 <pre><code>## clase
 ##  FALSE   TRUE 
-## 153984   4470</code></pre>
+## 154474   4403</code></pre>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="clasificación.html#cb467-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(clase))</span></code></pre></div>
+<pre><code>## clase
+##      FALSE       TRUE 
+## 0.97228674 0.02771326</code></pre>
 <ol start="6" style="list-style-type: decimal">
-<li>Comparar lo observado y lo predicho</li>
+<li>Comparar lo observado y lo predicho (testbd)</li>
 </ol>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="clasificación.html#cb423-1"></a><span class="kw">table</span>(testbd<span class="op">$</span>muerte,clase)</span></code></pre></div>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="clasificación.html#cb469-1"></a><span class="kw">table</span>(testbd<span class="op">$</span>muerte,clase)</span></code></pre></div>
 <pre><code>##        clase
 ##          FALSE   TRUE
-##   FALSE 146404   2041
-##   TRUE    7580   2429</code></pre>
+##   FALSE 146637   1923
+##   TRUE    7837   2480</code></pre>
 <ol start="7" style="list-style-type: decimal">
 <li>Generar la matriz de confusión (librería caret)</li>
 </ol>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="clasificación.html#cb425-1"></a><span class="kw">library</span>(caret)</span></code></pre></div>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="clasificación.html#cb471-1"></a><span class="kw">library</span>(caret)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;caret&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:vegan&#39;:
@@ -662,36 +814,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following object is masked from &#39;package:survival&#39;:
 ## 
 ##     cluster</code></pre>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="clasificación.html#cb429-1"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(testbd<span class="op">$</span>muerte,clase))</span></code></pre></div>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="clasificación.html#cb475-1"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(testbd<span class="op">$</span>muerte,clase))</span></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##        clase
 ##          FALSE   TRUE
-##   FALSE 146404   2041
-##   TRUE    7580   2429
-##                                              
-##                Accuracy : 0.9393             
-##                  95% CI : (0.9381, 0.9405)   
-##     No Information Rate : 0.9718             
-##     P-Value [Acc &gt; NIR] : 1                  
-##                                              
-##                   Kappa : 0.3086             
-##                                              
-##  Mcnemar&#39;s Test P-Value : &lt;0.0000000000000002
-##                                              
-##             Sensitivity : 0.9508             
-##             Specificity : 0.5434             
-##          Pos Pred Value : 0.9863             
-##          Neg Pred Value : 0.2427             
-##              Prevalence : 0.9718             
-##          Detection Rate : 0.9240             
-##    Detection Prevalence : 0.9368             
-##       Balanced Accuracy : 0.7471             
-##                                              
-##        &#39;Positive&#39; Class : FALSE              
+##   FALSE 146637   1923
+##   TRUE    7837   2480
+##                                           
+##                Accuracy : 0.9386          
+##                  95% CI : (0.9374, 0.9397)
+##     No Information Rate : 0.9723          
+##     P-Value [Acc &gt; NIR] : 1               
+##                                           
+##                   Kappa : 0.3102          
+##                                           
+##  Mcnemar&#39;s Test P-Value : &lt;2e-16          
+##                                           
+##             Sensitivity : 0.9493          
+##             Specificity : 0.5633          
+##          Pos Pred Value : 0.9871          
+##          Neg Pred Value : 0.2404          
+##              Prevalence : 0.9723          
+##          Detection Rate : 0.9230          
+##    Detection Prevalence : 0.9351          
+##       Balanced Accuracy : 0.7563          
+##                                           
+##        &#39;Positive&#39; Class : FALSE           
 ## </code></pre>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="clasificación.html#cb477-1"></a>t1&lt;-<span class="kw">table</span>(testbd<span class="op">$</span>muerte,clase)</span>
+<span id="cb477-2"><a href="clasificación.html#cb477-2"></a>t1</span></code></pre></div>
+<pre><code>##        clase
+##          FALSE   TRUE
+##   FALSE 146637   1923
+##   TRUE    7837   2480</code></pre>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="clasificación.html#cb479-1"></a><span class="kw">sum</span>(<span class="kw">diag</span>(t1))<span class="op">/</span><span class="kw">sum</span>(t1)</span></code></pre></div>
+<pre><code>## [1] 0.9385688</code></pre>
 <p>Efectos marginales</p>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="clasificación.html#cb431-1"></a><span class="kw">library</span>(mfx)</span></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="clasificación.html#cb481-1"></a><span class="kw">library</span>(mfx)</span></code></pre></div>
 <pre><code>## Loading required package: sandwich</code></pre>
 <pre><code>## Loading required package: lmtest</code></pre>
 <pre><code>## Loading required package: zoo</code></pre>
@@ -703,20 +863,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Loading required package: MASS</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;MASS&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:srvyr&#39;:
-## 
-##     select</code></pre>
 <pre><code>## The following object is masked from &#39;package:dplyr&#39;:
 ## 
 ##     select</code></pre>
 <pre><code>## Loading required package: betareg</code></pre>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="clasificación.html#cb442-1"></a>info&lt;-<span class="kw">logitmfx</span>(<span class="kw">formula</span>(m2),<span class="dt">data=</span>testbd)</span>
-<span id="cb442-2"><a href="clasificación.html#cb442-2"></a><span class="kw">barplot</span>(info<span class="op">$</span>mfxest[,<span class="dv">1</span>],<span class="dt">horiz =</span> T,<span class="dt">las=</span><span class="dv">1</span>,<span class="dt">cex.names =</span> <span class="fl">0.5</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.1</span>,<span class="fl">0.1</span>),<span class="dt">pos=</span><span class="op">-</span><span class="fl">0.02</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="clasificación.html#cb491-1"></a>info&lt;-<span class="kw">logitmfx</span>(<span class="kw">formula</span>(m2),<span class="dt">data=</span>testbd)</span>
+<span id="cb491-2"><a href="clasificación.html#cb491-2"></a><span class="kw">barplot</span>(info<span class="op">$</span>mfxest[,<span class="dv">1</span>],<span class="dt">horiz =</span> T,<span class="dt">las=</span><span class="dv">1</span>,<span class="dt">cex.names =</span> <span class="fl">0.5</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.1</span>,<span class="fl">0.1</span>),<span class="dt">pos=</span><span class="op">-</span><span class="fl">0.02</span>)</span></code></pre></div>
 <pre><code>## Warning in plot.window(xlim, ylim, log = log, ...): &quot;pos&quot; is not a
 ## graphical parameter</code></pre>
 <pre><code>## Warning in title(main = main, sub = sub, xlab = xlab, ylab =
 ## ylab, ...): &quot;pos&quot; is not a graphical parameter</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
 </div>
 </div>
 <div id="arboles-de-clasificación-cart" class="section level2">
@@ -728,18 +885,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Cargar la librería rpart</li>
 </ol>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="clasificación.html#cb445-1"></a><span class="kw">library</span>(rpart)</span></code></pre></div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="clasificación.html#cb494-1"></a><span class="co">#install.packages(&quot;rpart&quot;)</span></span>
+<span id="cb494-2"><a href="clasificación.html#cb494-2"></a><span class="kw">library</span>(rpart)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Usar la función rpart para construir el modelo de clasificación</li>
 </ol>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="clasificación.html#cb446-1"></a>covid2<span class="op">$</span>muerte&lt;-<span class="kw">factor</span>(covid2<span class="op">$</span>muerte,<span class="kw">c</span>(T,F),<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Muerte&quot;</span>,<span class="st">&quot;No muerte&quot;</span>))</span>
-<span id="cb446-2"><a href="clasificación.html#cb446-2"></a><span class="co">#si/no</span></span>
-<span id="cb446-3"><a href="clasificación.html#cb446-3"></a>aux&lt;-<span class="kw">c</span>(<span class="st">&quot;NEUMONIA&quot;</span>,<span class="st">&quot;HABLA_LENGUA_INDIG&quot;</span>,<span class="st">&quot;DIABETES&quot;</span>,<span class="st">&quot;EPOC&quot;</span>,<span class="st">&quot;ASMA&quot;</span>,<span class="st">&quot;INMUSUPR&quot;</span>,<span class="st">&quot;HIPERTENSION&quot;</span>,<span class="st">&quot;OTRA_COM&quot;</span>,<span class="st">&quot;CARDIOVASCULAR&quot;</span>,<span class="st">&quot;OBESIDAD&quot;</span>,<span class="st">&quot;RENAL_CRONICA&quot;</span>,<span class="st">&quot;TABAQUISMO&quot;</span>)</span>
-<span id="cb446-4"><a href="clasificación.html#cb446-4"></a><span class="cf">for</span>(i <span class="cf">in</span> aux){</span>
-<span id="cb446-5"><a href="clasificación.html#cb446-5"></a>  covid2[[i]]&lt;-<span class="kw">factor</span>(covid2[[i]],<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="kw">c</span>(<span class="st">&quot;SI&quot;</span>,<span class="st">&quot;NO&quot;</span>))</span>
-<span id="cb446-6"><a href="clasificación.html#cb446-6"></a>}</span>
-<span id="cb446-7"><a href="clasificación.html#cb446-7"></a><span class="kw">str</span>(covid2)</span></code></pre></div>
-<pre><code>## &#39;data.frame&#39;:    528452 obs. of  16 variables:
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="clasificación.html#cb495-1"></a>covid2<span class="op">$</span>muerte&lt;-<span class="kw">factor</span>(covid2<span class="op">$</span>muerte,<span class="kw">c</span>(T,F),<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Muerte&quot;</span>,<span class="st">&quot;No muerte&quot;</span>))</span>
+<span id="cb495-2"><a href="clasificación.html#cb495-2"></a><span class="co">#si/no</span></span>
+<span id="cb495-3"><a href="clasificación.html#cb495-3"></a>aux&lt;-<span class="kw">c</span>(<span class="st">&quot;NEUMONIA&quot;</span>,<span class="st">&quot;HABLA_LENGUA_INDIG&quot;</span>,<span class="st">&quot;DIABETES&quot;</span>,<span class="st">&quot;EPOC&quot;</span>,<span class="st">&quot;ASMA&quot;</span>,<span class="st">&quot;INMUSUPR&quot;</span>,<span class="st">&quot;HIPERTENSION&quot;</span>,<span class="st">&quot;OTRA_COM&quot;</span>,<span class="st">&quot;CARDIOVASCULAR&quot;</span>,<span class="st">&quot;OBESIDAD&quot;</span>,<span class="st">&quot;RENAL_CRONICA&quot;</span>,<span class="st">&quot;TABAQUISMO&quot;</span>)</span>
+<span id="cb495-4"><a href="clasificación.html#cb495-4"></a><span class="cf">for</span>(i <span class="cf">in</span> aux){</span>
+<span id="cb495-5"><a href="clasificación.html#cb495-5"></a>  covid2[[i]]&lt;-<span class="kw">factor</span>(covid2[[i]],<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="kw">c</span>(<span class="st">&quot;SI&quot;</span>,<span class="st">&quot;NO&quot;</span>))</span>
+<span id="cb495-6"><a href="clasificación.html#cb495-6"></a>}</span>
+<span id="cb495-7"><a href="clasificación.html#cb495-7"></a><span class="kw">str</span>(covid2)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    529828 obs. of  16 variables:
 ##  $ SEXO              : Factor w/ 2 levels &quot;Mujer&quot;,&quot;Hombre&quot;: 2 2 2 2 2 1 2 1 2 2 ...
 ##  $ NEUMONIA          : Factor w/ 2 levels &quot;SI&quot;,&quot;NO&quot;: 2 2 1 2 2 2 2 2 2 2 ...
 ##  $ EDAD              : int  63 39 62 86 46 40 52 46 73 61 ...
@@ -756,41 +914,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ TABAQUISMO        : Factor w/ 2 levels &quot;SI&quot;,&quot;NO&quot;: 2 1 2 2 2 2 2 2 2 2 ...
 ##  $ RESULTADO         : Factor w/ 3 levels &quot;COVID +&quot;,&quot;COVID -&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ muerte            : Factor w/ 2 levels &quot;Muerte&quot;,&quot;No muerte&quot;: 2 2 1 1 2 2 2 2 2 2 ...
-##  - attr(*, &quot;na.action&quot;)= &#39;omit&#39; Named int [1:21024] 23 184 230 236 363 642 737 820 831 915 ...
-##   ..- attr(*, &quot;names&quot;)= chr [1:21024] &quot;23&quot; &quot;184&quot; &quot;230&quot; &quot;236&quot; ...</code></pre>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="clasificación.html#cb448-1"></a><span class="co">## Bases: trainbd, testbd</span></span>
-<span id="cb448-2"><a href="clasificación.html#cb448-2"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb448-3"><a href="clasificación.html#cb448-3"></a>index =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="kw">nrow</span>(covid2), <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">0.3</span>))</span>
-<span id="cb448-4"><a href="clasificación.html#cb448-4"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(index))</span></code></pre></div>
+##  - attr(*, &quot;na.action&quot;)= &#39;omit&#39; Named int [1:21224] 23 184 230 236 363 642 738 821 832 916 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:21224] &quot;23&quot; &quot;184&quot; &quot;230&quot; &quot;236&quot; ...</code></pre>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="clasificación.html#cb497-1"></a><span class="co">## Bases: trainbd, testbd</span></span>
+<span id="cb497-2"><a href="clasificación.html#cb497-2"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb497-3"><a href="clasificación.html#cb497-3"></a>index =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="kw">nrow</span>(covid2), <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">0.3</span>))</span>
+<span id="cb497-4"><a href="clasificación.html#cb497-4"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(index))</span></code></pre></div>
 <pre><code>## index
 ##         1         2 
-## 0.7001544 0.2998456</code></pre>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="clasificación.html#cb450-1"></a>trainbd&lt;-covid2[index<span class="op">==</span><span class="dv">1</span>,]</span>
-<span id="cb450-2"><a href="clasificación.html#cb450-2"></a>testbd&lt;-covid2[index<span class="op">==</span><span class="dv">2</span>,]</span>
-<span id="cb450-3"><a href="clasificación.html#cb450-3"></a></span>
-<span id="cb450-4"><a href="clasificación.html#cb450-4"></a>mod1&lt;-<span class="kw">rpart</span>(muerte<span class="op">~</span>.,<span class="dt">data=</span>trainbd)</span></code></pre></div>
+## 0.7001348 0.2998652</code></pre>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="clasificación.html#cb499-1"></a>trainbd&lt;-covid2[index<span class="op">==</span><span class="dv">1</span>,]</span>
+<span id="cb499-2"><a href="clasificación.html#cb499-2"></a>testbd&lt;-covid2[index<span class="op">==</span><span class="dv">2</span>,]</span>
+<span id="cb499-3"><a href="clasificación.html#cb499-3"></a></span>
+<span id="cb499-4"><a href="clasificación.html#cb499-4"></a>mod1&lt;-<span class="kw">rpart</span>(muerte<span class="op">~</span>.,<span class="dt">data=</span>trainbd)</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Explorar los nodos creados por rpart</li>
 </ol>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="clasificación.html#cb451-1"></a>mod1</span></code></pre></div>
-<pre><code>## n= 369998 
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="clasificación.html#cb500-1"></a>mod1</span></code></pre></div>
+<pre><code>## n= 370951 
 ## 
 ## node), split, n, loss, yval, (yprob)
 ##       * denotes terminal node
 ## 
-##  1) root 369998 23602 No muerte (0.06378953 0.93621047)  
-##    2) NEUMONIA=SI 57116 16946 No muerte (0.29669445 0.70330555)  
-##      4) RESULTADO=COVID + 34442 13362 No muerte (0.38795656 0.61204344)  
-##        8) EDAD&gt;=51.5 20669 10039 No muerte (0.48570323 0.51429677)  
-##         16) EDAD&gt;=64.5 9808  4363 Muerte (0.55515905 0.44484095) *
-##         17) EDAD&lt; 64.5 10861  4594 No muerte (0.42298131 0.57701869) *
-##        9) EDAD&lt; 51.5 13773  3323 No muerte (0.24126915 0.75873085) *
-##      5) RESULTADO=COVID -,COVID pendiende 22674  3584 No muerte (0.15806651 0.84193349) *
-##    3) NEUMONIA=NO 312882  6656 No muerte (0.02127320 0.97872680) *</code></pre>
+##  1) root 370951 23625 No muerte (0.06368766 0.93631234)  
+##    2) NEUMONIA=SI 57361 16910 No muerte (0.29479960 0.70520040)  
+##      4) RESULTADO=COVID + 34405 13273 No muerte (0.38578695 0.61421305)  
+##        8) EDAD&gt;=53.5 19031  9389 No muerte (0.49335295 0.50664705)  
+##         16) EDAD&gt;=70.5 5880  2392 Muerte (0.59319728 0.40680272) *
+##         17) EDAD&lt; 70.5 13151  5901 No muerte (0.44871112 0.55128888) *
+##        9) EDAD&lt; 53.5 15374  3884 No muerte (0.25263432 0.74736568) *
+##      5) RESULTADO=COVID -,COVID pendiende 22956  3637 No muerte (0.15843353 0.84156647) *
+##    3) NEUMONIA=NO 313590  6715 No muerte (0.02141331 0.97858669) *</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Examinar los parámetros del árbol con printcp</li>
 </ol>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="clasificación.html#cb453-1"></a><span class="kw">printcp</span>(mod1)</span></code></pre></div>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="clasificación.html#cb502-1"></a><span class="kw">printcp</span>(mod1)</span></code></pre></div>
 <pre><code>## 
 ## Classification tree:
 ## rpart(formula = muerte ~ ., data = trainbd)
@@ -798,179 +956,179 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Variables actually used in tree construction:
 ## [1] EDAD      NEUMONIA  RESULTADO
 ## 
-## Root node error: 23602/369998 = 0.06379
+## Root node error: 23625/370951 = 0.063688
 ## 
-## n= 369998 
+## n= 370951 
 ## 
-##         CP nsplit rel error xerror      xstd
-## 1 0.011461      0   1.00000 1.0000 0.0062981
-## 2 0.010000      4   0.95416 0.9567 0.0061694</code></pre>
+##         CP nsplit rel error  xerror      xstd
+## 1 0.011598      0   1.00000 1.00000 0.0062954
+## 2 0.010000      4   0.95361 0.95712 0.0061679</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Usar el comando plotcp para explorar los parámetros de forma gráfica</li>
 </ol>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="clasificación.html#cb455-1"></a><span class="kw">plotcp</span>(mod1)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="clasificación.html#cb504-1"></a><span class="kw">plotcp</span>(mod1)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Usar la función summary para para examinar el modelo</li>
 </ol>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="clasificación.html#cb456-1"></a><span class="kw">summary</span>(mod1)</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="clasificación.html#cb505-1"></a><span class="kw">summary</span>(mod1)</span></code></pre></div>
 <pre><code>## Call:
 ## rpart(formula = muerte ~ ., data = trainbd)
-##   n= 369998 
+##   n= 370951 
 ## 
 ##           CP nsplit rel error    xerror        xstd
-## 1 0.01146089      0 1.0000000 1.0000000 0.006298140
-## 2 0.01000000      4 0.9541564 0.9566986 0.006169353
+## 1 0.01159788      0 1.0000000 1.0000000 0.006295416
+## 2 0.01000000      4 0.9536085 0.9571217 0.006167944
 ## 
 ## Variable importance
-##  NEUMONIA RESULTADO      EDAD 
-##        72        14        13 
+##     NEUMONIA    RESULTADO         EDAD HIPERTENSION 
+##           71           14           12            1 
 ## 
-## Node number 1: 369998 observations,    complexity param=0.01146089
-##   predicted class=No muerte  expected loss=0.06378953  P(node) =1
-##     class counts: 23602 346396
+## Node number 1: 370951 observations,    complexity param=0.01159788
+##   predicted class=No muerte  expected loss=0.06368766  P(node) =1
+##     class counts: 23625 347326
 ##    probabilities: 0.064 0.936 
-##   left son=2 (57116 obs) right son=3 (312882 obs)
+##   left son=2 (57361 obs) right son=3 (313590 obs)
 ##   Primary splits:
-##       NEUMONIA     splits as  LR,       improve=7327.636, (0 missing)
-##       EDAD         &lt; 57.5 to the right, improve=3636.657, (0 missing)
-##       RESULTADO    splits as  LRR,      improve=1662.835, (0 missing)
-##       DIABETES     splits as  LR,       improve=1643.543, (0 missing)
-##       HIPERTENSION splits as  LR,       improve=1431.782, (0 missing)
+##       NEUMONIA     splits as  LR,       improve=7248.462, (0 missing)
+##       EDAD         &lt; 59.5 to the right, improve=3639.660, (0 missing)
+##       RESULTADO    splits as  LRR,      improve=1637.404, (0 missing)
+##       DIABETES     splits as  LR,       improve=1577.347, (0 missing)
+##       HIPERTENSION splits as  LR,       improve=1435.096, (0 missing)
 ## 
-## Node number 2: 57116 observations,    complexity param=0.01146089
-##   predicted class=No muerte  expected loss=0.2966944  P(node) =0.1543684
-##     class counts: 16946 40170
-##    probabilities: 0.297 0.703 
-##   left son=4 (34442 obs) right son=5 (22674 obs)
+## Node number 2: 57361 observations,    complexity param=0.01159788
+##   predicted class=No muerte  expected loss=0.2947996  P(node) =0.1546323
+##     class counts: 16910 40451
+##    probabilities: 0.295 0.705 
+##   left son=4 (34405 obs) right son=5 (22956 obs)
 ##   Primary splits:
-##       RESULTADO    splits as  LRR,      improve=1445.2040, (0 missing)
-##       EDAD         &lt; 49.5 to the right, improve=1368.6730, (0 missing)
-##       HIPERTENSION splits as  LR,       improve= 357.6824, (0 missing)
-##       DIABETES     splits as  LR,       improve= 303.1878, (0 missing)
-##       SEXO         splits as  RL,       improve= 104.5722, (0 missing)
+##       RESULTADO    splits as  LRR,      improve=1423.42300, (0 missing)
+##       EDAD         &lt; 51.5 to the right, improve=1349.04200, (0 missing)
+##       HIPERTENSION splits as  LR,       improve= 348.47780, (0 missing)
+##       DIABETES     splits as  LR,       improve= 277.58260, (0 missing)
+##       SEXO         splits as  RL,       improve=  79.91938, (0 missing)
 ##   Surrogate splits:
-##       EDAD           &lt; 30.5 to the right, agree=0.631, adj=0.072, (0 split)
-##       INMUSUPR       splits as  RL,       agree=0.609, adj=0.015, (0 split)
-##       OTRA_COM       splits as  RL,       agree=0.607, adj=0.010, (0 split)
-##       EPOC           splits as  RL,       agree=0.604, adj=0.002, (0 split)
-##       CARDIOVASCULAR splits as  RL,       agree=0.604, adj=0.002, (0 split)
+##       EDAD           &lt; 30.5 to the right, agree=0.630, adj=0.075, (0 split)
+##       INMUSUPR       splits as  RL,       agree=0.606, adj=0.016, (0 split)
+##       OTRA_COM       splits as  RL,       agree=0.604, adj=0.011, (0 split)
+##       CARDIOVASCULAR splits as  RL,       agree=0.601, adj=0.004, (0 split)
+##       EPOC           splits as  RL,       agree=0.601, adj=0.003, (0 split)
 ## 
-## Node number 3: 312882 observations
-##   predicted class=No muerte  expected loss=0.0212732  P(node) =0.8456316
-##     class counts:  6656 306226
+## Node number 3: 313590 observations
+##   predicted class=No muerte  expected loss=0.02141331  P(node) =0.8453677
+##     class counts:  6715 306875
 ##    probabilities: 0.021 0.979 
 ## 
-## Node number 4: 34442 observations,    complexity param=0.01146089
-##   predicted class=No muerte  expected loss=0.3879566  P(node) =0.09308699
-##     class counts: 13362 21080
-##    probabilities: 0.388 0.612 
-##   left son=8 (20669 obs) right son=9 (13773 obs)
+## Node number 4: 34405 observations,    complexity param=0.01159788
+##   predicted class=No muerte  expected loss=0.3857869  P(node) =0.0927481
+##     class counts: 13273 21132
+##    probabilities: 0.386 0.614 
+##   left son=8 (19031 obs) right son=9 (15374 obs)
 ##   Primary splits:
-##       EDAD          &lt; 51.5 to the right, improve=987.67290, (0 missing)
-##       HIPERTENSION  splits as  LR,       improve=276.65030, (0 missing)
-##       DIABETES      splits as  LR,       improve=194.20950, (0 missing)
-##       RENAL_CRONICA splits as  LR,       improve= 89.58991, (0 missing)
-##       EPOC          splits as  LR,       improve= 51.97436, (0 missing)
+##       EDAD          &lt; 53.5 to the right, improve=985.54470, (0 missing)
+##       HIPERTENSION  splits as  LR,       improve=272.12220, (0 missing)
+##       DIABETES      splits as  LR,       improve=176.00640, (0 missing)
+##       RENAL_CRONICA splits as  LR,       improve= 81.22588, (0 missing)
+##       EPOC          splits as  LR,       improve= 49.57093, (0 missing)
+##   Surrogate splits:
+##       HIPERTENSION splits as  LR, agree=0.613, adj=0.134, (0 split)
+##       DIABETES     splits as  LR, agree=0.571, adj=0.040, (0 split)
+##       ASMA         splits as  RL, agree=0.555, adj=0.003, (0 split)
 ## 
-## Node number 5: 22674 observations
-##   predicted class=No muerte  expected loss=0.1580665  P(node) =0.06128141
-##     class counts:  3584 19090
+## Node number 5: 22956 observations
+##   predicted class=No muerte  expected loss=0.1584335  P(node) =0.06188418
+##     class counts:  3637 19319
 ##    probabilities: 0.158 0.842 
 ## 
-## Node number 8: 20669 observations,    complexity param=0.01146089
-##   predicted class=No muerte  expected loss=0.4857032  P(node) =0.05586246
-##     class counts: 10039 10630
-##    probabilities: 0.486 0.514 
-##   left son=16 (9808 obs) right son=17 (10861 obs)
+## Node number 8: 19031 observations,    complexity param=0.01159788
+##   predicted class=No muerte  expected loss=0.493353  P(node) =0.05130327
+##     class counts:  9389  9642
+##    probabilities: 0.493 0.507 
+##   left son=16 (5880 obs) right son=17 (13151 obs)
 ##   Primary splits:
-##       EDAD          &lt; 64.5 to the right, improve=180.08500, (0 missing)
-##       SEXO          splits as  RL,       improve= 26.65526, (0 missing)
-##       RENAL_CRONICA splits as  LR,       improve= 23.86824, (0 missing)
-##       HIPERTENSION  splits as  LR,       improve= 20.12766, (0 missing)
-##       DIABETES      splits as  LR,       improve= 13.55075, (0 missing)
+##       EDAD          &lt; 70.5 to the right, improve=169.651200, (0 missing)
+##       RENAL_CRONICA splits as  LR,       improve= 16.279480, (0 missing)
+##       SEXO          splits as  RL,       improve= 14.015200, (0 missing)
+##       HIPERTENSION  splits as  LR,       improve= 12.010110, (0 missing)
+##       DIABETES      splits as  LR,       improve=  6.505036, (0 missing)
 ##   Surrogate splits:
-##       HIPERTENSION   splits as  LR, agree=0.573, adj=0.100, (0 split)
-##       EPOC           splits as  LR, agree=0.547, adj=0.044, (0 split)
-##       CARDIOVASCULAR splits as  LR, agree=0.543, adj=0.037, (0 split)
-##       OTRA_COM       splits as  LR, agree=0.531, adj=0.011, (0 split)
-##       RENAL_CRONICA  splits as  LR, agree=0.529, adj=0.007, (0 split)
+##       EPOC splits as  LR, agree=0.692, adj=0.003, (0 split)
 ## 
-## Node number 9: 13773 observations
-##   predicted class=No muerte  expected loss=0.2412691  P(node) =0.03722453
-##     class counts:  3323 10450
-##    probabilities: 0.241 0.759 
+## Node number 9: 15374 observations
+##   predicted class=No muerte  expected loss=0.2526343  P(node) =0.04144483
+##     class counts:  3884 11490
+##    probabilities: 0.253 0.747 
 ## 
-## Node number 16: 9808 observations
-##   predicted class=Muerte     expected loss=0.4448409  P(node) =0.02650825
-##     class counts:  5445  4363
-##    probabilities: 0.555 0.445 
+## Node number 16: 5880 observations
+##   predicted class=Muerte     expected loss=0.4068027  P(node) =0.01585115
+##     class counts:  3488  2392
+##    probabilities: 0.593 0.407 
 ## 
-## Node number 17: 10861 observations
-##   predicted class=No muerte  expected loss=0.4229813  P(node) =0.02935421
-##     class counts:  4594  6267
-##    probabilities: 0.423 0.577</code></pre>
+## Node number 17: 13151 observations
+##   predicted class=No muerte  expected loss=0.4487111  P(node) =0.03545212
+##     class counts:  5901  7250
+##    probabilities: 0.449 0.551</code></pre>
 <p>Visualizar el árbol</p>
 <ol start="7" style="list-style-type: decimal">
 <li>Usar la función plot y text(,all=T, n=T)</li>
 </ol>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="clasificación.html#cb458-1"></a><span class="kw">plot</span>(mod1)</span>
-<span id="cb458-2"><a href="clasificación.html#cb458-2"></a><span class="kw">text</span>(mod1,<span class="dt">all=</span>T,<span class="dt">use.n=</span>T)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="clasificación.html#cb459-1"></a><span class="co">#install.packages(&quot;rpart.plot&quot;)</span></span>
-<span id="cb459-2"><a href="clasificación.html#cb459-2"></a><span class="kw">library</span>(rpart.plot)</span>
-<span id="cb459-3"><a href="clasificación.html#cb459-3"></a><span class="kw">rpart.plot</span>(mod1)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-82-2.png" width="672" /></p>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="clasificación.html#cb507-1"></a><span class="kw">plot</span>(mod1)</span>
+<span id="cb507-2"><a href="clasificación.html#cb507-2"></a><span class="kw">text</span>(mod1,<span class="dt">all=</span>T,<span class="dt">use.n=</span>T)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="clasificación.html#cb508-1"></a><span class="co">#install.packages(&quot;rpart.plot&quot;)</span></span>
+<span id="cb508-2"><a href="clasificación.html#cb508-2"></a><span class="kw">library</span>(rpart.plot)</span>
+<span id="cb508-3"><a href="clasificación.html#cb508-3"></a><span class="kw">rpart.plot</span>(mod1)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-83-2.png" width="672" /></p>
 <ol start="8" style="list-style-type: decimal">
 <li>Ajustes en el layout plot(…,uniform=TRUE, branch=0.6, margin=0.1)</li>
 </ol>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="clasificación.html#cb460-1"></a><span class="kw">plot</span>(mod1,<span class="dt">uniform=</span>T, <span class="dt">branch=</span><span class="dv">1</span>, <span class="dt">margin=</span><span class="fl">0.1</span>)</span>
-<span id="cb460-2"><a href="clasificación.html#cb460-2"></a><span class="kw">text</span>(mod1,<span class="dt">all=</span>T,<span class="dt">use.n=</span>T)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="clasificación.html#cb509-1"></a><span class="kw">plot</span>(mod1,<span class="dt">uniform=</span>T, <span class="dt">branch=</span><span class="dv">1</span>, <span class="dt">margin=</span><span class="fl">0.1</span>)</span>
+<span id="cb509-2"><a href="clasificación.html#cb509-2"></a><span class="kw">text</span>(mod1,<span class="dt">all=</span>T,<span class="dt">use.n=</span>T)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
 <p>Predicción de la clasificación</p>
 <ol start="9" style="list-style-type: decimal">
 <li>predict(…, testbd, type=“class”), predicción sobre la base de test</li>
 </ol>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="clasificación.html#cb461-1"></a>clase&lt;-<span class="kw">predict</span>(mod1,testbd,<span class="dt">type =</span> <span class="st">&quot;class&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="clasificación.html#cb510-1"></a>clase&lt;-<span class="kw">predict</span>(mod1,testbd,<span class="dt">type =</span> <span class="st">&quot;class&quot;</span>)</span></code></pre></div>
 <ol start="10" style="list-style-type: decimal">
 <li>Elaborar una tabla de contingencia de la clasificación</li>
 </ol>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="clasificación.html#cb462-1"></a><span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte)</span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="clasificación.html#cb511-1"></a><span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte)</span></code></pre></div>
 <pre><code>##            
 ## clase       Muerte No muerte
-##   Muerte      2405      1862
-##   No muerte   7604    146583</code></pre>
+##   Muerte      1526      1066
+##   No muerte   8791    147494</code></pre>
 <ol start="11" style="list-style-type: decimal">
 <li>Emplear el comando confusionMatrix sobre la tabla del paso anterior, para evaluar la calidad de la clasificación. Mcnemar’s Test H0: <span class="math inline">\(ij=ji\)</span></li>
 </ol>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="clasificación.html#cb464-1"></a><span class="kw">library</span>(caret)</span>
-<span id="cb464-2"><a href="clasificación.html#cb464-2"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte))</span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="clasificación.html#cb513-1"></a><span class="kw">library</span>(caret)</span>
+<span id="cb513-2"><a href="clasificación.html#cb513-2"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte))</span></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##            
 ## clase       Muerte No muerte
-##   Muerte      2405      1862
-##   No muerte   7604    146583
-##                                                
-##                Accuracy : 0.9403               
-##                  95% CI : (0.9391, 0.9414)     
-##     No Information Rate : 0.9368               
-##     P-Value [Acc &gt; NIR] : 0.00000000806        
-##                                                
-##                   Kappa : 0.3109               
-##                                                
-##  Mcnemar&#39;s Test P-Value : &lt; 0.00000000000000022
-##                                                
-##             Sensitivity : 0.24028              
-##             Specificity : 0.98746              
-##          Pos Pred Value : 0.56363              
-##          Neg Pred Value : 0.95068              
-##              Prevalence : 0.06317              
-##          Detection Rate : 0.01518              
-##    Detection Prevalence : 0.02693              
-##       Balanced Accuracy : 0.61387              
-##                                                
-##        &#39;Positive&#39; Class : Muerte               
+##   Muerte      1526      1066
+##   No muerte   8791    147494
+##                                           
+##                Accuracy : 0.938           
+##                  95% CI : (0.9368, 0.9391)
+##     No Information Rate : 0.9351          
+##     P-Value [Acc &gt; NIR] : 1.24e-06        
+##                                           
+##                   Kappa : 0.216           
+##                                           
+##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
+##                                           
+##             Sensitivity : 0.147911        
+##             Specificity : 0.992824        
+##          Pos Pred Value : 0.588735        
+##          Neg Pred Value : 0.943750        
+##              Prevalence : 0.064937        
+##          Detection Rate : 0.009605        
+##    Detection Prevalence : 0.016315        
+##       Balanced Accuracy : 0.570368        
+##                                           
+##        &#39;Positive&#39; Class : Muerte          
 ## </code></pre>
 </div>
 <div id="proceso-de-pruning-podado" class="section level3">
@@ -980,61 +1138,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Encuentre el valor mínimo en cross-validation error. (xerror)</li>
 </ol>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="clasificación.html#cb466-1"></a><span class="kw">min</span>(mod1<span class="op">$</span>cptable[,<span class="st">&quot;xerror&quot;</span>])</span></code></pre></div>
-<pre><code>## [1] 0.9566986</code></pre>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="clasificación.html#cb515-1"></a><span class="kw">min</span>(mod1<span class="op">$</span>cptable[,<span class="st">&quot;xerror&quot;</span>])</span></code></pre></div>
+<pre><code>## [1] 0.9571217</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Encontrar el registro que contiene el valor del anterior paso. (which.min, cptable)</li>
 </ol>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="clasificación.html#cb468-1"></a><span class="kw">which.min</span>(mod1<span class="op">$</span>cptable[,<span class="st">&quot;xerror&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="clasificación.html#cb517-1"></a><span class="kw">which.min</span>(mod1<span class="op">$</span>cptable[,<span class="st">&quot;xerror&quot;</span>])</span></code></pre></div>
 <pre><code>## 2 
 ## 2</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Obtenga el “cost complexity parameter” del valor mínimo encontrado (CP)</li>
 </ol>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="clasificación.html#cb470-1"></a>mod1.cp&lt;-mod1<span class="op">$</span>cptable[<span class="dv">2</span>,<span class="st">&quot;CP&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="clasificación.html#cb519-1"></a>mod1.cp&lt;-mod1<span class="op">$</span>cptable[<span class="dv">2</span>,<span class="st">&quot;CP&quot;</span>]</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Realizar el podado con la función prune, empleando el modelo original y el CP del valor mínimo en xerror (paso anterior)</li>
 </ol>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="clasificación.html#cb471-1"></a>mod1.prune&lt;-<span class="kw">prune</span>(mod1,<span class="dt">cp=</span>mod1.cp)</span></code></pre></div>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="clasificación.html#cb520-1"></a>mod1.prune&lt;-<span class="kw">prune</span>(mod1,<span class="dt">cp=</span>mod1.cp)</span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Visualice el nuevo árbol</li>
 </ol>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="clasificación.html#cb472-1"></a><span class="kw">rpart.plot</span>(mod1.prune)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="clasificación.html#cb521-1"></a><span class="kw">rpart.plot</span>(mod1.prune)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Realice la predicción a partir del árbol podado</li>
 </ol>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="clasificación.html#cb473-1"></a>clase&lt;-<span class="kw">predict</span>(mod1.prune,testbd,<span class="dt">type =</span> <span class="st">&quot;class&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="clasificación.html#cb522-1"></a>clase&lt;-<span class="kw">predict</span>(mod1.prune,testbd,<span class="dt">type =</span> <span class="st">&quot;class&quot;</span>)</span></code></pre></div>
 <ol start="7" style="list-style-type: decimal">
 <li>Evalúe los resultados con la matriz de confusión</li>
 </ol>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="clasificación.html#cb474-1"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte))</span></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="clasificación.html#cb523-1"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte))</span></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##            
 ## clase       Muerte No muerte
-##   Muerte      2405      1862
-##   No muerte   7604    146583
-##                                                
-##                Accuracy : 0.9403               
-##                  95% CI : (0.9391, 0.9414)     
-##     No Information Rate : 0.9368               
-##     P-Value [Acc &gt; NIR] : 0.00000000806        
-##                                                
-##                   Kappa : 0.3109               
-##                                                
-##  Mcnemar&#39;s Test P-Value : &lt; 0.00000000000000022
-##                                                
-##             Sensitivity : 0.24028              
-##             Specificity : 0.98746              
-##          Pos Pred Value : 0.56363              
-##          Neg Pred Value : 0.95068              
-##              Prevalence : 0.06317              
-##          Detection Rate : 0.01518              
-##    Detection Prevalence : 0.02693              
-##       Balanced Accuracy : 0.61387              
-##                                                
-##        &#39;Positive&#39; Class : Muerte               
+##   Muerte      1526      1066
+##   No muerte   8791    147494
+##                                           
+##                Accuracy : 0.938           
+##                  95% CI : (0.9368, 0.9391)
+##     No Information Rate : 0.9351          
+##     P-Value [Acc &gt; NIR] : 1.24e-06        
+##                                           
+##                   Kappa : 0.216           
+##                                           
+##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
+##                                           
+##             Sensitivity : 0.147911        
+##             Specificity : 0.992824        
+##          Pos Pred Value : 0.588735        
+##          Neg Pred Value : 0.943750        
+##              Prevalence : 0.064937        
+##          Detection Rate : 0.009605        
+##    Detection Prevalence : 0.016315        
+##       Balanced Accuracy : 0.570368        
+##                                           
+##        &#39;Positive&#39; Class : Muerte          
 ## </code></pre>
 </div>
 </div>
@@ -1056,17 +1214,17 @@ Pasos,</p>
 <ol style="list-style-type: decimal">
 <li>Cargar la librería e1071 y emplear la función naiveBayes para construir el clasificador</li>
 </ol>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="clasificación.html#cb476-1"></a><span class="kw">library</span>(e1071)</span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="clasificación.html#cb525-1"></a><span class="kw">library</span>(e1071)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;e1071&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:Hmisc&#39;:
 ## 
 ##     impute</code></pre>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="clasificación.html#cb479-1"></a>mod1&lt;-<span class="kw">naiveBayes</span>(muerte<span class="op">~</span>.,<span class="dt">data=</span>trainbd)</span></code></pre></div>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="clasificación.html#cb528-1"></a>mod1&lt;-<span class="kw">naiveBayes</span>(muerte<span class="op">~</span>.,<span class="dt">data=</span>trainbd)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Explorar los resultados</li>
 </ol>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="clasificación.html#cb480-1"></a>mod1</span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="clasificación.html#cb529-1"></a>mod1</span></code></pre></div>
 <pre><code>## 
 ## Naive Bayes Classifier for Discrete Predictors
 ## 
@@ -1076,117 +1234,117 @@ Pasos,</p>
 ## A-priori probabilities:
 ## Y
 ##     Muerte  No muerte 
-## 0.06378953 0.93621047 
+## 0.06368766 0.93631234 
 ## 
 ## Conditional probabilities:
 ##            SEXO
 ## Y               Mujer    Hombre
-##   Muerte    0.3513685 0.6486315
-##   No muerte 0.5045959 0.4954041
+##   Muerte    0.3555979 0.6444021
+##   No muerte 0.5035557 0.4964443
 ## 
 ##            NEUMONIA
 ## Y                  SI        NO
-##   Muerte    0.7179900 0.2820100
-##   No muerte 0.1159655 0.8840345
+##   Muerte    0.7157672 0.2842328
+##   No muerte 0.1164641 0.8835359
 ## 
 ##            EDAD
 ## Y               [,1]     [,2]
-##   Muerte    60.42543 15.03884
-##   No muerte 41.26280 15.78475
+##   Muerte    60.72085 15.39476
+##   No muerte 41.36145 15.96892
 ## 
 ##            HABLA_LENGUA_INDIG
 ## Y                    SI          NO
-##   Muerte    0.017710364 0.982289636
-##   No muerte 0.009295719 0.990704281
+##   Muerte    0.016973545 0.983026455
+##   No muerte 0.009319775 0.990680225
 ## 
 ##            DIABETES
 ## Y                  SI        NO
-##   Muerte    0.3705618 0.6294382
-##   No muerte 0.1089822 0.8910178
+##   Muerte    0.3657143 0.6342857
+##   No muerte 0.1093756 0.8906244
 ## 
 ##            EPOC
 ## Y                   SI         NO
-##   Muerte    0.05448691 0.94551309
-##   No muerte 0.01310927 0.98689073
+##   Muerte    0.05633862 0.94366138
+##   No muerte 0.01340239 0.98659761
 ## 
 ##            ASMA
 ## Y                   SI         NO
-##   Muerte    0.02076095 0.97923905
-##   No muerte 0.03311239 0.96688761
+##   Muerte    0.02065608 0.97934392
+##   No muerte 0.03285674 0.96714326
 ## 
 ##            INMUSUPR
 ## Y                   SI         NO
-##   Muerte    0.03694602 0.96305398
-##   No muerte 0.01450074 0.98549926
+##   Muerte    0.03695238 0.96304762
+##   No muerte 0.01445040 0.98554960
 ## 
 ##            HIPERTENSION
 ## Y                  SI        NO
-##   Muerte    0.4184815 0.5815185
-##   No muerte 0.1461045 0.8538955
+##   Muerte    0.4201905 0.5798095
+##   No muerte 0.1468937 0.8531063
 ## 
 ##            OTRA_COM
 ## Y                   SI         NO
-##   Muerte    0.06448606 0.93551394
-##   No muerte 0.02853670 0.97146330
+##   Muerte    0.06319577 0.93680423
+##   No muerte 0.02848621 0.97151379
 ## 
 ##            CARDIOVASCULAR
 ## Y                   SI         NO
-##   Muerte    0.05982544 0.94017456
-##   No muerte 0.01967113 0.98032887
+##   Muerte    0.06209524 0.93790476
+##   No muerte 0.02006184 0.97993816
 ## 
 ##            OBESIDAD
-## Y                 SI       NO
-##   Muerte    0.232904 0.767096
-##   No muerte 0.159589 0.840411
+## Y                  SI        NO
+##   Muerte    0.2331429 0.7668571
+##   No muerte 0.1587586 0.8412414
 ## 
 ##            RENAL_CRONICA
 ## Y                   SI         NO
-##   Muerte    0.07825608 0.92174392
-##   No muerte 0.01579695 0.98420305
+##   Muerte    0.07737566 0.92262434
+##   No muerte 0.01606272 0.98393728
 ## 
 ##            TABAQUISMO
 ## Y                   SI         NO
-##   Muerte    0.09397509 0.90602491
-##   No muerte 0.08496345 0.91503655
+##   Muerte    0.09337566 0.90662434
+##   No muerte 0.08453154 0.91546846
 ## 
 ##            RESULTADO
 ## Y              COVID +    COVID - COVID pendiende
-##   Muerte    0.74934328 0.19455978      0.05609694
-##   No muerte 0.36267162 0.51143200      0.12589637</code></pre>
+##   Muerte    0.74666667 0.19538624      0.05794709
+##   No muerte 0.36288674 0.51135245      0.12576081</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Predecir los resultados en la base de testeo</li>
 </ol>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="clasificación.html#cb482-1"></a>clase&lt;-<span class="kw">predict</span>(mod1,testbd,<span class="dt">type =</span> <span class="st">&quot;class&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="clasificación.html#cb531-1"></a>clase&lt;-<span class="kw">predict</span>(mod1,testbd,<span class="dt">type =</span> <span class="st">&quot;class&quot;</span>)</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Realizar la matriz de confusión</li>
 </ol>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="clasificación.html#cb483-1"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte))</span></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="clasificación.html#cb532-1"></a><span class="kw">confusionMatrix</span>(<span class="kw">table</span>(clase,testbd<span class="op">$</span>muerte))</span></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##            
 ## clase       Muerte No muerte
-##   Muerte      5261      8124
-##   No muerte   4748    140321
-##                                              
-##                Accuracy : 0.9188             
-##                  95% CI : (0.9174, 0.9201)   
-##     No Information Rate : 0.9368             
-##     P-Value [Acc &gt; NIR] : 1                  
-##                                              
-##                   Kappa : 0.4069             
-##                                              
-##  Mcnemar&#39;s Test P-Value : &lt;0.0000000000000002
-##                                              
-##             Sensitivity : 0.52563            
-##             Specificity : 0.94527            
-##          Pos Pred Value : 0.39305            
-##          Neg Pred Value : 0.96727            
-##              Prevalence : 0.06317            
-##          Detection Rate : 0.03320            
-##    Detection Prevalence : 0.08447            
-##       Balanced Accuracy : 0.73545            
-##                                              
-##        &#39;Positive&#39; Class : Muerte             
+##   Muerte      5465      8007
+##   No muerte   4852    140553
+##                                           
+##                Accuracy : 0.9191          
+##                  95% CI : (0.9177, 0.9204)
+##     No Information Rate : 0.9351          
+##     P-Value [Acc &gt; NIR] : 1               
+##                                           
+##                   Kappa : 0.4165          
+##                                           
+##  Mcnemar&#39;s Test P-Value : &lt;2e-16          
+##                                           
+##             Sensitivity : 0.52971         
+##             Specificity : 0.94610         
+##          Pos Pred Value : 0.40566         
+##          Neg Pred Value : 0.96663         
+##              Prevalence : 0.06494         
+##          Detection Rate : 0.03440         
+##    Detection Prevalence : 0.08480         
+##       Balanced Accuracy : 0.73791         
+##                                           
+##        &#39;Positive&#39; Class : Muerte          
 ## </code></pre>
 </div>
 <div id="ejercicios." class="section level2">

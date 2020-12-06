@@ -1,0 +1,24 @@
+---
+title: "Práctica. EST.384"
+author: "Alvaro Chirino Gutierrez"
+date: "29/11/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*Fecha de entrega:* 9 de Diciembre
+
+## Ejercicio 1 (5 pts.)
+
+Usando la base de datos de la elección del 20 de octubre de 2019 realice un análisis exploratorio para las mesas de la elección de presidente
+
+## Ejercicio 2 (5 pts.)
+
+Utilizando la base de datos de las elecciones del 20 de octubre, crear una base de datos a nivel municipal, aplicar el método k-center con medoides para los resultados a nivel municipal y terminar el $k$ óptimo en un rango de $k=2:10$ (Usar datos relativos).
+
+## Ejercicio 3 (10 pts.)
+
+Usando la ENDSA para un año en particular, defina clases de violencia en base a las variables de violencia y aplique los métodos de clasificación con las variables que considere relevante, identifique el mejor clasificador

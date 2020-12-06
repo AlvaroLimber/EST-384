@@ -24,7 +24,7 @@
 <meta name="author" content="Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2020-11-11" />
+<meta name="date" content="2020-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,6 +51,8 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -219,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="clasificación.html"><a href="clasificación.html"><i class="fa fa-check"></i><b>5</b> Clasificación</a><ul>
-<li class="chapter" data-level="5.1" data-path="clasificación.html"><a href="clasificación.html#logit-probit"><i class="fa fa-check"></i><b>5.1</b> Logit Probit</a><ul>
+<li class="chapter" data-level="5.1" data-path="clasificación.html"><a href="clasificación.html#logitprobit"><i class="fa fa-check"></i><b>5.1</b> Logit/Probit</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="clasificación.html"><a href="clasificación.html#pasos"><i class="fa fa-check"></i><b>5.1.1</b> Pasos</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="clasificación.html"><a href="clasificación.html#arboles-de-clasificación-cart"><i class="fa fa-check"></i><b>5.2</b> Arboles de clasificación (CART)</a><ul>
@@ -271,7 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">6</span> Minería de Texto</h1>
 <p><strong>La minería de texto es el proceso de destilar información procesable del texto.</strong>
 <span class="citation">(Ted 2017)</span></p>
-<p><em>Minería de texto</em> puede ser sinónimo de <em>análisis de texto</em>, sin embargo, el uso de minería de texto describe de forma más adecuada el descubrimiento de ideas y el uso de algorítmos específicos más alla del análisis estadístico básico.</p>
+<p><em>Minería de texto</em> puede ser sinónimo de <em>análisis de texto</em>, sin embargo, el uso de minería de texto describe de forma más adecuada el descubrimiento de ideas y el uso de algoritmos específicos más allá del análisis estadístico básico.</p>
 <div id="introducción" class="section level2">
 <h2><span class="header-section-number">6.1</span> Introducción</h2>
 <div id="en-la-práctica" class="section level3">
@@ -342,11 +344,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>sub, gsub, grep</li>
 <li>mgsub (qdap)</li>
 </ul>
-<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="minería-de-texto.html#cb485-1"></a><span class="kw">library</span>(qdap)</span>
-<span id="cb485-2"><a href="minería-de-texto.html#cb485-2"></a>fake.text&lt;-<span class="st">&#39;R text mining is good but text mining in python is also&#39;</span></span>
-<span id="cb485-3"><a href="minería-de-texto.html#cb485-3"></a>patterns&lt;-<span class="kw">c</span>(<span class="st">&#39;good&#39;</span>,<span class="st">&#39;also&#39;</span>,<span class="st">&#39;text mining&#39;</span>)</span>
-<span id="cb485-4"><a href="minería-de-texto.html#cb485-4"></a>replacements&lt;-<span class="kw">c</span>(<span class="st">&#39;great&#39;</span>,<span class="st">&#39;just as suitable&#39;</span>,<span class="st">&#39;tm&#39;</span>)</span>
-<span id="cb485-5"><a href="minería-de-texto.html#cb485-5"></a><span class="kw">mgsub</span>(patterns,replacements,fake.text)</span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="minería-de-texto.html#cb534-1"></a>x&lt;-<span class="st">&quot;Hola a todos, ¿Cómo estan?.    hoy es 30 de Noviembre&quot;</span></span>
+<span id="cb534-2"><a href="minería-de-texto.html#cb534-2"></a><span class="kw">nchar</span>(x)</span>
+<span id="cb534-3"><a href="minería-de-texto.html#cb534-3"></a><span class="kw">paste</span>(<span class="st">&quot;Pregunta 1:&quot;</span>,x,<span class="st">&quot;Fin de la oración&quot;)</span></span>
+<span id="cb534-4"><a href="minería-de-texto.html#cb534-4"></a><span class="st">paste0(&quot;</span>Pregunta <span class="dv">1</span><span class="op">:</span><span class="st">&quot;,x,&quot;</span>Fin de la oración&quot;)</span>
+<span id="cb534-5"><a href="minería-de-texto.html#cb534-5"></a><span class="kw">gsub</span>(<span class="st">&quot;Hola&quot;</span>,<span class="st">&quot;xxx&quot;</span>,x)</span>
+<span id="cb534-6"><a href="minería-de-texto.html#cb534-6"></a><span class="kw">grep</span>(<span class="st">&quot;Hola&quot;</span>,x)</span>
+<span id="cb534-7"><a href="minería-de-texto.html#cb534-7"></a></span>
+<span id="cb534-8"><a href="minería-de-texto.html#cb534-8"></a>y&lt;-<span class="kw">c</span>(<span class="st">&quot;Hola a todos&quot;</span>,<span class="st">&quot;chau&quot;</span>,<span class="st">&quot;Hola&quot;</span>)</span>
+<span id="cb534-9"><a href="minería-de-texto.html#cb534-9"></a><span class="kw">grep</span>(<span class="st">&quot;Hola&quot;</span>,y)</span>
+<span id="cb534-10"><a href="minería-de-texto.html#cb534-10"></a><span class="kw">tolower</span>(x)</span>
+<span id="cb534-11"><a href="minería-de-texto.html#cb534-11"></a><span class="kw">toupper</span>(x)</span>
+<span id="cb534-12"><a href="minería-de-texto.html#cb534-12"></a></span>
+<span id="cb534-13"><a href="minería-de-texto.html#cb534-13"></a><span class="kw">library</span>(qdap)</span>
+<span id="cb534-14"><a href="minería-de-texto.html#cb534-14"></a>fake.text&lt;-<span class="st">&#39;R text mining is good but text mining in python is also&#39;</span></span>
+<span id="cb534-15"><a href="minería-de-texto.html#cb534-15"></a>patterns&lt;-<span class="kw">c</span>(<span class="st">&#39;good&#39;</span>,<span class="st">&#39;also&#39;</span>,<span class="st">&#39;text mining&#39;</span>)</span>
+<span id="cb534-16"><a href="minería-de-texto.html#cb534-16"></a>replacements&lt;-<span class="kw">c</span>(<span class="st">&#39;great&#39;</span>,<span class="st">&#39;just as suitable&#39;</span>,<span class="st">&#39;tm&#39;</span>)</span>
+<span id="cb534-17"><a href="minería-de-texto.html#cb534-17"></a><span class="kw">mgsub</span>(patterns,replacements,fake.text)</span></code></pre></div>
 <ul>
 <li>tolower</li>
 <li>removePunctuation</li>
@@ -355,6 +369,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>removeWords (stopwords)</li>
 <li>stemDocument</li>
 </ul>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="minería-de-texto.html#cb535-1"></a><span class="kw">library</span>(tm)</span>
+<span id="cb535-2"><a href="minería-de-texto.html#cb535-2"></a><span class="kw">removePunctuation</span>(x)</span>
+<span id="cb535-3"><a href="minería-de-texto.html#cb535-3"></a><span class="kw">stripWhitespace</span>(x)</span>
+<span id="cb535-4"><a href="minería-de-texto.html#cb535-4"></a><span class="kw">removeNumbers</span>(x)</span>
+<span id="cb535-5"><a href="minería-de-texto.html#cb535-5"></a><span class="kw">removeWords</span>(x,<span class="kw">c</span>(<span class="st">&quot;Hola&quot;</span>,<span class="st">&quot;hoy&quot;</span>))</span>
+<span id="cb535-6"><a href="minería-de-texto.html#cb535-6"></a>x</span>
+<span id="cb535-7"><a href="minería-de-texto.html#cb535-7"></a><span class="kw">removeWords</span>(x,<span class="kw">stopwords</span>(<span class="st">&quot;es&quot;</span>)[<span class="op">-</span><span class="dv">47</span>])</span></code></pre></div>
 </div>
 </div>
 <div id="recolección-de-texto" class="section level2">
@@ -367,109 +388,124 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="csv" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> CSV</h3>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="minería-de-texto.html#cb486-1"></a><span class="kw">library</span>(tm)</span>
-<span id="cb486-2"><a href="minería-de-texto.html#cb486-2"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb486-3"><a href="minería-de-texto.html#cb486-3"></a><span class="kw">setwd</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data&quot;</span>)</span>
-<span id="cb486-4"><a href="minería-de-texto.html#cb486-4"></a>fb&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;bd_sc.csv&quot;</span>)</span>
-<span id="cb486-5"><a href="minería-de-texto.html#cb486-5"></a>fb&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;bd_sc.csv&quot;</span>,<span class="dt">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
-<span id="cb486-6"><a href="minería-de-texto.html#cb486-6"></a><span class="co">#fb&lt;-read.csv(&quot;bd_sc.csv&quot;,encoding = &quot;Latin-1&quot;)</span></span>
-<span id="cb486-7"><a href="minería-de-texto.html#cb486-7"></a>fb<span class="op">$</span>post_text[<span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="minería-de-texto.html#cb536-1"></a><span class="kw">library</span>(tm)</span>
+<span id="cb536-2"><a href="minería-de-texto.html#cb536-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb536-3"><a href="minería-de-texto.html#cb536-3"></a><span class="kw">setwd</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data&quot;</span>)</span>
+<span id="cb536-4"><a href="minería-de-texto.html#cb536-4"></a>fb&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;bd_sc.csv&quot;</span>)</span>
+<span id="cb536-5"><a href="minería-de-texto.html#cb536-5"></a>fb&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;bd_sc.csv&quot;</span>,<span class="dt">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
+<span id="cb536-6"><a href="minería-de-texto.html#cb536-6"></a><span class="co">#fb&lt;-read.csv(&quot;bd_sc.csv&quot;,encoding = &quot;Latin-1&quot;)</span></span>
+<span id="cb536-7"><a href="minería-de-texto.html#cb536-7"></a>fb<span class="op">$</span>post_text[<span class="dv">5</span>]</span></code></pre></div>
 </div>
 <div id="colección-de-documentos" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Colección de documentos</h3>
-<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="minería-de-texto.html#cb487-1"></a><span class="kw">library</span>(pdftools)</span>
-<span id="cb487-2"><a href="minería-de-texto.html#cb487-2"></a>dir&lt;-<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">pdf&quot;</span></span>
-<span id="cb487-3"><a href="minería-de-texto.html#cb487-3"></a>pdfdocs &lt;-<span class="st"> </span><span class="kw">VCorpus</span>(<span class="kw">DirSource</span>(dir, <span class="dt">pattern =</span> <span class="st">&quot;.pdf&quot;</span>), </span>
-<span id="cb487-4"><a href="minería-de-texto.html#cb487-4"></a>                               <span class="dt">readerControl =</span> <span class="kw">list</span>(<span class="dt">reader =</span> readPDF))</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="minería-de-texto.html#cb537-1"></a><span class="kw">library</span>(pdftools)</span>
+<span id="cb537-2"><a href="minería-de-texto.html#cb537-2"></a>dir&lt;-<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">ALVARO</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">EST-384</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">pdf&quot;</span></span>
+<span id="cb537-3"><a href="minería-de-texto.html#cb537-3"></a>pdfdocs &lt;-<span class="st"> </span><span class="kw">VCorpus</span>(<span class="kw">DirSource</span>(dir, <span class="dt">pattern =</span> <span class="st">&quot;.pdf&quot;</span>), </span>
+<span id="cb537-4"><a href="minería-de-texto.html#cb537-4"></a>                               <span class="dt">readerControl =</span> <span class="kw">list</span>(<span class="dt">reader =</span> readPDF))</span></code></pre></div>
 </div>
 <div id="twitter-api" class="section level3">
 <h3><span class="header-section-number">6.2.3</span> Twitter (API)</h3>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="minería-de-texto.html#cb488-1"></a><span class="kw">library</span>(rtweet)</span>
-<span id="cb488-2"><a href="minería-de-texto.html#cb488-2"></a>tw&lt;-<span class="kw">search_tweets</span>(<span class="st">&quot;Dioxido de cloro&quot;</span>,<span class="dt">n=</span><span class="dv">10000</span>,<span class="dt">include_rts =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="minería-de-texto.html#cb538-1"></a><span class="kw">library</span>(rtweet)</span>
+<span id="cb538-2"><a href="minería-de-texto.html#cb538-2"></a>tw&lt;-<span class="kw">search_tweets</span>(<span class="st">&quot;Bolivia&quot;</span>,<span class="dt">n=</span><span class="dv">500</span>,<span class="dt">include_rts =</span> F)</span>
+<span id="cb538-3"><a href="minería-de-texto.html#cb538-3"></a>tw<span class="op">$</span>text</span></code></pre></div>
 </div>
 </div>
 <div id="nubes-de-palabras" class="section level2">
 <h2><span class="header-section-number">6.3</span> Nubes de palabras</h2>
-<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="minería-de-texto.html#cb489-1"></a><span class="kw">library</span>(wordcloud2)</span>
-<span id="cb489-2"><a href="minería-de-texto.html#cb489-2"></a>   docs&lt;-<span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(fb<span class="op">$</span>post_text))</span>
-<span id="cb489-3"><a href="minería-de-texto.html#cb489-3"></a>    docs &lt;-<span class="st"> </span>docs <span class="op">%&gt;%</span></span>
-<span id="cb489-4"><a href="minería-de-texto.html#cb489-4"></a><span class="st">      </span><span class="kw">tm_map</span>(removeNumbers) <span class="op">%&gt;%</span></span>
-<span id="cb489-5"><a href="minería-de-texto.html#cb489-5"></a><span class="st">      </span><span class="kw">tm_map</span>(removePunctuation) <span class="op">%&gt;%</span></span>
-<span id="cb489-6"><a href="minería-de-texto.html#cb489-6"></a><span class="st">      </span><span class="kw">tm_map</span>(stripWhitespace)</span>
-<span id="cb489-7"><a href="minería-de-texto.html#cb489-7"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, <span class="kw">content_transformer</span>(tolower))</span>
-<span id="cb489-8"><a href="minería-de-texto.html#cb489-8"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, removeWords, <span class="kw">stopwords</span>(<span class="st">&quot;sp&quot;</span>))</span>
-<span id="cb489-9"><a href="minería-de-texto.html#cb489-9"></a>    dtm &lt;-<span class="st"> </span><span class="kw">TermDocumentMatrix</span>(docs) </span>
-<span id="cb489-10"><a href="minería-de-texto.html#cb489-10"></a>    matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(dtm) </span>
-<span id="cb489-11"><a href="minería-de-texto.html#cb489-11"></a>    words &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">rowSums</span>(matrix),<span class="dt">decreasing=</span><span class="ot">TRUE</span>) </span>
-<span id="cb489-12"><a href="minería-de-texto.html#cb489-12"></a>    df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">word =</span> <span class="kw">names</span>(words),<span class="dt">freq=</span>words)    </span>
-<span id="cb489-13"><a href="minería-de-texto.html#cb489-13"></a>    <span class="co">##funciones</span></span>
-<span id="cb489-14"><a href="minería-de-texto.html#cb489-14"></a>nube&lt;-<span class="cf">function</span>(aux){</span>
-<span id="cb489-15"><a href="minería-de-texto.html#cb489-15"></a>    docs&lt;-<span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(aux))</span>
-<span id="cb489-16"><a href="minería-de-texto.html#cb489-16"></a>    docs &lt;-<span class="st"> </span>docs <span class="op">%&gt;%</span></span>
-<span id="cb489-17"><a href="minería-de-texto.html#cb489-17"></a><span class="st">      </span><span class="kw">tm_map</span>(removeNumbers) <span class="op">%&gt;%</span></span>
-<span id="cb489-18"><a href="minería-de-texto.html#cb489-18"></a><span class="st">      </span><span class="kw">tm_map</span>(removePunctuation) <span class="op">%&gt;%</span></span>
-<span id="cb489-19"><a href="minería-de-texto.html#cb489-19"></a><span class="st">      </span><span class="kw">tm_map</span>(stripWhitespace)</span>
-<span id="cb489-20"><a href="minería-de-texto.html#cb489-20"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, <span class="kw">content_transformer</span>(tolower))</span>
-<span id="cb489-21"><a href="minería-de-texto.html#cb489-21"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, removeWords, <span class="kw">stopwords</span>(<span class="st">&quot;sp&quot;</span>))</span>
-<span id="cb489-22"><a href="minería-de-texto.html#cb489-22"></a>    dtm &lt;-<span class="st"> </span><span class="kw">TermDocumentMatrix</span>(docs) </span>
-<span id="cb489-23"><a href="minería-de-texto.html#cb489-23"></a>    matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(dtm) </span>
-<span id="cb489-24"><a href="minería-de-texto.html#cb489-24"></a>    words &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">rowSums</span>(matrix),<span class="dt">decreasing=</span><span class="ot">TRUE</span>) </span>
-<span id="cb489-25"><a href="minería-de-texto.html#cb489-25"></a>    df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">word =</span> <span class="kw">names</span>(words),<span class="dt">freq=</span>words)    </span>
-<span id="cb489-26"><a href="minería-de-texto.html#cb489-26"></a>    <span class="kw">return</span>(df)</span>
-<span id="cb489-27"><a href="minería-de-texto.html#cb489-27"></a>}</span>
-<span id="cb489-28"><a href="minería-de-texto.html#cb489-28"></a>nube2&lt;-<span class="cf">function</span>(aux){</span>
-<span id="cb489-29"><a href="minería-de-texto.html#cb489-29"></a>    docs &lt;-<span class="st"> </span>aux <span class="op">%&gt;%</span></span>
-<span id="cb489-30"><a href="minería-de-texto.html#cb489-30"></a><span class="st">      </span><span class="kw">tm_map</span>(removeNumbers) <span class="op">%&gt;%</span></span>
-<span id="cb489-31"><a href="minería-de-texto.html#cb489-31"></a><span class="st">      </span><span class="kw">tm_map</span>(removePunctuation) <span class="op">%&gt;%</span></span>
-<span id="cb489-32"><a href="minería-de-texto.html#cb489-32"></a><span class="st">      </span><span class="kw">tm_map</span>(stripWhitespace)</span>
-<span id="cb489-33"><a href="minería-de-texto.html#cb489-33"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, <span class="kw">content_transformer</span>(tolower))</span>
-<span id="cb489-34"><a href="minería-de-texto.html#cb489-34"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, removeWords, <span class="kw">stopwords</span>(<span class="st">&quot;sp&quot;</span>))</span>
-<span id="cb489-35"><a href="minería-de-texto.html#cb489-35"></a>    dtm &lt;-<span class="st"> </span><span class="kw">TermDocumentMatrix</span>(docs) </span>
-<span id="cb489-36"><a href="minería-de-texto.html#cb489-36"></a>    matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(dtm) </span>
-<span id="cb489-37"><a href="minería-de-texto.html#cb489-37"></a>    words &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">rowSums</span>(matrix),<span class="dt">decreasing=</span><span class="ot">TRUE</span>) </span>
-<span id="cb489-38"><a href="minería-de-texto.html#cb489-38"></a>    df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">word =</span> <span class="kw">names</span>(words),<span class="dt">freq=</span>words)    </span>
-<span id="cb489-39"><a href="minería-de-texto.html#cb489-39"></a>    <span class="kw">return</span>(df)</span>
-<span id="cb489-40"><a href="minería-de-texto.html#cb489-40"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="minería-de-texto.html#cb539-1"></a><span class="kw">library</span>(wordcloud)</span>
+<span id="cb539-2"><a href="minería-de-texto.html#cb539-2"></a><span class="kw">library</span>(wordcloud2)</span>
+<span id="cb539-3"><a href="minería-de-texto.html#cb539-3"></a>fb<span class="op">$</span>post_text</span>
+<span id="cb539-4"><a href="minería-de-texto.html#cb539-4"></a></span>
+<span id="cb539-5"><a href="minería-de-texto.html#cb539-5"></a>   docs&lt;-<span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(fb<span class="op">$</span>post_text))</span>
+<span id="cb539-6"><a href="minería-de-texto.html#cb539-6"></a>   docs </span>
+<span id="cb539-7"><a href="minería-de-texto.html#cb539-7"></a>   </span>
+<span id="cb539-8"><a href="minería-de-texto.html#cb539-8"></a>   docs &lt;-<span class="st"> </span>docs <span class="op">%&gt;%</span></span>
+<span id="cb539-9"><a href="minería-de-texto.html#cb539-9"></a><span class="st">      </span><span class="kw">tm_map</span>(removeNumbers) <span class="op">%&gt;%</span></span>
+<span id="cb539-10"><a href="minería-de-texto.html#cb539-10"></a><span class="st">      </span><span class="kw">tm_map</span>(removePunctuation) <span class="op">%&gt;%</span></span>
+<span id="cb539-11"><a href="minería-de-texto.html#cb539-11"></a><span class="st">      </span><span class="kw">tm_map</span>(stripWhitespace)</span>
+<span id="cb539-12"><a href="minería-de-texto.html#cb539-12"></a>   </span>
+<span id="cb539-13"><a href="minería-de-texto.html#cb539-13"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, <span class="kw">content_transformer</span>(tolower))</span>
+<span id="cb539-14"><a href="minería-de-texto.html#cb539-14"></a>    </span>
+<span id="cb539-15"><a href="minería-de-texto.html#cb539-15"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, removeWords, <span class="kw">c</span>(<span class="kw">stopwords</span>(<span class="st">&quot;sp&quot;</span>),<span class="st">&quot;ahora&quot;</span>) )</span>
+<span id="cb539-16"><a href="minería-de-texto.html#cb539-16"></a>    </span>
+<span id="cb539-17"><a href="minería-de-texto.html#cb539-17"></a>    dtm &lt;-<span class="st"> </span><span class="kw">TermDocumentMatrix</span>(docs) </span>
+<span id="cb539-18"><a href="minería-de-texto.html#cb539-18"></a>    </span>
+<span id="cb539-19"><a href="minería-de-texto.html#cb539-19"></a>    matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(dtm) </span>
+<span id="cb539-20"><a href="minería-de-texto.html#cb539-20"></a>    </span>
+<span id="cb539-21"><a href="minería-de-texto.html#cb539-21"></a>    words &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">rowSums</span>(matrix),<span class="dt">decreasing=</span><span class="ot">TRUE</span>) </span>
+<span id="cb539-22"><a href="minería-de-texto.html#cb539-22"></a>    df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">word =</span> <span class="kw">names</span>(words),<span class="dt">freq=</span>words)    </span>
+<span id="cb539-23"><a href="minería-de-texto.html#cb539-23"></a>    <span class="kw">wordcloud2</span>(df)</span>
+<span id="cb539-24"><a href="minería-de-texto.html#cb539-24"></a><span class="co">##funciones</span></span>
+<span id="cb539-25"><a href="minería-de-texto.html#cb539-25"></a><span class="co">#vectores de texto    </span></span>
+<span id="cb539-26"><a href="minería-de-texto.html#cb539-26"></a>nube&lt;-<span class="cf">function</span>(aux){</span>
+<span id="cb539-27"><a href="minería-de-texto.html#cb539-27"></a>    docs&lt;-<span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(aux))</span>
+<span id="cb539-28"><a href="minería-de-texto.html#cb539-28"></a>    docs &lt;-<span class="st"> </span>docs <span class="op">%&gt;%</span></span>
+<span id="cb539-29"><a href="minería-de-texto.html#cb539-29"></a><span class="st">      </span><span class="kw">tm_map</span>(removeNumbers) <span class="op">%&gt;%</span></span>
+<span id="cb539-30"><a href="minería-de-texto.html#cb539-30"></a><span class="st">      </span><span class="kw">tm_map</span>(removePunctuation) <span class="op">%&gt;%</span></span>
+<span id="cb539-31"><a href="minería-de-texto.html#cb539-31"></a><span class="st">      </span><span class="kw">tm_map</span>(stripWhitespace)</span>
+<span id="cb539-32"><a href="minería-de-texto.html#cb539-32"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, <span class="kw">content_transformer</span>(tolower))</span>
+<span id="cb539-33"><a href="minería-de-texto.html#cb539-33"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, removeWords, <span class="kw">stopwords</span>(<span class="st">&quot;sp&quot;</span>))</span>
+<span id="cb539-34"><a href="minería-de-texto.html#cb539-34"></a>    dtm &lt;-<span class="st"> </span><span class="kw">TermDocumentMatrix</span>(docs) </span>
+<span id="cb539-35"><a href="minería-de-texto.html#cb539-35"></a>    matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(dtm) </span>
+<span id="cb539-36"><a href="minería-de-texto.html#cb539-36"></a>    words &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">rowSums</span>(matrix),<span class="dt">decreasing=</span><span class="ot">TRUE</span>) </span>
+<span id="cb539-37"><a href="minería-de-texto.html#cb539-37"></a>    df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">word =</span> <span class="kw">names</span>(words),<span class="dt">freq=</span>words)    </span>
+<span id="cb539-38"><a href="minería-de-texto.html#cb539-38"></a>    <span class="kw">return</span>(df)</span>
+<span id="cb539-39"><a href="minería-de-texto.html#cb539-39"></a>}</span>
+<span id="cb539-40"><a href="minería-de-texto.html#cb539-40"></a><span class="co">#objetos corpus</span></span>
+<span id="cb539-41"><a href="minería-de-texto.html#cb539-41"></a>nube2&lt;-<span class="cf">function</span>(aux){</span>
+<span id="cb539-42"><a href="minería-de-texto.html#cb539-42"></a>    docs &lt;-<span class="st"> </span>aux <span class="op">%&gt;%</span></span>
+<span id="cb539-43"><a href="minería-de-texto.html#cb539-43"></a><span class="st">      </span><span class="kw">tm_map</span>(removeNumbers) <span class="op">%&gt;%</span></span>
+<span id="cb539-44"><a href="minería-de-texto.html#cb539-44"></a><span class="st">      </span><span class="kw">tm_map</span>(removePunctuation) <span class="op">%&gt;%</span></span>
+<span id="cb539-45"><a href="minería-de-texto.html#cb539-45"></a><span class="st">      </span><span class="kw">tm_map</span>(stripWhitespace)</span>
+<span id="cb539-46"><a href="minería-de-texto.html#cb539-46"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, <span class="kw">content_transformer</span>(tolower))</span>
+<span id="cb539-47"><a href="minería-de-texto.html#cb539-47"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, removeWords, <span class="kw">stopwords</span>(<span class="st">&quot;sp&quot;</span>))</span>
+<span id="cb539-48"><a href="minería-de-texto.html#cb539-48"></a>    dtm &lt;-<span class="st"> </span><span class="kw">TermDocumentMatrix</span>(docs) </span>
+<span id="cb539-49"><a href="minería-de-texto.html#cb539-49"></a>    matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(dtm) </span>
+<span id="cb539-50"><a href="minería-de-texto.html#cb539-50"></a>    words &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">rowSums</span>(matrix),<span class="dt">decreasing=</span><span class="ot">TRUE</span>) </span>
+<span id="cb539-51"><a href="minería-de-texto.html#cb539-51"></a>    df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">word =</span> <span class="kw">names</span>(words),<span class="dt">freq=</span>words)    </span>
+<span id="cb539-52"><a href="minería-de-texto.html#cb539-52"></a>    <span class="kw">return</span>(df)</span>
+<span id="cb539-53"><a href="minería-de-texto.html#cb539-53"></a>}</span></code></pre></div>
 <p>Sobre los tipos de datos</p>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="minería-de-texto.html#cb490-1"></a><span class="co">#csv</span></span>
-<span id="cb490-2"><a href="minería-de-texto.html#cb490-2"></a>df&lt;-<span class="kw">nube</span>(fb<span class="op">$</span>post_text)</span>
-<span id="cb490-3"><a href="minería-de-texto.html#cb490-3"></a><span class="kw">wordcloud2</span>(<span class="dt">data=</span>df[df<span class="op">$</span>freq<span class="op">&gt;</span><span class="dv">5</span>,],<span class="dt">color=</span><span class="st">&#39;random-dark&#39;</span>,<span class="dt">size =</span> <span class="fl">0.4</span>,<span class="dt">shape =</span> <span class="st">&#39;star&#39;</span>)</span>
-<span id="cb490-4"><a href="minería-de-texto.html#cb490-4"></a><span class="co">#colección de documentos</span></span>
-<span id="cb490-5"><a href="minería-de-texto.html#cb490-5"></a>df&lt;-<span class="kw">nube2</span>(pdfdocs)</span>
-<span id="cb490-6"><a href="minería-de-texto.html#cb490-6"></a><span class="kw">wordcloud2</span>(<span class="dt">data=</span>df,<span class="dt">color=</span><span class="st">&#39;random-dark&#39;</span>,<span class="dt">size =</span> <span class="fl">0.4</span>,<span class="dt">shape =</span> <span class="st">&#39;pentagon&#39;</span>)</span>
-<span id="cb490-7"><a href="minería-de-texto.html#cb490-7"></a><span class="co">#scrape</span></span>
-<span id="cb490-8"><a href="minería-de-texto.html#cb490-8"></a>df&lt;-<span class="kw">nube</span>(tw<span class="op">$</span>text)</span>
-<span id="cb490-9"><a href="minería-de-texto.html#cb490-9"></a><span class="kw">wordcloud2</span>(<span class="dt">data=</span>df[df<span class="op">$</span>freq<span class="op">&gt;</span><span class="dv">1</span>,],<span class="dt">color=</span><span class="st">&#39;random-dark&#39;</span>,<span class="dt">shape =</span> <span class="st">&#39;pentagon&#39;</span>)</span>
-<span id="cb490-10"><a href="minería-de-texto.html#cb490-10"></a></span>
-<span id="cb490-11"><a href="minería-de-texto.html#cb490-11"></a><span class="kw">library</span>(wordcloud)</span>
-<span id="cb490-12"><a href="minería-de-texto.html#cb490-12"></a><span class="kw">wordcloud</span>(df<span class="op">$</span>word,<span class="dt">freq=</span>df<span class="op">$</span>freq,<span class="dt">min.freq =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="minería-de-texto.html#cb540-1"></a><span class="co">#csv</span></span>
+<span id="cb540-2"><a href="minería-de-texto.html#cb540-2"></a>df&lt;-<span class="kw">nube</span>(fb<span class="op">$</span>post_text)</span>
+<span id="cb540-3"><a href="minería-de-texto.html#cb540-3"></a><span class="kw">wordcloud2</span>(<span class="dt">data=</span>df,<span class="dt">color=</span><span class="st">&#39;random-dark&#39;</span>,<span class="dt">size=</span><span class="fl">0.5</span>,<span class="dt">shape =</span> <span class="st">&#39;pentagon&#39;</span>)</span>
+<span id="cb540-4"><a href="minería-de-texto.html#cb540-4"></a><span class="co">#colección de documentos</span></span>
+<span id="cb540-5"><a href="minería-de-texto.html#cb540-5"></a>df&lt;-<span class="kw">nube2</span>(pdfdocs)</span>
+<span id="cb540-6"><a href="minería-de-texto.html#cb540-6"></a><span class="kw">wordcloud2</span>(<span class="dt">data=</span>df,<span class="dt">color=</span><span class="st">&#39;random-dark&#39;</span>,<span class="dt">size =</span> <span class="fl">0.3</span>,<span class="dt">shape =</span> <span class="st">&#39;pentagon&#39;</span>)</span>
+<span id="cb540-7"><a href="minería-de-texto.html#cb540-7"></a><span class="co">#scrape</span></span>
+<span id="cb540-8"><a href="minería-de-texto.html#cb540-8"></a>df&lt;-<span class="kw">nube</span>(tw<span class="op">$</span>text)</span>
+<span id="cb540-9"><a href="minería-de-texto.html#cb540-9"></a><span class="kw">wordcloud2</span>(<span class="dt">data=</span>df[<span class="op">-</span><span class="dv">1</span>,],<span class="dt">color=</span><span class="st">&#39;random-dark&#39;</span>,<span class="dt">size =</span> <span class="fl">0.4</span>,<span class="dt">shape =</span> <span class="st">&#39;pentagon&#39;</span>)</span>
+<span id="cb540-10"><a href="minería-de-texto.html#cb540-10"></a></span>
+<span id="cb540-11"><a href="minería-de-texto.html#cb540-11"></a><span class="kw">library</span>(wordcloud)</span>
+<span id="cb540-12"><a href="minería-de-texto.html#cb540-12"></a><span class="kw">wordcloud</span>(df<span class="op">$</span>word,<span class="dt">freq=</span>df<span class="op">$</span>freq,<span class="dt">min.freq =</span> <span class="dv">5</span>)</span></code></pre></div>
 <p>Gráfico de correlaciones</p>
-<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="minería-de-texto.html#cb491-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb491-2"><a href="minería-de-texto.html#cb491-2"></a><span class="kw">library</span>(ggthemes)</span>
-<span id="cb491-3"><a href="minería-de-texto.html#cb491-3"></a>docs&lt;-<span class="kw">VCorpus</span>(<span class="kw">VectorSource</span>(fb<span class="op">$</span>text))</span>
-<span id="cb491-4"><a href="minería-de-texto.html#cb491-4"></a>docs &lt;-<span class="st"> </span>docs <span class="op">%&gt;%</span></span>
-<span id="cb491-5"><a href="minería-de-texto.html#cb491-5"></a><span class="st">      </span><span class="kw">tm_map</span>(removeNumbers) <span class="op">%&gt;%</span></span>
-<span id="cb491-6"><a href="minería-de-texto.html#cb491-6"></a><span class="st">      </span><span class="kw">tm_map</span>(removePunctuation) <span class="op">%&gt;%</span></span>
-<span id="cb491-7"><a href="minería-de-texto.html#cb491-7"></a><span class="st">      </span><span class="kw">tm_map</span>(stripWhitespace)</span>
-<span id="cb491-8"><a href="minería-de-texto.html#cb491-8"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, <span class="kw">content_transformer</span>(tolower))</span>
-<span id="cb491-9"><a href="minería-de-texto.html#cb491-9"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, removeWords, <span class="kw">stopwords</span>(<span class="st">&quot;sp&quot;</span>))</span>
-<span id="cb491-10"><a href="minería-de-texto.html#cb491-10"></a>tdm&lt;-<span class="kw">TermDocumentMatrix</span>(docs) </span>
-<span id="cb491-11"><a href="minería-de-texto.html#cb491-11"></a></span>
-<span id="cb491-12"><a href="minería-de-texto.html#cb491-12"></a>associations&lt;-<span class="kw">findAssocs</span>(tdm, <span class="st">&#39;evo&#39;</span>, <span class="fl">0.55</span>)</span>
-<span id="cb491-13"><a href="minería-de-texto.html#cb491-13"></a>associations&lt;-<span class="kw">as.data.frame</span>(associations)</span>
-<span id="cb491-14"><a href="minería-de-texto.html#cb491-14"></a>associations<span class="op">$</span>terms&lt;-<span class="kw">row.names</span>(associations)</span>
-<span id="cb491-15"><a href="minería-de-texto.html#cb491-15"></a>associations<span class="op">$</span>terms&lt;-<span class="kw">factor</span>(associations<span class="op">$</span>terms,</span>
-<span id="cb491-16"><a href="minería-de-texto.html#cb491-16"></a><span class="dt">levels=</span>associations<span class="op">$</span>terms)</span>
-<span id="cb491-17"><a href="minería-de-texto.html#cb491-17"></a></span>
-<span id="cb491-18"><a href="minería-de-texto.html#cb491-18"></a><span class="kw">names</span>(associations)[<span class="dv">1</span>]&lt;-<span class="st">&quot;palabra&quot;</span></span>
-<span id="cb491-19"><a href="minería-de-texto.html#cb491-19"></a><span class="kw">ggplot</span>(associations, <span class="kw">aes</span>(<span class="dt">y=</span>terms)) <span class="op">+</span></span>
-<span id="cb491-20"><a href="minería-de-texto.html#cb491-20"></a><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>palabra), <span class="dt">data=</span>associations,</span>
-<span id="cb491-21"><a href="minería-de-texto.html#cb491-21"></a><span class="dt">size=</span><span class="dv">5</span>)<span class="op">+</span></span>
-<span id="cb491-22"><a href="minería-de-texto.html#cb491-22"></a><span class="kw">theme_gdocs</span>()<span class="op">+</span><span class="st"> </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x=</span>palabra,</span>
-<span id="cb491-23"><a href="minería-de-texto.html#cb491-23"></a><span class="dt">label=</span>palabra),</span>
-<span id="cb491-24"><a href="minería-de-texto.html#cb491-24"></a><span class="dt">colour=</span><span class="st">&quot;darkred&quot;</span>,<span class="dt">hjust=</span><span class="op">-</span>.<span class="dv">25</span>,<span class="dt">size=</span><span class="dv">8</span>)<span class="op">+</span></span>
-<span id="cb491-25"><a href="minería-de-texto.html#cb491-25"></a><span class="kw">theme</span>(<span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>),</span>
-<span id="cb491-26"><a href="minería-de-texto.html#cb491-26"></a><span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="minería-de-texto.html#cb541-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb541-2"><a href="minería-de-texto.html#cb541-2"></a><span class="kw">library</span>(ggthemes)</span>
+<span id="cb541-3"><a href="minería-de-texto.html#cb541-3"></a></span>
+<span id="cb541-4"><a href="minería-de-texto.html#cb541-4"></a>docs&lt;-<span class="kw">VCorpus</span>(<span class="kw">VectorSource</span>(fb<span class="op">$</span>text))</span>
+<span id="cb541-5"><a href="minería-de-texto.html#cb541-5"></a>docs &lt;-<span class="st"> </span>docs <span class="op">%&gt;%</span></span>
+<span id="cb541-6"><a href="minería-de-texto.html#cb541-6"></a><span class="st">      </span><span class="kw">tm_map</span>(removeNumbers) <span class="op">%&gt;%</span></span>
+<span id="cb541-7"><a href="minería-de-texto.html#cb541-7"></a><span class="st">      </span><span class="kw">tm_map</span>(removePunctuation) <span class="op">%&gt;%</span></span>
+<span id="cb541-8"><a href="minería-de-texto.html#cb541-8"></a><span class="st">      </span><span class="kw">tm_map</span>(stripWhitespace)</span>
+<span id="cb541-9"><a href="minería-de-texto.html#cb541-9"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, <span class="kw">content_transformer</span>(tolower))</span>
+<span id="cb541-10"><a href="minería-de-texto.html#cb541-10"></a>    docs &lt;-<span class="st"> </span><span class="kw">tm_map</span>(docs, removeWords, <span class="kw">stopwords</span>(<span class="st">&quot;sp&quot;</span>))</span>
+<span id="cb541-11"><a href="minería-de-texto.html#cb541-11"></a>tdm&lt;-<span class="kw">TermDocumentMatrix</span>(docs) </span>
+<span id="cb541-12"><a href="minería-de-texto.html#cb541-12"></a></span>
+<span id="cb541-13"><a href="minería-de-texto.html#cb541-13"></a>associations&lt;-<span class="kw">findAssocs</span>(tdm, <span class="st">&#39;domicilio&#39;</span>, <span class="fl">0.4</span>)</span>
+<span id="cb541-14"><a href="minería-de-texto.html#cb541-14"></a>associations&lt;-<span class="kw">as.data.frame</span>(associations)</span>
+<span id="cb541-15"><a href="minería-de-texto.html#cb541-15"></a>associations<span class="op">$</span>terms&lt;-<span class="kw">row.names</span>(associations)</span>
+<span id="cb541-16"><a href="minería-de-texto.html#cb541-16"></a>associations<span class="op">$</span>terms&lt;-<span class="kw">factor</span>(associations<span class="op">$</span>terms,</span>
+<span id="cb541-17"><a href="minería-de-texto.html#cb541-17"></a><span class="dt">levels=</span>associations<span class="op">$</span>terms)</span>
+<span id="cb541-18"><a href="minería-de-texto.html#cb541-18"></a></span>
+<span id="cb541-19"><a href="minería-de-texto.html#cb541-19"></a><span class="kw">names</span>(associations)[<span class="dv">1</span>]&lt;-<span class="st">&quot;palabra&quot;</span></span>
+<span id="cb541-20"><a href="minería-de-texto.html#cb541-20"></a><span class="kw">ggplot</span>(associations, <span class="kw">aes</span>(<span class="dt">y=</span>terms)) <span class="op">+</span></span>
+<span id="cb541-21"><a href="minería-de-texto.html#cb541-21"></a><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>palabra), <span class="dt">data=</span>associations,</span>
+<span id="cb541-22"><a href="minería-de-texto.html#cb541-22"></a><span class="dt">size=</span><span class="dv">5</span>)<span class="op">+</span></span>
+<span id="cb541-23"><a href="minería-de-texto.html#cb541-23"></a><span class="kw">theme_gdocs</span>()<span class="op">+</span><span class="st"> </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x=</span>palabra,</span>
+<span id="cb541-24"><a href="minería-de-texto.html#cb541-24"></a><span class="dt">label=</span>palabra),</span>
+<span id="cb541-25"><a href="minería-de-texto.html#cb541-25"></a><span class="dt">colour=</span><span class="st">&quot;darkred&quot;</span>,<span class="dt">hjust=</span><span class="op">-</span>.<span class="dv">25</span>,<span class="dt">size=</span><span class="dv">8</span>)<span class="op">+</span></span>
+<span id="cb541-26"><a href="minería-de-texto.html#cb541-26"></a><span class="kw">theme</span>(<span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>),</span>
+<span id="cb541-27"><a href="minería-de-texto.html#cb541-27"></a><span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())</span></code></pre></div>
 </div>
 <div id="análisis-de-sentimiento-sentimental-scoring" class="section level2">
 <h2><span class="header-section-number">6.4</span> Análisis de sentimiento (sentimental scoring)</h2>
@@ -505,30 +541,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="polarización-en-qdap" class="section level3">
 <h3><span class="header-section-number">6.4.2</span> Polarización en QDAP</h3>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="minería-de-texto.html#cb492-1"></a><span class="co">#solo ingles</span></span>
-<span id="cb492-2"><a href="minería-de-texto.html#cb492-2"></a><span class="kw">library</span>(qdap)</span>
-<span id="cb492-3"><a href="minería-de-texto.html#cb492-3"></a><span class="kw">library</span>(rtweet)</span>
-<span id="cb492-4"><a href="minería-de-texto.html#cb492-4"></a>tw&lt;-<span class="kw">search_tweets</span>(<span class="st">&quot;Bolivia&quot;</span>,<span class="dt">n=</span><span class="dv">100</span>,<span class="dt">include_rts =</span> F,<span class="dt">lang=</span><span class="st">&quot;en&quot;</span>)</span>
-<span id="cb492-5"><a href="minería-de-texto.html#cb492-5"></a><span class="kw">detach</span>(package<span class="op">:</span>dplyr, <span class="dt">unload=</span><span class="ot">TRUE</span>)</span>
-<span id="cb492-6"><a href="minería-de-texto.html#cb492-6"></a><span class="kw">detach</span>(package<span class="op">:</span>rtweet, <span class="dt">unload=</span><span class="ot">TRUE</span>)</span>
-<span id="cb492-7"><a href="minería-de-texto.html#cb492-7"></a><span class="kw">detach</span>(package<span class="op">:</span>qdap, <span class="dt">unload=</span><span class="ot">TRUE</span>)</span>
-<span id="cb492-8"><a href="minería-de-texto.html#cb492-8"></a><span class="st">`</span><span class="dt">[[.qdap_hash</span><span class="st">`</span> &lt;-<span class="st"> `</span><span class="dt">[[.data.frame</span><span class="st">`</span></span>
-<span id="cb492-9"><a href="minería-de-texto.html#cb492-9"></a>tw<span class="op">$</span>text&lt;-<span class="kw">removePunctuation</span>(tw<span class="op">$</span>text)</span>
-<span id="cb492-10"><a href="minería-de-texto.html#cb492-10"></a>score&lt;-<span class="kw">polarity</span>(tw<span class="op">$</span>text[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="minería-de-texto.html#cb542-1"></a><span class="co">#solo ingles</span></span>
+<span id="cb542-2"><a href="minería-de-texto.html#cb542-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb542-3"><a href="minería-de-texto.html#cb542-3"></a><span class="kw">library</span>(qdap)</span>
+<span id="cb542-4"><a href="minería-de-texto.html#cb542-4"></a><span class="kw">library</span>(rtweet)</span>
+<span id="cb542-5"><a href="minería-de-texto.html#cb542-5"></a>tw&lt;-<span class="kw">search_tweets</span>(<span class="st">&quot;Bolivia&quot;</span>,<span class="dt">n=</span><span class="dv">100</span>,<span class="dt">include_rts =</span> F,<span class="dt">lang=</span><span class="st">&quot;en&quot;</span>)</span>
+<span id="cb542-6"><a href="minería-de-texto.html#cb542-6"></a><span class="kw">detach</span>(package<span class="op">:</span>dplyr, <span class="dt">unload=</span><span class="ot">TRUE</span>)</span>
+<span id="cb542-7"><a href="minería-de-texto.html#cb542-7"></a><span class="kw">detach</span>(package<span class="op">:</span>rtweet, <span class="dt">unload=</span><span class="ot">TRUE</span>)</span>
+<span id="cb542-8"><a href="minería-de-texto.html#cb542-8"></a><span class="kw">detach</span>(package<span class="op">:</span>qdap, <span class="dt">unload=</span><span class="ot">TRUE</span>)</span>
+<span id="cb542-9"><a href="minería-de-texto.html#cb542-9"></a><span class="st">`</span><span class="dt">[[.qdap_hash</span><span class="st">`</span> &lt;-<span class="st"> `</span><span class="dt">[[.data.frame</span><span class="st">`</span></span>
+<span id="cb542-10"><a href="minería-de-texto.html#cb542-10"></a>tw<span class="op">$</span>text&lt;-<span class="kw">removePunctuation</span>(tw<span class="op">$</span>text)</span>
+<span id="cb542-11"><a href="minería-de-texto.html#cb542-11"></a>score&lt;-<span class="kw">polarity</span>(tw<span class="op">$</span>text[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span>
+<span id="cb542-12"><a href="minería-de-texto.html#cb542-12"></a></span>
+<span id="cb542-13"><a href="minería-de-texto.html#cb542-13"></a><span class="kw">with</span>(DATA, <span class="kw">polarity</span>(state, <span class="kw">list</span>(sex, adult)))</span>
+<span id="cb542-14"><a href="minería-de-texto.html#cb542-14"></a>(poldat &lt;-<span class="st"> </span><span class="kw">with</span>(<span class="kw">sentSplit</span>(DATA, <span class="dv">4</span>), <span class="kw">polarity</span>(state, person)))</span>
+<span id="cb542-15"><a href="minería-de-texto.html#cb542-15"></a><span class="kw">counts</span>(poldat)</span>
+<span id="cb542-16"><a href="minería-de-texto.html#cb542-16"></a><span class="kw">scores</span>(poldat)</span>
+<span id="cb542-17"><a href="minería-de-texto.html#cb542-17"></a><span class="kw">plot</span>(poldat)</span></code></pre></div>
 </div>
 <div id="librería-syuzhet" class="section level3">
 <h3><span class="header-section-number">6.4.3</span> Librería syuzhet</h3>
-<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="minería-de-texto.html#cb493-1"></a><span class="kw">library</span>(syuzhet)</span>
-<span id="cb493-2"><a href="minería-de-texto.html#cb493-2"></a><span class="kw">library</span>(rtweet)</span>
-<span id="cb493-3"><a href="minería-de-texto.html#cb493-3"></a>tw&lt;-<span class="kw">search_tweets</span>(<span class="st">&quot;coronavirus&quot;</span>,<span class="dt">n=</span><span class="dv">1000</span>,<span class="dt">include_rts =</span> F,<span class="dt">lang=</span><span class="st">&quot;es&quot;</span>)</span>
-<span id="cb493-4"><a href="minería-de-texto.html#cb493-4"></a>ww&lt;-<span class="kw">get_sentiment_dictionary</span>(<span class="st">&quot;nrc&quot;</span>,<span class="dt">language =</span> <span class="st">&quot;spanish&quot;</span>)</span>
-<span id="cb493-5"><a href="minería-de-texto.html#cb493-5"></a>aa&lt;-<span class="kw">get_nrc_sentiment</span>(tw<span class="op">$</span>text,<span class="dt">language =</span> <span class="st">&quot;spanish&quot;</span>)</span>
-<span id="cb493-6"><a href="minería-de-texto.html#cb493-6"></a><span class="kw">barplot</span>(<span class="kw">apply</span>(aa,<span class="dv">2</span>,sum),<span class="dt">horiz =</span> T,<span class="dt">las=</span><span class="dv">1</span>)</span>
-<span id="cb493-7"><a href="minería-de-texto.html#cb493-7"></a><span class="co">#ampliar el léxico</span></span>
-<span id="cb493-8"><a href="minería-de-texto.html#cb493-8"></a>ww&lt;-<span class="kw">rbind</span>(ww,<span class="kw">c</span>(<span class="st">&quot;spanish&quot;</span>,<span class="st">&quot;xxxx&quot;</span>,<span class="st">&quot;negative&quot;</span>,<span class="st">&quot;1&quot;</span>))</span>
-<span id="cb493-9"><a href="minería-de-texto.html#cb493-9"></a><span class="kw">tail</span>(ww)</span>
-<span id="cb493-10"><a href="minería-de-texto.html#cb493-10"></a>get_nrc_sentiment</span>
-<span id="cb493-11"><a href="minería-de-texto.html#cb493-11"></a><span class="co">#tarea </span></span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="minería-de-texto.html#cb543-1"></a><span class="kw">library</span>(syuzhet)</span>
+<span id="cb543-2"><a href="minería-de-texto.html#cb543-2"></a><span class="kw">library</span>(rtweet)</span>
+<span id="cb543-3"><a href="minería-de-texto.html#cb543-3"></a>tw&lt;-<span class="kw">search_tweets</span>(<span class="st">&quot;Bolivia&quot;</span>,<span class="dt">n=</span><span class="dv">1000</span>,<span class="dt">include_rts =</span> F,<span class="dt">lang=</span><span class="st">&quot;es&quot;</span>)</span>
+<span id="cb543-4"><a href="minería-de-texto.html#cb543-4"></a></span>
+<span id="cb543-5"><a href="minería-de-texto.html#cb543-5"></a>aa&lt;-<span class="kw">get_nrc_sentiment</span>(tw<span class="op">$</span>text,<span class="dt">language =</span> <span class="st">&quot;spanish&quot;</span>)</span>
+<span id="cb543-6"><a href="minería-de-texto.html#cb543-6"></a></span>
+<span id="cb543-7"><a href="minería-de-texto.html#cb543-7"></a><span class="kw">barplot</span>(<span class="kw">apply</span>(aa,<span class="dv">2</span>,sum),<span class="dt">horiz =</span> T,<span class="dt">las=</span><span class="dv">1</span>)</span>
+<span id="cb543-8"><a href="minería-de-texto.html#cb543-8"></a><span class="co">#ampliar el léxico</span></span>
+<span id="cb543-9"><a href="minería-de-texto.html#cb543-9"></a>ww&lt;-<span class="kw">get_sentiment_dictionary</span>(<span class="st">&quot;nrc&quot;</span>,<span class="dt">language =</span> <span class="st">&quot;spanish&quot;</span>)</span>
+<span id="cb543-10"><a href="minería-de-texto.html#cb543-10"></a>ww&lt;-<span class="kw">rbind</span>(ww,<span class="kw">c</span>(<span class="st">&quot;spanish&quot;</span>,<span class="st">&quot;xxxx&quot;</span>,<span class="st">&quot;negative&quot;</span>,<span class="st">&quot;1&quot;</span>))</span>
+<span id="cb543-11"><a href="minería-de-texto.html#cb543-11"></a><span class="kw">tail</span>(ww)</span>
+<span id="cb543-12"><a href="minería-de-texto.html#cb543-12"></a>get_nrc_sentiment</span>
+<span id="cb543-13"><a href="minería-de-texto.html#cb543-13"></a><span class="co">#tarea </span></span></code></pre></div>
 
 <div id="refs" class="references">
 <div>

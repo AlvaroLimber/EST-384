@@ -3,7 +3,7 @@
 **La minería de texto es el proceso de destilar información procesable del texto.**
 [@kwartler]
 
-*Minería de texto* puede ser sinónimo de *análisis de texto*, sin embargo, el uso de minería de texto describe de forma más adecuada el descubrimiento de ideas y el uso de algorítmos específicos más alla del análisis estadístico básico.
+*Minería de texto* puede ser sinónimo de *análisis de texto*, sin embargo, el uso de minería de texto describe de forma más adecuada el descubrimiento de ideas y el uso de algoritmos específicos más allá del análisis estadístico básico.
 
 ## Introducción
 
@@ -62,6 +62,18 @@ Comandos para texto
   * mgsub (qdap)
   
 ```{r,eval=FALSE}
+x<-"Hola a todos, ¿Cómo estan?.    hoy es 30 de Noviembre"
+nchar(x)
+paste("Pregunta 1:",x,"Fin de la oración")
+paste0("Pregunta 1:",x,"Fin de la oración")
+gsub("Hola","xxx",x)
+grep("Hola",x)
+
+y<-c("Hola a todos","chau","Hola")
+grep("Hola",y)
+tolower(x)
+toupper(x)
+
 library(qdap)
 fake.text<-'R text mining is good but text mining in python is also'
 patterns<-c('good','also','text mining')
@@ -74,6 +86,17 @@ mgsub(patterns,replacements,fake.text)
   * removeNumbers
   * removeWords (stopwords)
   * stemDocument
+   
+```{r,eval=FALSE}
+library(tm)
+removePunctuation(x)
+stripWhitespace(x)
+removeNumbers(x)
+removeWords(x,c("Hola","hoy"))
+x
+removeWords(x,stopwords("es")[-47])
+```
+   
    
 ## Recolección de texto
 
@@ -108,25 +131,38 @@ pdfdocs <- VCorpus(DirSource(dir, pattern = ".pdf"),
 
 ```{r,eval=FALSE}
 library(rtweet)
-tw<-search_tweets("Dioxido de cloro",n=10000,include_rts = F)
+tw<-search_tweets("Bolivia",n=500,include_rts = F)
+tw$text
 ```
 
 ## Nubes de palabras 
 
 ```{r,eval=FALSE}
+library(wordcloud)
 library(wordcloud2)
+fb$post_text
+
    docs<-Corpus(VectorSource(fb$post_text))
-    docs <- docs %>%
+   docs 
+   
+   docs <- docs %>%
       tm_map(removeNumbers) %>%
       tm_map(removePunctuation) %>%
       tm_map(stripWhitespace)
+   
     docs <- tm_map(docs, content_transformer(tolower))
-    docs <- tm_map(docs, removeWords, stopwords("sp"))
+    
+    docs <- tm_map(docs, removeWords, c(stopwords("sp"),"ahora") )
+    
     dtm <- TermDocumentMatrix(docs) 
+    
     matrix <- as.matrix(dtm) 
+    
     words <- sort(rowSums(matrix),decreasing=TRUE) 
     df <- data.frame(word = names(words),freq=words)	
-    ##funciones
+    wordcloud2(df)
+##funciones
+#vectores de texto    
 nube<-function(aux){
     docs<-Corpus(VectorSource(aux))
     docs <- docs %>%
@@ -141,6 +177,7 @@ nube<-function(aux){
     df <- data.frame(word = names(words),freq=words)	
     return(df)
 }
+#objetos corpus
 nube2<-function(aux){
     docs <- aux %>%
       tm_map(removeNumbers) %>%
@@ -160,13 +197,13 @@ Sobre los tipos de datos
 ```{r,eval=FALSE}
 #csv
 df<-nube(fb$post_text)
-wordcloud2(data=df[df$freq>5,],color='random-dark',size = 0.4,shape = 'star')
+wordcloud2(data=df,color='random-dark',size=0.5,shape = 'pentagon')
 #colección de documentos
 df<-nube2(pdfdocs)
-wordcloud2(data=df,color='random-dark',size = 0.4,shape = 'pentagon')
+wordcloud2(data=df,color='random-dark',size = 0.3,shape = 'pentagon')
 #scrape
 df<-nube(tw$text)
-wordcloud2(data=df[df$freq>1,],color='random-dark',shape = 'pentagon')
+wordcloud2(data=df[-1,],color='random-dark',size = 0.4,shape = 'pentagon')
 
 library(wordcloud)
 wordcloud(df$word,freq=df$freq,min.freq = 5)
@@ -177,6 +214,7 @@ Gráfico de correlaciones
 ```{r,eval=F}
 library(ggplot2)
 library(ggthemes)
+
 docs<-VCorpus(VectorSource(fb$text))
 docs <- docs %>%
       tm_map(removeNumbers) %>%
@@ -186,7 +224,7 @@ docs <- docs %>%
     docs <- tm_map(docs, removeWords, stopwords("sp"))
 tdm<-TermDocumentMatrix(docs) 
 
-associations<-findAssocs(tdm, 'evo', 0.55)
+associations<-findAssocs(tdm, 'domicilio', 0.4)
 associations<-as.data.frame(associations)
 associations$terms<-row.names(associations)
 associations$terms<-factor(associations$terms,
@@ -236,6 +274,7 @@ Hay varios marcos de referencias de emociones que se pueden considerar. Uno de l
 
 ```{r,eval=F}
 #solo ingles
+library(dplyr)
 library(qdap)
 library(rtweet)
 tw<-search_tweets("Bolivia",n=100,include_rts = F,lang="en")
@@ -245,6 +284,13 @@ detach(package:qdap, unload=TRUE)
 `[[.qdap_hash` <- `[[.data.frame`
 tw$text<-removePunctuation(tw$text)
 score<-polarity(tw$text[1:2])
+
+with(DATA, polarity(state, list(sex, adult)))
+(poldat <- with(sentSplit(DATA, 4), polarity(state, person)))
+counts(poldat)
+scores(poldat)
+plot(poldat)
+
 ```
 
 ### Librería syuzhet
@@ -252,11 +298,13 @@ score<-polarity(tw$text[1:2])
 ```{r,eval=F}
 library(syuzhet)
 library(rtweet)
-tw<-search_tweets("coronavirus",n=1000,include_rts = F,lang="es")
-ww<-get_sentiment_dictionary("nrc",language = "spanish")
+tw<-search_tweets("Bolivia",n=1000,include_rts = F,lang="es")
+
 aa<-get_nrc_sentiment(tw$text,language = "spanish")
+
 barplot(apply(aa,2,sum),horiz = T,las=1)
 #ampliar el léxico
+ww<-get_sentiment_dictionary("nrc",language = "spanish")
 ww<-rbind(ww,c("spanish","xxxx","negative","1"))
 tail(ww)
 get_nrc_sentiment
