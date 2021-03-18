@@ -1,0 +1,26 @@
+{
+    "id": "B4264458",
+    "path": "~/GitHub/EST-384/DataMining/3_clustering.Rmd",
+    "project_path": "3_clustering.Rmd",
+    "type": "r_markdown",
+    "hash": "3121270667",
+    "contents": "",
+    "dirty": false,
+    "created": 1615852257574.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "chunk_output_type": "console",
+        "cursorPosition": "603,261",
+        "scrollLine": "0",
+        "docOutlineVisible": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1605060542,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1605060542,
+    "read_only": false,
+    "read_only_alternatives": []
+}
